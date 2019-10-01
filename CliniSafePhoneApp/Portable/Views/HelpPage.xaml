@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             x:Class="CliniSafePhoneApp.Portable.Views.HelpPage" Title="Help">
+
+    <StackLayout x:Name="ErrorContainerStackLayout">
+        <!-- Place new controls here -->
+        <Label x:Name="HelpLabel"  
+           HorizontalOptions="CenterAndExpand" Text="This Help page."
+           VerticalOptions="CenterAndExpand" />
+
+        <Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+    </StackLayout>
+</ContentPage>

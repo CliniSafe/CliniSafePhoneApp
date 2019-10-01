@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+             xmlns:telerikChart="clr-namespace:Telerik.XamarinForms.Chart;assembly=Telerik.XamarinForms.Chart"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikGauges="clr-namespace:Telerik.XamarinForms.DataVisualization.Gauges;assembly=Telerik.XamarinForms.DataVisualization"
+             xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikBarcode="clr-namespace:Telerik.XamarinForms.Barcode;assembly=Telerik.XamarinForms.Barcode"
+             xmlns:telerikConversationalUI="clr-namespace:Telerik.XamarinForms.ConversationalUI;assembly=Telerik.XamarinForms.ConversationalUI"
+             xmlns:telerikImageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
+             xmlns:telerikMap="clr-namespace:Telerik.XamarinForms.Map;assembly=Telerik.XamarinForms.Map"
+             xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
+             x:Class="CliniSafePhoneApp.Portable.Views.LoginPage" Title="Login"
+                          xmlns:views="clr-namespace:CliniSafePhoneApp.Portable.Views">
+
+    <StackLayout x:Name="logingContainerStackLayout" Orientation="Vertical">
+        <StackLayout BackgroundColor="WhiteSmoke" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                    <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+
+        <Label x:Name="helloLabel" Text="{Binding Authenticate, Mode=OneWay}" HorizontalOptions="CenterAndExpand"
+               VerticalOptions="CenterAndExpand" Margin="20,60,20,60" />
+
+        <Entry x:Name="usernameEntry" Placeholder="Username" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
+                   Text="{Binding Username, Mode=TwoWay}"></Entry>
+
+        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
+                   Text="{Binding Password, Mode=TwoWay}"></Entry>
+
+        <Button x:Name="authenticateButton" Text="Login" VerticalOptions="CenterAndExpand" Command="{Binding LoginCommand}" 
+                    CommandParameter="{Binding AuthHeader}" Margin="40,10,200,100"
+                    TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+
+
+
+
+        <Button x:Name="errorButton" Text="Error Page" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                     Margin="40,10,40,100"
+                    TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+    </StackLayout>
+
+</ContentPage>
