@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.XamarinForms.PdfViewer</name>
+    </assembly>
+    <members>
+        <member name="P:Telerik.XamarinForms.PdfViewer.StreamDocumentSource.Stream">
+            <summary>
+            Gets or sets the delegate responsible for returning a Stream for the RadFixedDocument. The stream is closed automatically.
+            </summary>
+        </member>
+        <member name="M:Telerik.XamarinForms.PdfViewer.StreamDocumentSource.Import(System.IO.Stream)">
+            <summary>
+            Creates a RadFixedDocument to be used in the RadPdfViewer. The stream is not closed automatically.
+            </summary>
+        </member>
+        <member name="M:Telerik.XamarinForms.PdfViewer.StreamDocumentSource.ImportAsync(System.IO.Stream)">
+            <summary>
+            Creates a RadFixedDocument asynchronously to be used in the RadPdfViewer. The stream is not closed automatically.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.PdfViewer.PdfViewportUtils">
+            <summary>
+            This class exists because the meaning of Viewport in v1 and v2 of the PdfViewer is different. 
+            In v1 the Viewport's scroll is dependent on the zoom, and its size is the same as the size of the presenter.
+            Also in v1 a root-size-helper is used which distorts the page size.
+            </summary>
+        </member>
+    </members>
+</doc>

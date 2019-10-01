@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Authenticate">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WSVersion" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="CheckTrialStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckTrialStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckTrialStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrailDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTrailDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTrailDetailsResult" type="tns:GetTrialDetailsOutput" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetTrialDetailsOutput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShortTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasQuestions" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckGenericDrugName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericDrugName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckGenericDrugNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckGenericDrugNameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindGenericDrugName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenericDrugNameToFind" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindGenericDrugNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindGenericDrugNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckGenericDrugNames">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DrugsToTest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckGenericDrugNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckGenericDrugNamesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuestions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetQuestionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuestionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDrugs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DrugValidatorInputs" type="tns:ValidateDrugsInputs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidateDrugsInputs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DrugNames" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionsAndAnswers" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateDrugsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateDrugsResult" type="tns:ValidateDrugsOutputs" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidateDrugsOutputs">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HTMLResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XMLResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XMLDrugRuleMessages" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:Authenticate" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckTrialStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckTrialStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckTrialStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTrialStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckTrialStatusAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrailDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrailDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrailDetailsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckGenericDrugNameSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckGenericDrugName" />
+  </wsdl:message>
+  <wsdl:message name="CheckGenericDrugNameSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckGenericDrugNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckGenericDrugNameAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="FindGenericDrugNameSoapIn">
+    <wsdl:part name="parameters" element="tns:FindGenericDrugName" />
+  </wsdl:message>
+  <wsdl:message name="FindGenericDrugNameSoapOut">
+    <wsdl:part name="parameters" element="tns:FindGenericDrugNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindGenericDrugNameAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CheckGenericDrugNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckGenericDrugNames" />
+  </wsdl:message>
+  <wsdl:message name="CheckGenericDrugNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckGenericDrugNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckGenericDrugNamesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQuestions" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQuestionsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDrugsSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDrugs" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDrugsSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDrugsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDrugsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="ValidateDrugs1Soap">
+    <wsdl:operation name="Authenticate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the Authenticate method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:AuthenticateSoapIn" />
+      <wsdl:output message="tns:AuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTrialStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the CheckTrialStatus method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:CheckTrialStatusSoapIn" />
+      <wsdl:output message="tns:CheckTrialStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the GetTrailDetails method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:GetTrailDetailsSoapIn" />
+      <wsdl:output message="tns:GetTrailDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckGenericDrugName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the CheckGenericDrugName method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:CheckGenericDrugNameSoapIn" />
+      <wsdl:output message="tns:CheckGenericDrugNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindGenericDrugName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the FindGenericDrugName method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:FindGenericDrugNameSoapIn" />
+      <wsdl:output message="tns:FindGenericDrugNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckGenericDrugNames">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the CheckGenericDrugNames method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:CheckGenericDrugNamesSoapIn" />
+      <wsdl:output message="tns:CheckGenericDrugNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the GetQuestions method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:GetQuestionsSoapIn" />
+      <wsdl:output message="tns:GetQuestionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDrugs">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the ValidateDrugs method of the ValidateDrugs1 Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateDrugsSoapIn" />
+      <wsdl:output message="tns:ValidateDrugsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidateDrugs1Soap" type="tns:ValidateDrugs1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AuthenticateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTrialStatus">
+      <soap:operation soapAction="http://tempuri.org/CheckTrialStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckTrialStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailDetails">
+      <soap:operation soapAction="http://tempuri.org/GetTrailDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTrailDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGenericDrugName">
+      <soap:operation soapAction="http://tempuri.org/CheckGenericDrugName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindGenericDrugName">
+      <soap:operation soapAction="http://tempuri.org/FindGenericDrugName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGenericDrugNames">
+      <soap:operation soapAction="http://tempuri.org/CheckGenericDrugNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CheckGenericDrugNamesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestions">
+      <soap:operation soapAction="http://tempuri.org/GetQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetQuestionsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDrugs">
+      <soap:operation soapAction="http://tempuri.org/ValidateDrugs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateDrugsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidateDrugs1Soap12" type="tns:ValidateDrugs1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://tempuri.org/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AuthenticateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTrialStatus">
+      <soap12:operation soapAction="http://tempuri.org/CheckTrialStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckTrialStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrailDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetTrailDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTrailDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGenericDrugName">
+      <soap12:operation soapAction="http://tempuri.org/CheckGenericDrugName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindGenericDrugName">
+      <soap12:operation soapAction="http://tempuri.org/FindGenericDrugName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:FindGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckGenericDrugNames">
+      <soap12:operation soapAction="http://tempuri.org/CheckGenericDrugNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CheckGenericDrugNamesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestions">
+      <soap12:operation soapAction="http://tempuri.org/GetQuestions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetQuestionsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDrugs">
+      <soap12:operation soapAction="http://tempuri.org/ValidateDrugs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDrugsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidateDrugs1">
+    <wsdl:port name="ValidateDrugs1Soap" binding="tns:ValidateDrugs1Soap">
+      <soap:address location="http://localhost:54850/webservices/PhoneApp.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ValidateDrugs1Soap12" binding="tns:ValidateDrugs1Soap12">
+      <soap12:address location="http://localhost:54850/webservices/PhoneApp.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

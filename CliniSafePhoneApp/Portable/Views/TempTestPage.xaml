@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             x:Class="CliniSafePhoneApp.Portable.Views.TempTestPage" Title="Temporary Test Page" NavigationPage.HasBackButton="True" >
+
+    <StackLayout x:Name="TempTestContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+
+        <Label x:Name="TempTestLabel" Text="{Binding TempTest, Mode=OneWay}" HorizontalOptions="CenterAndExpand" Margin="40,10,40,10" 
+           VerticalOptions="CenterAndExpand" />
+
+        <Button x:Name="HelloButton" Text="Hello" VerticalOptions="CenterAndExpand" Command="{Binding HelloCommand}" 
+                CommandParameter="{Binding AuthHeader}" Margin="40,10,200,10" 
+                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+
+        <Button x:Name="HelloErrorButton" Text="Hello Error" VerticalOptions="CenterAndExpand" Command="{Binding HelloErrorCommand}" 
+                CommandParameter="{Binding AuthHeader}" Margin="40,10,200,10" 
+                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+
+        <Entry x:Name="EchoEntry" Placeholder="Echo Input Text" VerticalOptions="CenterAndExpand" Margin="40,10,200,10"
+                   Text="{Binding EchoInput, Mode=TwoWay}"></Entry>
+
+        <Button x:Name="EchoButton" Text="Echo" VerticalOptions="CenterAndExpand" Command="{Binding EchoCommand}" 
+                CommandParameter="{Binding AuthHeader}" Margin="40,10,200,200" 
+                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+    </StackLayout>
+</ContentPage>

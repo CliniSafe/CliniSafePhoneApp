@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.XamarinForms.ImageEditor</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.XamarinForms.ImageEditor.RadImageEditor">
+            <summary>
+            Provides support for visualization, manipulation and editing of images in different file formats.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditor.SourceProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.Source"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditor.ZoomLevelProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.ZoomLevel"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditor.MinZoomLevelProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.MinZoomLevel"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditor.MaxZoomLevelProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.MaxZoomLevel"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditor.BusyIndicatorTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.BusyIndicatorTemplate"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.Source">
+            <summary>
+            Specifies the source of the image to edit.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.ZoomLevel">
+            <summary>
+            Returns the current zoom level of the image.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.MinZoomLevel">
+            <summary>
+            Specifies the minimum allowed zoom level of the image.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.MaxZoomLevel">
+            <summary>
+            Specifies the maximum allowed zoom level of the image.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditor.BusyIndicatorTemplate">
+            <summary>
+            Specifies a <see cref="T:Xamarin.Forms.DataTemplate"/> to be used when displaying a busy indicator during long running
+            operations, e.g. when loading an image. When no template is specified, a default busy indicator is shown.
+            </summary>
+        </member>
+        <member name="M:Telerik.XamarinForms.ImageEditor.RadImageEditor.SaveAsync(System.IO.Stream,Telerik.XamarinForms.ImageEditor.ImageFormat,System.Double)">
+            <summary>
+            Saves the currently edited image to the specified stream, encoding it with the given format and quality.
+            The saved image contains all currently applied changes in the editor.
+            </summary>
+            <param name="stream">Specifies the stream to save the image to.</param>
+            <param name="format">Specifies the image format to encode the image to.</param>
+            <param name="quality">Specifies the quality of the encoded image, when using a lossy compression format:
+            the value of 1 specifies the maximum possible quality, resulting in minimum compression;
+            the value of 0 specifies the minimum possible quality, resulting in maximum compression.</param>
+            <returns>Returns a <see cref="T:System.Threading.Tasks.Task"/> to await the asynchronous operation.</returns>
+        </member>
+        <member name="M:Telerik.XamarinForms.ImageEditor.RadImageEditor.ZoomToFit">
+            <summary>
+            Zooms the currently open image to fit the available size.
+            </summary>
+        </member>
+        <member name="M:Telerik.XamarinForms.ImageEditor.RadImageEditor.ZoomToLevel(System.Double)">
+            <summary>
+            Zooms the currently open image to the specified zoom level.
+            </summary>
+            <param name="zoomLevel">Specifies the zoom level to zoom the image to.</param>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ImageEditorToolbarItem">
+            <summary>
+            Base abstract class for all toolbar items used with the <see cref="T:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar" /> component.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ActionToolbarItem">
+            <summary>
+            Base abstract class for all toolbar items that execute an action on the image editor.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ButtonToolbarItem">
+            <summary>
+            Base abstract class for all toolbar items that act as buttons.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ApplyToolbarItem">
+            <summary>
+            Applies the changes from the currently active tool and deactivates it.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.BlurToolbarItem">
+            <summary>
+            Activates the blur tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.BlurTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.BlurToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.BlurToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.BlurToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.BlurToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.BlurToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum radius of the blur filter, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.BlurToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum radius of the blur filter, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem">
+            <summary>
+            Activates the brightness adjustment tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.BrightnessTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum value of the brightness factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.BrightnessToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum value of the brightness factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.CancelToolbarItem">
+            <summary>
+            Cancels the changes from the currently active tool and deactivates it.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.CommandToolbarItem">
+            <summary>
+            Allows executing an arbitrary user-defined command from the toolbar.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.CommandToolbarItem.CommandProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.CommandToolbarItem.Command"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.CommandToolbarItem.CommandParameterProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.CommandToolbarItem.CommandParameter"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.CommandToolbarItem.Command">
+            <summary>
+            Specifies the command to execute.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.CommandToolbarItem.CommandParameter">
+            <summary>
+            Specifies a parameter to be passed to the command upon execution.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.CompositeToolbarItem">
+            <summary>
+            Base abstract class for all toolbar items, which can contain nested toolbar items. The nested toolbar items
+            are displayed on a separate row in the toolbar, when the current toolbar item is selected.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.CompositeToolbarItem.AutoGenerateItemsProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.CompositeToolbarItem.AutoGenerateItems"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.CompositeToolbarItem.AutoGenerateItems">
+            <summary>
+            Specifies whether to auto-generate all child items of this toolbar item by default.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.CompositeToolbarItem.Items">
+            <summary>
+            Specifies the child items of this toolbar item. When <see cref="P:Telerik.XamarinForms.ImageEditor.CompositeToolbarItem.AutoGenerateItems"/> is set to true,
+            the toolbar items specified with this property are appended after the auto-generated ones.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem">
+            <summary>
+            Activates the contrast adjustment tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.ContrastTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum value of the contrast factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ContrastToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum value of the contrast factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.CropToolbarItem">
+            <summary>
+            Activates the crop tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.CropTool"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.FlipHorizontalToolbarItem">
+            <summary>
+            Executes an action on the image editor to flip the image horizontally.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.FlipVerticalToolbarItem">
+            <summary>
+            Executes an action on the image editor to flip the image vertically.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.HueToolbarItem">
+            <summary>
+            Activates the hue adjustment tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.HueTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.HueToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.HueToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.HueToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.HueToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.HueToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum value of the hue factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.HueToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum value of the hue factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.InteractionToolbarItem">
+            <summary>
+            Base abstract class for all toolbar items that start a certain interaction with the image editor.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.RedoToolbarItem">
+            <summary>
+            Redoes the last executed action on the image editor.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem">
+            <summary>
+            Activates the resize tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.ResizeTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum scale factor of the resize operation, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ResizeToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum scale factor of the resize operation, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.RotateLeftToolbarItem">
+            <summary>
+            Executes an action on the image editor to rotate the image 90 degrees to the left - counter clockwise direction.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.RotateRightToolbarItem">
+            <summary>
+            Executes an action on the image editor to rotate the image 90 degrees to the right - clockwise direction.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem">
+            <summary>
+            Activates the saturation adjustment tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.SaturationTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum value of the saturation factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.SaturationToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum value of the saturation factor, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem">
+            <summary>
+            Activates the sharpen tool in the image editor. For more information see <see cref="T:Telerik.XamarinForms.ImageEditor.SharpenTool"/>.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem.MaximumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem.Maximum"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem.MinimumProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem.Minimum"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem.Maximum">
+            <summary>
+            Specifies the maximum radius of the sharpen filter, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.SharpenToolbarItem.Minimum">
+            <summary>
+            Specifies the minimum radius of the sharpen filter, when using an auto-generated slider content.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.TemplateToolbarItem">
+            <summary>
+            Allows displaying an arbitrary content in the toolbar via a <see cref="T:Xamarin.Forms.DataTemplate"/>. The <see cref="!:BindingContext"/>
+            property of the created template content is set to the currently active tool in the image editor. This allows direct data
+            binding of the components from the template to the properties of the tool.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.TemplateToolbarItem.Template">
+            <summary>
+            Specifies the template to be used with this toolbar item. The <see cref="!:BindingContext"/> property of the created
+            template content is set to the currently active tool in the image editor. This allows direct data binding of the
+            components from the template to the properties of the tool.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ResetToolbarItem">
+            <summary>
+            Resets the image to its initial state.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.UndoToolbarItem">
+            <summary>
+            Undoes the last executed action on the image editor.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar">
+            <summary>
+            Provides a customizable toolbar for the <see cref="T:Telerik.XamarinForms.ImageEditor.RadImageEditor"/> component. The toolbar exposes all actions
+            supported by the image editor via highly customizable toolbar items. The toolbar items can be styled, arranged
+            and grouped together in different configurations to better suit the needs of the application.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.AutoGenerateItemsProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.AutoGenerateItems"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.ImageEditorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.ImageEditor"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTextProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonText"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTextColorProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTextColor"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonFontFamilyProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonFontFamily"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTemplateProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTemplate"/> property.
+            </summary>
+        </member>
+        <member name="F:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.ItemSpacingProperty">
+            <summary>
+            Identifies the <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.ItemSpacing"/> property.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.AutoGenerateItems">
+            <summary>
+            Specifies whether to auto-generate all items of the toolbar by default.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.ImageEditor">
+            <summary>
+            Specifies the image editor this toolbar is attached to.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonText">
+            <summary>
+            Specifies the text of the overflow button.
+            This button is displayed when not all toolbar items can fit the available space.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTextColor">
+            <summary>
+            Specifies the text color of the overflow button.
+            This button is displayed when not all toolbar items can fit the available space.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonFontFamily">
+            <summary>
+            Specifies the font family of the overflow button.
+            This button is displayed when not all toolbar items can fit the available space.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.OverflowButtonTemplate">
+            <summary>
+            Specifies a <see cref="T:Xamarin.Forms.DataTemplate"/> for the overflow button.
+            This button is displayed when not all toolbar items can fit the available space.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.ItemSpacing">
+            <summary>
+            Specifies the extra spacing between the items of the toolbar.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.Items">
+            <summary>
+            Specifies the items to display in the toolbar. When <see cref="P:Telerik.XamarinForms.ImageEditor.RadImageEditorToolbar.AutoGenerateItems"/> is set to true,
+            the toolbar items specified with this property are appended after the auto-generated ones.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.SaturationTool">
+            <summary>
+            Performs an interactive saturation adjustment in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.SaturationTool.Value">
+            <summary>
+            Specifies the current adjustment factor of the saturation filter.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 1 preserves the original saturation of the image.
+            Values below 0 decrease the saturation, where 0 produces a grayscale image.
+            Values above 0 increase the saturation, producing an oversaturated image.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.HueTool">
+            <summary>
+            Performs an interactive hue adjustment in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.HueTool.Value">
+            <summary>
+            Specifies the current adjustment factor of the hue filter.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 0 preserves the original hue of the image.
+            Values below 0 shift the hue in negative direction,
+            where -1 produces the maximum negative hue shift.
+            Values above 0 shitf the hue in positive direction,
+            where 1 produces the maximum positive hue shift.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ContrastTool">
+            <summary>
+            Performs an interactive contrast adjustment in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ContrastTool.Value">
+            <summary>
+            Specifies the current adjustment factor of the contrast filter.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 1 preserves the original contrast of the image.
+            Values below 0 decrease the contrast, where 0 produces a gray image.
+            Values above 0 increase the contrast, producing a high-contrast image.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.BrightnessTool">
+            <summary>
+            Performs an interactive brightness adjustment in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.BrightnessTool.Value">
+            <summary>
+            Specifies the current adjustment factor of the brighthess filter.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 0 preserves the original brightness of the image.
+            Values below 0 decrease the brightness, where -1 produces a black image.
+            Values above 0 increase the brightness, where 1 produces a white image.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.SharpenTool">
+            <summary>
+            Performs an interactive sharpen filter in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.SharpenTool.Value">
+            <summary>
+            Specifies the current strength of the sharpen filter.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 0 preserves the original sharpness of the image.
+            Values above 0 increase the sharpen filter strength.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.BlurTool">
+            <summary>
+            Performs an interactive blur filter in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.BlurTool.Value">
+            <summary>
+            Specifies the current strength of the blur filter.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 0 preserves the original sharpness of the image.
+            Values above 0 increase the blur filter strength.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.CropTool">
+            <summary>
+            Performs an interactive crop operation in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.CropTool.Bounds">
+            <summary>
+            Returns the current crop bounding rectangle.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ImageEditorTool">
+            <summary>
+            Base abstract class for all tools handling interactive operations in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ImageEditorTool.HasChanges">
+            <summary>
+            Indicates whether the current tool has any pending changes to apply.
+            </summary>
+        </member>
+        <member name="T:Telerik.XamarinForms.ImageEditor.ResizeTool">
+            <summary>
+            Performs an interactive resize operation in the image editor.
+            </summary>
+        </member>
+        <member name="P:Telerik.XamarinForms.ImageEditor.ResizeTool.Value">
+            <summary>
+            Specifies the current scale factor of the resize operation.
+            Changing this property is previewed immediately in the image editor.
+            The default value of 1 preserves the original size of the image.
+            Values below 1 downscale the image, while values above 1 upscale the image.
+            </summary>
+        </member>
+    </members>
+</doc>

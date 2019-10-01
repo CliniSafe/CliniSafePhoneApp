@@ -1,0 +1,44 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.30515.712",
+  "GettingStartedDocument": {
+    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
+  },
+  "ExtendedData": {
+    "inputs": [
+      "https://developmenttesting.clinisafesandbox.com/webservices/phoneapp.asmx"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, CliniSafePhoneAppServiceReference"
+    ],
+    "references": [
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.Documents.Core.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.Documents.Fixed.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.Documents.SpreadsheetStreaming.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.Barcode.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.Chart.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.Common.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.ConversationalUI.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.DataControls.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.DataGrid.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.DataVisualization.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.ImageEditor.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.Input.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.Map.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.PdfViewer.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.Primitives.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.XamarinForms.SkiaSharp.dll",
+      "W:\\Dev\\CliniSafePhoneApp\\CliniSafePhoneApp\\Portable\\bin\\Debug\\netstandard2.0\\Telerik.Zip.dll",
+      "Xamarin.Forms.Core, {Xamarin.Forms, 4.1.0.581479}",
+      "Xamarin.Forms.Platform, {Xamarin.Forms, 4.1.0.581479}",
+      "Xamarin.Forms.Xaml, {Xamarin.Forms, 4.1.0.581479}"
+    ],
+    "sync": true,
+    "targetFramework": "netstandard2.0",
+    "typeReuseMode": "All"
+  }
+}

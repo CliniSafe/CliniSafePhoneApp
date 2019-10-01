@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://developmenttesting.clinisafesandbox.com/webservices/phoneapp.asmx?wsdl" docRef="https://developmenttesting.clinisafesandbox.com/webservices/phoneapp.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://developmenttesting.clinisafesandbox.com/webservices/phoneapp.asmx" xmlns:q1="http://clinisafe.com/phoneapp" binding="q1:PhoneAppSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://developmenttesting.clinisafesandbox.com/webservices/phoneapp.asmx" xmlns:q2="http://clinisafe.com/phoneapp" binding="q2:PhoneAppSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
