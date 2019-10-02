@@ -1,3 +1,3 @@
 # CliniSafePhoneApp
-CliniSafe Phone App
+CliniSafe Phone App.
   Drug checking technology for global clinical trials.
