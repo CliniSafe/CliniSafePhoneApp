@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {}
+    "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {}
   },
   "projects": {
-    "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {
+    "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
+        "projectUniqueName": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
         "projectName": "CliniSafePhoneApp.iOS",
-        "projectPath": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
-        "packagesPath": "C:\\Users\\aosei\\.nuget\\packages\\",
-        "outputPath": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\iOS\\obj\\",
+        "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
+        "packagesPath": "C:\\Users\\Andrew\\.nuget\\packages\\",
+        "outputPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\aosei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Andrew\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,14 +27,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
-                "projectPath": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj"
+              "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
+                "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj"
               }
             }
           }
@@ -86,21 +85,21 @@
         }
       }
     },
-    "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
+    "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
+        "projectUniqueName": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
         "projectName": "CliniSafePhoneApp.Portable",
-        "projectPath": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
-        "packagesPath": "C:\\Users\\aosei\\.nuget\\packages\\",
-        "outputPath": "W:\\Dev\\PhoneApp\\Trunk\\CliniSafePhoneApp\\Portable\\obj\\",
+        "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
+        "packagesPath": "C:\\Users\\Andrew\\.nuget\\packages\\",
+        "outputPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\aosei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Andrew\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -109,8 +108,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
@@ -162,10 +160,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
