@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using CliniSafePhoneApp.Portable.Service;
+using Xamarin.Forms;
 
 
 namespace CliniSafePhoneApp.Portable.Views
@@ -13,6 +14,9 @@ namespace CliniSafePhoneApp.Portable.Views
         public LogOutPage()
         {
             InitializeComponent();
+
+            //Set the Image Source
+            cliniSafeImage.Source = Constants.CliniSafeImage;
 
             ////Initialise LogOutViewModel.
             //LogOutViewModel = new LogOutViewModel();

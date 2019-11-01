@@ -2,15 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
-             x:Class="CliniSafePhoneApp.Portable.Views.PrivacyPage" Title="Privacy">
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.PrivacyPage">
 
-    <StackLayout x:Name="ErrorContainerStackLayout">
-        <!-- Place new controls here -->
-        <Label x:Name="PrivacyLabel"  
-           HorizontalOptions="CenterAndExpand" Text="This Privacy page."
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout x:Name="PrivacyContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+       <Label x:Name="PrivacyLabel1" HorizontalOptions="Start">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="CliniSafe takes your Privacy very seriously. For general Privacy on the website visit " />
+                    <Span Text="https://secure.clinisafe.com/Account/PrivacyPolicy. "
+                          TextColor="Blue"
+                          TextDecorations="Underline">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                                  CommandParameter="https://secure.clinisafe.com/Account/PrivacyPolicy" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label x:Name="PrivacyLabel2" HorizontalOptions="Start">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="This CliniSafe Mobile App additionally uses: " />
+                    <Span Text=" Microsoft AppCenter Analytics to track certain events for example Completing a Drug Checking or Cancelling a Drug Checking and Microsoft AppCenter Crashes. These App Center Analytic and Crash reports do not include any personal data. "/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        
+        <telerikInput:RadButton x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

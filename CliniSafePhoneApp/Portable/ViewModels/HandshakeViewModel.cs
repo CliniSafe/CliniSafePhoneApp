@@ -176,9 +176,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             if (HandshakeResult != null)
                 if (HandshakeResult == "Hello")
-                   return;  //Stay at the HandShakePage
-                   // _navigationService.NavigateToSecondPage(new MainPage());
-
+                    return;  //Stay at the HandShakePage
+                             // _navigationService.NavigateToSecondPage(new MainPage());
                 else
                     _navigationService.NavigateToSecondPage(new NavigationPage(new ErrorPage() { Title = "Error" }));
             else

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CliniSafePhoneApp.Portable.Views;
+using System;
 using System.Windows.Input;
 
 namespace CliniSafePhoneApp.Portable.ViewModels.Commands
@@ -20,6 +21,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             _handshakeViewModel = handshakeViewModel;
         }
 
+        public NoConnectionViewModel _noConnectionViewModel { get; set; }
+
+        public NavigateForwardCommand(NoConnectionViewModel noConnectionViewModel)
+        {
+            _noConnectionViewModel = noConnectionViewModel;
+        }
+
         public event EventHandler CanExecuteChanged;
 
 
@@ -36,6 +44,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             if (_handshakeViewModel != null)
                 _handshakeViewModel.NavigateForward();
             // await _noConnectionViewModel.NavigateToHomePage();
+
+            if (_noConnectionViewModel != null)
+                _noConnectionViewModel.NavigateToHomePage();
         }
     }
 }

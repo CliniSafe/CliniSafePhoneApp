@@ -1,5 +1,8 @@
-﻿using System;
+﻿using CliniSafePhoneApp.Portable.Models;
+using CliniSafePhoneApp.Portable.Views;
+using System;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
@@ -36,7 +39,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
                 _handshakeViewModel.NavigateForwardToLogin();
 
             if (_errorViewModel != null)
-                _errorViewModel.NavigateForwardToLogin();
+               _errorViewModel.NavigateForwardToLogin();
         }
     }
 }

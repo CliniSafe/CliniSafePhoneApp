@@ -1,3 +1,4 @@
+using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -16,6 +17,7 @@ namespace CliniSafePhoneApp.Portable.Views
         private LoginViewModel LoginVM;
 
 
+
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
@@ -30,15 +32,7 @@ namespace CliniSafePhoneApp.Portable.Views
             BindingContext = LoginVM;
 
             //Set the Image Source
-            cliniSafeImage.Source = "logo.png";
-
-            //this.Master = new LeftMenuPage();//name of your menupage                
-            //this.Detail = new ContentPage();//name of your detailpage
-
-
-            //MasterBehavior = MasterBehavior.Popover;
-
-            // MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
+            cliniSafeImage.Source = Constants.CliniSafeImage;
         }
 
 
@@ -88,3 +82,5 @@ namespace CliniSafePhoneApp.Portable.Views
         //}
     }
 }
+
+

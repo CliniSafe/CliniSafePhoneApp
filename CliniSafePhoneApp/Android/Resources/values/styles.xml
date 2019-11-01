@@ -28,8 +28,9 @@
     <item name="colorAccent">#FF4081</item>
   </style>
 
-  <style name="HandshakeTheme.Splash" parent="android:Theme">
-    <item name="android:windowBackground">@drawable/handshakelogo</item>
+  <style name="HandshakeTheme.Splash" parent="android:Theme"  >
+    <item name="android:windowBackground">@drawable/handshakelogo</item>-->
     <item name="android:windowNoTitle">false</item>
+    
   </style>
 </resources>

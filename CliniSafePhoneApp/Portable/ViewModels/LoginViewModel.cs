@@ -2,15 +2,15 @@
 using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel, INotifyPropertyChanged
     {
+        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
         private AuthHeader authHeader;
         public AuthHeader AuthHeader
         {
@@ -223,9 +223,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         #endregion
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged(string propertyName)
+        public new void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -233,17 +233,37 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public LoginCommand LoginCommand { get; set; }
 
-
         private readonly INavigationService _navigationService;
 
+
+
+
+
+
+        public LeftMenuViewModel LeftMenuViewModel { get; set; }
+
+
+
         public NavigateForwardCommand NavigateForwardCommand { get; set; }
+
+
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
         public LoginViewModel()
         {
+            Title = "LogIn";
             AuthHeader = new AuthHeader();
             LoginCommand = new LoginCommand(this);
             NavigateForwardCommand = new NavigateForwardCommand(this);
             _navigationService = new NavigationService();
+
+            LeftMenuViewModel = new LeftMenuViewModel();
+            
+
         }
+            
 
 
         public void NavigateForward()
@@ -264,51 +284,44 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             authHeader = AuthHeader.GetAuthHeader();
 
             if (authHeader.HasIssues)
+            {
                 if (authHeader.MaintenanceMode)
                     await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
                 else if (authHeader.CPAVersionExact)
                     if (authHeader.CPANeedsUpdating)
                         await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+            }
+            else
+            {
+                
+                    // Navigate to the project page
+                    _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+                   
+                    LeftMenuViewModel = new LeftMenuViewModel();
+
+
+                    //_= new LeftMenuViewModel().
+                    //{
+                    //    HomeMenuItems = new System.Collections.Generic.List<HomeMenuItem>() { new HomeMenuItem() { Id = MenuItemType.LogOut, Title = MenuItemType.LogOut.ToString() } }
+                    //};
+
+
+                    //{HomeMenuItems.Add(new HomeMenuItem() { Id = MenuItemType.LogOut, Title = MenuItemType.LogOut.ToString() }));
+                
+            }
+
+
+
+
+
+
+            // Good 
+            //_ = new ProjectsPage(Username, Password);
+            //_ = RootPage.NavigateFromMenu((int)MenuItemType.Project);
+
+            // _ = new ProjectsPage(Username, Password);
+            // _= new NavigationPage(new ProjectsPage(Username, Password) { Title = "Projects" });
+            //_navigationService.NavigateToSecondPage(new ProjectsPage(Username, Password));
         }
-
-
-
-
-
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
-
-        //public async Task NavigateFromMenu(int id)
-        //{
-        //    if (!MenuPages.ContainsKey(id))
-        //    {
-        //        switch (id)
-        //        {
-        //            case (int)MenuItemType.Login:
-        //                MenuPages.Add(id, new NavigationPage(new LoginPage()));
-        //                break;
-        //            case (int)MenuItemType.Browse:
-        //                MenuPages.Add(id, new NavigationPage(new BrowsePage()));
-        //                break;
-        //            case (int)MenuItemType.About:
-        //                MenuPages.Add(id, new NavigationPage(new AboutPage()));
-        //                break;
-        //            case (int)MenuItemType.Help:
-        //                MenuPages.Add(id, new NavigationPage(new HelpPage()));
-        //                break;
-        //        }
-        //    }
-
-        //    var newPage = MenuPages[id];
-
-        //    if (newPage != null && Detail != newPage)
-        //    {
-        //        Detail = newPage;
-
-        //        if (Device.RuntimePlatform == Device.Android)
-        //            await Task.Delay(100);
-
-        //        IsPresented = false;
-        //    }
-        //}
     }
 }

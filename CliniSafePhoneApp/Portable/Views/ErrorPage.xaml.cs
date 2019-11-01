@@ -1,4 +1,5 @@
-﻿using CliniSafePhoneApp.Portable.ViewModels;
+﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.Views
@@ -14,18 +15,18 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public ErrorPage()
+        public ErrorPage(string strDisplayMessage = null)
         {
             InitializeComponent();
 
             //Initialise ErrorViewModel.
-            ErrorVM = new ErrorViewModel();
+            ErrorVM = strDisplayMessage == null ? new ErrorViewModel() : new ErrorViewModel(strDisplayMessage);
 
             // Set the Page Binding Context to the ErrorViewModel(ErrorVM)
             BindingContext = ErrorVM;
 
             //Set the Image Source
-            cliniSafeImage.Source = "logo.png";
+            cliniSafeImage.Source = Constants.CliniSafeImage;
         }
     }
 }

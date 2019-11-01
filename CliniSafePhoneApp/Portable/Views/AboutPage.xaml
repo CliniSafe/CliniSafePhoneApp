@@ -2,15 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
-             x:Class="CliniSafePhoneApp.Portable.Views.AboutPage" Title="About">
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.AboutPage">
 
-    <StackLayout x:Name="ErrorContainerStackLayout">
-        <!-- Place new controls here -->
-        <Label x:Name="AboutLabel"  
-           HorizontalOptions="CenterAndExpand" Text="This About page."
+    <StackLayout x:Name="AboutContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+
+        <Label x:Name="AboutLabel" Margin="40,10"
+           HorizontalOptions="Start" Text="CliniSafe Mobile App Version Number = 1.0.  CliniSafe Website Version Number = 2.123.401."
            VerticalOptions="CenterAndExpand" />
 
-        <Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+        <telerikInput:RadButton x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

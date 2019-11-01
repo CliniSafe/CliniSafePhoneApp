@@ -2,18 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
-             x:Class="CliniSafePhoneApp.Portable.Views.ErrorPage" Title="Error" NavigationPage.HasBackButton="True" >
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.ErrorPage" NavigationPage.HasBackButton="True"  NavigationPage.HasNavigationBar="True">
 
     <StackLayout x:Name="ErrorContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Label x:Name="ErrorLabel" Text="{Binding Message, Mode=OneWay}"  HorizontalTextAlignment="Start" HorizontalOptions="CenterAndExpand" Margin="40,0,40,0"
-           VerticalOptions="CenterAndExpand" />
+        <Label x:Name="ErrorLabel" Text="{Binding Message, Mode=OneWay}" HorizontalTextAlignment="Start" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" Margin="40,10" />
 
-        <Button x:Name="LoginNavigationButton" Text="Close" VerticalOptions="CenterAndExpand" Margin="40,10,200,200" TextColor="{StaticResource whiteColor}"
-              Command="{Binding NavigateToLoginCommand}" BackgroundColor="{StaticResource blueColor}"></Button>
+        <telerikInput:RadButton x:Name="LoginNavigationButton" Text="Close" VerticalOptions="CenterAndExpand" Margin="40,10,200,200" TextColor="{StaticResource whiteColor}"
+              Command="{Binding NavigateToLoginCommand}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
-        <Button x:Name="TempTestNavigationButton" Text="Navigate To Temp Test" VerticalOptions="CenterAndExpand" Margin="40,10,200,200" TextColor="{StaticResource whiteColor}"
-              Command="{Binding NavigateToTempTestCommand}" BackgroundColor="{StaticResource blueColor}"></Button>        
+        <telerikInput:RadButton x:Name="TermsNavigationButton" Text="Navigate To Terms" VerticalOptions="CenterAndExpand" Margin="40,10,200,10" TextColor="{StaticResource whiteColor}"
+              Command="{Binding NavigateToTermsCommand}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+
+        <telerikInput:RadButton x:Name="TempTestNavigationButton" Text="Navigate To Temp Test" VerticalOptions="CenterAndExpand" Margin="40,10,200,10" TextColor="{StaticResource whiteColor}"
+              Command="{Binding NavigateToTempTestCommand}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+      
     </StackLayout>
 </ContentPage>

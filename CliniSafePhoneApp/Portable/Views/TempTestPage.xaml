@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
-             x:Class="CliniSafePhoneApp.Portable.Views.TempTestPage" Title="Temporary Test Page" NavigationPage.HasBackButton="True" >
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.TempTestPage" NavigationPage.HasBackButton="True" >
 
     <StackLayout x:Name="TempTestContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
@@ -10,19 +11,19 @@
         <Label x:Name="TempTestLabel" Text="{Binding TempTest, Mode=OneWay}" HorizontalOptions="CenterAndExpand" Margin="40,10,40,10" 
            VerticalOptions="CenterAndExpand" />
 
-        <Button x:Name="HelloButton" Text="Hello" VerticalOptions="CenterAndExpand" Command="{Binding HelloCommand}" 
+        <telerikInput:RadButton  x:Name="HelloButton" Text="Hello" VerticalOptions="CenterAndExpand" Command="{Binding HelloCommand}" 
                 CommandParameter="{Binding AuthHeader}" Margin="40,10,200,10" 
-                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
-        <Button x:Name="HelloErrorButton" Text="Hello Error" VerticalOptions="CenterAndExpand" Command="{Binding HelloErrorCommand}" 
+        <telerikInput:RadButton  x:Name="HelloErrorButton" Text="Hello Error" VerticalOptions="CenterAndExpand" Command="{Binding HelloErrorCommand}" 
                 CommandParameter="{Binding AuthHeader}" Margin="40,10,200,10" 
-                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
         <Entry x:Name="EchoEntry" Placeholder="Echo Input Text" VerticalOptions="CenterAndExpand" Margin="40,10,200,10"
                    Text="{Binding EchoInput, Mode=TwoWay}"></Entry>
 
-        <Button x:Name="EchoButton" Text="Echo" VerticalOptions="CenterAndExpand" Command="{Binding EchoCommand}" 
+        <telerikInput:RadButton  x:Name="EchoButton" Text="Echo" VerticalOptions="CenterAndExpand" Command="{Binding EchoCommand}" 
                 CommandParameter="{Binding AuthHeader}" Margin="40,10,200,200" 
-                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+                TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

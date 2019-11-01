@@ -2,15 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
-             x:Class="CliniSafePhoneApp.Portable.Views.HelpPage" Title="Help">
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.HelpPage">
 
-    <StackLayout x:Name="ErrorContainerStackLayout">
-        <!-- Place new controls here -->
-        <Label x:Name="HelpLabel"  
-           HorizontalOptions="CenterAndExpand" Text="This Help page."
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout x:Name="HelpContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+        <Label x:Name="HelpLabel1" Margin="40,10" HorizontalOptions="Start" Text="Drug checking technology for global clinical trials." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="HelpLabel2" Margin="40,10" HorizontalOptions="Start" Text="CliniSafe takes the written drug rules from your protocol and converts them into electronic drug rules. These are then used to check subjects' drugs and gives real time feedback, leading to improved patient health, data quality and reduced costs." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="HelpLabel3" Margin="40,10" HorizontalOptions="Start" Text="The CliniSafe website is used to define the clinical trial, the drug rules, the users and the eLearning." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="HelpLabel4" Margin="40,10" HorizontalOptions="Start" Text="The CliniSafe Mobile App is an extension to the CliniSafe website." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="HelpLabel5" Margin="40,10" HorizontalOptions="Start" Text="In order to use the CliniSafe Mobile App you must already be registered on the website as either a Monitor or Investigator on your trial – and completed the Mobile App eLearning." VerticalOptions="CenterAndExpand" />        
+        <telerikInput:RadButton x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

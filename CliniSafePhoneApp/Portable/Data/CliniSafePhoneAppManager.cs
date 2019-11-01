@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CliniSafePhoneApp.Portable.Data
@@ -25,6 +26,10 @@ namespace CliniSafePhoneApp.Portable.Data
         public Task<string> AuthenticationAsync(AuthHeader authHeader)
         {
             return soapService.AuthenticateAsync(authHeader);
+        }
+        public Task<List<ProjectUser>> GetProjectsForUserAsync(AuthHeader authHeader)
+        {
+            return soapService.GetProjectsForUserListAysnc(authHeader);
         }
     }
 }

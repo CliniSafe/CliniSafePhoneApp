@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="CliniSafePhoneApp.Portable.Views.HandShakePage" Title="Welcome" NavigationPage.HasBackButton="True">
 
     <StackLayout x:Name="HandshakeContainerStackLayout" Orientation="Vertical">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Button x:Name="LoginNavigateButton" Text="Login" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToLoginCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+        <telerikInput:RadButton x:Name="LoginNavigateButton" Text="Login" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToLoginCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

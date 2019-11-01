@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
@@ -12,6 +13,7 @@ namespace CliniSafePhoneApp.Portable.Data
 
         Task<string> AuthenticateAsync(AuthHeader authHeader);
 
+
         Task HelloErrorAsync();
 
         Task<string> EchoAsync(string inputValue);
@@ -19,5 +21,7 @@ namespace CliniSafePhoneApp.Portable.Data
         Models.AuthHeader GetAuthHeader();
 
         Models.HandshakeHeader GetHandshakeHeader();
+
+        Task<List<ProjectUser>> GetProjectsForUserListAysnc(AuthHeader authHeader);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
+using CliniSafePhoneApp.Portable.Views;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
@@ -19,14 +20,21 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public NavigateBackwardCommand NavigateBackwardCommand { get; set; }
 
+
+
+        public NavigateForwardCommand NavigateForwardCommand { get; set; }
+
+
         /// <summary>
-        /// Create and Initialize with NavigateBackwardCommand.
+        /// Initialise properties in constructor.
         /// </summary>
         public NoConnectionViewModel()
         {
             //HomeNavigationCommand = new HomeNavigationCommand(this);
 
             NavigateBackwardCommand = new NavigateBackwardCommand(this);
+
+            NavigateForwardCommand = new NavigateForwardCommand(this);
             _navigationService = new NavigationService();
         }
 
@@ -37,6 +45,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public void NavigateBack()
         {
             _navigationService.NavigateBack();
+
+            //Working Okay
+            //await App.Current.MainPage.Navigation.PopAsync();
+        }
+
+        public void NavigateToHomePage()
+        {
+            _navigationService.NavigateToSecondPage(new MainPage());
 
             //Working Okay
             //await App.Current.MainPage.Navigation.PopAsync();

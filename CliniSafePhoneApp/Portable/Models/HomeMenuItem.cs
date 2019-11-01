@@ -8,7 +8,18 @@
         Privacy,
         Terms,
         TempTest,
-        LogOut
+        LogOut,
+        Project,
+        Choice,
+        Countries,
+        Error,
+        FindDrugs,
+        ProjectDetails,
+        Questions,
+        ResearchSites,
+        Results,
+        Review,
+        SelectedDrugs
     }
     public class HomeMenuItem
     {

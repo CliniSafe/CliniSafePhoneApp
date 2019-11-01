@@ -1,15 +1,19 @@
 ﻿using CliniSafePhoneApp.Android.DevTestPhoneAppService;
-using CliniSafePhoneApp.Portable;
 using CliniSafePhoneApp.Portable.Data;
+using CliniSafePhoneApp.Portable.Models;
 using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.Views;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Services.Protocols;
 using System.Xml;
+using System.Xml.Linq;
 using Xamarin.Forms;
 
 
@@ -21,31 +25,42 @@ namespace CliniSafePhoneApp.Android
 {
     public class PhoneAppSoapService : ISoapService, INotifyPropertyChanged
     {
+        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
         PhoneApp devTestPhoneAppService;
         TaskCompletionSource<bool> helloWorldRequestComplete = null;
         TaskCompletionSource<bool> handshakeRequestComplete = null;
         TaskCompletionSource<bool> authenticateRequestComplete = null;
         TaskCompletionSource<bool> helloErrorRequestComplete = null;
         TaskCompletionSource<bool> echoRequestComplete = null;
+        TaskCompletionSource<bool> projectsForUserComplete = null;
 
 
+        /// <summary>
+        /// Initialize Web Service Url property and Event Handlers in constructor.
+        /// </summary>
         public PhoneAppSoapService()
         {
-            devTestPhoneAppService = new PhoneApp();
-            devTestPhoneAppService.Url = Constants.DevTestUrl;
-
+            devTestPhoneAppService = new PhoneApp() { Url = Constants.DevTestUrl };
             devTestPhoneAppService.HelloWorldCompleted += PhoneApp_HelloWorldCompleted;
             devTestPhoneAppService.HandshakeCompleted += PhoneApp_HandshakeCompleted;
             devTestPhoneAppService.AuthenticateCompleted += PhoneApp_AuthenticateCompleted;
             devTestPhoneAppService.HelloErrorCompleted += PhoneApp_HelloErrorCompleted;
-            devTestPhoneAppService.EchoCompleted += PhonaApp_EchoComplted;
+            devTestPhoneAppService.EchoCompleted += PhoneApp_EchoComplted;
+            devTestPhoneAppService.GetProjectsForUserCompleted += PhoneApp_ProjectsForUserCompleted;
         }
+
+
 
         public string helloWorldResult;
 
         public string handshakeResult;
 
         public static string authenticationResult;
+
+        public static string xmlProjectForUserResult;
+
+        public static List<ProjectUser> projectForUserListResult { get; set; }
 
         public string echoResult;
 
@@ -71,24 +86,6 @@ namespace CliniSafePhoneApp.Android
         }
 
 
-
-
-
-
-
-
-
-
-        DevTestPhoneAppService.AuthHeader ToPhoneAppSoapServiceAuthenticate(Portable.Models.AuthHeader authHeader)
-        {
-            return new DevTestPhoneAppService.AuthHeader
-            {
-                Username = authHeader.Username,
-                Password = authHeader.Password,
-                CPAVersion = authHeader.CPAVersion
-            };
-        }
-
         public static Portable.Models.AuthHeader FromPhoneAppServiceAuthenticate(DevTestPhoneAppService.AuthHeader authHeader)
         {
             return new Portable.Models.AuthHeader
@@ -110,13 +107,6 @@ namespace CliniSafePhoneApp.Android
         }
 
 
-        DevTestPhoneAppService.HandshakeHeader ToPhoneAppSoapServiceHandshake(Portable.Models.HandshakeHeader handshakeHeader)
-        {
-            return new DevTestPhoneAppService.HandshakeHeader
-            {
-                CPAVersion = handshakeHeader.CPAVersion
-            };
-        }
 
         public static Portable.Models.HandshakeHeader FromPhoneAppSoapServiceHandshake(DevTestPhoneAppService.HandshakeHeader handshakeHeader)
         {
@@ -131,6 +121,93 @@ namespace CliniSafePhoneApp.Android
                 MessageCode = handshakeHeader.MessageCode
             };
         }
+
+        private void PhoneApp_ProjectsForUserCompleted(object sender, GetProjectsForUserCompletedEventArgs e)
+        {
+            try
+            {
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        projectsForUserComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        projectsForUserComplete?.TrySetException(e.Error);
+                    else
+                        projectsForUserComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.GetProjectsForUserAsync();
+                xmlProjectForUserResult = e.Result;
+                projectsForUserComplete = projectsForUserComplete ?? new TaskCompletionSource<bool>();
+
+                XDocument xDocumentProjectForUser = new XDocument();
+
+                //Decode xml(xmlProjectForUserResult) into a list and assign to projectForUserListResult model
+                if (!string.IsNullOrEmpty(xmlProjectForUserResult))
+                {
+                    xDocumentProjectForUser = XDocument.Parse(xmlProjectForUserResult);
+                }
+
+                if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentProjectForUser.Root.Elements().Any())
+                {
+                    projectForUserListResult = xDocumentProjectForUser.Descendants("ProjectsForUser").Select(d =>
+                    new ProjectUser
+                    {
+                        ID = Convert.ToInt32(d.Element("ID").Value),
+                        Sponsor = d.Element("Sponsor").Value,
+                        ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
+                        ProjectCode = d.Element("ProjectCode").Value,
+                        ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
+                        ProjectTitleShort = d.Element("ProjectTitleShort").Value,
+                        ProjectTitleFull = d.Element("ProjectTitleFull").Value,
+                        DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
+                        IRPUserDashboard = d.Element("IRPUserDashboard").Value,
+                        StudyDashboard = d.Element("StudyDashboard").Value,
+                        DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
+                        ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
+                        TeamDashboard = d.Element("TeamDashboard").Value,
+                        TranslationDashboard = d.Element("TranslationDashboard").Value,
+                        ReportsDashboard = d.Element("ReportsDashboard").Value,
+                        EndUserDashboard = d.Element("EndUserDashboard").Value,
+                        WizardDashboard = d.Element("WizardDashboard").Value,
+                        InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
+
+                    }).ToList();
+                }
+
+                projectsForUserComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+        }
+
+
+
+        public async Task<List<ProjectUser>> GetProjectsForUserListAysnc(Portable.Models.AuthHeader authHeader)
+        {
+            projectsForUserComplete = new TaskCompletionSource<bool>();
+            DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
+            {
+                Username = authHeader.Username,
+                Password = authHeader.Password,
+                CPAVersion = authHeader.CPAVersion
+            };
+
+            devTestPhoneAppService.AuthHeaderValue = authHeader1;
+            devTestPhoneAppService.GetProjectsForUserAsync(authHeader);
+            await projectsForUserComplete.Task;
+            return projectForUserListResult;
+        }
+
 
         private void PhoneApp_HelloWorldCompleted(object sender, HelloWorldCompletedEventArgs e)
         {
@@ -153,17 +230,14 @@ namespace CliniSafePhoneApp.Android
             }
             catch (SoapException se)
             {
-                //Debug.WriteLine("\t\t{0}", se.Detail.InnerText);
                 DisplaySoapException(se);
             }
             catch (WebException we)
             {
-                //Debug.WriteLine("\t\t{0}", we.Message);
                 DisplayWebException(we);
             }
             catch (Exception ex)
             {
-                //Debug.WriteLine("\t\tERROR {0}", ex.InnerException.Message);
                 DisplayException(ex);
             }
         }
@@ -183,9 +257,6 @@ namespace CliniSafePhoneApp.Android
 
 
                 handshakeRequestComplete = handshakeRequestComplete ?? new TaskCompletionSource<bool>();
-                //handshakeResult = devTestPhoneAppService.Handshake();
-
-
                 devTestPhoneAppService.HandshakeAsync();
                 handshakeResult = e.Result;
 
@@ -199,17 +270,14 @@ namespace CliniSafePhoneApp.Android
             }
             catch (SoapException se)
             {
-                //Debug.WriteLine("\t\tERROR {0}", se.Detail.InnerText);
                 DisplaySoapException(se);
             }
             catch (WebException we)
             {
-                //Debug.WriteLine("\t\tERROR {0}", we.Message);
                 DisplayWebException(we);
             }
             catch (Exception ex)
             {
-                //Debug.WriteLine("\t\tERROR {0}", ex.InnerException.Message);
                 DisplayException(ex);
             };
         }
@@ -241,17 +309,14 @@ namespace CliniSafePhoneApp.Android
             }
             catch (SoapException se)
             {
-                //Debug.WriteLine("\t\tERROR {0}", se.Detail.InnerText);
                 DisplaySoapException(se);
             }
             catch (WebException we)
             {
-                //Debug.WriteLine("\t\tERROR {0}", we.Message);
                 DisplayWebException(we);
             }
             catch (Exception ex)
             {
-                //Debug.WriteLine("\t\tERROR {0}", ex.InnerException.Message);
                 DisplayException(ex);
             }
         }
@@ -281,22 +346,19 @@ namespace CliniSafePhoneApp.Android
             }
             catch (SoapException se)
             {
-                //Debug.WriteLine("\t\tERROR {0}", se.Detail.InnerText);
                 DisplaySoapException(se);
             }
             catch (WebException we)
             {
-                //Debug.WriteLine("\t\tERROR {0}", we.Message);
                 DisplayWebException(we);
             }
             catch (Exception ex)
             {
-                //Debug.WriteLine("\t\tERROR {0}", ex.InnerException.Message);
                 DisplayException(ex);
             }
         }
 
-        private void PhonaApp_EchoComplted(object sender, EchoCompletedEventArgs e)
+        private void PhoneApp_EchoComplted(object sender, EchoCompletedEventArgs e)
         {
             try
             {
@@ -317,17 +379,14 @@ namespace CliniSafePhoneApp.Android
             }
             catch (SoapException se)
             {
-                //Debug.WriteLine("\t\tERROR {0}", se.Detail.InnerText);
                 DisplaySoapException(se);
             }
             catch (WebException we)
             {
-                //Debug.WriteLine("\t\tERROR {0}", we.Message);
                 DisplayWebException(we);
             }
             catch (Exception ex)
             {
-                //Debug.WriteLine("\t\tERROR {0}", ex.InnerException.Message);
                 DisplayException(ex);
             }
         }
@@ -352,8 +411,7 @@ namespace CliniSafePhoneApp.Android
         public async Task<string> HandShakeAsync(Portable.Models.HandshakeHeader handShakeHeader)
         {
             handshakeRequestComplete = new TaskCompletionSource<bool>();
-            HandshakeHeader handshakeHeader1 = new HandshakeHeader();
-            handshakeHeader1.CPAVersion = handShakeHeader.CPAVersion;
+            DevTestPhoneAppService.HandshakeHeader handshakeHeader1 = new DevTestPhoneAppService.HandshakeHeader() { CPAVersion = handShakeHeader.CPAVersion };
             devTestPhoneAppService.HandshakeHeaderValue = handshakeHeader1;
             devTestPhoneAppService.HandshakeAsync(handShakeHeader);
             await handshakeRequestComplete.Task;
@@ -368,10 +426,13 @@ namespace CliniSafePhoneApp.Android
         public async Task<string> AuthenticateAsync(Portable.Models.AuthHeader authHeader)
         {
             authenticateRequestComplete = new TaskCompletionSource<bool>();
-            AuthHeader authHeader1 = new AuthHeader();
-            authHeader1.Username = authHeader.Username;
-            authHeader1.Password = authHeader.Password;
-            authHeader1.CPAVersion = authHeader.CPAVersion;
+            DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
+            {
+                Username = authHeader.Username,
+                Password = authHeader.Password,
+                CPAVersion = authHeader.CPAVersion
+            };
+
             devTestPhoneAppService.AuthHeaderValue = authHeader1;
             devTestPhoneAppService.AuthenticateAsync(authHeader);
             await authenticateRequestComplete.Task;
@@ -386,6 +447,13 @@ namespace CliniSafePhoneApp.Android
         {
             authHeaderResults = FromPhoneAppServiceAuthenticate(devTestPhoneAppService.AuthHeaderValue);
             return authHeaderResults;
+        }
+
+
+        public Portable.Models.HandshakeHeader Get()
+        {
+            handshakeHeaderResults = FromPhoneAppSoapServiceHandshake(devTestPhoneAppService.HandshakeHeaderValue);
+            return handshakeHeaderResults;
         }
 
 
@@ -425,6 +493,7 @@ namespace CliniSafePhoneApp.Android
         }
 
 
+
         /// <summary>
         /// Displays the Exception.
         /// </summary>
@@ -440,13 +509,8 @@ namespace CliniSafePhoneApp.Android
 
             strDisplayMessage += strDisplayMessage + exception.StackTrace;
 
-            await App.Current.MainPage.DisplayAlert("Error", strDisplayMessage, "Cancel");
-
             //Navigate to Error Page
-
-
-            //RichTextBoxResults.Text = strDisplayMessage;
-            //MessageBox.Show("Web Service SOAP Exception.", "Error")
+            await RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, strDisplayMessage);
         }
 
         /// <summary>
@@ -462,13 +526,10 @@ namespace CliniSafePhoneApp.Android
 
             strDisplayMessage += strDisplayMessage + webException.Message;
 
-            await App.Current.MainPage.DisplayAlert("Error", strDisplayMessage, "Cancel");
+            // await App.Current.MainPage.DisplayAlert("Error", strDisplayMessage, "Cancel");
 
             //Navigate to Error Page
-
-
-            //RichTextBoxResults.Text = strDisplayMessage;
-            //MessageBox.Show("Web Exception.", "Error")
+            await RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, strDisplayMessage);
         }
 
         /// <summary>
@@ -488,14 +549,8 @@ namespace CliniSafePhoneApp.Android
 
             strDisplayMessage += strDisplayMessage + FormatXml(soapException.Detail);
 
-            await App.Current.MainPage.DisplayAlert("Error", strDisplayMessage, "Cancel");
-
-
-            // Navigate to Error Page
-
-
-            //RichTextBoxResults.Text = strDisplayMessage;
-            //MessageBox.Show("Soap Service SOAP Exception.", "Error")
+            // Navigate to the error page
+            await RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, strDisplayMessage);
         }
 
 

@@ -9,6 +9,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 {
     public class ErrorViewModel : INotifyPropertyChanged
     {
+        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
         private readonly INavigationService _navigationService;
 
         private HandshakeHeader handshakeHeader;
@@ -51,6 +53,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public NavigateToTempTestCommand NavigateToTempTestCommand { get; set; }
 
+        public NavigateToTermsCommand NavigateToTermsCommand { get; set; }
+
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
@@ -58,10 +62,20 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             NavigateToLoginCommand = new NavigateToLoginCommand(this);
             NavigateToTempTestCommand = new NavigateToTempTestCommand(this);
+            NavigateToTermsCommand = new NavigateToTermsCommand(this);
             HandshakeHeader = new HandshakeHeader();
             Message = HandshakeHeader.GetHandshakeHeader().Message;
             _navigationService = new NavigationService();
         }
+
+        public ErrorViewModel(string strDisplayMessage)
+        {
+            NavigateToLoginCommand = new NavigateToLoginCommand(this);
+            Message = strDisplayMessage;
+            _navigationService = new NavigationService();
+        }
+
+
 
         /// <summary>
         /// Navigates back to the Login Page(LoginPage).
@@ -69,7 +83,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <returns></returns>
         public void NavigateForwardToLogin()
         {
-            _navigationService.NavigateToSecondPage(new NavigationPage(new LoginPage()));
+            //_navigationService.NavigateToSecondPage(new NavigationPage(new LoginPage()));
+                     
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.LogIn, null, null, null);
         }
 
 
@@ -80,6 +96,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public void NavigateForwardToTempTest()
         {
             _navigationService.NavigateToSecondPage(new NavigationPage(new TempTestPage() { Title = "Temporary Test Page" }));
+        }
+
+        /// <summary>
+        /// Navigates back to the Terms Page(TermsPage).
+        /// </summary>
+        /// <returns></returns>
+        public void NavigateForwardToTerms()
+        {
+            _navigationService.NavigateToSecondPage(new NavigationPage(new TermsPage() { Title = "Terms Page" }));
         }
     }
 }

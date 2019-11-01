@@ -1,4 +1,5 @@
-﻿using CliniSafePhoneApp.Portable.ViewModels;
+﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.Views
@@ -25,7 +26,7 @@ namespace CliniSafePhoneApp.Portable.Views
             BindingContext = TempTestVM;
 
             //Set the Image Source
-            cliniSafeImage.Source = "logo.png";
+            cliniSafeImage.Source = Constants.CliniSafeImage;
         }
     }
 }

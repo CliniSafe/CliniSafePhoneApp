@@ -14,10 +14,14 @@ xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.
              xmlns:telerikImageEditor="clr-namespace:Telerik.XamarinForms.ImageEditor;assembly=Telerik.XamarinForms.ImageEditor"
              xmlns:telerikMap="clr-namespace:Telerik.XamarinForms.Map;assembly=Telerik.XamarinForms.Map"
              xmlns:telerikPdfViewer="clr-namespace:Telerik.XamarinForms.PdfViewer;assembly=Telerik.XamarinForms.PdfViewer"
-             x:Class="CliniSafePhoneApp.Portable.Views.MainPage"
-                          xmlns:views="clr-namespace:CliniSafePhoneApp.Portable.Views">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:CliniSafePhoneApp.Portable.Views"
+             x:Class="CliniSafePhoneApp.Portable.Views.MainPage">
+    
     <MasterDetailPage.Master>
-        <views:LeftMenuPage></views:LeftMenuPage>
+        <views:LeftMenuPage />
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>

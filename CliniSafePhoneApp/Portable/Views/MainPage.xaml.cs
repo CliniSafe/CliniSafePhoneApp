@@ -13,17 +13,16 @@ namespace CliniSafePhoneApp.Portable.Views
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
-        /// <summary>
-        /// Define private members (LoginViemModel)
-        /// </summary>
-        private LoginViewModel LoginVM;
-
-
 
         /// <summary>
-        /// Define HandshakeViewModel.
+        /// Define MainViewModel.
         /// </summary>
-        private HandshakeViewModel HandshakeVM;
+        public MainViewModel MainVM;
+
+        public LoginViewModel LoginVM;
+
+        public string Username { get; set; }
+        public string Password { get; set; }
 
         /// <summary>
         /// Initialise properties in constructor.
@@ -32,85 +31,106 @@ namespace CliniSafePhoneApp.Portable.Views
         {
             InitializeComponent();
 
-            //Initialise LoginViemModel.
-            //LoginVM = new LoginViewModel();
+            // Initialise MainViewModel.
+            MainVM = new MainViewModel(this);
 
-            //// Set the Page Binding Context to the LoginViewModel(LoginVM)
-            //BindingContext = LoginVM;
-
-            //Set the Image Source
-            //cliniSafeImage.Source = "logo.png";
-
-            //this.Master = new LeftMenuPage();//name of your menupage                
-            //this.Detail = new ContentPage();//name of your detailpage
-
-
-            //Initialise HandshakeViewModel.
-            HandshakeVM = new HandshakeViewModel();
-
-            // Set the Page Binding Context to the HandshakeViewModel(HandshakeVM)
-            BindingContext = HandshakeVM;
+            LoginVM = new LoginViewModel();
 
 
 
-
-            MasterBehavior = MasterBehavior.Popover;
+            //MasterBehavior = MasterBehavior.Popover;
 
             //MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
-
-            MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        public async Task NavigateFromMenu(int id)
+        public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null)
         {
+
+            if(!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            {
+                Username = username;
+                Password = password;
+            }
+
+
             if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
                 {
                     case (int)MenuItemType.LogIn:
-                        MenuPages.Add(id, new NavigationPage(new LoginPage() { Title = "Login" }));
+                        MenuPages.Add(id, new NavigationPage(new LoginPage() { Title = MenuItemType.LogIn.ToString() }));
                         break;
                     case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage() { Title = "About" }));
+                        MenuPages.Add(id, new NavigationPage(new AboutPage() { Title = MenuItemType.About.ToString() }));
                         break;
                     case (int)MenuItemType.Help:
-                        MenuPages.Add(id, new NavigationPage(new HelpPage() { Title = "Help" }));
+                        MenuPages.Add(id, new NavigationPage(new HelpPage() { Title = MenuItemType.Help.ToString() }));
                         break;
                     case (int)MenuItemType.Privacy:
-                        MenuPages.Add(id, new NavigationPage(new PrivacyPage() { Title = "Privacy" }));
+                        MenuPages.Add(id, new NavigationPage(new PrivacyPage() { Title = MenuItemType.Privacy.ToString() }));
                         break;
                     case (int)MenuItemType.Terms:
-                        MenuPages.Add(id, new NavigationPage(new TermsPage() { Title = "Terms" }));
+                        MenuPages.Add(id, new NavigationPage(new TermsPage() { Title = MenuItemType.Terms.ToString() }));
                         break;
                     case (int)MenuItemType.TempTest:
                         MenuPages.Add(id, new NavigationPage(new TempTestPage() { Title = "Temporary Test Page" }));
                         break;
                     case (int)MenuItemType.LogOut:
-                        MenuPages.Add(id, new NavigationPage(new LogOutPage() { Title = "Log Out" }));
+                        MenuPages.Add(id, new NavigationPage(new LogOutPage() { Title = MenuItemType.LogOut.ToString() }));
                         break;
-
+                    case (int)MenuItemType.Project:
+                        MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
+                        break;
+                    case (int)MenuItemType.ProjectDetails:
+                        MenuPages.Add(id, new NavigationPage(new ProjectDetailsPage((ProjectUser)objectParameter) { Title = "Project Details" }));
+                        break;
+                    case (int)MenuItemType.Choice:
+                        MenuPages.Add(id, new NavigationPage(new ChoicePage((ProjectUser)objectParameter) { Title = MenuItemType.Choice.ToString() }));
+                        break;
+                    case (int)MenuItemType.Countries:
+                        MenuPages.Add(id, new NavigationPage(new CountriesPage((ProjectUser)objectParameter) { Title = MenuItemType.Countries.ToString() }));
+                        break;
+                    case (int)MenuItemType.ResearchSites:
+                        MenuPages.Add(id, new NavigationPage(new ResearchSitesPage((ProjectUser)objectParameter) { Title = "Research Sites" }));
+                        break;
+                    case (int)MenuItemType.FindDrugs:
+                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage() { Title = "Find Drugs" }));
+                        break;
+                    case (int)MenuItemType.SelectedDrugs:
+                        MenuPages.Add(id, new NavigationPage(new SelectedDrugsPage() { Title = "Selected Drugs" }));
+                        break;
+                    case (int)MenuItemType.Questions:
+                        MenuPages.Add(id, new NavigationPage(new QuestionsPage() { Title = MenuItemType.Questions.ToString() }));
+                        break;
+                    case (int)MenuItemType.Review:
+                        MenuPages.Add(id, new NavigationPage(new ReviewPage() { Title = MenuItemType.Review.ToString() }));
+                        break;
+                    case (int)MenuItemType.Results:
+                        MenuPages.Add(id, new NavigationPage(new ResultsPage() { Title = MenuItemType.Results.ToString() }));
+                        break;
+                    case (int)MenuItemType.Error:
+                        MenuPages.Add(id, new NavigationPage(new ErrorPage((string)objectParameter) { Title = MenuItemType.Error.ToString() }));
+                        break;
                 }
+            }
+            else
+            {
+                if (MenuPages.ContainsValue(new NavigationPage(new LoginPage())))
+                {
+                    MenuPages.Remove(1);
+                };
+
+
+                switch(id)
+                {
+                    case (int)MenuItemType.Project:
+                        MenuPages.Add(id, new NavigationPage(new ProjectsPage(Username, Password) { Title = MenuItemType.Project.ToString() }));
+                        break;
+                }
+
+                // MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
+                //MenuPages.Add(id, new NavigationPage(new ProjectsPage(Username, Password) { Title = MenuItemType.Project.ToString() }));
             }
 
             var newPage = MenuPages[id];

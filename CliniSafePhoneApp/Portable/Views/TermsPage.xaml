@@ -2,15 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
-             x:Class="CliniSafePhoneApp.Portable.Views.TermsPage" Title="Terms">
+             x:Class="CliniSafePhoneApp.Portable.Views.TermsPage" Title="Terms" NavigationPage.HasBackButton="True" >
 
-    <StackLayout x:Name="ErrorContainerStackLayout">
-        <!-- Place new controls here -->
-        <Label x:Name="TermsLabel"  
-           HorizontalOptions="CenterAndExpand" Text="This Terms page."
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout x:Name="TermsContainerStackLayout">
+        <StackLayout BackgroundColor="WhiteSmoke" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
+                    <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
 
-        <Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>
+        <Label x:Name="TermsLabel1" Margin="40,10" HorizontalOptions="Start" Text="Clinisafe™ is a drug management tool and is only to be used within a clinical trial. It is not to be used in any other way." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="TermsLabel2" Margin="40,10" HorizontalOptions="Start" Text="The information entered into Clinisafe™ will be associated with your user name. By digitally signing you are affixing your electronic signature to the electronic data as indicated." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="TermsLabel3" Margin="40,10" HorizontalOptions="Start" Text="Healthcare professionals have the sole responsibility for being fully aware of current standards and practices, to avoid use of outdated regimens, and to employ good clinical judgement in managing Subjects. " VerticalOptions="CenterAndExpand" />
+        <Label x:Name="TermsLabel4" Margin="40,10" HorizontalOptions="Start" Text="Computer systems in general and in particularly Clinisafe™ should NEVER substitute for up-to-date personal knowledge of the protocol and good clinical judgement. By entering the system you confirm that you will keep your password secure and not divulge it to anyone." VerticalOptions="CenterAndExpand" />
+        <Label x:Name="TermsLabel5" Margin="40,10" HorizontalOptions="Start" Text="Users of this system have the responsibility to ensure compliance with all laws, rules and regulations governing the collection and handling of personal data. Use of the Clinisafe system signifies that you accept of the forgoing terms." VerticalOptions="CenterAndExpand" />
     </StackLayout>
 </ContentPage>

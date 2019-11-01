@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
+using Xamarin.Forms;
 
 
 namespace CliniSafePhoneApp.Portable.Views
@@ -8,17 +10,20 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define TermsViewModel.
         /// </summary>
-        //TermsViewModel TermsVM;
+        TermsViewModel TermsVM;
 
         public TermsPage()
         {
             InitializeComponent();
 
-            ////Initialise TermsViewModel.
-            //TermsVM = new TermsViewModel();
+            //Initialise TermsViewModel.
+            TermsVM = new TermsViewModel();
 
-            //// Set the Page Binding Context to the TermsViewModel(TermsVM)
-            //BindingContext = TermsVM;
+            // Set the Page Binding Context to the TermsViewModel(TermsVM)
+            BindingContext = TermsVM;
+
+            //Set the Image Source
+            cliniSafeImage.Source = Constants.CliniSafeImage;
         }
     }
 }

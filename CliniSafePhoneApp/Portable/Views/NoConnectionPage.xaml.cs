@@ -1,4 +1,5 @@
-﻿using CliniSafePhoneApp.Portable.ViewModels;
+﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
 using Xamarin.Forms;
 
 
@@ -11,9 +12,16 @@ namespace CliniSafePhoneApp.Portable.Views
         /// </summary>
         NoConnectionViewModel NoConnectionVM;
 
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
         public NoConnectionPage()
         {
             InitializeComponent();
+
+            //Set the Image Source
+            cliniSafeImage.Source = Constants.CliniSafeImage;
 
             //Initialise NoConnectionViewModel.
             NoConnectionVM = new NoConnectionViewModel();

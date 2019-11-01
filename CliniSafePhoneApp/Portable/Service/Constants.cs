@@ -70,5 +70,19 @@ namespace CliniSafePhoneApp.Portable.Service
                 return phoneUrl;
             }
         }
+
+
+        /// <summary>
+        /// Returns CliniSafe Image Logo.
+        /// </summary>
+        public static string CliniSafeImage
+        {
+            get
+            {
+                string cliniSafeImage = "logo.png";
+
+                return cliniSafeImage;
+            }
+        }
     }
 }
