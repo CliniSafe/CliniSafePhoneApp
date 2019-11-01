@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.SelectedDrugsPage">
+
+    <StackLayout x:Name="SelectedDrugsContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+
+        <Label x:Name="SelectedDrugsPageLabel" Margin="40,0,100,0" HorizontalOptions="Start" Text="Project 123 GB" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+
+        <Label x:Name="SelectedDrugsLabel" Margin="40,0, 100, 200" HorizontalOptions="Start" Text="Selected Drugs" FontSize="Title" VerticalOptions="CenterAndExpand" />
+
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  Clicked="NextNavigationButton_Clicked"
+                 Margin="40,10,200,100"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+        
+        
+        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
+    </StackLayout>
+</ContentPage>

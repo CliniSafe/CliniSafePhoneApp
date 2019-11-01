@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.ResultsPage"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True"
+             NavigationPage.BackButtonTitle="Back">
+
+    <StackLayout x:Name="ResultsContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0" />
+
+        <Label x:Name="ResultLabel" Margin="40,0,200,0"  
+           HorizontalOptions="Start" Text="Results" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+
+        <Editor x:Name="ResultEditor" Text="Either the HTML OR The XML cleverly formatted.." Margin="40,0,40,0"
+                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+
+        <Grid ColumnSpacing="8" HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="49.33*" />
+                <ColumnDefinition Width="1.33*" />
+                <ColumnDefinition Width="49.33*" />
+            </Grid.ColumnDefinitions>
+            
+            <!--Clicked="AnotherNavigationButton_Clicked"
+            Clicked="CloseNavigationButton_Clicked" 
+            -->
+
+            <telerikInput:RadButton x:Name="AnotherNavigationButton" Text="Another" Margin="40,10,25,100" HorizontalOptions="FillAndExpand" Command="{Binding NavigateToProjectCommand}" Grid.Column="0"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+
+            <telerikInput:RadButton x:Name="CloseNavigationButton" Text="Close" HorizontalOptions="FillAndExpand"  Margin="25,10,40,100" Grid.Column="2" Command="{Binding NavigateToMainCommand}" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+        </Grid>
+
+
+        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:datagrid="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="CliniSafePhoneApp.Portable.Views.ProjectsPage" Title="Projects">
+
+    <!--left , top , right , bottom-->
+
+    <StackLayout x:Name="ProjectContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+
+        <Label x:Name="MyProjectLabel" Margin="40,0,200,0"  
+           HorizontalOptions="Start" Text="My Projects" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+
+        <telerikGrid:RadDataGrid x:Name="projectUserListDataGrid" SelectedItem="{Binding SelectedProjectUser, Mode=TwoWay}" ItemsSource="{Binding ProjectUserList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
+            <telerikGrid:RadDataGrid.Columns>
+                <telerikGrid:DataGridTextColumn PropertyName="ProjectCode" HeaderText="Project Code" SizeMode="Stretch" />
+                <telerikGrid:DataGridTextColumn PropertyName="ProjectTitleShortPhoneDisplay" HeaderText="Project Title Short" SizeMode="Stretch" />
+            </telerikGrid:RadDataGrid.Columns>
+        </telerikGrid:RadDataGrid>
+
+
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" 
+                CommandParameter="{Binding SelectedProjectUser}" Command="{Binding NavigateToProjectDetailCommand}"
+                Margin="10,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"  />
+        
+        <!--<Button x:Name="NextNavigationButton1" Text="Next" VerticalOptions="CenterAndExpand" 
+                CommandParameter="{Binding SelectedProjectUser}" Command="{Binding NavigateToProjectDetailCommand}"
+                Margin="10,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
+    </StackLayout>
+</ContentPage>
+
+
+
+
+
+
+
+<!--<ListView x:Name="list_View" Grid.Column="2" Grid.Row="1" Margin="0,0,0,103">
+
+    <ListView.Style>
+        <Style TargetType="{x:Type ListView}">
+
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+    </ListView.Style>
+    <ListView.Resources>
+        <Style TargetType="ListViewItem">
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="IsSelected" Value="True"/>
+
+                </Trigger>
+            </Style.Triggers>
+            <EventSetter Event="PreviewGotKeyboardFocus" Handler="SelectCurrentItem"/>
+            <Setter Property="Height" Value="30" />
+            <Setter Property="BorderBrush" Value="Blue"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#E7F8FE"/>
+        </Style>
+
+    </ListView.Resources>
+
+    <ListView.View>
+
+        <GridView>
+            <GridViewColumn Header="Product Name"  Width="120"  DisplayMemberBinding="{Binding Product_Name}"/>
+            <GridViewColumn Header="Unit Price" Width="70" DisplayMemberBinding="{Binding Unit_Price}"/>
+            <GridViewColumn Header="Quantity" Width="50" DisplayMemberBinding="{Binding Quantity}"/>
+            <GridViewColumn Header="Total"  Width="60" DisplayMemberBinding="{Binding Total}"  />
+            <GridViewColumn Header="Delete"  Width="80">
+                <GridViewColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button Content="X" Width="60" Click="Delete_Item_In_Cart_Click" Name="btn_Delete_Item_In_Cart" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                        </Button>
+                    </DataTemplate>
+                </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+        </GridView>
+    </ListView.View>
+
+</ListView>-->
+
+

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             x:Class="CliniSafePhoneApp.Portable.Views.ResearchSitesPage">
+
+    <StackLayout x:Name="ResearchSitesContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+
+        <Label x:Name="ResearchSitesProjectLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+
+        <Editor x:Name="ResearchSitesHelpTextEditor" Text="Please select the Research Site you want to use the Drug Checker on" FontSize="Medium"  Margin="40,0,40,0"/>
+
+        <Label x:Name="ResearchSitesLabel" Margin="40,10" HorizontalOptions="Start" Text="Research Sites" FontSize="Title" VerticalOptions="CenterAndExpand" />
+
+        <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid" SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
+            <telerikGrid:RadDataGrid.Columns>
+                <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch" />
+                <telerikGrid:DataGridTextColumn PropertyName="SiteName" HeaderText="Site Name" SizeMode="Stretch" />
+            </telerikGrid:RadDataGrid.Columns>
+        </telerikGrid:RadDataGrid>
+
+
+
+
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Clicked="NextNavigationButton_Clicked"
+                Margin="10,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+
+        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
+    </StackLayout>
+</ContentPage>

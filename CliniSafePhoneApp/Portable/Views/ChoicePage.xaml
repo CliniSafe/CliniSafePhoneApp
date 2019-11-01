@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
+             xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CliniSafePhoneApp.Portable.Views.ChoicePage">
+
+    <StackLayout x:Name="ChoiceContainerStackLayout">
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+
+        <Label x:Name="ChoiceLabel" Margin="40,10,200,20"  
+           HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+
+        <Editor x:Name="ChocieHelpTextDescriptionEditor" Text="You are both a Monitor and an Investigator on this Project. Please choose how you want to run the Drug Checker." Margin="40,20" FontSize="Medium"/>
+
+        <Label x:Name="ChoicMonitorORInvestigatorLabel"  
+           HorizontalOptions="Start" Text="Monitor OR Investigator" Margin="40,30,40,20" FontSize="Title"
+           VerticalOptions="CenterAndExpand" />
+
+        <telerikInput:RadButton x:Name="MonitorNavigationButton" Text="Monitor" VerticalOptions="CenterAndExpand" Clicked="MonitorNavigationButton_Clicked" 
+                Margin="40,0,200,0" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+
+        <telerikInput:RadButton x:Name="InvestigatorNavigationButton" Text="Investigator" VerticalOptions="CenterAndExpand" Clicked="InvestigatorNavigationButton_Clicked"
+                Margin="40,0,200,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+
+
+        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
+    </StackLayout>
+</ContentPage>
