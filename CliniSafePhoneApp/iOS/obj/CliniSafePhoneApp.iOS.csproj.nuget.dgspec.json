@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "W:\\phone-app.svn\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {}
+    "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {}
   },
   "projects": {
-    "W:\\phone-app.svn\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {
+    "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\phone-app.svn\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
+        "projectUniqueName": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
         "projectName": "CliniSafePhoneApp.iOS",
-        "projectPath": "W:\\phone-app.svn\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
-        "packagesPath": "C:\\Users\\shezt\\.nuget\\packages\\",
-        "outputPath": "W:\\phone-app.svn\\CliniSafePhoneApp\\iOS\\obj\\",
+        "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
+        "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
+        "outputPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\shezt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andyc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -33,8 +33,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "W:\\phone-app.svn\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
-                "projectPath": "W:\\phone-app.svn\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj"
+              "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
+                "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj"
               }
             }
           }
@@ -98,21 +98,21 @@
         }
       }
     },
-    "W:\\phone-app.svn\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
+    "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\phone-app.svn\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
+        "projectUniqueName": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
         "projectName": "CliniSafePhoneApp.Portable",
-        "projectPath": "W:\\phone-app.svn\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
-        "packagesPath": "C:\\Users\\shezt\\.nuget\\packages\\",
-        "outputPath": "W:\\phone-app.svn\\CliniSafePhoneApp\\Portable\\obj\\",
+        "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj",
+        "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
+        "outputPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\shezt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andyc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
