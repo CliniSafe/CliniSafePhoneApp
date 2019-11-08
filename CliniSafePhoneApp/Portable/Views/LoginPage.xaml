@@ -23,36 +23,17 @@
     </ContentPage.BindingContext>
     <!--File="logo.png"-->
     <StackLayout x:Name="logingContainerStackLayout" Orientation="Vertical">
-        <!--<StackLayout BackgroundColor="WhiteSmoke" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" >
-            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
-                <ContentView Padding="0,0,0,0" VerticalOptions="FillAndExpand">
-                    <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0"/> 
-                </ContentView>
-            </StackLayout>
-        </StackLayout>-->
+
         <Image x:Name="cliniSafeImage" AutomationId="CliniSafeImageLoginAutomationId" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0"/>
 
         <Label x:Name="authenticationLabel" AutomationId="authenticationLabelAutomationId"  Text="{Binding Authenticate, Mode=OneWay}" HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand" Margin="20,40,20,40" />
 
-        <!--<Entry x:Name="usernameEntry" AutomationId="usernameEntryAutomationId" Placeholder="Username" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
-                   Text="{Binding Username, Mode=TwoWay}"></Entry>-->
-
         <telerikInput:RadEntry x:Name="usernameEntry" AutomationId="usernameEntryAutomationId" WatermarkText="Username" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
                    Text="{Binding Username, Mode=TwoWay}"/>
 
-
-
-
-
-        <!--<Entry x:Name="passwordEntry" AutomationId="passwordEntryAutomationId" Placeholder="Password" IsPassword="True" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
-                   Text="{Binding Password, Mode=TwoWay}"></Entry>-->
-
-
         <telerikInput:RadEntry x:Name="passwordEntry" AutomationId="passwordEntryAutomationId" WatermarkText="Password" IsPassword="True" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
                    Text="{Binding Password, Mode=TwoWay}"/>
-        
-        
         
         <telerikInput:RadButton x:Name="authenticateButton" AutomationId="authenticateButtonAutomationId" Text="Login" VerticalOptions="CenterAndExpand" Command="{Binding LoginCommand}" 
                     CommandParameter="{Binding AuthHeader}" Margin="40,10,200,100"
