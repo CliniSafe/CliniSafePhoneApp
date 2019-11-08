@@ -61,7 +61,9 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telerik.Xamarin.Android.Chart">
+    
+    
+    <!--<Reference Include="Telerik.Xamarin.Android.Chart">
       <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\Android\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Common">
@@ -117,7 +119,72 @@
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
       <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\Android\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>-->
+
+
+    <Reference Include="Telerik.Xamarin.Android.Chart">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Common">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Data">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Gauges">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Gauges.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Input">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.List">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.List.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Primitives">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.Input.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.PdfViewer">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.PdfViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    
+    
+    
+    
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Threading.Tasks">
@@ -161,6 +228,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Packages\Telerik.XamarinForms.Barcode.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.Chart.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.Common.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.ConversationalUI.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.DataControls.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.DataGrid.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.DataVisualization.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.DataVisualization.dll.config" />
+    <None Include="Packages\Telerik.XamarinForms.ImageEditor.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.Input.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.Input.dll.config" />
+    <None Include="Packages\Telerik.XamarinForms.Map.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.PdfViewer.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.Primitives.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.Primitives.dll.config" />
+    <None Include="Packages\Telerik.XamarinForms.SkiaSharp.deps.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Web References\DevTestPhoneAppService\GetTrialDetailsOutput.datasource">
@@ -311,6 +394,51 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_launcher_foreground.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Packages\Telerik.Documents.Core.dll" />
+    <Content Include="Packages\Telerik.Documents.Fixed.dll" />
+    <Content Include="Packages\Telerik.Documents.SpreadsheetStreaming.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.Chart.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.Common.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.Data.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.Gauges.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.Input.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.List.dll" />
+    <Content Include="Packages\Telerik.Xamarin.Android.Primitives.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Barcode.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Barcode.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.Chart.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Chart.xml" />
+    <Content Include="Packages\Telerik.XamarinForms.Common.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Common.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.xml" />
+    <Content Include="Packages\Telerik.XamarinForms.DataControls.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.DataControls.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.DataGrid.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.DataGrid.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.DataVisualization.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.DataVisualization.xml" />
+    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.dll.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.xml" />
+    <Content Include="Packages\Telerik.XamarinForms.Input.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Input.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.Map.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Map.xml" />
+    <Content Include="Packages\Telerik.XamarinForms.PdfViewer.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.PdfViewer.xml" />
+    <Content Include="Packages\Telerik.XamarinForms.Primitives.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.Primitives.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.XML" />
+    <Content Include="Packages\Telerik.Zip.dll" />
+    <Content Include="Packages\Xamarin.Forms.Core.pdb" />
+    <Content Include="Packages\Xamarin.Forms.Platform.Android.pdb" />
+    <Content Include="Packages\Xamarin.Forms.Xaml.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

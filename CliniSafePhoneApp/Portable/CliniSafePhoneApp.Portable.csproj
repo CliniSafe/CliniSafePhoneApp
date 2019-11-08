@@ -32,6 +32,58 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Telerik.XamarinForms.Chart">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Common">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataControls">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.DataControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataGrid">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Barcode">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ConversationalUI">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.DataVisualization">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Input">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Fixed">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.Documents.Fixed.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.Core">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.PdfViewer">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.PdfViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.ImageEditor">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Map">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.Primitives">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.XamarinForms.SkiaSharp">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Documents.SpreadsheetStreaming">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.Documents.SpreadsheetStreaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Zip">
+      <HintPath>..\CliniSafePhoneApp\Portable\Packages\Telerik.Zip.dll</HintPath>
+    </Reference>
+    
+    <!--<Reference Include="Telerik.XamarinForms.Chart">
       <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\Portable\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Common">
@@ -75,7 +127,10 @@
     </Reference>
     <Reference Include="Telerik.Zip">
       <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\Portable\Telerik.Zip.dll</HintPath>
-    </Reference>
+    </Reference>-->
+    
+    
+    
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
