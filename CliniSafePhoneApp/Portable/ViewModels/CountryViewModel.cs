@@ -136,6 +136,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             NavigateToFindDrugsCommand = new NavigateToFindDrugsCommand(this);
             NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
 
+     
+
             //Need to fix countries
             GetCountriesForProjectForMonitorUser();
         }
@@ -222,7 +224,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             authHeader = AuthHeader.GetAuthHeader();
 
 
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries);
+           // _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries, null, null, _projectUser);
         }
 
 

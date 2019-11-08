@@ -19,7 +19,18 @@
           "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
-          "Xamarin.Forms.DataGrid": "3.1.0"
+          "Xamarin.Forms.DataGrid": "3.1.0",
+          "Telerik.Documents.Core": "2019.2.612.20",
+          "Telerik.Documents.Fixed": "2019.2.612.20",
+          "Telerik.Documents.SpreadsheetStreaming": "2019.2.612.20",
+          "Telerik.XamarinForms.Barcode": "2019.2.802.410",
+          "Telerik.XamarinForms.Chart": "2019.2.802.410",
+          "Telerik.XamarinForms.ConversationalUI": "2019.2.802.410",
+          "Telerik.XamarinForms.DataVisualization": "2019.2.802.410",
+          "Telerik.XamarinForms.ImageEditor": "2019.2.802.410",
+          "Telerik.XamarinForms.Map": "2019.2.802.410",
+          "Telerik.XamarinForms.PdfViewer": "2019.2.802.410",
+          "Telerik.Zip": "2019.2.612.20"
         },
         "runtime": {
           "CliniSafePhoneApp.Portable.dll": {}
@@ -370,6 +381,94 @@
             "fileVersion": "3.1.0.0"
           }
         }
+      },
+      "Telerik.Documents.Core/2019.2.612.20": {
+        "runtime": {
+          "Telerik.Documents.Core.dll": {
+            "assemblyVersion": "2019.2.612.20",
+            "fileVersion": "2019.2.612.20"
+          }
+        }
+      },
+      "Telerik.Documents.Fixed/2019.2.612.20": {
+        "runtime": {
+          "Telerik.Documents.Fixed.dll": {
+            "assemblyVersion": "2019.2.612.20",
+            "fileVersion": "2019.2.612.20"
+          }
+        }
+      },
+      "Telerik.Documents.SpreadsheetStreaming/2019.2.612.20": {
+        "runtime": {
+          "Telerik.Documents.SpreadsheetStreaming.dll": {
+            "assemblyVersion": "2019.2.612.20",
+            "fileVersion": "2019.2.612.20"
+          }
+        }
+      },
+      "Telerik.XamarinForms.Barcode/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.Barcode.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.Chart/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.Chart.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.ConversationalUI/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.ConversationalUI.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.DataVisualization/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.DataVisualization.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.ImageEditor/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.ImageEditor.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.Map/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.Map.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.PdfViewer/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.PdfViewer.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.Zip/2019.2.612.20": {
+        "runtime": {
+          "Telerik.Zip.dll": {
+            "assemblyVersion": "2019.2.612.20",
+            "fileVersion": "2019.2.612.20"
+          }
+        }
       }
     }
   },
@@ -609,6 +708,61 @@
       "sha512": "sha512-CgeU+xc00bygM0PURoi63LoeOXYgLXFp12F4aLI4CgPipepWDPa8TOSXz4Bl7RC1IwdVyqZcSnNsZ9Q727qvsQ==",
       "path": "xamarin.forms.datagrid/3.1.0",
       "hashPath": "xamarin.forms.datagrid.3.1.0.nupkg.sha512"
+    },
+    "Telerik.Documents.Core/2019.2.612.20": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Documents.Fixed/2019.2.612.20": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Documents.SpreadsheetStreaming/2019.2.612.20": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.Barcode/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.Chart/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.ConversationalUI/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.DataVisualization/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.ImageEditor/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.Map/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.PdfViewer/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.Zip/2019.2.612.20": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -205,6 +205,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             //NavigateToLoginCommand = new NavigateToLoginCommand(this);
 
 
+            ProjectUserList = new List<ProjectUser>();
+
+
             NavigateToProjectDetailCommand = new NavigateToProjectDetailCommand(this);
             _navigationService = new NavigationService();
 

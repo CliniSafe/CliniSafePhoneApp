@@ -52,7 +52,9 @@ namespace CliniSafePhoneApp.Android
             devTestPhoneAppService.GetProjectsForUserCompleted += PhoneApp_ProjectsForUserCompleted;
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
 
-            //CountriesForProjectForMonitorUserListResult = new List<Country>();
+            ProjectForUserListResult = new List<ProjectUser>();
+            CountriesForProjectForMonitorUserListResult = new List<Country>();
+
         }
 
 
@@ -67,25 +69,45 @@ namespace CliniSafePhoneApp.Android
 
         public static string xmlCountriesForProjectForMonitorUserResult;
 
-        public static List<ProjectUser> projectForUserListResult { get; set; }
+        //public static List<ProjectUser> projectForUserListResult { get; set; }
+
+
+
+
+        private List<ProjectUser> projectForUserListResult;
+
+        public List<ProjectUser> ProjectForUserListResult
+        {
+            get { return projectForUserListResult; }
+            set { projectForUserListResult = value;
+                OnPropertyChanged("ProjectForUserListResult");
+            }
+        }
+
+
+
+
+
+
+
 
         public int Project_ID;
 
-        public static List<Country> CountriesForProjectForMonitorUserListResult { get; set; }
+        //public static List<Country> CountriesForProjectForMonitorUserListResult { get; set; }
 
 
 
-        //private List<Country> countriesForProjectForMonitorUserListResult;
+        private List<Country> countriesForProjectForMonitorUserListResult;
 
-        //public List<Country> CountriesForProjectForMonitorUserListResult
-        //{
-        //    get { return countriesForProjectForMonitorUserListResult; }
-        //    set
-        //    {
-        //        countriesForProjectForMonitorUserListResult = value;
-        //        OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
-        //    }
-        //}
+        public List<Country> CountriesForProjectForMonitorUserListResult
+        {
+            get { return countriesForProjectForMonitorUserListResult; }
+            set
+            {
+                countriesForProjectForMonitorUserListResult = value;
+                OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
+            }
+        }
 
 
 
@@ -170,7 +192,7 @@ namespace CliniSafePhoneApp.Android
 
                 XDocument xDocumentCountriesForProjectForMonitorUser = new XDocument();
 
-                //Decode xml(xmlCountryForProjectResult) into a list and assign to countriesForUserListResult model
+                //Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
                 if (!string.IsNullOrEmpty(xmlCountriesForProjectForMonitorUserResult))
                 {
                     xDocumentCountriesForProjectForMonitorUser = XDocument.Parse(xmlCountriesForProjectForMonitorUserResult);
@@ -198,7 +220,9 @@ namespace CliniSafePhoneApp.Android
 
                     //List<Country> countyList = new List<Country>();
                     //countriesForProjectForMonitorUserListResult = new List<Country>();
-                    Country country = new Country();
+
+
+                    //Country country = new Country();
 
 
 
@@ -252,7 +276,7 @@ namespace CliniSafePhoneApp.Android
 
                     //-----------------------------------------------------------------------------------------------------------------------
 
-                    //countriesForProjectForMonitorUserListResult = xDocumentCountriesForProjectForMonitorUser.Descendants("CountriesForProjectForMonitorUser").Select(d =>
+                    //CountriesForProjectForMonitorUserListResult = xDocumentCountriesForProjectForMonitorUser.Descendants("CountriesForProjectForMonitorUser").Select(d =>
                     //new Country
                     //{
                     //    ID = Convert.ToInt32(d.Element("ID").Value),
@@ -331,7 +355,7 @@ namespace CliniSafePhoneApp.Android
 
 
 
-                    projectForUserListResult = (from d in xDocumentProjectForUser.Root.Elements("ProjectsForUser")
+                    ProjectForUserListResult = (from d in xDocumentProjectForUser.Root.Elements("ProjectsForUser")
                                                 select new ProjectUser
                                                 {
                                                     ID = Convert.ToInt32(d.Element("ID").Value),
