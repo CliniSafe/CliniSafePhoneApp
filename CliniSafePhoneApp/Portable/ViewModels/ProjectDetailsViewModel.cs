@@ -10,6 +10,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
+        /// <summary>
+        /// Declare a private member for NavigateToPreviousPageCommand.
+        /// </summary>
+        public NavigateToPreviousPageCommand NavigateToPreviousPageCommand { get; set; }
+
 
         private ProjectUser projectUser;
 
@@ -124,11 +129,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             };
 
             NavigateToChoiceCommand = new NavigateToChoiceCommand(this);
-
-            GetProjectDetails(projectUser);
+            NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
+            SetProjectDetails(projectUser);
         }
 
-        public void GetProjectDetails(ProjectUser projectUser)
+        /// <summary>
+        /// Sets the Project Details for Project Properties
+        /// </summary>
+        /// <param name="projectUser"></param>
+        public void SetProjectDetails(ProjectUser projectUser)
         {
             this.ProjectCode = projectUser.ProjectCode;
             this.Sponsor = projectUser.Sponsor;
@@ -136,22 +145,61 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             this.ProjectTitleFull = projectUser.ProjectTitleFull;
         }
 
+        /// <summary>
+        /// Navigate to the right page based on the user role on project.
+        /// </summary>
+        /// <param name="projectUser"></param>
         public void NavigateToMonitorORResearchSiteORChoice(ProjectUser projectUser)
         {
             //if (DrugRuleBuilder) Navigate To ErrorPage
             if (projectUser.DrugRuleBuilderDashboard == "View") //Auth
+            {
+                // Remove Page Enum from the MenuPages List
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Error))
+                    RootPage.MenuPages.Remove((int)MenuItemType.Error);
+
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, "The User is an authorised Drug Rule Builder.");
+            }
             else if (projectUser.WizardDashboard == "View") //Auth
+            {
+                // Remove Page Enum from the MenuPages List
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Countries))
+                    RootPage.MenuPages.Remove((int)MenuItemType.Countries);
+
                 //Monitor Navigate To CountriesPage (Project_ID) GetCountriesForProjectForMonitorUser
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries, null, null, projectUser);
+            }
             //else if (Investigator)
             else if (projectUser.InvestigatorDashboard == "View") //Auth
+            {
+                // Remove Page Enum from the MenuPages List
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.ResearchSites))
+                    RootPage.MenuPages.Remove((int)MenuItemType.ResearchSites);
+
                 //Investigator Navigate To ResearchSitesPage (Project_ID) GetResearchSitesForProjectForInvestigtorUser
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.ResearchSites, null, null, projectUser);
-
+            }
             else if (projectUser.InvestigatorDashboard == "Auth" && projectUser.WizardDashboard == "Auth")//Auth 
+            {
+                // Remove Page Enum from the MenuPages List
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Choice))
+                    RootPage.MenuPages.Remove((int)MenuItemType.Choice);
+
                 //(Monitor AND Investigator) Navigate To ChoicePage (Project_ID)
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.Choice, null, null, projectUser);
+            }
+        }
+
+        /// <summary>
+        /// Returns the user to the previous page.
+        /// </summary>
+        public void NavigateBackToPreviousPage()
+        {
+            // Remove Page Enum from the MenuPages List
+            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Project))
+                RootPage.MenuPages.Remove((int)MenuItemType.Project);
+
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, null, null, null);
         }
     }
 }

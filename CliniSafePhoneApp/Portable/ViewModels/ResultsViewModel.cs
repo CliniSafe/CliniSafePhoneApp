@@ -11,6 +11,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
         public NavigateToProjectCommand NavigateToProjectCommand { get; set; }
+
         public NavigateToMainCommand NavigateToMainCommand { get; set; }
 
         /// <summary>
@@ -27,11 +28,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public void NavigateToProject()
         {
+            // Remove Page Enum from the MenuPages List
+            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Project))
+                RootPage.MenuPages.Remove((int)MenuItemType.Project);
 
-            // _ = new NavigationPage(new ProjectsPage("Osei-AgyemangA", "Something4$"));
-
-            // Navigate to the Project page
-            ///_ = RootPage.NavigateFromMenu((int)MenuItemType.Project, null, null, null);
 
             // Navigate to the Project page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, "", "", null);

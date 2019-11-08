@@ -1,16 +1,26 @@
 ﻿using CliniSafePhoneApp.Portable.ViewModels.Commands;
+using CliniSafePhoneApp.Portable.Views;
 using System.ComponentModel;
+using System.Linq;
+using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
     public class TempTestViewModel : INotifyPropertyChanged
     {
+        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
         /// <summary>
         /// Declares private members.
         /// </summary>
         public HelloCommand HelloCommand { get; set; }
         public EchoCommand EchoCommand { get; set; }
         public HelloErrorCommand HelloErrorCommand { get; set; }
+
+        /// <summary>
+        /// Declare a private member for NavigateToPreviousPageCommand.
+        /// </summary>
+        public NavigateToPreviousPageCommand NavigateToPreviousPageCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -28,6 +38,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             HelloCommand = new HelloCommand(this);
             EchoCommand = new EchoCommand(this);
             HelloErrorCommand = new HelloErrorCommand(this);
+            NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
         }
 
 
@@ -89,6 +100,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public async void EchoAsync()
         {
             TempTest = await App.PhoneAppSoapService.EchoAsync(EchoInput);
+        }
+
+        /// <summary>
+        /// Returns the user to the previous page.
+        /// </summary>
+        public void NavigateBackToPreviousPage()
+        {
+            _ = RootPage.NavigateFromMenu((RootPage.MenuPages.Keys.LastOrDefault() - 1), null, null, null);
         }
     }
 }

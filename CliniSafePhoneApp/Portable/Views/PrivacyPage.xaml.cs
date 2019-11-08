@@ -1,7 +1,9 @@
 ﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+
 
 
 namespace CliniSafePhoneApp.Portable.Views
@@ -11,7 +13,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define PrivacyViewModel.
         /// </summary>
-        //PrivacyViewModel PrivacyVM;
+        PrivacyViewModel PrivacyVM;
 
         public ICommand TapCommand => new Command<string>(OpenBrowser);
 
@@ -23,11 +25,11 @@ namespace CliniSafePhoneApp.Portable.Views
             //Set the Image Source
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
-            ////Initialise PrivacyViewModel.
-            //PrivacyVM = new PrivacyViewModel();
+            ///Initialise PrivacyViewModel.
+            PrivacyVM = new PrivacyViewModel();
 
-            //// Set the Page Binding Context to the PrivacyViewModel(PrivacyVM)
-            //BindingContext = PrivacyVM;
+            /// Set the Page Binding Context to the PrivacyViewModel(PrivacyVM)
+            BindingContext = PrivacyVM;
         }
 
         [Obsolete]

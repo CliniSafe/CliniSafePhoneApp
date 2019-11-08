@@ -247,7 +247,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public NavigateForwardCommand NavigateForwardCommand { get; set; }
 
 
-
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
@@ -260,10 +259,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             _navigationService = new NavigationService();
 
             LeftMenuViewModel = new LeftMenuViewModel();
-            
-
         }
-            
 
 
         public void NavigateForward()
@@ -278,39 +274,37 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <returns></returns>
         public async void AuthenticateAsync()
         {
-            Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
 
-
-            authHeader = AuthHeader.GetAuthHeader();
-
-            if (authHeader.HasIssues)
+            if (!string.IsNullOrEmpty(Authenticate) && Authenticate == "Authenticated")
             {
-                if (authHeader.MaintenanceMode)
-                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
-                else if (authHeader.CPAVersionExact)
-                    if (authHeader.CPANeedsUpdating)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                // Navigate to the project page
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
             }
             else
             {
-                
-                    // Navigate to the project page
-                    _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
-                   
-                    LeftMenuViewModel = new LeftMenuViewModel();
+                Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
 
 
-                    //_= new LeftMenuViewModel().
-                    //{
-                    //    HomeMenuItems = new System.Collections.Generic.List<HomeMenuItem>() { new HomeMenuItem() { Id = MenuItemType.LogOut, Title = MenuItemType.LogOut.ToString() } }
-                    //};
+                authHeader = AuthHeader.GetAuthHeader();
 
+                if (authHeader.HasIssues)
+                {
+                    if (authHeader.MaintenanceMode)
+                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    else if (authHeader.CPAVersionExact)
+                        if (authHeader.CPANeedsUpdating)
+                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                }
+                else
+                {
+                    if (Authenticate == "Authenticated")
+                    {
+                        // Navigate to the project page
+                        _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+                    }
+                }
 
-                    //{HomeMenuItems.Add(new HomeMenuItem() { Id = MenuItemType.LogOut, Title = MenuItemType.LogOut.ToString() }));
-                
             }
-
-
 
 
 

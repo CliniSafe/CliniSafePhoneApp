@@ -31,5 +31,10 @@ namespace CliniSafePhoneApp.Portable.Data
         {
             return soapService.GetProjectsForUserListAysnc(authHeader);
         }
+
+        public Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
+        {
+            return soapService.GetCountriesForProjectForMonitorUserListAsync(projectUser);
+        }
     }
 }

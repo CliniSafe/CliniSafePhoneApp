@@ -5,14 +5,18 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="CliniSafePhoneApp.Portable.Views.AboutPage">
 
-    <StackLayout x:Name="AboutContainerStackLayout">
-        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout x:Name="AboutContainerStackLayout" AutomationId="AboutContainerStackLayoutAutomationId">
+        <Image x:Name="cliniSafeImage" AutomationId="cliniSafeImageAutomationId" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Label x:Name="AboutLabel" Margin="40,10"
+        <Label x:Name="AboutLabel" AutomationId="AboutLabelAutmationId" Margin="40,10"
            HorizontalOptions="Start" Text="CliniSafe Mobile App Version Number = 1.0.  CliniSafe Website Version Number = 2.123.401."
            VerticalOptions="CenterAndExpand" />
 
-        <telerikInput:RadButton x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
+        <telerikInput:RadButton x:Name="HomeNavigationButton" AutomationId="HomeNavigationButtonAutomationId" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
                 Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

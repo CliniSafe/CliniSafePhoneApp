@@ -5,6 +5,10 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="CliniSafePhoneApp.Portable.Views.ProjectDetailsPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
     <StackLayout x:Name="ProjectDetailsContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0" />
 

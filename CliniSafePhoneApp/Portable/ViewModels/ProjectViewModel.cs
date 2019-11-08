@@ -242,6 +242,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 selectedProjectUser = value;
+                new ProjectUser()
+                {
+                    ProjectCode = SelectedProjectUser.ProjectCode,
+                    ProjectTitleShort = SelectedProjectUser.ProjectTitleShort
+                };
                 OnPropertyChanged("SelectedProjectUser");
             }
         }
@@ -285,8 +290,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public void NavigateToProjectDetails(ProjectUser projectUser)
         {
+
+
+            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.ProjectDetails))
+                RootPage.MenuPages.Remove((int)MenuItemType.ProjectDetails);
+
             // Navigate to the project page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.ProjectDetails, null, null, projectUser);
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.ProjectDetails, null, null, selectedProjectUser);
         }
 
         /// <summary>
@@ -300,8 +310,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             authHeader = AuthHeader.GetAuthHeader();
 
 
-            LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-            leftMenuViewModel.AddMenuItems(authHeader.Authenticated);
+            //LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
+            //leftMenuViewModel.AddMenuItems(authHeader.Authenticated);
 
 
 
@@ -310,6 +320,31 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
+            //return ProjectUserList;
+            if (ProjectUserList != null)
+            {
+                if (authHeader != null)
+                {
+                    LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
+                    leftMenuViewModel.UpdateHomeMenuItems(authHeader.Authenticated);
+                }
+
+                selectedProjectUser = null;
+
+                // Navigate to the project page
+
+                //RootPage.MainVM.MenuPages.Add((int)MenuItemType.Project, new NavigationPage(new ProjectsPage(authHeader.Username, authHeader.Password) { Title = MenuItemType.Project.ToString() }));
+
+
+
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.Project);
+
+
+                //MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
+
+                //RootPage.MainVM.MainPage.AddPages((int)MenuItemType.Project);
+
+            }
 
 
 

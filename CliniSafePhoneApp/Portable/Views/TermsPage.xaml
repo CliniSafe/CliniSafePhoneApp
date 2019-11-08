@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              x:Class="CliniSafePhoneApp.Portable.Views.TermsPage" Title="Terms" NavigationPage.HasBackButton="True" >
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <StackLayout x:Name="TermsContainerStackLayout">
         <StackLayout BackgroundColor="WhiteSmoke" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" >
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Center">

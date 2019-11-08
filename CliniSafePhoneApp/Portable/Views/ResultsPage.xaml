@@ -24,10 +24,6 @@
                 <ColumnDefinition Width="49.33*" />
             </Grid.ColumnDefinitions>
             
-            <!--Clicked="AnotherNavigationButton_Clicked"
-            Clicked="CloseNavigationButton_Clicked" 
-            -->
-
             <telerikInput:RadButton x:Name="AnotherNavigationButton" Text="Another" Margin="40,10,25,100" HorizontalOptions="FillAndExpand" Command="{Binding NavigateToProjectCommand}" Grid.Column="0"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
             <telerikInput:RadButton x:Name="CloseNavigationButton" Text="Close" HorizontalOptions="FillAndExpand"  Margin="25,10,40,100" Grid.Column="2" Command="{Binding NavigateToMainCommand}" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>

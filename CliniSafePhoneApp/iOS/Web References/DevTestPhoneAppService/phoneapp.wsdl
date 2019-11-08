@@ -46,6 +46,12 @@
       <s:complexType name="HandshakeHeader">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="CPAVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasIssues" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaintenanceMode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPAVersionExact" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPANeedsUpdating" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
         </s:sequence>
         <s:anyAttribute />
       </s:complexType>
@@ -65,6 +71,17 @@
           <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="CPAVersion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasIssues" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaintenanceMode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPAVersionExact" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CPANeedsUpdating" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Authenticated" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsernamePasswordValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserTypeValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserMobileTrained" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrialActive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
         </s:sequence>
         <s:anyAttribute />
       </s:complexType>
@@ -382,47 +399,47 @@
       <wsdl:output message="tns:HandshakeSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the Authenticate method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the Authenticate method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:AuthenticateSoapIn" />
       <wsdl:output message="tns:AuthenticateSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetProjectsForUser">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the GetProjectsForUser method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the GetProjectsForUser method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:GetProjectsForUserSoapIn" />
       <wsdl:output message="tns:GetProjectsForUserSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetCountriesForProjectForMonitorUser">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the GetCountriesForProjectForMonitorUser method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the GetCountriesForProjectForMonitorUser method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:GetCountriesForProjectForMonitorUserSoapIn" />
       <wsdl:output message="tns:GetCountriesForProjectForMonitorUserSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetResearchSitesForProjectForInvestigtorUser">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the GetCountriesForProjectForMonitor method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the GetResearchSitesForProjectForInvestigtorUser method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:GetResearchSitesForProjectForInvestigtorUserSoapIn" />
       <wsdl:output message="tns:GetResearchSitesForProjectForInvestigtorUserSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CheckTrialStatus">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the CheckTrialStatus method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the CheckTrialStatus method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:CheckTrialStatusSoapIn" />
       <wsdl:output message="tns:CheckTrialStatusSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetTrailDetails">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the GetTrailDetails method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the GetTrailDetails method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:GetTrailDetailsSoapIn" />
       <wsdl:output message="tns:GetTrailDetailsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CheckGenericDrugName">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the CheckGenericDrugName method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the CheckGenericDrugName method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:CheckGenericDrugNameSoapIn" />
       <wsdl:output message="tns:CheckGenericDrugNameSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="FindGenericDrugName">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the FindGenericDrugName method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the FindGenericDrugName method Of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:FindGenericDrugNameSoapIn" />
       <wsdl:output message="tns:FindGenericDrugNameSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CheckGenericDrugNames">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is the CheckGenericDrugNames method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Is the CheckGenericDrugNames method of the CliniSafe Phone App Web Service from CliniSafe.</wsdl:documentation>
       <wsdl:input message="tns:CheckGenericDrugNamesSoapIn" />
       <wsdl:output message="tns:CheckGenericDrugNamesSoapOut" />
     </wsdl:operation>
@@ -474,6 +491,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:HandshakeHandshakeHeader" part="HandshakeHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
@@ -484,6 +502,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:AuthenticateAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetProjectsForUser">
@@ -494,6 +513,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:GetProjectsForUserAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetCountriesForProjectForMonitorUser">
@@ -504,6 +524,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:GetCountriesForProjectForMonitorUserAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetResearchSitesForProjectForInvestigtorUser">
@@ -514,6 +535,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:GetResearchSitesForProjectForInvestigtorUserAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CheckTrialStatus">
@@ -524,6 +546,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:CheckTrialStatusAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetTrailDetails">
@@ -534,6 +557,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:GetTrailDetailsAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CheckGenericDrugName">
@@ -544,6 +568,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:CheckGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindGenericDrugName">
@@ -554,6 +579,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:FindGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CheckGenericDrugNames">
@@ -564,6 +590,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:CheckGenericDrugNamesAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetQuestions">
@@ -574,6 +601,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:GetQuestionsAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ValidateDrugs">
@@ -584,6 +612,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
+        <soap:header message="tns:ValidateDrugsAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
@@ -624,6 +653,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:HandshakeHandshakeHeader" part="HandshakeHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Authenticate">
@@ -634,6 +664,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:AuthenticateAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetProjectsForUser">
@@ -644,6 +675,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetProjectsForUserAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetCountriesForProjectForMonitorUser">
@@ -654,6 +686,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetCountriesForProjectForMonitorUserAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetResearchSitesForProjectForInvestigtorUser">
@@ -664,6 +697,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetResearchSitesForProjectForInvestigtorUserAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CheckTrialStatus">
@@ -674,6 +708,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:CheckTrialStatusAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetTrailDetails">
@@ -684,6 +719,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetTrailDetailsAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CheckGenericDrugName">
@@ -694,6 +730,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:CheckGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="FindGenericDrugName">
@@ -704,6 +741,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:FindGenericDrugNameAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CheckGenericDrugNames">
@@ -714,6 +752,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:CheckGenericDrugNamesAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetQuestions">
@@ -724,6 +763,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:GetQuestionsAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ValidateDrugs">
@@ -734,6 +774,7 @@
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDrugsAuthHeader" part="AuthHeader" use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>

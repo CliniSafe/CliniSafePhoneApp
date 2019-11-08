@@ -13,7 +13,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define CountriesViewModel.
         /// </summary>
-        CountriesViewModel CountriesVM;
+        private readonly CountryViewModel CountryVM;
 
 
         /// <summary>
@@ -26,11 +26,11 @@ namespace CliniSafePhoneApp.Portable.Views
             //Set the Image Source
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
-            // Initialise AboutViewModel.
-            CountriesVM = new CountriesViewModel(projectUser);
+            // Initialise CountryViewModel.
+            CountryVM = new CountryViewModel(projectUser);
 
-            // Set the Page Binding Context to the CountriesViewModel(CountriesVM)
-            BindingContext = CountriesVM;
+            // Set the Page Binding Context to the CountriesViewModel(CountryVM)
+            BindingContext = CountryVM;
         }
 
         private void NextNavigationButton_Clicked(object sender, System.EventArgs e)

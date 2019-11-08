@@ -31,6 +31,7 @@ namespace CliniSafePhoneApp.iOS
         TaskCompletionSource<bool> helloErrorRequestComplete = null;
         TaskCompletionSource<bool> echoRequestComplete = null;
         TaskCompletionSource<bool> projectsForUserComplete = null;
+        TaskCompletionSource<bool> countriesForProjectForMonitorUserComplete = null;
 
 
         /// <summary>
@@ -45,6 +46,9 @@ namespace CliniSafePhoneApp.iOS
             devTestPhoneAppService.HelloErrorCompleted += PhoneApp_HelloErrorCompleted;
             devTestPhoneAppService.EchoCompleted += PhonaApp_EchoComplted;
             devTestPhoneAppService.GetProjectsForUserCompleted += PhoneApp_ProjectsForUserCompleted;
+            devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
+
+
         }
 
         public string helloWorldResult;
@@ -57,7 +61,13 @@ namespace CliniSafePhoneApp.iOS
 
         public static string xmlProjectForUserResult;
 
+        public static string xmlCountryForProjectResult;
+
         public static List<ProjectUser> projectForUserListResult { get; set; }
+
+        public static int Project_ID;
+
+        public static List<Country> countriesForUserListResult { get; set; }
 
         public string echoResult;
 
@@ -553,6 +563,7 @@ namespace CliniSafePhoneApp.iOS
 
 
 
+
         private void PhoneApp_ProjectsForUserCompleted(object sender, GetProjectsForUserCompletedEventArgs e)
         {
             try
@@ -566,10 +577,9 @@ namespace CliniSafePhoneApp.iOS
                     else
                         projectsForUserComplete?.TrySetException(e.Error);
 
+                devTestPhoneAppService.GetProjectsForUserAsync();
+                xmlProjectForUserResult = e.Result;
                 projectsForUserComplete = projectsForUserComplete ?? new TaskCompletionSource<bool>();
-
-                devTestPhoneAppService.GetProjectsForUser();
-                projectForUserResult = e.Result;
 
                 XDocument xDocumentProjectForUser = new XDocument();
 
@@ -602,6 +612,7 @@ namespace CliniSafePhoneApp.iOS
                         EndUserDashboard = d.Element("EndUserDashboard").Value,
                         WizardDashboard = d.Element("WizardDashboard").Value,
                         InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
+
                     }).ToList();
                 }
 
@@ -622,7 +633,6 @@ namespace CliniSafePhoneApp.iOS
         }
 
 
-
         public async Task<List<ProjectUser>> GetProjectsForUserListAysnc(Portable.Models.AuthHeader authHeader)
         {
             projectsForUserComplete = new TaskCompletionSource<bool>();
@@ -639,6 +649,97 @@ namespace CliniSafePhoneApp.iOS
             return projectForUserListResult;
         }
 
+
+
+
+
+
+        private void PhoneApp_CountriesForProjectForMonitorUserCompleted(object sender, GetCountriesForProjectForMonitorUserCompletedEventArgs e)
+        {
+            try
+            {
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+                    else
+                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+
+                //xmlCountryForProjectListResult =
+                devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
+                xmlCountryForProjectResult = e.Result;
+                countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
+
+                XDocument xDocumentCountryForProject = new XDocument();
+
+                //Decode xml(xmlCountryForProjectListResult) into a list and assign to countriesForUserListResult model
+                if (!string.IsNullOrEmpty(xmlCountryForProjectResult))
+                {
+                    xDocumentCountryForProject = XDocument.Parse(xmlCountryForProjectResult);
+                }
+
+                if (!string.IsNullOrEmpty(xmlCountryForProjectResult) && xDocumentCountryForProject.Root.Elements().Any())
+                {
+                    countriesForUserListResult = xDocumentCountryForProject.Descendants("CountriesForProjectForMonitorUser").Select(d =>
+                    new Country
+                    {
+                        ID = Convert.ToInt32(d.Element("ID").Value),
+                        DisplayTrialCode = d.Element("DisplayTrialCode").Value,
+                        TrialCode = d.Element("TrialCode").Value,
+                        EnglishCountryName = d.Element("EnglishCountryName").Value,
+                        EnglishLanguageName = d.Element("EnglishLanguageName").Value,
+                        TrialStatus_ID = Convert.ToInt32(d.Element("TrialStatus_ID").Value),
+                        TrialTitleFull = d.Element("TrialTitleFull").Value,
+                        TrialTitleShort = d.Element("TrialTitleShort").Value,
+                        Description = d.Element("Description").Value,
+                        TrialDetails = d.Element("TrialDetails").Value,
+                        Country_ID = Convert.ToInt32(d.Element("Country_ID").Value)
+
+                    }).ToList();
+                }
+
+                countriesForProjectForMonitorUserComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+
+        }
+
+
+
+
+        public async Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(Portable.Models.ProjectUser projectUser)
+        {
+            countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
+
+            //DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
+            //{
+            //    Username = authHeader.Username,
+            //    Password = authHeader.Password,
+            //    CPAVersion = authHeader.CPAVersion
+            //};
+
+            //devTestPhoneAppService.AuthHeaderValue = authHeader1;
+
+            if (projectUser != null)
+                Project_ID = projectUser.ID;
+
+            devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
+            await countriesForProjectForMonitorUserComplete.Task;
+            return countriesForUserListResult;
+        }
 
 
 

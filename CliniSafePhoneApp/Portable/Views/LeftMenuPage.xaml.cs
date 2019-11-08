@@ -33,8 +33,13 @@ namespace CliniSafePhoneApp.Portable.Views
             //Initialise LeftMenuViewModel.
             LeftMenuVM = new LeftMenuViewModel();
 
-            if(ListViewMenu.SelectedItem == null)
-                ListViewMenu.SelectedItem = LeftMenuVM.HomeMenuItems[0];
+            //ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems.Count > 0 ? LeftMenuVM.HomeMenuItems : null ;
+
+            //if (ListViewMenu.ItemsSource != null)
+            //{
+            //    if (ListViewMenu.SelectedItem == null)
+            //        ListViewMenu.SelectedItem = LeftMenuVM.HomeMenuItems[0];
+            //}
 
             // Set the Page Binding Context to the LeftMenuViewModel(LeftMenuVM)
             BindingContext = LeftMenuVM;
@@ -52,7 +57,6 @@ namespace CliniSafePhoneApp.Portable.Views
             //ListViewMenu.ItemsSource = LeftMenuVM.menuItems; //menuItems;
             //ListViewMenu.SelectedItem = LeftMenuVM.menuItems[0];
 
-
             ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems;
             ListViewMenu.SelectedItem = LeftMenuVM.HomeMenuItems[0];
 
@@ -66,5 +70,11 @@ namespace CliniSafePhoneApp.Portable.Views
             };
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            LeftMenuVM.UpdateHomeMenuItems(null);
+        }
     }
 }

@@ -77,8 +77,11 @@ W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\obj\iPhoneSimulator\Debug\CliniSafeP
 W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.exe
 W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.pdb
 W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Xamarin.SimplePing.iOS.dll
-W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\bin\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.exe.mdb
-W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\bin\iPhoneSimulator\Debug\CliniSafePhoneApp.Portable.dll.mdb
-W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\bin\iPhone\Debug\CliniSafePhoneApp.Portable.dll.mdb
 W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.DataGrid.dll
 W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\CliniSafePhoneApp.Portable.dll.mdb
+W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Chart.dll
+W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Telerik.XamarinForms.ConversationalUI.dll
+W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataVisualization.dll
+W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Telerik.XamarinForms.ImageEditor.dll
+W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Map.dll
+W:\Dev\PhoneApp\Trunk\CliniSafePhoneApp\iOS\bin\iPhoneSimulator\Debug\Telerik.XamarinForms.PdfViewer.dll

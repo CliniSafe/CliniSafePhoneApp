@@ -1,10 +1,21 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
+using CliniSafePhoneApp.Portable.ViewModels.Commands;
+using CliniSafePhoneApp.Portable.Views;
 using System.ComponentModel;
+using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
     public class ChoiceViewModel : INotifyPropertyChanged
     {
+        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
+        /// <summary>
+        /// Declare a private member for NavigateToPreviousPageCommand.
+        /// </summary>
+        public NavigateToPreviousPageCommand NavigateToPreviousPageCommand { get; set; }
+
+
         private ProjectUser projectUser;
 
         public ProjectUser ProjectUser
@@ -112,6 +123,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 WizardDashboard = projectUser.WizardDashboard
             };
 
+            NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
+
             GetProjectDetails(projectUser);
         }
 
@@ -122,6 +135,18 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             this.Sponsor = projectUser.Sponsor;
             this.ContractResearchOrganisation = projectUser.ContractResearchOrganisation;
             this.DropDownDesc = projectUser.DropDownDesc;
+        }
+
+        /// <summary>
+        /// Returns the user to the previous page.
+        /// </summary>
+        public void NavigateBackToPreviousPage()
+        {
+            // Remove Page Enum from the MenuPages List
+            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.ProjectDetails))
+                RootPage.MenuPages.Remove((int)MenuItemType.ProjectDetails);
+
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.ProjectDetails, null, null, null);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace CliniSafePhoneApp.Portable.Views
     [DesignTimeVisible(false)]
     public partial class MainPage : MasterDetailPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        public Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
 
         /// <summary>
@@ -38,21 +38,20 @@ namespace CliniSafePhoneApp.Portable.Views
 
 
 
-            //MasterBehavior = MasterBehavior.Popover;
+            MasterBehavior = MasterBehavior.Popover;
 
-            //MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
         }
 
 
         public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null)
         {
 
-            if(!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
                 Username = username;
                 Password = password;
             }
-
 
             if (!MenuPages.ContainsKey(id))
             {
@@ -80,7 +79,7 @@ namespace CliniSafePhoneApp.Portable.Views
                         MenuPages.Add(id, new NavigationPage(new LogOutPage() { Title = MenuItemType.LogOut.ToString() }));
                         break;
                     case (int)MenuItemType.Project:
-                        MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
+                        MenuPages.Add(id, new NavigationPage(new ProjectsPage(Username, Password) { Title = MenuItemType.Project.ToString() }));
                         break;
                     case (int)MenuItemType.ProjectDetails:
                         MenuPages.Add(id, new NavigationPage(new ProjectDetailsPage((ProjectUser)objectParameter) { Title = "Project Details" }));
@@ -114,25 +113,25 @@ namespace CliniSafePhoneApp.Portable.Views
                         break;
                 }
             }
-            else
-            {
-                if (MenuPages.ContainsValue(new NavigationPage(new LoginPage())))
-                {
-                    MenuPages.Remove(1);
-                };
 
 
-                switch(id)
-                {
-                    case (int)MenuItemType.Project:
-                        MenuPages.Add(id, new NavigationPage(new ProjectsPage(Username, Password) { Title = MenuItemType.Project.ToString() }));
-                        break;
-                }
+            AddPages(id);
 
-                // MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
-                //MenuPages.Add(id, new NavigationPage(new ProjectsPage(Username, Password) { Title = MenuItemType.Project.ToString() }));
-            }
+            //var newPage = MenuPages[id];
 
+            //if (newPage != null && Detail != newPage)
+            //{
+            //    Detail = newPage;
+
+            //    if (Device.RuntimePlatform == Device.Android)
+            //        await Task.Delay(100);
+
+            //    IsPresented = false;
+            //}
+        }
+
+        public async void AddPages(int id)
+        {
             var newPage = MenuPages[id];
 
             if (newPage != null && Detail != newPage)

@@ -2497,24 +2497,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andyc\\.nuget\\packages\\": {},
+    "C:\\Users\\aosei\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
+      "projectUniqueName": "W:\\Dev\\CliniSafePhoneApp-GIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
       "projectName": "CliniSafePhoneApp.iOS",
-      "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
-      "packagesPath": "C:\\Users\\andyc\\.nuget\\packages\\",
-      "outputPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\iOS\\obj\\",
+      "projectPath": "W:\\Dev\\CliniSafePhoneApp-GIT\\CliniSafePhoneApp\\iOS\\CliniSafePhoneApp.iOS.csproj",
+      "packagesPath": "C:\\Users\\aosei\\.nuget\\packages\\",
+      "outputPath": "W:\\Dev\\CliniSafePhoneApp-GIT\\CliniSafePhoneApp\\iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\andyc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aosei\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2529,8 +2529,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
-              "projectPath": "W:\\Dev\\CliniSafePhoneAppGIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj"
+            "W:\\Dev\\CliniSafePhoneApp-GIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj": {
+              "projectPath": "W:\\Dev\\CliniSafePhoneApp-GIT\\CliniSafePhoneApp\\Portable\\CliniSafePhoneApp.Portable.csproj"
             }
           }
         }

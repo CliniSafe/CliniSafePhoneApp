@@ -23,5 +23,7 @@ namespace CliniSafePhoneApp.Portable.Data
         Models.HandshakeHeader GetHandshakeHeader();
 
         Task<List<ProjectUser>> GetProjectsForUserListAysnc(AuthHeader authHeader);
+
+        Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser);
     }
 }

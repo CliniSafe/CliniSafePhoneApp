@@ -4,23 +4,26 @@
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="CliniSafePhoneApp.Portable.Views.ChoicePage">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout x:Name="ChoiceContainerStackLayout">
-        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+        <Image x:Name="cliniSafeImage" AutomationId="CliniSafeImageAutmationId" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Label x:Name="ChoiceLabel" Margin="40,10,200,20"  
+        <Label x:Name="ChoiceLabel" AutomationId="ChoiceLabelAutomationId" Margin="40,10,200,20"  
            HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
 
-        <Editor x:Name="ChocieHelpTextDescriptionEditor" Text="You are both a Monitor and an Investigator on this Project. Please choose how you want to run the Drug Checker." Margin="40,20" FontSize="Medium"/>
+        <Editor x:Name="ChocieHelpTextDescriptionEditor" AutomationId="ChocieHelpTextDescriptionEditorAutomationId" Text="You are both a Monitor and an Investigator on this Project. Please choose how you want to run the Drug Checker." Margin="40,20" FontSize="Medium"/>
 
-        <Label x:Name="ChoicMonitorORInvestigatorLabel"  
+        <Label x:Name="ChoicMonitorORInvestigatorLabel" AutomationId="ChoicMonitorORInvestigatorLabelAutomationId"  
            HorizontalOptions="Start" Text="Monitor OR Investigator" Margin="40,30,40,20" FontSize="Title"
            VerticalOptions="CenterAndExpand" />
 
-        <telerikInput:RadButton x:Name="MonitorNavigationButton" Text="Monitor" VerticalOptions="CenterAndExpand" Clicked="MonitorNavigationButton_Clicked" 
+        <telerikInput:RadButton x:Name="MonitorNavigationButton" AutomationId="MonitorNavigationButtonAutomationId" Text="Monitor" VerticalOptions="CenterAndExpand" Clicked="MonitorNavigationButton_Clicked" 
                 Margin="40,0,200,0" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
-        <telerikInput:RadButton x:Name="InvestigatorNavigationButton" Text="Investigator" VerticalOptions="CenterAndExpand" Clicked="InvestigatorNavigationButton_Clicked"
+        <telerikInput:RadButton x:Name="InvestigatorNavigationButton" AutomationId="InvestigatorNavigationButtonAutomationId" Text="Investigator" VerticalOptions="CenterAndExpand" Clicked="InvestigatorNavigationButton_Clicked"
                 Margin="40,0,200,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
 

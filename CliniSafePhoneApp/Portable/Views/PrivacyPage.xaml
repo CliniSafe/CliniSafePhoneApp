@@ -4,7 +4,11 @@
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="CliniSafePhoneApp.Portable.Views.PrivacyPage">
-
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout x:Name="PrivacyContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 

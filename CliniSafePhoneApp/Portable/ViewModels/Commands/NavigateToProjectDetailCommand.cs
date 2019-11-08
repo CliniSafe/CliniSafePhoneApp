@@ -1,12 +1,13 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
 using CliniSafePhoneApp.Portable.Views;
 using System;
+using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
-    public class NavigateToProjectDetailCommand : ICommand
+    public class NavigateToProjectDetailCommand : ICommand, INotifyPropertyChanged
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
@@ -17,6 +18,30 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         {
             _projectsViewModel = projectsViewModel;
         }
+
+
+        private ProjectUser selectedProjectUser;
+
+        public ProjectUser SelectedProjectUser
+        {
+            get { return selectedProjectUser; }
+            set
+            {
+                selectedProjectUser = value;
+                OnPropertyChanged("SelectedProjectUser");
+            }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
 
         public event EventHandler CanExecuteChanged;
 

@@ -10,7 +10,9 @@
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Models\ProjectUsers.cs" />
     <Compile Remove="Service\MyLogo.cs" />
+    <Compile Remove="ViewModels\CountriesViewModel.cs" />
     <Compile Remove="Views\MenuPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>

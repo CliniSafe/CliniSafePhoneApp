@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
 using Xamarin.Forms;
 
 
@@ -9,7 +10,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define HelpViewModel.
         /// </summary>
-        //PrivacyViewModel HelpVM;
+        public HelpViewModel HelpVM;
 
         public HelpPage()
         {
@@ -19,10 +20,10 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             ////Initialise HelpViewModel.
-            //HelpVM = new HelpViewModel();
+            HelpVM = new HelpViewModel();
 
-            //// Set the Page Binding Context to the HelpViewModel(HelpVM)
-            //BindingContext = HelpVM;
+            /// Set the Page Binding Context to the HelpViewModel(HelpVM)
+            BindingContext = HelpVM;
         }
     }
 }

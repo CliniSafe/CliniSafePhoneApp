@@ -24,7 +24,7 @@ namespace CliniSafePhoneApp.Portable.Views
         public LoginPage()
         {
             InitializeComponent();
-
+                                 
             //Initialise LoginViemModel.
             LoginVM = new LoginViewModel();
 

@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="ValidateDrugsOutputs" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>CliniSafePhoneApp.iOS.DevTestPhoneAppService.ValidateDrugsOutputs, iOS, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>CliniSafePhoneApp.iOS.DevTestPhoneAppService.ValidateDrugsOutputs, Web References.DevTestPhoneAppService.Reference.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

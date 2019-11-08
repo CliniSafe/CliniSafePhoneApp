@@ -13,7 +13,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define ChoiceViewModel.
         /// </summary>
-        private ChoiceViewModel ChoiceVM;
+        private readonly ChoiceViewModel ChoiceVM;
 
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace CliniSafePhoneApp.Portable.Views
             // Initialise ChoiceViewModel.
             ChoiceVM = new ChoiceViewModel(projectUser);
 
-            // Set the Page Binding Context to the ChoiceViewModel(AboutVM)
+            // Set the Page Binding Context to the ChoiceViewModel(ChoiceVM)
             BindingContext = ChoiceVM;
         }
 

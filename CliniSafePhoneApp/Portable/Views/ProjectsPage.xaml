@@ -26,7 +26,7 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
 
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" 
-                CommandParameter="{Binding SelectedProjectUser}" Command="{Binding NavigateToProjectDetailCommand}"
+                CommandParameter="{Binding SelectedProjectUser, Mode=TwoWay}" Command="{Binding NavigateToProjectDetailCommand, Mode=TwoWay}"
                 Margin="10,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"  />
         
         <!--<Button x:Name="NextNavigationButton1" Text="Next" VerticalOptions="CenterAndExpand" 
