@@ -21,7 +21,7 @@
     <ContentPage.BindingContext>
         <vm:LoginViewModel />
     </ContentPage.BindingContext>
-    <!--File="logo.png"-->
+
     <StackLayout x:Name="logingContainerStackLayout" Orientation="Vertical">
 
         <Image x:Name="cliniSafeImage" AutomationId="CliniSafeImageLoginAutomationId" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0"/>
