@@ -20,7 +20,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
         public bool CanExecute(object parameter)
         {
-            var country = (Country)parameter;
+            var country = (Country.CountriesForProjectForMonitorUser)parameter;
 
             if (country == null)
                 return false;

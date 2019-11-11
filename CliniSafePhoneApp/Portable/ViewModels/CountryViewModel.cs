@@ -131,15 +131,21 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             _projectUser = projectUser;
 
-            SetProjectDetails(_projectUser);
+            //SetProjectDetails(_projectUser);
+
+            //AuthHeader = new AuthHeader();
+            //ProjectUser = new ProjectUser();
+            //CountryList = new List<Country>();
+
+
 
             NavigateToFindDrugsCommand = new NavigateToFindDrugsCommand(this);
             NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
 
-     
+
 
             //Need to fix countries
-            GetCountriesForProjectForMonitorUser();
+            //GetCountriesForProjectForMonitorUser();
         }
 
         /// <summary>
@@ -159,9 +165,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        private List<Country> countryList;
+        private List<Country.CountriesForProjectForMonitorUser> countryList;
 
-        public List<Country> CountryList
+        public List<Country.CountriesForProjectForMonitorUser> CountryList
         {
             get { return countryList; }
             set
@@ -172,15 +178,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-        private Country selectedCountry;
+        private Country.CountriesForProjectForMonitorUser selectedCountry;
 
-        public Country SelectedCountry
+        public Country.CountriesForProjectForMonitorUser SelectedCountry
         {
             get { return selectedCountry; }
             set
             {
                 selectedCountry = value;
-                new Country()
+                new Country.CountriesForProjectForMonitorUser()
                 {
                     TrialCode = SelectedCountry.TrialCode,
                     TrialTitleShort = SelectedCountry.TrialTitleShort
@@ -219,12 +225,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public async void GetCountriesForProjectForMonitorUser()
         {
-            CountryList = await Country.GetCountriesForProjectForMonitorUserListAsync(_projectUser);
+            CountryList = await Country.CountriesForProjectForMonitorUser.GetCountriesForProjectForMonitorUserListAsync(_projectUser.ID);
 
-            authHeader = AuthHeader.GetAuthHeader();
+            //  authHeader = AuthHeader.GetAuthHeader();
 
 
-           // _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries, null, null, _projectUser);
+            // _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries, null, null, _projectUser);
         }
 
 

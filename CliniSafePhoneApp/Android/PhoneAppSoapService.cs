@@ -53,7 +53,7 @@ namespace CliniSafePhoneApp.Android
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
 
             ProjectForUserListResult = new List<ProjectUser>();
-            CountriesForProjectForMonitorUserListResult = new List<Country>();
+            //CountriesForProjectForMonitorUserListResult = new List<Country>();
 
         }
 
@@ -79,7 +79,9 @@ namespace CliniSafePhoneApp.Android
         public List<ProjectUser> ProjectForUserListResult
         {
             get { return projectForUserListResult; }
-            set { projectForUserListResult = value;
+            set
+            {
+                projectForUserListResult = value;
                 OnPropertyChanged("ProjectForUserListResult");
             }
         }
@@ -93,21 +95,21 @@ namespace CliniSafePhoneApp.Android
 
         public int Project_ID;
 
-        //public static List<Country> CountriesForProjectForMonitorUserListResult { get; set; }
+        public static List<Country.CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
 
 
 
-        private List<Country> countriesForProjectForMonitorUserListResult;
+        //private List<Country> countriesForProjectForMonitorUserListResult;
 
-        public List<Country> CountriesForProjectForMonitorUserListResult
-        {
-            get { return countriesForProjectForMonitorUserListResult; }
-            set
-            {
-                countriesForProjectForMonitorUserListResult = value;
-                OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
-            }
-        }
+        //public List<Country> CountriesForProjectForMonitorUserListResult
+        //{
+        //    get { return countriesForProjectForMonitorUserListResult; }
+        //    set
+        //    {
+        //        countriesForProjectForMonitorUserListResult = value;
+        //        OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
+        //    }
+        //}
 
 
 
@@ -172,6 +174,165 @@ namespace CliniSafePhoneApp.Android
         }
 
 
+        //private void PhoneApp_CountriesForProjectForMonitorUserCompleted(object sender, GetCountriesForProjectForMonitorUserCompletedEventArgs e)
+        //{
+        //    if (CountriesForProjectForMonitorUserListResult == null || CountriesForProjectForMonitorUserListResult.Count() < 0)
+        //    {
+        //        try
+        //        {
+        //            // Check and Set Specified Exceptions
+        //            if (e.Error != null)
+        //                if (e.Error is WebException)
+        //                    countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+        //                else if (e.Error is SoapException)
+        //                    countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+        //                else
+        //                    countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+
+        //            devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
+        //            xmlCountriesForProjectForMonitorUserResult = e.Result;
+        //            countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
+
+        //            XDocument xDocumentCountriesForProjectForMonitorUser = new XDocument();
+
+        //            //Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
+        //            if (!string.IsNullOrEmpty(xmlCountriesForProjectForMonitorUserResult))
+        //            {
+        //                xDocumentCountriesForProjectForMonitorUser = XDocument.Parse(xmlCountriesForProjectForMonitorUserResult);
+        //            }
+
+        //            if (!string.IsNullOrEmpty(xmlCountriesForProjectForMonitorUserResult) && xDocumentCountriesForProjectForMonitorUser.Root.Elements().Any())
+        //            {
+
+
+
+        //                //XmlSerializer serializer = new XmlSerializer(typeof(List<Country>));
+
+        //                //XmlReader reader = xDocumentCountriesForProjectForMonitorUser.CreateReader();
+
+        //                //reader.ReadToDescendant("CountriesForProjectForMonitorUser");
+
+        //                //CountriesForProjectForMonitorUserListResult = (List<Country>)serializer.Deserialize(reader);
+        //                //reader.Close();
+
+
+
+        //                //-------------------------------------------------------------------------------------------------------------------
+
+
+
+        //                //List<Country> countyList = new List<Country>();
+        //                //countriesForProjectForMonitorUserListResult = new List<Country>();
+
+
+        //                //Country country = new Country();
+
+
+
+
+        //                //CountriesForProjectForMonitorUserListResult = (from xe in xDocumentCountriesForProjectForMonitorUser.Root.Elements("CountriesForProjectForMonitorUser")
+        //                //                                               select new Country
+        //                //                                               {
+        //                //                                                   ID = Convert.ToInt32(xe.Element("ID").Value),
+        //                //                                                   Country_ID = Convert.ToInt32(xe.Element("Country_ID").Value),
+        //                //                                                   Description = xe.Element("Description").Value,
+        //                //                                                   DisplayTrialCode = xe.Element("DisplayTrialCode").Value,
+        //                //                                                   EnglishCountryName = xe.Element("EnglishCountryName").Value,
+        //                //                                                   EnglishLanguageName = xe.Element("EnglishLanguageName").Value,
+        //                //                                                   TrialCode = xe.Element("TrialCode").Value,
+        //                //                                                   TrialDetails = xe.Element("TrialDetails").Value,
+        //                //                                                   TrialStatus_ID = Convert.ToInt32(xe.Element("TrialStatus_ID").Value),
+        //                //                                                   TrialTitleFull = xe.Element("TrialTitleFull").Value,
+        //                //                                                   TrialTitleShort = xe.Element("TrialTitleShort").Value
+
+
+        //                //                                               }).Distinct().ToList();
+
+
+
+        //                //----------------------------------------------------------------------------------------------------
+
+
+        //                //foreach (XElement xe in xDocumentCountriesForProjectForMonitorUser.Descendants("CountriesForProjectForMonitorUser").Distinct())
+        //                //{
+
+        //                //    if (CountriesForProjectForMonitorUserListResult.Contains(xe.))
+        //                //    //    lines2.Add(str);
+        //                //    {
+        //                //        country.ID = Convert.ToInt32(xe.Element("ID").Value);
+        //                //        country.Country_ID = Convert.ToInt32(xe.Element("Country_ID").Value);
+        //                //        country.Description = xe.Element("Description").Value;
+        //                //        country.DisplayTrialCode = xe.Element("DisplayTrialCode").Value;
+        //                //        country.EnglishCountryName = xe.Element("EnglishCountryName").Value;
+        //                //        country.EnglishLanguageName = xe.Element("EnglishLanguageName").Value;
+        //                //        country.TrialCode = xe.Element("TrialCode").Value;
+        //                //        country.TrialDetails = xe.Element("TrialDetails").Value;
+        //                //        country.TrialStatus_ID = Convert.ToInt32(xe.Element("TrialStatus_ID").Value);
+        //                //        country.TrialTitleFull = xe.Element("TrialTitleFull").Value;
+        //                //        country.TrialTitleShort = xe.Element("TrialTitleShort").Value;
+
+        //                //        CountriesForProjectForMonitorUserListResult.Add(country);
+        //                //    }
+        //                //}
+
+
+
+        //                //-----------------------------------------------------------------------------------------------------------------------
+
+        //                CountriesForProjectForMonitorUserListResult = xDocumentCountriesForProjectForMonitorUser.Descendants("CountriesForProjectForMonitorUser").Select(d =>
+        //                new Country
+        //                {
+        //                    ID = Convert.ToInt32(d.Element("ID").Value),
+        //                    Country_ID = Convert.ToInt32(d.Element("Country_ID").Value),
+        //                    Description = d.Element("Description").Value,
+        //                    DisplayTrialCode = d.Element("DisplayTrialCode").Value,
+        //                    EnglishCountryName = d.Element("EnglishCountryName").Value,
+        //                    EnglishLanguageName = d.Element("EnglishLanguageName").Value,
+        //                    TrialCode = d.Element("TrialCode").Value,
+        //                    TrialDetails = d.Element("TrialDetails").Value,
+        //                    TrialStatus_ID = Convert.ToInt32(d.Element("TrialStatus_ID").Value),
+        //                    TrialTitleFull = d.Element("TrialTitleFull").Value,
+        //                    TrialTitleShort = d.Element("TrialTitleShort").Value
+        //                }).Distinct().ToList();
+        //            }
+
+        //            countriesForProjectForMonitorUserComplete?.TrySetResult(true);
+        //        }
+        //        catch (SoapException se)
+        //        {
+        //            DisplaySoapException(se);
+        //        }
+        //        catch (WebException we)
+        //        {
+        //            DisplayWebException(we);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            DisplayException(ex);
+        //        }
+        //    }
+        //}
+
+
+
+
+        //public async Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(Portable.Models.ProjectUser projectUser)
+        //{
+        //    countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
+
+        //    if (projectUser != null)
+        //        Project_ID = projectUser.ID;
+
+        //    devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
+        //    await countriesForProjectForMonitorUserComplete.Task;
+        //    return CountriesForProjectForMonitorUserListResult;
+        //}
+
+
+
+
+
+
         private void PhoneApp_CountriesForProjectForMonitorUserCompleted(object sender, GetCountriesForProjectForMonitorUserCompletedEventArgs e)
         {
 
@@ -190,9 +351,10 @@ namespace CliniSafePhoneApp.Android
                 xmlCountriesForProjectForMonitorUserResult = e.Result;
                 countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
 
+
                 XDocument xDocumentCountriesForProjectForMonitorUser = new XDocument();
 
-                //Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
+                // Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
                 if (!string.IsNullOrEmpty(xmlCountriesForProjectForMonitorUserResult))
                 {
                     xDocumentCountriesForProjectForMonitorUser = XDocument.Parse(xmlCountriesForProjectForMonitorUserResult);
@@ -201,96 +363,42 @@ namespace CliniSafePhoneApp.Android
                 if (!string.IsNullOrEmpty(xmlCountriesForProjectForMonitorUserResult) && xDocumentCountriesForProjectForMonitorUser.Root.Elements().Any())
                 {
 
+                    //CountriesForProjectForMonitorUserListResult = new List<Country.CountriesForProjectForMonitorUser>(from xe in xDocumentCountriesForProjectForMonitorUser.Root.Elements("CountriesForProjectForMonitorUser")
+                    //                                                                                                  select new Country.CountriesForProjectForMonitorUser
+                    //                                                                                                  {
+                    //                                                                                                      ID = Convert.ToInt32(xe.Element("ID").Value),
+                    //                                                                                                      Country_ID = Convert.ToInt32(xe.Element("Country_ID").Value),
+                    //                                                                                                      Description = xe.Element("Description").Value,
+                    //                                                                                                      DisplayTrialCode = xe.Element("DisplayTrialCode").Value,
+                    //                                                                                                      EnglishCountryName = xe.Element("EnglishCountryName").Value,
+                    //                                                                                                      EnglishLanguageName = xe.Element("EnglishLanguageName").Value,
+                    //                                                                                                      TrialCode = xe.Element("TrialCode").Value,
+                    //                                                                                                      TrialDetails = xe.Element("TrialDetails").Value,
+                    //                                                                                                      TrialStatus_ID = Convert.ToInt32(xe.Element("TrialStatus_ID").Value),
+                    //                                                                                                      TrialTitleFull = xe.Element("TrialTitleFull").Value,
+                    //                                                                                                      TrialTitleShort = xe.Element("TrialTitleShort").Value
 
 
-                    //XmlSerializer serializer = new XmlSerializer(typeof(List<Country>));
-
-                    //XmlReader reader = xDocumentCountriesForProjectForMonitorUser.CreateReader();
-
-                    //reader.ReadToDescendant("CountriesForProjectForMonitorUser");
-
-                    //CountriesForProjectForMonitorUserListResult = (List<Country>)serializer.Deserialize(reader);
-                    //reader.Close();
-
-
-
-                    //-------------------------------------------------------------------------------------------------------------------
-
-
-
-                    //List<Country> countyList = new List<Country>();
-                    //countriesForProjectForMonitorUserListResult = new List<Country>();
-
-
-                    //Country country = new Country();
+                    //                                                                                                  });
 
 
 
+                    CountriesForProjectForMonitorUserListResult = new List<Country.CountriesForProjectForMonitorUser>(from xe in xDocumentCountriesForProjectForMonitorUser.Root.Elements("CountriesForProjectForMonitorUser")
+                                                select new Country.CountriesForProjectForMonitorUser
+                                                {
+                                                    ID = Convert.ToInt32(xe.Element("ID").Value),
+                                                    Country_ID = Convert.ToInt32(xe.Element("Country_ID").Value),
+                                                    Description = xe.Element("Description").Value,
+                                                    DisplayTrialCode = xe.Element("DisplayTrialCode").Value,
+                                                    EnglishCountryName = xe.Element("EnglishCountryName").Value,
+                                                    EnglishLanguageName = xe.Element("EnglishLanguageName").Value,
+                                                    TrialCode = xe.Element("TrialCode").Value,
+                                                    TrialDetails = xe.Element("TrialDetails").Value,
+                                                    TrialStatus_ID = Convert.ToInt32(xe.Element("TrialStatus_ID").Value),
+                                                    TrialTitleFull = xe.Element("TrialTitleFull").Value,
+                                                    TrialTitleShort = xe.Element("TrialTitleShort").Value
+                                                }).ToList();
 
-                    CountriesForProjectForMonitorUserListResult = (from xe in xDocumentCountriesForProjectForMonitorUser.Root.Elements("CountriesForProjectForMonitorUser")
-                                                                   select new Country
-                                                                   {
-                                                                       ID = Convert.ToInt32(xe.Element("ID").Value),
-                                                                       Country_ID = Convert.ToInt32(xe.Element("Country_ID").Value),
-                                                                       Description = xe.Element("Description").Value,
-                                                                       DisplayTrialCode = xe.Element("DisplayTrialCode").Value,
-                                                                       EnglishCountryName = xe.Element("EnglishCountryName").Value,
-                                                                       EnglishLanguageName = xe.Element("EnglishLanguageName").Value,
-                                                                       TrialCode = xe.Element("TrialCode").Value,
-                                                                       TrialDetails = xe.Element("TrialDetails").Value,
-                                                                       TrialStatus_ID = Convert.ToInt32(xe.Element("TrialStatus_ID").Value),
-                                                                       TrialTitleFull = xe.Element("TrialTitleFull").Value,
-                                                                       TrialTitleShort = xe.Element("TrialTitleShort").Value
-
-
-                                                                   }).Distinct().ToList();
-
-
-
-                    //----------------------------------------------------------------------------------------------------
-
-
-                    //foreach (XElement xe in xDocumentCountriesForProjectForMonitorUser.Descendants("CountriesForProjectForMonitorUser").Distinct())
-                    //{
-
-                    //    if (CountriesForProjectForMonitorUserListResult.Contains(xe.))
-                    //    //    lines2.Add(str);
-                    //    {
-                    //        country.ID = Convert.ToInt32(xe.Element("ID").Value);
-                    //        country.Country_ID = Convert.ToInt32(xe.Element("Country_ID").Value);
-                    //        country.Description = xe.Element("Description").Value;
-                    //        country.DisplayTrialCode = xe.Element("DisplayTrialCode").Value;
-                    //        country.EnglishCountryName = xe.Element("EnglishCountryName").Value;
-                    //        country.EnglishLanguageName = xe.Element("EnglishLanguageName").Value;
-                    //        country.TrialCode = xe.Element("TrialCode").Value;
-                    //        country.TrialDetails = xe.Element("TrialDetails").Value;
-                    //        country.TrialStatus_ID = Convert.ToInt32(xe.Element("TrialStatus_ID").Value);
-                    //        country.TrialTitleFull = xe.Element("TrialTitleFull").Value;
-                    //        country.TrialTitleShort = xe.Element("TrialTitleShort").Value;
-
-                    //        CountriesForProjectForMonitorUserListResult.Add(country);
-                    //    }
-                    //}
-
-
-
-                    //-----------------------------------------------------------------------------------------------------------------------
-
-                    //CountriesForProjectForMonitorUserListResult = xDocumentCountriesForProjectForMonitorUser.Descendants("CountriesForProjectForMonitorUser").Select(d =>
-                    //new Country
-                    //{
-                    //    ID = Convert.ToInt32(d.Element("ID").Value),
-                    //    Country_ID = Convert.ToInt32(d.Element("Country_ID").Value),
-                    //    Description = d.Element("Description").Value,
-                    //    DisplayTrialCode = d.Element("DisplayTrialCode").Value,
-                    //    EnglishCountryName = d.Element("EnglishCountryName").Value,
-                    //    EnglishLanguageName = d.Element("EnglishLanguageName").Value,
-                    //    TrialCode = d.Element("TrialCode").Value,
-                    //    TrialDetails = d.Element("TrialDetails").Value,
-                    //    TrialStatus_ID = Convert.ToInt32(d.Element("TrialStatus_ID").Value),
-                    //    TrialTitleFull = d.Element("TrialTitleFull").Value,
-                    //    TrialTitleShort = d.Element("TrialTitleShort").Value
-                    //}).ToList();
                 }
 
                 countriesForProjectForMonitorUserComplete?.TrySetResult(true);
@@ -313,17 +421,22 @@ namespace CliniSafePhoneApp.Android
 
 
 
-        public async Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(Portable.Models.ProjectUser projectUser)
+
+
+
+
+        public async Task<List<Country.CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(int project_ID)
         {
             countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
 
-            if (projectUser != null)
-                Project_ID = projectUser.ID;
+            if (project_ID != 0)
+                Project_ID = project_ID;
 
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
             await countriesForProjectForMonitorUserComplete.Task;
             return CountriesForProjectForMonitorUserListResult;
         }
+
 
         private void PhoneApp_ProjectsForUserCompleted(object sender, GetProjectsForUserCompletedEventArgs e)
         {
@@ -378,7 +491,7 @@ namespace CliniSafePhoneApp.Android
                                                     InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
 
 
-                                                }).Distinct().ToList();
+                                                }).ToList();
 
 
 
