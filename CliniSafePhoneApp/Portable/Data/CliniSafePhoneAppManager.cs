@@ -32,15 +32,15 @@ namespace CliniSafePhoneApp.Portable.Data
             return soapService.GetProjectsForUserListAysnc(authHeader);
         }
 
-        //public Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
-        //{
-        //    return soapService.GetCountriesForProjectForMonitorUserListAsync(projectUser);
-        //}
-
-        public Task<List<Country.CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(int project_ID)
+        public Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
         {
-            return soapService.GetCountriesForProjectForMonitorUserListAsync(project_ID);
+            return soapService.GetCountriesForProjectForMonitorUserListAsync(projectUser);
         }
 
+
+        //public Task<string> GetCountriesForProjectForMonitorUserStringAsync(int project_ID)
+        //{
+        //    return soapService.GetCountriesForProjectForMonitorUserStringAsync(project_ID);
+        //}
     }
 }

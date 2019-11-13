@@ -20,7 +20,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
         public bool CanExecute(object parameter)
         {
-            var country = (Country.CountriesForProjectForMonitorUser)parameter;
+            var country = (CountriesForProjectForMonitorUser)parameter;
 
             if (country == null)
                 return false;
@@ -33,7 +33,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            var counrty = (Country)parameter;
+            var counrty = (CountriesForProjectForMonitorUser)parameter;
             _countryViewModel.NavigateToFindDrugs(counrty);
         }
     }

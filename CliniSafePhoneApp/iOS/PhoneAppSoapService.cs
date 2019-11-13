@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Web.Services.Protocols;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(CliniSafePhoneApp.iOS.PhoneAppSoapService))]
@@ -61,13 +62,13 @@ namespace CliniSafePhoneApp.iOS
 
         public static string xmlProjectForUserResult;
 
-        public static string xmlCountryForProjectResult;
+        public static string xmlCountriesForProjectForMonitorUserResult;
 
         public static List<ProjectUser> projectForUserListResult { get; set; }
 
         public static int Project_ID;
 
-        public static List<Country> countriesForUserListResult { get; set; }
+        public static List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
 
         public string echoResult;
 
@@ -650,14 +651,12 @@ namespace CliniSafePhoneApp.iOS
         }
 
 
-
-
-
-
         private void PhoneApp_CountriesForProjectForMonitorUserCompleted(object sender, GetCountriesForProjectForMonitorUserCompletedEventArgs e)
         {
             try
             {
+                countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
+
                 // Check and Set Specified Exceptions
                 if (e.Error != null)
                     if (e.Error is WebException)
@@ -667,38 +666,15 @@ namespace CliniSafePhoneApp.iOS
                     else
                         countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
 
-                //xmlCountryForProjectListResult =
                 devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
-                xmlCountryForProjectResult = e.Result;
-                countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
+                xmlCountriesForProjectForMonitorUserResult = e.Result;
 
-                XDocument xDocumentCountryForProject = new XDocument();
+                // Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
+                StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
 
-                //Decode xml(xmlCountryForProjectListResult) into a list and assign to countriesForUserListResult model
-                if (!string.IsNullOrEmpty(xmlCountryForProjectResult))
-                {
-                    xDocumentCountryForProject = XDocument.Parse(xmlCountryForProjectResult);
-                }
+                XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
 
-                if (!string.IsNullOrEmpty(xmlCountryForProjectResult) && xDocumentCountryForProject.Root.Elements().Any())
-                {
-                    countriesForUserListResult = xDocumentCountryForProject.Descendants("CountriesForProjectForMonitorUser").Select(d =>
-                    new Country
-                    {
-                        ID = Convert.ToInt32(d.Element("ID").Value),
-                        DisplayTrialCode = d.Element("DisplayTrialCode").Value,
-                        TrialCode = d.Element("TrialCode").Value,
-                        EnglishCountryName = d.Element("EnglishCountryName").Value,
-                        EnglishLanguageName = d.Element("EnglishLanguageName").Value,
-                        TrialStatus_ID = Convert.ToInt32(d.Element("TrialStatus_ID").Value),
-                        TrialTitleFull = d.Element("TrialTitleFull").Value,
-                        TrialTitleShort = d.Element("TrialTitleShort").Value,
-                        Description = d.Element("Description").Value,
-                        TrialDetails = d.Element("TrialDetails").Value,
-                        Country_ID = Convert.ToInt32(d.Element("Country_ID").Value)
-
-                    }).ToList();
-                }
+                CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
 
                 countriesForProjectForMonitorUserComplete?.TrySetResult(true);
             }
@@ -718,28 +694,18 @@ namespace CliniSafePhoneApp.iOS
         }
 
 
-
-
-        public async Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(Portable.Models.ProjectUser projectUser)
+        public async Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
         {
             countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
-
-            //DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
-            //{
-            //    Username = authHeader.Username,
-            //    Password = authHeader.Password,
-            //    CPAVersion = authHeader.CPAVersion
-            //};
-
-            //devTestPhoneAppService.AuthHeaderValue = authHeader1;
 
             if (projectUser != null)
                 Project_ID = projectUser.ID;
 
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
             await countriesForProjectForMonitorUserComplete.Task;
-            return countriesForUserListResult;
+            return CountriesForProjectForMonitorUserListResult;
         }
+
 
 
 

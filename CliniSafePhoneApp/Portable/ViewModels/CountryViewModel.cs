@@ -43,9 +43,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-
-
         private string projectCode;
 
         public string ProjectCode
@@ -59,47 +56,69 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
+
+        private string wizardDashboard;
+        public string WizardDashboard
+        {
+            get { return wizardDashboard; }
+            set
+            {
+                wizardDashboard = value;
+                OnPropertyChanged("WizardDashboard");
+            }
+        }
+
+
+        private string investigatorDashboard;
+        public string InvestigatorDashboard
+        {
+            get { return investigatorDashboard; }
+            set
+            {
+                investigatorDashboard = value;
+                OnPropertyChanged("InvestigatorDashboard");
+            }
+        }
+
+
         //----------------------------------------------------------------------
 
-        private string sponsor;
+        //private string sponsor;
 
-        public string Sponsor
-        {
-            get { return sponsor; }
-            set
-            {
-                sponsor = value;
-                OnPropertyChanged("Sponsor");
-            }
-        }
+        //public string Sponsor
+        //{
+        //    get { return sponsor; }
+        //    set
+        //    {
+        //        sponsor = value;
+        //        OnPropertyChanged("Sponsor");
+        //    }
+        //}
 
-        private string contractResearchOrganisation;
+        //private string contractResearchOrganisation;
 
-        public string ContractResearchOrganisation
-        {
-            get { return contractResearchOrganisation; }
-            set
-            {
-                contractResearchOrganisation = value;
-                OnPropertyChanged("ContractResearchOrganisation");
-            }
-        }
+        //public string ContractResearchOrganisation
+        //{
+        //    get { return contractResearchOrganisation; }
+        //    set
+        //    {
+        //        contractResearchOrganisation = value;
+        //        OnPropertyChanged("ContractResearchOrganisation");
+        //    }
+        //}
 
-        private string dropDownDesc;
+        //private string dropDownDesc;
 
-        public string DropDownDesc
-        {
-            get { return dropDownDesc; }
-            set
-            {
-                dropDownDesc = value;
-                OnPropertyChanged("DropDownDesc");
-            }
-        }
+        //public string DropDownDesc
+        //{
+        //    get { return dropDownDesc; }
+        //    set
+        //    {
+        //        dropDownDesc = value;
+        //        OnPropertyChanged("DropDownDesc");
+        //    }
+        //}
         //----------------------------------------------------------------------
-
-
-
 
 
         private int id;
@@ -131,21 +150,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             _projectUser = projectUser;
 
-            //SetProjectDetails(_projectUser);
-
-            //AuthHeader = new AuthHeader();
-            //ProjectUser = new ProjectUser();
-            //CountryList = new List<Country>();
-
-
+            if (_projectUser != null)
+                SetProjectDetails(_projectUser);
 
             NavigateToFindDrugsCommand = new NavigateToFindDrugsCommand(this);
             NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
 
-
-
-            //Need to fix countries
-            //GetCountriesForProjectForMonitorUser();
+            GetCountriesForProjectForMonitorUser(projectUser);
         }
 
         /// <summary>
@@ -156,37 +167,43 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             this.Id = projectUser.ID;
             this.ProjectCode = projectUser.ProjectCode;
+            this.InvestigatorDashboard = projectUser.InvestigatorDashboard;
+            this.WizardDashboard = projectUser.WizardDashboard;
 
-
-            this.Sponsor = projectUser.Sponsor;
-            this.ContractResearchOrganisation = projectUser.ContractResearchOrganisation;
-            this.DropDownDesc = projectUser.DropDownDesc;
+            //this.Sponsor = projectUser.Sponsor;
+            //this.ContractResearchOrganisation = projectUser.ContractResearchOrganisation;
+            //this.DropDownDesc = projectUser.DropDownDesc;
         }
 
 
 
-        private List<Country.CountriesForProjectForMonitorUser> countryList;
+        private List<CountriesForProjectForMonitorUser> countryList;
 
-        public List<Country.CountriesForProjectForMonitorUser> CountryList
+        public List<CountriesForProjectForMonitorUser> CountryList
         {
             get { return countryList; }
             set
             {
                 countryList = value;
+                foreach (var c in CountryList)
+                {
+                    this.TrialCode = c.TrialCode;
+                    this.EnglishCountryName = c.EnglishCountryName;
+                }
                 OnPropertyChanged("CountryList");
             }
         }
 
 
-        private Country.CountriesForProjectForMonitorUser selectedCountry;
+        private CountriesForProjectForMonitorUser selectedCountry;
 
-        public Country.CountriesForProjectForMonitorUser SelectedCountry
+        public CountriesForProjectForMonitorUser SelectedCountry
         {
             get { return selectedCountry; }
             set
             {
                 selectedCountry = value;
-                new Country.CountriesForProjectForMonitorUser()
+                new CountriesForProjectForMonitorUser()
                 {
                     TrialCode = SelectedCountry.TrialCode,
                     TrialTitleShort = SelectedCountry.TrialTitleShort
@@ -222,33 +239,46 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             }
         }
 
-
-        public async void GetCountriesForProjectForMonitorUser()
+        /// <summary>
+        /// Returns Trial(s) or (Country / Countries) that the selected Project belongs to.
+        /// </summary>
+        /// <param name="projectUser"></param>
+        public async void GetCountriesForProjectForMonitorUser(ProjectUser projectUser)
         {
-            CountryList = await Country.CountriesForProjectForMonitorUser.GetCountriesForProjectForMonitorUserListAsync(_projectUser.ID);
+            authHeader = AuthHeader.GetAuthHeader();
 
-            //  authHeader = AuthHeader.GetAuthHeader();
+            if (authHeader.HasIssues)
+            {
+                if (authHeader.MaintenanceMode)
+                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                else if (authHeader.CPAVersionExact)
+                    if (authHeader.CPANeedsUpdating)
+                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+            }
+            else
+            {
+                CountryList = await CountriesForProjectForMonitorUser.GetCountriesForProjectForMonitorUserListAsync(projectUser);
 
-
-            // _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries, null, null, _projectUser);
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.Countries, null, null, _projectUser);
+            }
         }
 
 
-        public void NavigateToFindDrugs(Country counrty)
+        public void NavigateToFindDrugs(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser)
         {
             // Remove Page Enum from the MenuPages List 
             if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugs))
                 RootPage.MenuPages.Remove((int)MenuItemType.FindDrugs);
 
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, counrty);
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, countriesForProjectForMonitorUser);
         }
 
         /// <summary>
-        /// Returns the user to the previous page.
+        /// Returns the user to the Previous Page.
         /// </summary>
         public void NavigateBackToPreviousPage()
         {
-            if (_projectUser.InvestigatorDashboard == "Auth" && _projectUser.WizardDashboard == "Auth")//Auth 
+            if (ProjectUser.InvestigatorDashboard == "Auth" && ProjectUser.WizardDashboard == "Auth")//Auth 
             {
                 //(Monitor AND Investigator) Navigate To ChoicePage (Project_ID)
                 // Remove Page Enum from the MenuPages List

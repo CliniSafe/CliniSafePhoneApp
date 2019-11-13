@@ -32,11 +32,5 @@ namespace CliniSafePhoneApp.Portable.Views
             // Set the Page Binding Context to the CountriesViewModel(CountryVM)
             BindingContext = CountryVM;
         }
-
-        private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        {
-            // Navigate to the Find Drugs page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs);
-        }
     }
 }

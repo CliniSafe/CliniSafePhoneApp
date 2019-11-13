@@ -4,6 +4,14 @@ xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.Xa
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             
+             
+xmlns:telerikDataControls="clr-namespace:Telerik.XamarinForms.DataControls;assembly=Telerik.XamarinForms.DataControls"
+xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
+
+             
+             
+             xmlns:datagrid="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              x:Class="CliniSafePhoneApp.Portable.Views.CountriesPage">
 
     <ContentPage.ToolbarItems>
@@ -19,19 +27,31 @@ xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.Xa
 
         <Label x:Name="CountriesLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="Countries" FontSize="Title" VerticalOptions="CenterAndExpand" />
 
-        <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
+
+
+        <!--<Label x:Name="CountriesTestLabel" Text="{Binding RawXML, Mode=TwoWay}" Margin="40,0,200,0" HorizontalOptions="Start" FontSize="Title" VerticalOptions="CenterAndExpand" />-->
+
+
+
+        <!--<telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
             <telerikGrid:RadDataGrid.Columns>
                 <telerikGrid:DataGridTextColumn PropertyName="{Binding TrialCode, Mode=TwoWay}" HeaderText="Trial Code" SizeMode="Stretch" />
                 <telerikGrid:DataGridTextColumn PropertyName="{Binding EnglishCountryName, Mode=TwoWay}" HeaderText="Country" SizeMode="Stretch" />
             </telerikGrid:RadDataGrid.Columns>
-        </telerikGrid:RadDataGrid>
-        
-        
-        <!--Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedCountry}"-->
+        </telerikGrid:RadDataGrid>-->
 
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"
-                                Clicked="NextNavigationButton_Clicked"
+
+        <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+            <telerikGrid:RadDataGrid.Columns>
+                <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
+                <telerikGrid:DataGridTextColumn PropertyName="EnglishCountryName" HeaderText="Country" SizeMode="Stretch" />
+            </telerikGrid:RadDataGrid.Columns>
+        </telerikGrid:RadDataGrid>
+
+
+ <!--Clicked="NextNavigationButton_Clicked"-->
                                 
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedCountry}"                              
                                 
                  Margin="110,10,110,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 

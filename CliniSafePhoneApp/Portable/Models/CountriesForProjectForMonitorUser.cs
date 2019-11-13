@@ -6,191 +6,166 @@ using System.Xml.Serialization;
 namespace CliniSafePhoneApp.Portable.Models
 {
     [XmlRoot("NewDataSet")]
-    public class Country
+    public class CountriesForProjectForMonitorUser : INotifyPropertyChanged, ICountriesForProjectForMonitorUser
     {
 
+        private int id;
 
-        [XmlRoot("CountriesForProjectForMonitorUser")]
-        public class CountriesForProjectForMonitorUser : INotifyPropertyChanged, ICountriesForProjectForMonitorUser
+        public int ID
         {
-
-            private int id;
-
-            [XmlElement("ID")]
-            public int ID
+            get { return id; }
+            set
             {
-                get { return id; }
-                set
-                {
-                    id = value;
-                    OnPropertyChanged("ID");
-                }
+                id = value;
+                OnPropertyChanged("ID");
             }
+        }
 
 
-            private string trialCode;
+        private string trialCode;
 
-            [XmlElement("TrialCode")]
-            public string TrialCode
+        public string TrialCode
+        {
+            get { return trialCode; }
+            set
             {
-                get { return trialCode; }
-                set
-                {
-                    trialCode = value;
-                    OnPropertyChanged("TrialCode");
-                }
+                trialCode = value;
+                OnPropertyChanged("TrialCode");
             }
+        }
 
 
-            private string displayTrialCode;
+        private string displayTrialCode;
 
-            [XmlElement("DisplayTrialCode")]
-            public string DisplayTrialCode
+        public string DisplayTrialCode
+        {
+            get { return displayTrialCode; }
+            set
             {
-                get { return displayTrialCode; }
-                set
-                {
-                    displayTrialCode = value;
-                    OnPropertyChanged("DisplayTrialCode");
-                }
+                displayTrialCode = value;
+                OnPropertyChanged("DisplayTrialCode");
             }
+        }
 
 
-            private string trialTitleShort;
+        private string trialTitleShort;
 
-            [XmlElement("TrialTitleShort")]
-            public string TrialTitleShort
+        public string TrialTitleShort
+        {
+            get { return trialTitleShort; }
+            set
             {
-                get { return trialTitleShort; }
-                set
-                {
-                    trialTitleShort = value;
-                    OnPropertyChanged("TrialTitleShort");
-                }
+                trialTitleShort = value;
+                OnPropertyChanged("TrialTitleShort");
             }
+        }
 
 
-            private string trialTitleFull;
+        private string trialTitleFull;
 
-            [XmlElement("TrialTitleFull")]
-            public string TrialTitleFull
+        public string TrialTitleFull
+        {
+            get { return trialTitleFull; }
+            set
             {
-                get { return trialTitleFull; }
-                set
-                {
-                    trialTitleFull = value;
-                    OnPropertyChanged("TrialTitleFull");
-                }
+                trialTitleFull = value;
+                OnPropertyChanged("TrialTitleFull");
             }
+        }
 
 
-            private int trialStatus_ID;
+        private int trialStatus_ID;
 
-            [XmlElement("TrialStatus_ID")]
-            public int TrialStatus_ID
+        public int TrialStatus_ID
+        {
+            get { return trialStatus_ID; }
+            set
             {
-                get { return trialStatus_ID; }
-                set
-                {
-                    trialStatus_ID = value;
-                    OnPropertyChanged("TrialStatus_ID");
-                }
+                trialStatus_ID = value;
+                OnPropertyChanged("TrialStatus_ID");
             }
+        }
 
 
-            private int country_ID;
+        private int country_ID;
 
-            [XmlElement("Country_ID")]
-            public int Country_ID
+        public int Country_ID
+        {
+            get { return country_ID; }
+            set
             {
-                get { return country_ID; }
-                set
-                {
-                    country_ID = value;
-                    OnPropertyChanged("Country_ID");
-                }
+                country_ID = value;
+                OnPropertyChanged("Country_ID");
             }
+        }
 
 
-            private string englishCountryName;
+        private string englishCountryName;
 
-            [XmlElement("EnglishCountryName")]
-            public string EnglishCountryName
+        public string EnglishCountryName
+        {
+            get { return englishCountryName; }
+            set
             {
-                get { return englishCountryName; }
-                set
-                {
-                    englishCountryName = value;
-                    OnPropertyChanged("EnglishCountryName");
-                }
+                englishCountryName = value;
+                OnPropertyChanged("EnglishCountryName");
             }
+        }
 
 
-            private string englishLanguageName;
-            [XmlElement("EnglishLanguageName")]
-            public string EnglishLanguageName
+        private string englishLanguageName;
+        public string EnglishLanguageName
+        {
+            get { return englishLanguageName; }
+            set
             {
-                get { return englishLanguageName; }
-                set
-                {
-                    englishLanguageName = value;
-                    OnPropertyChanged("EnglishLanguageName");
-                }
+                englishLanguageName = value;
+                OnPropertyChanged("EnglishLanguageName");
             }
+        }
 
 
-            private string description;
-            [XmlElement("Description")]
-            public string Description
+        private string description;
+        public string Description
+        {
+            get { return description; }
+            set
             {
-                get { return description; }
-                set
-                {
-                    description = value;
-                    OnPropertyChanged("Description");
-                }
+                description = value;
+                OnPropertyChanged("Description");
             }
+        }
 
 
-            private string trialDetails;
-            [XmlElement("TrialDetails")]
-            public string TrialDetails
+        private string trialDetails;
+        public string TrialDetails
+        {
+            get { return trialDetails; }
+            set
             {
-                get { return trialDetails; }
-                set
-                {
-                    trialDetails = value;
-                    OnPropertyChanged("TrialDetails");
-                }
+                trialDetails = value;
+                OnPropertyChanged("TrialDetails");
             }
+        }
 
 
-            public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-            public void OnPropertyChanged(string propertyName)
-            {
-                if (PropertyChanged != null)
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-
-            /// <summary>
-            /// Returns Project for User after authentication from the Web Service Proxy Class.
-            /// </summary>
-            /// <param name="projectUser"></param>
-            /// <returns></returns>
-            //public static async Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
-            //{
-            //    List<Country> result = await App.PhoneAppSoapService.GetCountriesForProjectForMonitorUserListAsync(projectUser);
-            //    return result;
-            //}
-
-
-            public static async Task<List<Country.CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(int project_ID)
-            {
-                List<Country.CountriesForProjectForMonitorUser> result = await App.PhoneAppSoapService.GetCountriesForProjectForMonitorUserListAsync(project_ID);
-                return result;
-            }
+        /// <summary>
+        /// Returns Project for User after authentication from the Web Service Proxy Class.
+        /// </summary>
+        /// <param name="projectUser"></param>
+        /// <returns></returns>
+        public static async Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
+        {
+            List<CountriesForProjectForMonitorUser> result = await App.PhoneAppSoapService.GetCountriesForProjectForMonitorUserListAsync(projectUser);
+            return result;
         }
 
     }

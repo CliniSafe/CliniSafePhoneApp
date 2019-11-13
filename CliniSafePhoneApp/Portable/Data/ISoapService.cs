@@ -24,9 +24,11 @@ namespace CliniSafePhoneApp.Portable.Data
 
         Task<List<ProjectUser>> GetProjectsForUserListAysnc(AuthHeader authHeader);
 
-        //Task<List<Country>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser);
+        Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser);
 
 
-        Task<List<Country.CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(int project_ID);
+
+        // RawXML Test
+        // Task<string> GetCountriesForProjectForMonitorUserStringAsync(int project_ID);
     }
 }

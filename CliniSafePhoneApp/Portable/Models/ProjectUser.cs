@@ -235,6 +235,7 @@ namespace CliniSafePhoneApp.Portable.Models
         public static async Task<List<ProjectUser>> GetProjectsForUserListAysnc(AuthHeader authHeader)
         {
             List<ProjectUser> result = await App.PhoneAppSoapService.GetProjectsForUserListAysnc(authHeader);
+            
             return result;
         }
 
