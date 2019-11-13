@@ -36,6 +36,7 @@ namespace CliniSafePhoneApp.Android
         TaskCompletionSource<bool> echoRequestComplete = null;
         TaskCompletionSource<bool> projectsForUserComplete = null;
         TaskCompletionSource<bool> countriesForProjectForMonitorUserComplete = null;
+        TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserCompleted = null;
 
 
 
@@ -52,6 +53,7 @@ namespace CliniSafePhoneApp.Android
             devTestPhoneAppService.EchoCompleted += PhoneApp_EchoComplted;
             devTestPhoneAppService.GetProjectsForUserCompleted += PhoneApp_ProjectsForUserCompleted;
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
+            devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserCompleted += PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted;
 
         }
 
@@ -62,6 +64,7 @@ namespace CliniSafePhoneApp.Android
             if (PropertyChanged != null)
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
 
 
         public string helloWorldResult;
@@ -171,9 +174,9 @@ namespace CliniSafePhoneApp.Android
                 StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
 
                 XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
-                
+
                 CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
-                
+
                 countriesForProjectForMonitorUserComplete?.TrySetResult(true);
             }
             catch (SoapException se)
@@ -192,6 +195,13 @@ namespace CliniSafePhoneApp.Android
         }
 
 
+
+        private void PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted(object sender, GetResearchSitesForProjectForInvestigtorUserCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
         public async Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
         {
             countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
@@ -203,10 +213,6 @@ namespace CliniSafePhoneApp.Android
             await countriesForProjectForMonitorUserComplete.Task;
             return CountriesForProjectForMonitorUserListResult;
         }
-
-
-
-
 
         private void PhoneApp_ProjectsForUserCompleted(object sender, GetProjectsForUserCompletedEventArgs e)
         {

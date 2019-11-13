@@ -27,20 +27,6 @@ xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;
 
         <Label x:Name="CountriesLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="Countries" FontSize="Title" VerticalOptions="CenterAndExpand" />
 
-
-
-        <!--<Label x:Name="CountriesTestLabel" Text="{Binding RawXML, Mode=TwoWay}" Margin="40,0,200,0" HorizontalOptions="Start" FontSize="Title" VerticalOptions="CenterAndExpand" />-->
-
-
-
-        <!--<telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
-            <telerikGrid:RadDataGrid.Columns>
-                <telerikGrid:DataGridTextColumn PropertyName="{Binding TrialCode, Mode=TwoWay}" HeaderText="Trial Code" SizeMode="Stretch" />
-                <telerikGrid:DataGridTextColumn PropertyName="{Binding EnglishCountryName, Mode=TwoWay}" HeaderText="Country" SizeMode="Stretch" />
-            </telerikGrid:RadDataGrid.Columns>
-        </telerikGrid:RadDataGrid>-->
-
-
         <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False" >
             <telerikGrid:RadDataGrid.Columns>
                 <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
@@ -49,16 +35,10 @@ xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;
         </telerikGrid:RadDataGrid>
 
 
- <!--Clicked="NextNavigationButton_Clicked"-->
-                                
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedCountry}"                              
                                 
                  Margin="110,10,110,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
 
-
-
-        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
     </StackLayout>
 </ContentPage>
