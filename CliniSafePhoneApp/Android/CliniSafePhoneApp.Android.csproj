@@ -171,8 +171,8 @@
     <None Include="Packages\Telerik.XamarinForms.Chart.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.Common.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.ConversationalUI.deps.json" />
-    <None Include="Packages\Telerik.XamarinForms.DataControls.deps.json" />
-    <None Include="Packages\Telerik.XamarinForms.DataGrid.deps.json" />
+    <None Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataControls.deps.json" />
+    <None Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.DataVisualization.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.DataVisualization.dll.config" />
     <None Include="Packages\Telerik.XamarinForms.ImageEditor.deps.json" />
@@ -353,10 +353,10 @@
     <Content Include="Packages\Telerik.XamarinForms.Common.XML" />
     <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.dll" />
     <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.xml" />
-    <Content Include="Packages\Telerik.XamarinForms.DataControls.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataControls.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataGrid.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataGrid.XML" />
+    <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataControls.dll" />
+    <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataControls.XML" />
+    <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.dll" />
+    <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.XML" />
     <Content Include="Packages\Telerik.XamarinForms.DataVisualization.dll" />
     <Content Include="Packages\Telerik.XamarinForms.DataVisualization.xml" />
     <Content Include="Packages\Telerik.XamarinForms.ImageEditor.dll" />
