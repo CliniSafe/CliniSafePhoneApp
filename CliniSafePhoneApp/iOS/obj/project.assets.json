@@ -368,8 +368,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -727,8 +725,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -1089,8 +1085,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -1451,8 +1445,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"

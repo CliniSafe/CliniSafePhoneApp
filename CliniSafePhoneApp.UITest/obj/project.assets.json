@@ -20,53 +20,6 @@
           "build/net35/NUnit3TestAdapter.props": {}
         }
       },
-      "SkiaSharp/1.68.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "build": {
-          "build/net45/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/osx/native/libSkiaSharp.dylib": {
-            "assetType": "native",
-            "rid": "osx"
-          },
-          "runtimes/tizen-armel/native/libSkiaSharp.so": {
-            "assetType": "native",
-            "rid": "tizen-armel"
-          },
-          "runtimes/tizen-x86/native/libSkiaSharp.so": {
-            "assetType": "native",
-            "rid": "tizen-x86"
-          },
-          "runtimes/win-x64/native/libSkiaSharp.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x86/native/libSkiaSharp.dll": {
-            "assetType": "native",
-            "rid": "win-x86"
-          }
-        }
-      },
-      "SkiaSharp.Views.Forms/1.68.0": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.0",
-          "Xamarin.Forms": "3.3.0.912540"
-        },
-        "compile": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        }
-      },
       "System.ServiceModel.Duplex/4.7.0-preview1.final": {
         "type": "package",
         "dependencies": {
@@ -156,92 +109,6 @@
           "lib/net45/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        }
-      },
       "Xam.Plugin.Connectivity/4.0.0.190-beta": {
         "type": "package",
         "compile": {
@@ -299,8 +166,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -332,31 +197,6 @@
           "build/net35/NUnit3TestAdapter.props": {}
         }
       },
-      "SkiaSharp/1.68.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "build": {
-          "build/net45/_._": {}
-        }
-      },
-      "SkiaSharp.Views.Forms/1.68.0": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.0",
-          "Xamarin.Forms": "3.3.0.912540"
-        },
-        "compile": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        }
-      },
       "System.ServiceModel.Duplex/4.7.0-preview1.final": {
         "type": "package",
         "dependencies": {
@@ -446,92 +286,6 @@
           "lib/net45/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        }
-      },
       "Xam.Plugin.Connectivity/4.0.0.190-beta": {
         "type": "package",
         "compile": {
@@ -589,8 +343,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -622,34 +374,6 @@
           "build/net35/NUnit3TestAdapter.props": {}
         }
       },
-      "SkiaSharp/1.68.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "native": {
-          "runtimes/win-x64/native/libSkiaSharp.dll": {}
-        },
-        "build": {
-          "build/net45/_._": {}
-        }
-      },
-      "SkiaSharp.Views.Forms/1.68.0": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.0",
-          "Xamarin.Forms": "3.3.0.912540"
-        },
-        "compile": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        }
-      },
       "System.ServiceModel.Duplex/4.7.0-preview1.final": {
         "type": "package",
         "dependencies": {
@@ -739,92 +463,6 @@
           "lib/net45/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        }
-      },
       "Xam.Plugin.Connectivity/4.0.0.190-beta": {
         "type": "package",
         "compile": {
@@ -882,8 +520,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -915,34 +551,6 @@
           "build/net35/NUnit3TestAdapter.props": {}
         }
       },
-      "SkiaSharp/1.68.0": {
-        "type": "package",
-        "compile": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/net45/SkiaSharp.dll": {}
-        },
-        "native": {
-          "runtimes/win-x86/native/libSkiaSharp.dll": {}
-        },
-        "build": {
-          "build/net45/_._": {}
-        }
-      },
-      "SkiaSharp.Views.Forms/1.68.0": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.0",
-          "Xamarin.Forms": "3.3.0.912540"
-        },
-        "compile": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
-        }
-      },
       "System.ServiceModel.Duplex/4.7.0-preview1.final": {
         "type": "package",
         "dependencies": {
@@ -1032,92 +640,6 @@
           "lib/net45/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll": {}
-        }
-      },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Xamarin.Forms": "4.1.0.581479"
-        },
-        "compile": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        },
-        "runtime": {
-          "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll": {}
-        }
-      },
       "Xam.Plugin.Connectivity/4.0.0.190-beta": {
         "type": "package",
         "compile": {
@@ -1175,8 +697,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
@@ -1246,78 +766,6 @@
         "build/netcoreapp2.0/nunit.engine.dll",
         "nunit3testadapter.3.15.1.nupkg.sha512",
         "nunit3testadapter.nuspec"
-      ]
-    },
-    "SkiaSharp/1.68.0": {
-      "sha512": "ptuxAKk9FiClNnAgWM8hVMCYw/B0hUJWZ8W6efnIAtJmJn/Xl4jvxxDF5WOqfQYCLVzxXw5gvBPVxvTLblFp0g==",
-      "type": "package",
-      "path": "skiasharp/1.68.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "THIRD-PARTY-NOTICES.txt",
-        "build/net45/SkiaSharp.targets",
-        "build/tizen40/SkiaSharp.targets",
-        "lib/MonoAndroid/SkiaSharp.dll",
-        "lib/MonoAndroid/SkiaSharp.xml",
-        "lib/Xamarin.Mac20/SkiaSharp.dll",
-        "lib/Xamarin.Mac20/SkiaSharp.xml",
-        "lib/Xamarin.TVOS/SkiaSharp.dll",
-        "lib/Xamarin.TVOS/SkiaSharp.xml",
-        "lib/Xamarin.WatchOS/SkiaSharp.dll",
-        "lib/Xamarin.WatchOS/SkiaSharp.xml",
-        "lib/Xamarin.iOS/SkiaSharp.dll",
-        "lib/Xamarin.iOS/SkiaSharp.xml",
-        "lib/net45/SkiaSharp.dll",
-        "lib/net45/SkiaSharp.xml",
-        "lib/netstandard1.3/SkiaSharp.dll",
-        "lib/netstandard1.3/SkiaSharp.xml",
-        "lib/tizen40/SkiaSharp.dll",
-        "lib/tizen40/SkiaSharp.xml",
-        "lib/uap10.0/SkiaSharp.dll",
-        "lib/uap10.0/SkiaSharp.xml",
-        "runtimes/osx/native/libSkiaSharp.dylib",
-        "runtimes/tizen-armel/native/libSkiaSharp.so",
-        "runtimes/tizen-x86/native/libSkiaSharp.so",
-        "runtimes/win-x64/native/libSkiaSharp.dll",
-        "runtimes/win-x86/native/libSkiaSharp.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
-        "skiasharp.1.68.0.nupkg.sha512",
-        "skiasharp.nuspec",
-        "xamarin.interactive/SkiaSharp.Workbooks.dll"
-      ]
-    },
-    "SkiaSharp.Views.Forms/1.68.0": {
-      "sha512": "VqxL96ywOA9HUj1MAEO6yvSzg4Tk03ZHvvxQFhbUKgCodDxk9lIUxmBcssTZ/wYjOUn9R2Lf/VIpDMQZlhVh/A==",
-      "type": "package",
-      "path": "skiasharp.views.forms/1.68.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.txt",
-        "lib/MonoAndroid/SkiaSharp.Views.Forms.dll",
-        "lib/MonoAndroid/SkiaSharp.Views.Forms.xml",
-        "lib/Xamarin.Mac20/SkiaSharp.Views.Forms.dll",
-        "lib/Xamarin.Mac20/SkiaSharp.Views.Forms.xml",
-        "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll",
-        "lib/Xamarin.iOS/SkiaSharp.Views.Forms.xml",
-        "lib/netstandard1.3/SkiaSharp.Views.Forms.dll",
-        "lib/netstandard1.3/SkiaSharp.Views.Forms.xml",
-        "lib/tizen40/SkiaSharp.Views.Forms.dll",
-        "lib/tizen40/SkiaSharp.Views.Forms.xml",
-        "lib/uap10.0/SkiaSharp.Views.Forms.dll",
-        "lib/uap10.0/SkiaSharp.Views.Forms.xml",
-        "skiasharp.views.forms.1.68.0.nupkg.sha512",
-        "skiasharp.views.forms.nuspec"
       ]
     },
     "System.ServiceModel.Duplex/4.7.0-preview1.final": {
@@ -1616,257 +1064,6 @@
         "ref/xamarinwatchos10/_._",
         "system.threading.tasks.4.3.0.nupkg.sha512",
         "system.threading.tasks.nuspec"
-      ]
-    },
-    "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-      "sha512": "inaWXnj2d7tTeKtH6tv9q/jPGS/0bFrcKTjRrODcKNTBTPeWgQPwmkmMlu/2jn/9zLWQcHBptLSQKKBcSzzwyw==",
-      "type": "package",
-      "path": "telerik.ui.for.xamarin.common/2019.3.1004.1",
-      "files": [
-        ".nupkg.metadata",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.Common.dll",
-        "lib/MonoAndroid10/Telerik.XamarinForms.Common.dll",
-        "lib/netstandard1.0/Telerik.XamarinForms.Common.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Common.dll",
-        "lib/uap10.0/Telerik.Core.dll",
-        "lib/uap10.0/Telerik.Core/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.Data.dll",
-        "lib/uap10.0/Telerik.Data/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.XamarinForms.Common.dll",
-        "lib/uap10.0/Telerik.XamarinForms.Common.pri",
-        "lib/uap10.0/Telerik.XamarinForms.Common/Assets/Fonts/telerikfont.ttf",
-        "lib/xamarinios10/Telerik.Xamarin.iOS.dll",
-        "lib/xamarinios10/Telerik.XamarinForms.Common.dll",
-        "telerik.ui.for.xamarin.common.2019.3.1004.1.nupkg.sha512",
-        "telerik.ui.for.xamarin.common.nuspec"
-      ]
-    },
-    "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-      "sha512": "CnI6T/bJuBEfcVPajTtmNp0ze4PohhbWqh0nb2oneQ+k7bwm0Lg83TQDyfVV0o+xrW/5HUla7oiKwd5paIJWAg==",
-      "type": "package",
-      "path": "telerik.ui.for.xamarin.datacontrols/2019.3.1004.1",
-      "files": [
-        ".nupkg.metadata",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.Data.dll",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.List.dll",
-        "lib/MonoAndroid10/Telerik.XamarinForms.DataControls.dll",
-        "lib/netstandard1.0/Telerik.XamarinForms.DataControls.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataControls.dll",
-        "lib/uap10.0/Telerik.Core/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.Data/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP.dll",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP.pri",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/ListView/Resources/reorder-handle-dark.png",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/ListView/Resources/reorder-handle-light.png",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Telerik.UI.Xaml.Controls.Data.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/DataForm.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/DataForm.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Listbox.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Listbox.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP.dll",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP.pri",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Telerik.UI.Xaml.Input.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Calendar.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Calendar.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/CommonResources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/CommonResources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Resources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Resources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Telerik.UI.Xaml.Primitives.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/HubTilePalette.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/HubTilePalette.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Resources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Resources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/SharedResources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/SharedResources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.XamarinForms.DataControls.dll",
-        "lib/uap10.0/Telerik.XamarinForms.DataControls.pri",
-        "lib/uap10.0/Telerik.XamarinForms.DataControls/Telerik.XamarinForms.DataControls.xr.xml",
-        "lib/uap10.0/Telerik.XamarinForms.DataControls/Themes/Generic.xbf",
-        "lib/xamarinios10/Telerik.XamarinForms.DataControls.dll",
-        "telerik.ui.for.xamarin.datacontrols.2019.3.1004.1.nupkg.sha512",
-        "telerik.ui.for.xamarin.datacontrols.nuspec"
-      ]
-    },
-    "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-      "sha512": "ZwQzs12L9GMK2aorNzx/2/8tQRKtqyHRkOHEbfGFzqBKQ63ndtWIhI/dbxKVqDARroFJv7xtK+JT4dEwOp3d5A==",
-      "type": "package",
-      "path": "telerik.ui.for.xamarin.datagrid/2019.3.1004.1",
-      "files": [
-        ".nupkg.metadata",
-        "lib/MonoAndroid10/Telerik.XamarinForms.DataGrid.dll",
-        "lib/netstandard1.0/Telerik.XamarinForms.DataGrid.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll",
-        "lib/uap10.0/Telerik.XamarinForms.DataGrid.dll",
-        "lib/xamarinios10/Telerik.XamarinForms.DataGrid.dll",
-        "telerik.ui.for.xamarin.datagrid.2019.3.1004.1.nupkg.sha512",
-        "telerik.ui.for.xamarin.datagrid.nuspec"
-      ]
-    },
-    "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-      "sha512": "hG8W8oaSSZOh5XphIvlZRicm45FXtLZ/AbjGDKZ5PgrhI6gAtvvtNfbFlal12VVIn9mLtFsXnrPVgcJnjerOEA==",
-      "type": "package",
-      "path": "telerik.ui.for.xamarin.input/2019.3.1004.1",
-      "files": [
-        ".nupkg.metadata",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.Data.dll",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.Input.dll",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.List.dll",
-        "lib/MonoAndroid10/Telerik.XamarinForms.Input.dll",
-        "lib/netstandard1.0/Telerik.XamarinForms.Input.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Input.dll",
-        "lib/uap10.0/Telerik.Core/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.Data/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP.dll",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP.pri",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/ListView/Resources/reorder-handle-dark.png",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/ListView/Resources/reorder-handle-light.png",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Telerik.UI.Xaml.Controls.Data.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/DataForm.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/DataForm.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Listbox.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/Listbox.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Controls.Data.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP.dll",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP.pri",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Telerik.UI.Xaml.Input.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Calendar.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Calendar.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/CommonResources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/CommonResources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Resources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/Resources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Input.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Telerik.UI.Xaml.Primitives.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/HubTilePalette.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/HubTilePalette.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Resources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Resources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/SharedResources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/SharedResources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.XamarinForms.Input.dll",
-        "lib/uap10.0/Telerik.XamarinForms.Input.pri",
-        "lib/uap10.0/Telerik.XamarinForms.Input.xr.xml",
-        "lib/uap10.0/Telerik.XamarinForms.Input/Telerik.XamarinForms.Input.xr.xml",
-        "lib/uap10.0/Themes/Generic.xbf",
-        "lib/xamarinios10/Telerik.XamarinForms.Input.dll",
-        "telerik.ui.for.xamarin.input.2019.3.1004.1.nupkg.sha512",
-        "telerik.ui.for.xamarin.input.nuspec"
-      ]
-    },
-    "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-      "sha512": "d9XrqITBE0XLhHDmDZ2sYKVi3fyUpHsml3bmfVUJgD029VcmIVkXYrjO9uyqV09SilBKQCbIouGhd/l4EdkhqA==",
-      "type": "package",
-      "path": "telerik.ui.for.xamarin.primitives/2019.3.1004.1",
-      "files": [
-        ".nupkg.metadata",
-        "lib/MonoAndroid10/Telerik.Xamarin.Android.Primitives.dll",
-        "lib/MonoAndroid10/Telerik.XamarinForms.Primitives.dll",
-        "lib/netstandard1.0/Telerik.XamarinForms.Primitives.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.Primitives.dll",
-        "lib/uap10.0/Telerik.Core/Properties/default.rd.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP.dll",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP.pri",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Telerik.UI.Xaml.Primitives.UWP.xr.xml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Generic.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/HubTilePalette.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/HubTilePalette.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Resources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/Resources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/SharedResources.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/SharedResources.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeColorsLight.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesDark.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesHighContrast.xbf",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xaml",
-        "lib/uap10.0/Telerik.UI.Xaml.Primitives.UWP/Themes/ThemeResourcesLight.xbf",
-        "lib/uap10.0/Telerik.XamarinForms.Primitives.dll",
-        "lib/uap10.0/Telerik.XamarinForms.Primitives.pri",
-        "lib/uap10.0/Telerik.XamarinForms.Primitives/Telerik.XamarinForms.Primitives.xr.xml",
-        "lib/xamarinios10/Telerik.XamarinForms.Primitives.dll",
-        "telerik.ui.for.xamarin.primitives.2019.3.1004.1.nupkg.sha512",
-        "telerik.ui.for.xamarin.primitives.nuspec"
-      ]
-    },
-    "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-      "sha512": "EyDHFr+oBNP/QIE+Eq8pi+34XiNNzGPzkHZ9CUKm1QhqOUHfAJAVTHS6bKr7+jxN5UKrtYCcqDLu9YKRbP3cvg==",
-      "type": "package",
-      "path": "telerik.ui.for.xamarin.skiasharp/2019.3.1004.1",
-      "files": [
-        ".nupkg.metadata",
-        "lib/MonoAndroid10/Telerik.XamarinForms.SkiaSharp.dll",
-        "lib/netstandard1.0/Telerik.XamarinForms.SkiaSharp.dll",
-        "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll",
-        "lib/uap10.0/Telerik.XamarinForms.SkiaSharp.dll",
-        "lib/xamarinios10/Telerik.XamarinForms.SkiaSharp.dll",
-        "telerik.ui.for.xamarin.skiasharp.2019.3.1004.1.nupkg.sha512",
-        "telerik.ui.for.xamarin.skiasharp.nuspec"
       ]
     },
     "Xam.Plugin.Connectivity/4.0.0.190-beta": {

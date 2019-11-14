@@ -26,8 +26,8 @@
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0-preview1.final" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.7.0-preview1.final" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
-    <PackageReference Include="Telerik.UI.for.Xamarin.DataControls" Version="2019.3.1004.1" />
-    <PackageReference Include="Telerik.UI.for.Xamarin.DataGrid" Version="2019.3.1004.1" />
+    <!--<PackageReference Include="Telerik.UI.for.XamarinForms.DataControls" Version="2019.3.1004.1" />
+    <PackageReference Include="Telerik.UI.for.XamarinForms.DataGrid" Version="2019.3.1004.1" />-->
     <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.190-beta" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
     <PackageReference Include="Xamarin.Forms.DataGrid" Version="3.1.0" />

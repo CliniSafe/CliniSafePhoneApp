@@ -15,8 +15,6 @@
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
           "System.ServiceModel.Security": "4.7.0-preview1.final",
           "System.Threading.Tasks": "4.3.0",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataGrid": "2019.3.1004.1",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
           "Xamarin.Forms": "4.3.0.851321-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0",
@@ -25,11 +23,17 @@
           "Telerik.Documents.SpreadsheetStreaming": "2019.2.612.20",
           "Telerik.XamarinForms.Barcode": "2019.2.802.410",
           "Telerik.XamarinForms.Chart": "2019.2.802.410",
+          "Telerik.XamarinForms.Common": "2019.2.802.410",
           "Telerik.XamarinForms.ConversationalUI": "2019.2.802.410",
+          "Telerik.XamarinForms.DataControls": "2019.2.802.410",
+          "Telerik.XamarinForms.DataGrid": "2019.2.802.410",
           "Telerik.XamarinForms.DataVisualization": "2019.2.802.410",
           "Telerik.XamarinForms.ImageEditor": "2019.2.802.410",
+          "Telerik.XamarinForms.Input": "2019.2.802.410",
           "Telerik.XamarinForms.Map": "2019.2.802.410",
           "Telerik.XamarinForms.PdfViewer": "2019.2.802.410",
+          "Telerik.XamarinForms.Primitives": "2019.2.802.410",
+          "Telerik.XamarinForms.SkiaSharp": "2019.2.802.410",
           "Telerik.Zip": "2019.2.612.20"
         },
         "runtime": {
@@ -41,26 +45,6 @@
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
-        }
-      },
-      "SkiaSharp/1.68.0": {
-        "runtime": {
-          "lib/netstandard1.3/SkiaSharp.dll": {
-            "assemblyVersion": "1.68.0.0",
-            "fileVersion": "1.68.0.0"
-          }
-        }
-      },
-      "SkiaSharp.Views.Forms/1.68.0": {
-        "dependencies": {
-          "SkiaSharp": "1.68.0",
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.3/SkiaSharp.Views.Forms.dll": {
-            "assemblyVersion": "1.68.0.0",
-            "fileVersion": "1.68.0.0"
-          }
         }
       },
       "System.Buffers/4.4.0": {
@@ -260,86 +244,6 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-        "dependencies": {
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Telerik.XamarinForms.Common.dll": {
-            "assemblyVersion": "2019.3.1004.410",
-            "fileVersion": "2019.3.1004.410"
-          }
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.Primitives": "2019.3.1004.1",
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Telerik.XamarinForms.DataControls.dll": {
-            "assemblyVersion": "2019.3.1004.410",
-            "fileVersion": "2019.3.1004.410"
-          }
-        }
-      },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.Input": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.Primitives": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "2019.3.1004.1",
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Telerik.XamarinForms.DataGrid.dll": {
-            "assemblyVersion": "2019.3.1004.410",
-            "fileVersion": "2019.3.1004.410"
-          }
-        }
-      },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.DataControls": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.Primitives": "2019.3.1004.1",
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Telerik.XamarinForms.Input.dll": {
-            "assemblyVersion": "2019.3.1004.410",
-            "fileVersion": "2019.3.1004.410"
-          }
-        }
-      },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-        "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "2019.3.1004.1",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "2019.3.1004.1",
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Telerik.XamarinForms.Primitives.dll": {
-            "assemblyVersion": "2019.3.1004.410",
-            "fileVersion": "2019.3.1004.410"
-          }
-        }
-      },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-        "dependencies": {
-          "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "2019.3.1004.1",
-          "Xamarin.Forms": "4.3.0.851321-pre3"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Telerik.XamarinForms.SkiaSharp.dll": {
-            "assemblyVersion": "2019.3.1004.410",
-            "fileVersion": "2019.3.1004.410"
-          }
-        }
-      },
       "Xam.Plugin.Connectivity/4.0.0.190-beta": {
         "dependencies": {
           "NETStandard.Library": "2.0.3"
@@ -422,9 +326,33 @@
           }
         }
       },
+      "Telerik.XamarinForms.Common/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.Common.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
       "Telerik.XamarinForms.ConversationalUI/2019.2.802.410": {
         "runtime": {
           "Telerik.XamarinForms.ConversationalUI.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.DataControls/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.DataControls.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.DataGrid/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.DataGrid.dll": {
             "assemblyVersion": "2019.2.802.410",
             "fileVersion": "2019.2.802.410"
           }
@@ -446,6 +374,14 @@
           }
         }
       },
+      "Telerik.XamarinForms.Input/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.Input.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
       "Telerik.XamarinForms.Map/2019.2.802.410": {
         "runtime": {
           "Telerik.XamarinForms.Map.dll": {
@@ -457,6 +393,22 @@
       "Telerik.XamarinForms.PdfViewer/2019.2.802.410": {
         "runtime": {
           "Telerik.XamarinForms.PdfViewer.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.Primitives/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.Primitives.dll": {
+            "assemblyVersion": "2019.2.802.410",
+            "fileVersion": "2019.2.802.410"
+          }
+        }
+      },
+      "Telerik.XamarinForms.SkiaSharp/2019.2.802.410": {
+        "runtime": {
+          "Telerik.XamarinForms.SkiaSharp.dll": {
             "assemblyVersion": "2019.2.802.410",
             "fileVersion": "2019.2.802.410"
           }
@@ -498,20 +450,6 @@
       "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
-    },
-    "SkiaSharp/1.68.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ptuxAKk9FiClNnAgWM8hVMCYw/B0hUJWZ8W6efnIAtJmJn/Xl4jvxxDF5WOqfQYCLVzxXw5gvBPVxvTLblFp0g==",
-      "path": "skiasharp/1.68.0",
-      "hashPath": "skiasharp.1.68.0.nupkg.sha512"
-    },
-    "SkiaSharp.Views.Forms/1.68.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-VqxL96ywOA9HUj1MAEO6yvSzg4Tk03ZHvvxQFhbUKgCodDxk9lIUxmBcssTZ/wYjOUn9R2Lf/VIpDMQZlhVh/A==",
-      "path": "skiasharp.views.forms/1.68.0",
-      "hashPath": "skiasharp.views.forms.1.68.0.nupkg.sha512"
     },
     "System.Buffers/4.4.0": {
       "type": "package",
@@ -646,48 +584,6 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-inaWXnj2d7tTeKtH6tv9q/jPGS/0bFrcKTjRrODcKNTBTPeWgQPwmkmMlu/2jn/9zLWQcHBptLSQKKBcSzzwyw==",
-      "path": "telerik.ui.for.xamarin.common/2019.3.1004.1",
-      "hashPath": "telerik.ui.for.xamarin.common.2019.3.1004.1.nupkg.sha512"
-    },
-    "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-CnI6T/bJuBEfcVPajTtmNp0ze4PohhbWqh0nb2oneQ+k7bwm0Lg83TQDyfVV0o+xrW/5HUla7oiKwd5paIJWAg==",
-      "path": "telerik.ui.for.xamarin.datacontrols/2019.3.1004.1",
-      "hashPath": "telerik.ui.for.xamarin.datacontrols.2019.3.1004.1.nupkg.sha512"
-    },
-    "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZwQzs12L9GMK2aorNzx/2/8tQRKtqyHRkOHEbfGFzqBKQ63ndtWIhI/dbxKVqDARroFJv7xtK+JT4dEwOp3d5A==",
-      "path": "telerik.ui.for.xamarin.datagrid/2019.3.1004.1",
-      "hashPath": "telerik.ui.for.xamarin.datagrid.2019.3.1004.1.nupkg.sha512"
-    },
-    "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hG8W8oaSSZOh5XphIvlZRicm45FXtLZ/AbjGDKZ5PgrhI6gAtvvtNfbFlal12VVIn9mLtFsXnrPVgcJnjerOEA==",
-      "path": "telerik.ui.for.xamarin.input/2019.3.1004.1",
-      "hashPath": "telerik.ui.for.xamarin.input.2019.3.1004.1.nupkg.sha512"
-    },
-    "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-d9XrqITBE0XLhHDmDZ2sYKVi3fyUpHsml3bmfVUJgD029VcmIVkXYrjO9uyqV09SilBKQCbIouGhd/l4EdkhqA==",
-      "path": "telerik.ui.for.xamarin.primitives/2019.3.1004.1",
-      "hashPath": "telerik.ui.for.xamarin.primitives.2019.3.1004.1.nupkg.sha512"
-    },
-    "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-EyDHFr+oBNP/QIE+Eq8pi+34XiNNzGPzkHZ9CUKm1QhqOUHfAJAVTHS6bKr7+jxN5UKrtYCcqDLu9YKRbP3cvg==",
-      "path": "telerik.ui.for.xamarin.skiasharp/2019.3.1004.1",
-      "hashPath": "telerik.ui.for.xamarin.skiasharp.2019.3.1004.1.nupkg.sha512"
-    },
     "Xam.Plugin.Connectivity/4.0.0.190-beta": {
       "type": "package",
       "serviceable": true,
@@ -734,7 +630,22 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Telerik.XamarinForms.Common/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Telerik.XamarinForms.ConversationalUI/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.DataControls/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.DataGrid/2019.2.802.410": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
@@ -749,12 +660,27 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Telerik.XamarinForms.Input/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Telerik.XamarinForms.Map/2019.2.802.410": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
     "Telerik.XamarinForms.PdfViewer/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.Primitives/2019.2.802.410": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Telerik.XamarinForms.SkiaSharp/2019.2.802.410": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

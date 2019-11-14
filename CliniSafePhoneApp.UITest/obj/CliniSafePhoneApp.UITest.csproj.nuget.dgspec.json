@@ -136,14 +136,6 @@
               "target": "Package",
               "version": "[4.3.0, )"
             },
-            "Telerik.UI.for.Xamarin.DataControls": {
-              "target": "Package",
-              "version": "[2019.3.1004.1, )"
-            },
-            "Telerik.UI.for.Xamarin.DataGrid": {
-              "target": "Package",
-              "version": "[2019.3.1004.1, )"
-            },
             "Xam.Plugin.Connectivity": {
               "target": "Package",
               "version": "[4.0.0.190-beta, )"

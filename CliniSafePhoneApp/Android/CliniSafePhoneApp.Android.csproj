@@ -60,7 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />    
+    <Reference Include="System.Xml" />
     <Reference Include="Telerik.Xamarin.Android.Chart">
       <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
@@ -120,10 +120,6 @@
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
       <HintPath>..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
     </Reference>
-    
-    
-    
-    
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Threading.Tasks">
@@ -173,6 +169,8 @@
     <None Include="Packages\Telerik.XamarinForms.ConversationalUI.deps.json" />
     <None Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataControls.deps.json" />
     <None Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.DataControls.deps.json" />
+    <None Include="Packages\Telerik.XamarinForms.DataGrid.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.DataVisualization.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.DataVisualization.dll.config" />
     <None Include="Packages\Telerik.XamarinForms.ImageEditor.deps.json" />
@@ -357,6 +355,10 @@
     <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataControls.XML" />
     <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.dll" />
     <Content Include="..\CliniSafePhoneApp\Android\Packages\Telerik.XamarinForms.DataGrid.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.DataControls.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.DataControls.XML" />
+    <Content Include="Packages\Telerik.XamarinForms.DataGrid.dll" />
+    <Content Include="Packages\Telerik.XamarinForms.DataGrid.XML" />
     <Content Include="Packages\Telerik.XamarinForms.DataVisualization.dll" />
     <Content Include="Packages\Telerik.XamarinForms.DataVisualization.xml" />
     <Content Include="Packages\Telerik.XamarinForms.ImageEditor.dll" />
