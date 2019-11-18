@@ -80,47 +80,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             }
         }
 
-
-        //----------------------------------------------------------------------
-
-        //private string sponsor;
-
-        //public string Sponsor
-        //{
-        //    get { return sponsor; }
-        //    set
-        //    {
-        //        sponsor = value;
-        //        OnPropertyChanged("Sponsor");
-        //    }
-        //}
-
-        //private string contractResearchOrganisation;
-
-        //public string ContractResearchOrganisation
-        //{
-        //    get { return contractResearchOrganisation; }
-        //    set
-        //    {
-        //        contractResearchOrganisation = value;
-        //        OnPropertyChanged("ContractResearchOrganisation");
-        //    }
-        //}
-
-        //private string dropDownDesc;
-
-        //public string DropDownDesc
-        //{
-        //    get { return dropDownDesc; }
-        //    set
-        //    {
-        //        dropDownDesc = value;
-        //        OnPropertyChanged("DropDownDesc");
-        //    }
-        //}
-        //----------------------------------------------------------------------
-
-
         private int id;
 
         public int Id
@@ -270,6 +229,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugs))
                 RootPage.MenuPages.Remove((int)MenuItemType.FindDrugs);
 
+            // Navigate to the Find Drugs page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, countriesForProjectForMonitorUser);
         }
 
@@ -282,10 +242,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             {
                 //(Monitor AND Investigator) Navigate To ChoicePage (Project_ID)
                 // Remove Page Enum from the MenuPages List
-                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Choice))
-                    RootPage.MenuPages.Remove((int)MenuItemType.Choice);
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Project))
+                    RootPage.MenuPages.Remove((int)MenuItemType.Project);
 
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.Choice, null, null, _projectUser);
+                // Navigate to the Project page
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, "", "", null);
             }
             else
             {

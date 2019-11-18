@@ -73,7 +73,8 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+  
+  <!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>none</DebugType>
     <Optimize>True</Optimize>
     <OutputPath>bin\iPhone\AppStore</OutputPath>
@@ -85,6 +86,7 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
+  -->
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
     <AppExtensionDebugBundleId />
   </PropertyGroup>
@@ -94,13 +96,6 @@
     <Compile Include="PhoneAppSoapService.cs" />
     <Compile Include="Web References\DevTestPhoneAppService\Reference.cs" />
     <BundleResource Include="Assets\AppIcon.appiconset\Contents.json" />
-    <None Include="bin\iPhoneSimulator\Debug\mtouch.stamp" />
-    <None Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataVisualization.dll.config" />
-    <None Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Input.dll.config" />
-    <None Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Map.dll.config" />
-    <None Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Primitives.dll.config" />
-    <None Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataVisualization.dll.config" />
-    <None Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Map.dll.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,77 +103,6 @@
     <BundleResource Include="Media\LaunchImages\Contents.json" />
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork%402x" />
-    <None Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.cache" />
-    <None Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.cache.mine" />
-    <None Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.cache.r55" />
-    <None Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.cache.r57" />
-    <BundleResource Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.dgspec.json" />
-    <None Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.g.props" />
-    <None Include="obj\CliniSafePhoneApp.iOS.csproj.nuget.g.targets" />
-    <BundleResource Include="obj\project.assets.json" />
-    <None Include="obj\iPhoneSimulator\Debug\actool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhoneSimulator\Debug\actool\_PartialAppManifest.items" />
-    <None Include="obj\iPhoneSimulator\Debug\build-signature\signature" />
-    <None Include="obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.csproj.CopyComplete" />
-    <None Include="obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.csprojAssemblyReference.cache" />
-    <None Include="obj\iPhoneSimulator\Debug\codesign\libSkiaSharp" />
-    <None Include="obj\iPhoneSimulator\Debug\coremlc\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhoneSimulator\Debug\coremlc\_PartialAppManifest.items" />
-    <None Include="obj\iPhoneSimulator\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\iPhoneSimulator\Debug\ibtool-manifests\LaunchScreen.storyboardc" />
-    <None Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\Info.plist" />
-    <None Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\UIViewController-X5k-f2-b5h.nib" />
-    <None Include="obj\iPhoneSimulator\Debug\ibtool\LaunchScreen.storyboardc\X5k-f2-b5h-view-yd7-JS-zBw.nib" />
-    <None Include="obj\iPhoneSimulator\Debug\ibtool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhoneSimulator\Debug\XamlC.stamp" />
-    <None Include="obj\iPhoneSimulator\Debug\_TelemetryProps" />
-    <None Include="obj\iPhoneSimulator\Release\actool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhoneSimulator\Release\actool\_PartialAppManifest.items" />
-    <None Include="obj\iPhoneSimulator\Release\CliniSafePhoneApp.iOS.csproj.CopyComplete" />
-    <None Include="obj\iPhoneSimulator\Release\CliniSafePhoneApp.iOS.csprojAssemblyReference.cache" />
-    <None Include="obj\iPhoneSimulator\Release\coremlc\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhoneSimulator\Release\coremlc\_PartialAppManifest.items" />
-    <None Include="obj\iPhoneSimulator\Release\ibtool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhoneSimulator\Release\XamlC.stamp" />
-    <None Include="obj\iPhoneSimulator\Release\_TelemetryProps" />
-    <None Include="obj\iPhone\Ad-Hoc\actool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Ad-Hoc\actool\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\Ad-Hoc\CliniSafePhoneApp.iOS.csproj.CopyComplete" />
-    <None Include="obj\iPhone\Ad-Hoc\coremlc\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Ad-Hoc\coremlc\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\Ad-Hoc\ibtool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Ad-Hoc\XamlC.stamp" />
-    <None Include="obj\iPhone\Ad-Hoc\_TelemetryProps" />
-    <None Include="obj\iPhone\AppStore\actool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\AppStore\actool\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\AppStore\CliniSafePhoneApp.iOS.csproj.CopyComplete" />
-    <None Include="obj\iPhone\AppStore\coremlc\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\AppStore\coremlc\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\AppStore\ibtool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\AppStore\XamlC.stamp" />
-    <None Include="obj\iPhone\AppStore\_TelemetryProps" />
-    <None Include="obj\iPhone\Debug\actool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Debug\actool\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\Debug\CliniSafePhoneApp.iOS.csproj.CopyComplete" />
-    <None Include="obj\iPhone\Debug\CliniSafePhoneApp.iOS.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\iPhone\Debug\CliniSafePhoneApp.iOS.csprojAssemblyReference.cache" />
-    <None Include="obj\iPhone\Debug\coremlc\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Debug\coremlc\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\iPhone\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\iPhone\Debug\ibtool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Debug\XamlC.stamp" />
-    <None Include="obj\iPhone\Debug\_TelemetryProps" />
-    <None Include="obj\iPhone\Release\actool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Release\actool\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\Release\CliniSafePhoneApp.iOS.csproj.CopyComplete" />
-    <None Include="obj\iPhone\Release\CliniSafePhoneApp.iOS.csprojAssemblyReference.cache" />
-    <None Include="obj\iPhone\Release\coremlc\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Release\coremlc\_PartialAppManifest.items" />
-    <None Include="obj\iPhone\Release\ibtool\_BundleResourceWithLogicalName.items" />
-    <None Include="obj\iPhone\Release\XamlC.stamp" />
-    <None Include="obj\iPhone\Release\_TelemetryProps" />
     <None Include="packages.config" />
     <BundleResource Include="Packages\Telerik.XamarinForms.Barcode.deps.json" />
     <BundleResource Include="Packages\Telerik.XamarinForms.Chart.deps.json" />
@@ -297,52 +221,7 @@
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\iPhoneSimulator\Ad-Hoc\" />
-    <Folder Include="bin\iPhoneSimulator\AppStore\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ar\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\bin\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ca\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.app\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\cs\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\da\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\de\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\el\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\es\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\fi\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\fr\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\he\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\hi\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\hr\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\hu\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\id\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\it\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ja\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ko\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ms\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\nb\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\nl\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\pl\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\pt-br\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\pt\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ro\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\ru\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\sk\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\sv\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\th\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\tr\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\uk\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\vi\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\zh-Hans\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\zh-Hant\" />
-    <Folder Include="bin\iPhoneSimulator\Debug\zh-HK\" />
-    <Folder Include="obj\iPhoneSimulator\Ad-Hoc\" />
-    <Folder Include="obj\iPhoneSimulator\AppStore\" />
-    <Folder Include="obj\iPhoneSimulator\Debug\CopyFilesToMac\" />
-    <Folder Include="obj\iPhoneSimulator\Debug\optimized\Assets\AppIcon.appiconset\" />
-    <Folder Include="obj\iPhoneSimulator\Debug\TempPE\" />
-    <Folder Include="obj\iPhone\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BundleResource Include="Assets\AppIcon.appiconset\Icon1024.png" />
     <BundleResource Include="Assets\AppIcon.appiconset\Icon120.png" />
@@ -357,185 +236,9 @@
     <BundleResource Include="Assets\AppIcon.appiconset\Icon76.png" />
     <BundleResource Include="Assets\AppIcon.appiconset\Icon80.png" />
     <BundleResource Include="Assets\AppIcon.appiconset\Icon87.png" />
-    <Content Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.exe.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.Portable.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.Portable.dll.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\iPhoneSimulator\Debug\CliniSafePhoneApp.Portable.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\Plugin.Connectivity.Abstractions.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Plugin.Connectivity.Abstractions.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\Plugin.Connectivity.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Plugin.Connectivity.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\SkiaSharp.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\SkiaSharp.Views.Forms.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\SkiaSharp.Views.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.Xamarin.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Chart.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Chart.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Common.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Common.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.ConversationalUI.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.ConversationalUI.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataControls.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataControls.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataGrid.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataGrid.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataVisualization.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.DataVisualization.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.ImageEditor.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.ImageEditor.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Input.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Input.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Map.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Map.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.PdfViewer.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.PdfViewer.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Primitives.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.Primitives.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.SkiaSharp.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Telerik.XamarinForms.SkiaSharp.xml" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.DataGrid.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.iOS.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Xaml.dll" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.Forms.Xaml.pdb" />
-    <Content Include="bin\iPhoneSimulator\Debug\Xamarin.SimplePing.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ar\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ca\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="bin\iPhoneSimulator\Release\CliniSafePhoneApp.Portable.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\CliniSafePhoneApp.Portable.dll.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\iPhoneSimulator\Release\CliniSafePhoneApp.Portable.pdb" />
-    <Content Include="bin\iPhoneSimulator\Release\cs\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\da\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\de\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\el\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\es\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\fi\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\fr\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\he\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\hi\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\hr\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\hu\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\id\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\it\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ja\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ko\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ms\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\nb\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\nl\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Plugin.Connectivity.Abstractions.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Plugin.Connectivity.Abstractions.pdb" />
-    <Content Include="bin\iPhoneSimulator\Release\Plugin.Connectivity.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Plugin.Connectivity.pdb" />
-    <Content Include="bin\iPhoneSimulator\Release\pl\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\pt-br\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\pt\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ro\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\ru\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\SkiaSharp.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\SkiaSharp.Views.Forms.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\SkiaSharp.Views.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\sk\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\sv\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.Xamarin.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Chart.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Chart.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Common.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.ConversationalUI.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.ConversationalUI.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataControls.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataControls.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataGrid.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataGrid.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataVisualization.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.DataVisualization.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.ImageEditor.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.ImageEditor.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Input.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Map.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Map.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.PdfViewer.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.PdfViewer.xml" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.Primitives.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Telerik.XamarinForms.SkiaSharp.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\th\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\tr\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\uk\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\vi\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Core.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Core.pdb" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.DataGrid.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Platform.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Platform.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Platform.iOS.pdb" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Xaml.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.Forms.Xaml.pdb" />
-    <Content Include="bin\iPhoneSimulator\Release\Xamarin.SimplePing.iOS.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\zh-Hans\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\zh-Hant\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhoneSimulator\Release\zh-HK\Xamarin.Forms.Platform.iOS.resources.dll" />
-    <Content Include="bin\iPhone\Ad-Hoc\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="bin\iPhone\AppStore\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="bin\iPhone\Debug\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="bin\iPhone\Debug\CliniSafePhoneApp.iOS.pdb" />
-    <Content Include="bin\iPhone\Release\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="obj\iPhoneSimulator\Debug\CliniSafePhoneApp.iOS.pdb" />
-    <Content Include="obj\iPhoneSimulator\Release\CliniSafePhoneApp.iOS.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\iPhoneSimulator\Release\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="obj\iPhone\Ad-Hoc\CliniSafePhoneApp.iOS.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\iPhone\Ad-Hoc\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="obj\iPhone\AppStore\CliniSafePhoneApp.iOS.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\iPhone\AppStore\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="obj\iPhone\Debug\CliniSafePhoneApp.iOS.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\iPhone\Debug\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="obj\iPhone\Debug\CliniSafePhoneApp.iOS.pdb" />
-    <Content Include="obj\iPhone\Release\CliniSafePhoneApp.iOS.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\iPhone\Release\CliniSafePhoneApp.iOS.exe" />
-    <Content Include="Packages\Telerik.Documents.Core.dll" />
-    <Content Include="Packages\Telerik.Documents.Fixed.dll" />
-    <Content Include="Packages\Telerik.Documents.SpreadsheetStreaming.dll" />
-    <Content Include="Packages\Telerik.Xamarin.iOS.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Barcode.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Barcode.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Chart.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Chart.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Common.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Common.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataControls.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataControls.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataGrid.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataGrid.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataVisualization.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataVisualization.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Input.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Input.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Map.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Map.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.PdfViewer.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.PdfViewer.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Primitives.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Primitives.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.XML" />
-    <Content Include="Packages\Telerik.Zip.dll" />
+	
+	
+	
     <Content Include="Web References\DevTestPhoneAppService\phoneapp.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

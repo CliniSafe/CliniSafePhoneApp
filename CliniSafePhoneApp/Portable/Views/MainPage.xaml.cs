@@ -33,13 +33,10 @@ namespace CliniSafePhoneApp.Portable.Views
 
             // Initialise MainViewModel.
             MainVM = new MainViewModel(this);
-
             LoginVM = new LoginViewModel();
 
 
-
             MasterBehavior = MasterBehavior.Popover;
-
             MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
         }
 

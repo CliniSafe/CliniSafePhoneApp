@@ -33,10 +33,13 @@ namespace CliniSafePhoneApp.Portable.Views
             BindingContext = ResearchSitesVM;
         }
 
-        private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        {
-            // Navigate to the Review page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Review);
-        }
+        //private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
+        //{
+        //    // Navigate to the Review page
+        //    //_ = RootPage.NavigateFromMenu((int)MenuItemType.Review);
+
+        //    // Navigate to the FindDrugs page
+        //    _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs);
+        //}
     }
 }

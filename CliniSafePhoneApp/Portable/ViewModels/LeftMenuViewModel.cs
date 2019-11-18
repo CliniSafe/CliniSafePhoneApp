@@ -16,12 +16,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public ObservableCollection<HomeMenuItem> HomeMenuItems
         {
-            get {
+            get
+            {
                 if (homeMenuItem == null)
                 {
                     homeMenuItem = new ObservableCollection<HomeMenuItem>();
                 }
-                return homeMenuItem; }
+                return homeMenuItem;
+            }
             set
             {
                 homeMenuItem = value;
@@ -31,7 +33,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

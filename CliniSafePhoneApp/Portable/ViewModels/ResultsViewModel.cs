@@ -32,7 +32,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Project))
                 RootPage.MenuPages.Remove((int)MenuItemType.Project);
 
-
             // Navigate to the Project page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, "", "", null);
         }

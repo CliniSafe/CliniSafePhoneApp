@@ -70,11 +70,12 @@ Global
 		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
 		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
 		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
-		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|Any CPU.ActiveCfg = AppStore|iPhone
-		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
-		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhone.Build.0 = AppStore|iPhone
-		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
-		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
+		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|Any CPU.Build.0 = Release|iPhoneSimulator
+		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhone.Build.0 = Ad-Hoc|iPhone
+		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
+		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.AppStore|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
 		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.Debug|Any CPU.ActiveCfg = Debug|iPhone
 		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{BEF4B2CD-2854-4378-94A8-3268393E52AD}.Debug|iPhone.Build.0 = Debug|iPhone

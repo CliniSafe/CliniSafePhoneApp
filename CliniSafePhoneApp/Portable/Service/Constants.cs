@@ -1,5 +1,8 @@
-﻿using Plugin.Connectivity;
-
+﻿using CliniSafePhoneApp.Portable.Models;
+using Plugin.Connectivity;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.Service
@@ -83,6 +86,22 @@ namespace CliniSafePhoneApp.Portable.Service
 
                 return cliniSafeImage;
             }
+        }
+
+
+        public static Task<List<CountriesForProjectForMonitorUser>> DeserializeXMLToList(string rawXml)
+        {
+            //// Decode xml(rawXml) into a list and assign to CountriesForProjectForMonitorUser model
+            //StringReader stringReader = new StringReader(rawXml);
+
+            //XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
+
+            //List<CountriesForProjectForMonitorUser> listResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
+
+            //return listResult;
+
+            throw new NotImplementedException();
+
         }
     }
 }

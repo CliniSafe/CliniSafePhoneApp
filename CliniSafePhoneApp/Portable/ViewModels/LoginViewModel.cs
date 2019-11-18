@@ -275,10 +275,21 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public async void AuthenticateAsync()
         {
 
-            if (!string.IsNullOrEmpty(Authenticate) && Authenticate == "Authenticated")
+            if (/*!string.IsNullOrEmpty(Authenticate) && */Authenticate == "Authenticated")
             {
                 // Navigate to the project page
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+            }
+            else if(Authenticate == "Not Authenticated")
+            {
+
+                // Navigate to the Login page
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.LogIn, null, null, null);
+                Username = "";
+                Password = "";
+                Authenticate = null;
+                AuthHeader = null;
+
             }
             else
             {

@@ -27,7 +27,7 @@ xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;
 
         <Label x:Name="CountriesLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="Countries" FontSize="Title" VerticalOptions="CenterAndExpand" />
 
-        <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}" ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+        <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}"  ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False" >
             <telerikGrid:RadDataGrid.Columns>
                 <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
                 <telerikGrid:DataGridTextColumn PropertyName="EnglishCountryName" HeaderText="Country" SizeMode="Stretch" />

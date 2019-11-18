@@ -33,7 +33,7 @@ namespace CliniSafePhoneApp.Portable.Views
             //Initialise LeftMenuViewModel.
             LeftMenuVM = new LeftMenuViewModel();
 
-            //ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems.Count > 0 ? LeftMenuVM.HomeMenuItems : null ;
+            ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems.Count > 0 ? LeftMenuVM.HomeMenuItems : null;
 
             //if (ListViewMenu.ItemsSource != null)
             //{
@@ -75,6 +75,8 @@ namespace CliniSafePhoneApp.Portable.Views
             base.OnAppearing();
 
             LeftMenuVM.UpdateHomeMenuItems(null);
+
+            ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems;
         }
     }
 }

@@ -9,21 +9,10 @@ namespace CliniSafePhoneApp.Portable.Views
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
-
         /// <summary>
         /// Define ProjectsViewModel.
         /// </summary>
         private ProjectsViewModel ProjectsVM;
-
-
-        //public string Username { get; set; }
-        //public string Password { get; set; }
-
-
-        //public ProjectsPage()
-        //{
-        //    InitializeComponent();
-        //}
 
         /// <summary>
         /// Initialise properties in constructor.

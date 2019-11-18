@@ -21,8 +21,6 @@ using Xamarin.Forms;
 
 [assembly: Dependency(typeof(CliniSafePhoneApp.Android.PhoneAppSoapService))]
 namespace CliniSafePhoneApp.Android
-
-
 {
     public class PhoneAppSoapService : ISoapService, INotifyPropertyChanged
     {
@@ -36,7 +34,7 @@ namespace CliniSafePhoneApp.Android
         TaskCompletionSource<bool> echoRequestComplete = null;
         TaskCompletionSource<bool> projectsForUserComplete = null;
         TaskCompletionSource<bool> countriesForProjectForMonitorUserComplete = null;
-        TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserCompleted = null;
+        TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserComplete = null;
 
 
 
@@ -66,7 +64,6 @@ namespace CliniSafePhoneApp.Android
         }
 
 
-
         public string helloWorldResult;
 
         public string handshakeResult;
@@ -79,26 +76,30 @@ namespace CliniSafePhoneApp.Android
 
         public static string xmlCountriesForProjectForMonitorUserResult;
 
-        public static List<ProjectUser> ProjectForUserListResult { get; set; }
+        public static string xmlResearchSitesForProjectForInvestigatorUserResult;
 
         public int Project_ID;
 
-        //public static List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
+        public static List<ProjectUser> ProjectForUserListResult { get; set; }
+
+        public static List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
+
+        public static List<ResearchSitesForProjectForInvestigatorUser> ResearchSitesForProjectForInvestigatorUserListResult { get; set; }
 
 
 
 
-        private List<CountriesForProjectForMonitorUser> countriesForProjectForMonitorUserListResult;
+        //private List<CountriesForProjectForMonitorUser> countriesForProjectForMonitorUserListResult;
 
-        public List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult
-        {
-            get { return countriesForProjectForMonitorUserListResult; }
-            set
-            {
-                countriesForProjectForMonitorUserListResult = value;
-                OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
-            }
-        }
+        //public List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult
+        //{
+        //    get { return countriesForProjectForMonitorUserListResult; }
+        //    set
+        //    {
+        //        countriesForProjectForMonitorUserListResult = value;
+        //        OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
+        //    }
+        //}
 
 
         /// <summary>
@@ -152,68 +153,53 @@ namespace CliniSafePhoneApp.Android
 
 
 
-        private void PhoneApp_CountriesForProjectForMonitorUserCompleted(object sender, GetCountriesForProjectForMonitorUserCompletedEventArgs e)
+
+
+
+
+        /// <summary>
+        /// Assign the Soap Header Values Returned from the Web Service.
+        /// </summary>
+        /// <returns></returns>
+        public Portable.Models.AuthHeader GetAuthHeader()
         {
-            try
-            {
-                countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
-
-                // Check and Set Specified Exceptions
-                if (e.Error != null)
-                    if (e.Error is WebException)
-                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
-                    else if (e.Error is SoapException)
-                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
-                    else
-                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
-
-                devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
-                xmlCountriesForProjectForMonitorUserResult = e.Result;
-
-                // Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
-                StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
-
-                XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
-
-                CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
-
-                countriesForProjectForMonitorUserComplete?.TrySetResult(true);
-            }
-            catch (SoapException se)
-            {
-                DisplaySoapException(se);
-            }
-            catch (WebException we)
-            {
-                DisplayWebException(we);
-            }
-            catch (Exception ex)
-            {
-                DisplayException(ex);
-            }
-
+            authHeaderResults = FromPhoneAppServiceAuthenticate(devTestPhoneAppService.AuthHeaderValue);
+            return authHeaderResults;
         }
 
 
-
-        private void PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted(object sender, GetResearchSitesForProjectForInvestigtorUserCompletedEventArgs e)
+        /// <summary>
+        /// Assign the Soap Header Values Returned by the Handshake Method from the Web Service.
+        /// </summary>
+        /// <returns></returns>
+        public Portable.Models.HandshakeHeader GetHandshakeHeader()
         {
-            throw new NotImplementedException();
+            handshakeHeaderResults = FromPhoneAppSoapServiceHandshake(devTestPhoneAppService.HandshakeHeaderValue);
+            return handshakeHeaderResults;
         }
 
 
-        public async Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
+        public async Task<List<ProjectUser>> GetProjectsForUserListAysnc(Portable.Models.AuthHeader authHeader)
         {
-            countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
+            projectsForUserComplete = new TaskCompletionSource<bool>();
+            DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
+            {
+                Username = authHeader.Username,
+                Password = authHeader.Password,
+                CPAVersion = authHeader.CPAVersion
+            };
 
-            if (projectUser != null)
-                Project_ID = projectUser.ID;
-
-            devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
-            await countriesForProjectForMonitorUserComplete.Task;
-            return CountriesForProjectForMonitorUserListResult;
+            devTestPhoneAppService.AuthHeaderValue = authHeader1;
+            devTestPhoneAppService.GetProjectsForUserAsync(authHeader);
+            await projectsForUserComplete.Task;
+            return ProjectForUserListResult;
         }
 
+        /// <summary>
+        /// Private Project User Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneApp_ProjectsForUserCompleted(object sender, GetProjectsForUserCompletedEventArgs e)
         {
 
@@ -311,24 +297,143 @@ namespace CliniSafePhoneApp.Android
 
         }
 
-
-        public async Task<List<ProjectUser>> GetProjectsForUserListAysnc(Portable.Models.AuthHeader authHeader)
+        public async Task<List<CountriesForProjectForMonitorUser>> GetCountriesForProjectForMonitorUserListAsync(ProjectUser projectUser)
         {
-            projectsForUserComplete = new TaskCompletionSource<bool>();
-            DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
-            {
-                Username = authHeader.Username,
-                Password = authHeader.Password,
-                CPAVersion = authHeader.CPAVersion
-            };
+            countriesForProjectForMonitorUserComplete = new TaskCompletionSource<bool>();
 
-            devTestPhoneAppService.AuthHeaderValue = authHeader1;
-            devTestPhoneAppService.GetProjectsForUserAsync(authHeader);
-            await projectsForUserComplete.Task;
-            return ProjectForUserListResult;
+            if (projectUser != null)
+                Project_ID = projectUser.ID;
+
+            devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
+            await countriesForProjectForMonitorUserComplete.Task;
+            return CountriesForProjectForMonitorUserListResult;
+        }
+
+        /// <summary>
+        /// Countries for Project event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneApp_CountriesForProjectForMonitorUserCompleted(object sender, GetCountriesForProjectForMonitorUserCompletedEventArgs e)
+        {
+            try
+            {
+                countriesForProjectForMonitorUserComplete = countriesForProjectForMonitorUserComplete ?? new TaskCompletionSource<bool>();
+
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+                    else
+                        countriesForProjectForMonitorUserComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
+                xmlCountriesForProjectForMonitorUserResult = e.Result;
+
+                // Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
+                StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
+
+                CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
+
+                countriesForProjectForMonitorUserComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+
         }
 
 
+        public async Task<List<ResearchSitesForProjectForInvestigatorUser>> GetResearchSitesForProjectForInvestigtorUserListAsync(ProjectUser projectUser)
+        {
+            researchSitesForProjectForInvestigtorUserComplete = new TaskCompletionSource<bool>();
+
+            if (projectUser != null)
+                Project_ID = projectUser.ID;
+
+            devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserAsync(Project_ID);
+            await researchSitesForProjectForInvestigtorUserComplete.Task;
+            return ResearchSitesForProjectForInvestigatorUserListResult;
+        }
+
+        /// <summary>
+        /// Private ResearchSite Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted(object sender, GetResearchSitesForProjectForInvestigtorUserCompletedEventArgs e)
+        {
+            try
+            {
+                researchSitesForProjectForInvestigtorUserComplete = researchSitesForProjectForInvestigtorUserComplete ?? new TaskCompletionSource<bool>();
+
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        researchSitesForProjectForInvestigtorUserComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        researchSitesForProjectForInvestigtorUserComplete?.TrySetException(e.Error);
+                    else
+                        researchSitesForProjectForInvestigtorUserComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserAsync(Project_ID);
+                xmlResearchSitesForProjectForInvestigatorUserResult = e.Result;
+
+                // Decode xml(xmlResearchSitesForProjectForInvestigatorUserResult) into a list and assign to ResearchSitesForProjectForInvestigatorUser model
+                StringReader stringReader = new StringReader(xmlResearchSitesForProjectForInvestigatorUserResult);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<ResearchSitesForProjectForInvestigatorUser>), new XmlRootAttribute("NewDataSet"));
+
+                ResearchSitesForProjectForInvestigatorUserListResult = (List<ResearchSitesForProjectForInvestigatorUser>)serializer.Deserialize(stringReader);
+
+                researchSitesForProjectForInvestigtorUserComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Returns Hello.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> HelloWorldAsync()
+        {
+            helloWorldRequestComplete = new TaskCompletionSource<bool>();
+            devTestPhoneAppService.HelloWorldAsync();
+            await helloWorldRequestComplete.Task;
+            return helloWorldResult;
+        }
+
+        /// <summary>
+        /// Private Hello World Event.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneApp_HelloWorldCompleted(object sender, HelloWorldCompletedEventArgs e)
         {
             try
@@ -362,6 +467,26 @@ namespace CliniSafePhoneApp.Android
             }
         }
 
+        /// <summary>
+        /// Returns Handshake Value.
+        /// </summary>
+        /// <param name="handShakeHeader"></param>
+        /// <returns></returns>
+        public async Task<string> HandShakeAsync(Portable.Models.HandshakeHeader handShakeHeader)
+        {
+            handshakeRequestComplete = new TaskCompletionSource<bool>();
+            DevTestPhoneAppService.HandshakeHeader handshakeHeader1 = new DevTestPhoneAppService.HandshakeHeader() { CPAVersion = handShakeHeader.CPAVersion };
+            devTestPhoneAppService.HandshakeHeaderValue = handshakeHeader1;
+            devTestPhoneAppService.HandshakeAsync(handShakeHeader);
+            await handshakeRequestComplete.Task;
+            return handshakeResult;
+        }
+
+        /// <summary>
+        /// Private Handshake Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneApp_HandshakeCompleted(object sender, HandshakeCompletedEventArgs e)
         {
             try
@@ -402,6 +527,32 @@ namespace CliniSafePhoneApp.Android
             };
         }
 
+        /// <summary>
+        /// Returns AuthenticateAsync Value.
+        /// </summary>
+        /// <param name="authHeader"></param>
+        /// <returns></returns>
+        public async Task<string> AuthenticateAsync(Portable.Models.AuthHeader authHeader)
+        {
+            authenticateRequestComplete = new TaskCompletionSource<bool>();
+            DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
+            {
+                Username = authHeader.Username,
+                Password = authHeader.Password,
+                CPAVersion = authHeader.CPAVersion
+            };
+
+            devTestPhoneAppService.AuthHeaderValue = authHeader1;
+            devTestPhoneAppService.AuthenticateAsync(authHeader);
+            await authenticateRequestComplete.Task;
+            return authenticationResult;
+        }
+
+        /// <summary>
+        /// Private Authenticate Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneApp_AuthenticateCompleted(object sender, AuthenticateCompletedEventArgs e)
         {
             if (string.IsNullOrEmpty(authenticationResult))
@@ -445,7 +596,18 @@ namespace CliniSafePhoneApp.Android
         }
 
         /// <summary>
-        /// Returns Error Soap Exception
+        /// Returns Soap Exception
+        /// </summary>
+        /// <returns></returns>
+        public async Task HelloErrorAsync()
+        {
+            helloErrorRequestComplete = new TaskCompletionSource<bool>();
+            devTestPhoneAppService.HelloErrorAsync();
+            await helloErrorRequestComplete.Task;
+        }
+
+        /// <summary>
+        /// Private Hello Error Event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -461,7 +623,6 @@ namespace CliniSafePhoneApp.Android
                         helloErrorRequestComplete?.TrySetException(e.Error);
                     else
                         helloErrorRequestComplete?.TrySetException(e.Error);
-
 
                 helloErrorRequestComplete = helloErrorRequestComplete ?? new TaskCompletionSource<bool>();
                 devTestPhoneAppService.HelloErrorAsync();
@@ -481,6 +642,24 @@ namespace CliniSafePhoneApp.Android
             }
         }
 
+        /// <summary>
+        /// Echo Returns Input Value
+        /// </summary>
+        /// <param name="inputValue"></param>
+        /// <returns></returns>
+        public async Task<string> EchoAsync(string inputValue)
+        {
+            echoRequestComplete = new TaskCompletionSource<bool>();
+            devTestPhoneAppService.EchoAsync(inputValue);
+            await echoRequestComplete.Task;
+            return echoResult;
+        }
+
+        /// <summary>
+        /// Private Echo Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneApp_EchoComplted(object sender, EchoCompletedEventArgs e)
         {
             try
@@ -515,110 +694,7 @@ namespace CliniSafePhoneApp.Android
         }
 
         /// <summary>
-        /// Returns Hello.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<string> HelloWorldAsync()
-        {
-            helloWorldRequestComplete = new TaskCompletionSource<bool>();
-            devTestPhoneAppService.HelloWorldAsync();
-            await helloWorldRequestComplete.Task;
-            return helloWorldResult;
-        }
-
-        /// <summary>
-        /// Returns Handshake Value.
-        /// </summary>
-        /// <param name="handShakeHeader"></param>
-        /// <returns></returns>
-        public async Task<string> HandShakeAsync(Portable.Models.HandshakeHeader handShakeHeader)
-        {
-            handshakeRequestComplete = new TaskCompletionSource<bool>();
-            DevTestPhoneAppService.HandshakeHeader handshakeHeader1 = new DevTestPhoneAppService.HandshakeHeader() { CPAVersion = handShakeHeader.CPAVersion };
-            devTestPhoneAppService.HandshakeHeaderValue = handshakeHeader1;
-            devTestPhoneAppService.HandshakeAsync(handShakeHeader);
-            await handshakeRequestComplete.Task;
-            return handshakeResult;
-        }
-
-        /// <summary>
-        /// Returns AuthenticateAsync Value.
-        /// </summary>
-        /// <param name="authHeader"></param>
-        /// <returns></returns>
-        public async Task<string> AuthenticateAsync(Portable.Models.AuthHeader authHeader)
-        {
-            authenticateRequestComplete = new TaskCompletionSource<bool>();
-            DevTestPhoneAppService.AuthHeader authHeader1 = new DevTestPhoneAppService.AuthHeader()
-            {
-                Username = authHeader.Username,
-                Password = authHeader.Password,
-                CPAVersion = authHeader.CPAVersion
-            };
-
-            devTestPhoneAppService.AuthHeaderValue = authHeader1;
-            devTestPhoneAppService.AuthenticateAsync(authHeader);
-            await authenticateRequestComplete.Task;
-            return authenticationResult;
-        }
-
-        /// <summary>
-        /// Assign the Soap Header Values Returned from the Web Service.
-        /// </summary>
-        /// <returns></returns>
-        public Portable.Models.AuthHeader GetAuthHeader()
-        {
-            authHeaderResults = FromPhoneAppServiceAuthenticate(devTestPhoneAppService.AuthHeaderValue);
-            return authHeaderResults;
-        }
-
-
-        public Portable.Models.HandshakeHeader Get()
-        {
-            handshakeHeaderResults = FromPhoneAppSoapServiceHandshake(devTestPhoneAppService.HandshakeHeaderValue);
-            return handshakeHeaderResults;
-        }
-
-
-        /// <summary>
-        /// Assign the Soap Header Values Returned by the Handshake Method from the Web Service.
-        /// </summary>
-        /// <returns></returns>
-        public Portable.Models.HandshakeHeader GetHandshakeHeader()
-        {
-            handshakeHeaderResults = FromPhoneAppSoapServiceHandshake(devTestPhoneAppService.HandshakeHeaderValue);
-            return handshakeHeaderResults;
-        }
-
-        /// <summary>
-        /// Returns Soap Exception
-        /// </summary>
-        /// <returns></returns>
-        public async Task HelloErrorAsync()
-        {
-            helloErrorRequestComplete = new TaskCompletionSource<bool>();
-            devTestPhoneAppService.HelloErrorAsync();
-            await helloErrorRequestComplete.Task;
-        }
-
-        /// <summary>
-        /// Echo Returns Input Value
-        /// </summary>
-        /// <param name="inputValue"></param>
-        /// <returns></returns>
-        public async Task<string> EchoAsync(string inputValue)
-        {
-
-            echoRequestComplete = new TaskCompletionSource<bool>();
-            devTestPhoneAppService.EchoAsync(inputValue);
-            await echoRequestComplete.Task;
-            return echoResult;
-        }
-
-
-
-        /// <summary>
-        /// Displays the Exception.
+        /// Displays the Exception on the Error Page.
         /// </summary>
         /// <param name="exception"></param>
         /// <returns></returns>
@@ -637,7 +713,7 @@ namespace CliniSafePhoneApp.Android
         }
 
         /// <summary>
-        /// Displays the Web Exception.
+        /// Displays the Web Exception on the Error Page.
         /// </summary>
         /// <param name="webException"></param>
         /// <returns></returns>
@@ -649,14 +725,12 @@ namespace CliniSafePhoneApp.Android
 
             strDisplayMessage += strDisplayMessage + webException.Message;
 
-            // await App.Current.MainPage.DisplayAlert("Error", strDisplayMessage, "Cancel");
-
             //Navigate to Error Page
             await RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, strDisplayMessage);
         }
 
         /// <summary>
-        /// Displays the SOAP Exception.
+        /// Displays the SOAP Exception on the Error Page.
         /// </summary>
         /// <param name="soapException"></param>
         /// <returns></returns>

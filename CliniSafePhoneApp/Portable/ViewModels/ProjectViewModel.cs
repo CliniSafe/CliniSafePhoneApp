@@ -223,15 +223,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 projectUserList = value;
-                //foreach (ProjectUser projectUser in ProjectUserList)
-                //{
-
-                //    new ProjectUser()
-                //    {
-                //        ProjectCode = projectUser.ProjectCode,
-                //        ProjectTitleShortPhoneDisplay = projectUser.ProjectTitleShortPhoneDisplay
-                //    };
-                //}
                 OnPropertyChanged("ProjectUserList");
             }
         }
@@ -245,60 +236,20 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 selectedProjectUser = value;
-                new ProjectUser()
-                {
-                    ProjectCode = SelectedProjectUser.ProjectCode,
-                    ProjectTitleShort = SelectedProjectUser.ProjectTitleShort
-                };
                 OnPropertyChanged("SelectedProjectUser");
             }
         }
 
 
-
-
-        //private string projectCode;
-
-        //public string ProjectCode
-        //{
-        //    get { return projectCode; }
-        //    set
-        //    {
-        //        projectCode = value;
-        //        OnPropertyChanged("ProjectCode");
-        //    }
-        //}
-
-        //private string projectTitleShort;
-
-        //public string ProjectTitleShort
-        //{
-        //    get { return projectTitleShort; }
-        //    set
-        //    {
-        //        projectTitleShort = value;
-        //        //foreach (var projectUser in ProjectUserList)
-        //        //{
-
-        //        //    new ProjectUser()
-        //        //    {
-        //        //        ProjectCode = projectUser.ProjectCode,
-        //        //        ProjectTitleShort = projectUser.ProjectTitleShort
-        //        //    };
-        //        //}
-        //        OnPropertyChanged("ProjectTitleShort");
-        //    }
-        //}
-
-
+        /// <summary>
+        /// Navigate to the project page
+        /// </summary>
+        /// <param name="projectUser"></param>
         public void NavigateToProjectDetails(ProjectUser projectUser)
         {
-
-
             if (RootPage.MenuPages.ContainsKey((int)MenuItemType.ProjectDetails))
                 RootPage.MenuPages.Remove((int)MenuItemType.ProjectDetails);
 
-            // Navigate to the project page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.ProjectDetails, null, null, selectedProjectUser);
         }
 
@@ -312,103 +263,54 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             authHeader = AuthHeader.GetAuthHeader();
 
-
-            //LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-            //leftMenuViewModel.AddMenuItems(authHeader.Authenticated);
-
-
-
-
-
-
-
-
-            //return ProjectUserList;
-            if (ProjectUserList != null)
+            if (authHeader.HasIssues)
             {
-                if (authHeader != null)
-                {
-                    LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-                    leftMenuViewModel.UpdateHomeMenuItems(authHeader.Authenticated);
-                }
+                if (authHeader.MaintenanceMode)
+                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                else if (authHeader.CPAVersionExact)
+                    if (authHeader.CPANeedsUpdating)
+                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+            }
+            else
+            {
+                LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
+                leftMenuViewModel.UpdateHomeMenuItems(authHeader.Authenticated);
 
-                selectedProjectUser = null;
+                //HomeItemMenuServices homeItemMenuServices = new HomeItemMenuServices();
+                //homeItemMenuServices.GetHomeMenuItems(authHeader.Authenticated);
 
-                // Navigate to the project page
-
-                //RootPage.MainVM.MenuPages.Add((int)MenuItemType.Project, new NavigationPage(new ProjectsPage(authHeader.Username, authHeader.Password) { Title = MenuItemType.Project.ToString() }));
-
+                //selectedProjectUser = null;
 
 
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.Project);
 
 
-                //MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
+                ////LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
+                ////leftMenuViewModel.AddMenuItems(authHeader.Authenticated);
 
-                //RootPage.MainVM.MainPage.AddPages((int)MenuItemType.Project);
+                ////return ProjectUserList;
+                //if (ProjectUserList != null)
+                //{
+                //    if (authHeader != null)
+                //    {
+                //        LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
+                //        leftMenuViewModel.UpdateHomeMenuItems(authHeader.Authenticated);
+                //    }
+
+                //    //selectedProjectUser = null;
+
+                //    //new one
+                //    // _ = RootPage.NavigateFromMenu((int)MenuItemType.Project);
+
+
+                //    //MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
 
             }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             //leftMenuViewModel.HomeMenuItems.Add(_ = new HomeMenuItem(){ Id = MenuItemType.LogOut, Title = MenuItemType.LogOut.ToString() });
 
-
-
-            ////return ProjectUserList;
-            //if (ProjectUserList != null)
-
-            //    // Navigate to the project page
-            //    _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password);
-
-
-
-
-
-
-
-
-
-
-            //_navigationService.NavigateToSecondPage(new ProjectsPage() { Title = "Projects" });
-
-            //authHeader = AuthHeader.GetAuthHeader();
-
-            //if (authHeader.HasIssues)
-            //    if (authHeader.MaintenanceMode)
-            //        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
-            //    else if (authHeader.CPAVersionExact)
-            //        if (authHeader.CPANeedsUpdating)
-            //            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
         }
-
-
-
-        //public async void CheckHandshake()
-        //{
-        //    if (HandshakeHeader == null)
-        //        HandshakeHeader = new HandshakeHeader()
-        //        {
-        //            CPAVersion = Constants.CPAVersion
-        //        };
-
-        //    HandshakeResult = await HandshakeHeader.HandShakeAsync(HandshakeHeader);
-        //    NavigateForward();
-        //}
 
 
         /// <summary>

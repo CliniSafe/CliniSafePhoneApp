@@ -12,9 +12,7 @@
     <StackLayout x:Name="ProjectDetailsContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0" />
 
-
-        <Label x:Name="ProjectTitleLabel" Margin="40,10,200,0"  
-           HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="ProjectTitleLabel" Margin="40,10,200,0" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
 
         <Label x:Name="ProjectDetailsLabel" Margin="40,0,40,0" HorizontalOptions="Start" Text="Project Details" FontSize="Title"  VerticalOptions="CenterAndExpand" />
 

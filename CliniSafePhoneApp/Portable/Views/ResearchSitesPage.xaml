@@ -4,29 +4,54 @@
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CliniSafePhoneApp.Portable.Views.ResearchSitesPage">
-
+<!--Margin="20,0,200,0"-->
     <StackLayout x:Name="ResearchSitesContainerStackLayout">
-        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0, 0, 0, 0"/>
+        <Label x:Name="ResearchSitesProjectLabel" Margin="20, 0, 20, 0"  HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
+        <Editor x:Name="ResearchSitesHelpTextEditor" Text="Please select the Research Site you want to use the Drug Checker on" FontSize="Small"  Margin="20, 0, 20, 10"   />
+        <Label x:Name="ResearchSitesLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Research Sites" FontSize="Title" VerticalOptions="Start" />
+        
+        <!--left , top , right , bottom    Margin="40,10"-->
+  
+        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+   
+            <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid"  SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}"  GridLinesVisibility="Both" AutoGenerateColumns="False"  >
+                <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                    <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                    </telerikGrid:DataGridBorderStyle>
+                </telerikGrid:RadDataGrid.RowBackgroundStyle>
 
-        <Label x:Name="ResearchSitesProjectLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
-
-        <Editor x:Name="ResearchSitesHelpTextEditor" Text="Please select the Research Site you want to use the Drug Checker on" FontSize="Medium"  Margin="40,0,40,0"/>
-
-        <Label x:Name="ResearchSitesLabel" Margin="40,10" HorizontalOptions="Start" Text="Research Sites" FontSize="Title" VerticalOptions="CenterAndExpand" />
-
-        <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid" SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
-            <telerikGrid:RadDataGrid.Columns>
-                <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch" />
-                <telerikGrid:DataGridTextColumn PropertyName="SiteName" HeaderText="Site Name" SizeMode="Stretch" />
-            </telerikGrid:RadDataGrid.Columns>
-        </telerikGrid:RadDataGrid>
+                <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                    <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
+                    </telerikGrid:DataGridGroupHeaderStyle>
+                </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
 
+                <telerikGrid:RadDataGrid.Columns>
+                    <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch">
+                        <telerikGrid:DataGridTextColumn.HeaderStyle>
+                            <telerikGrid:DataGridColumnHeaderStyle
+                                           TextColor="Black" TextFontAttributes="Bold" 
+                                           BorderThickness="1"/>
+                        </telerikGrid:DataGridTextColumn.HeaderStyle>
+                    </telerikGrid:DataGridTextColumn>
+                    <telerikGrid:DataGridTextColumn PropertyName="SiteTitle" HeaderText="Site Name" SizeMode="Stretch">
+                        <telerikGrid:DataGridTextColumn.HeaderStyle>
+                            <telerikGrid:DataGridColumnHeaderStyle HorizontalTextAlignment="Start"
+                                           TextColor="Black" TextFontAttributes="Bold"
+                                             BorderThickness="1"/>
+                        </telerikGrid:DataGridTextColumn.HeaderStyle>
+                    </telerikGrid:DataGridTextColumn>
+                </telerikGrid:RadDataGrid.Columns>
+            </telerikGrid:RadDataGrid>              
+        </telerikPrimitives:RadBorder>
+    
+<!--Clicked="NextNavigationButton_Clicked"-->
 
-
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Clicked="NextNavigationButton_Clicked"
-                Margin="10,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  CommandParameter="{Binding SelectedResearchSite, Mode=TwoWay}" Command="{Binding NavigateToFindDrugsCommand, Mode=TwoWay}"
+                Margin="20,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
         <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
                 Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->

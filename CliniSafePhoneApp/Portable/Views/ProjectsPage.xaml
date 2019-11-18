@@ -7,27 +7,38 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:datagrid="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CliniSafePhoneApp.Portable.Views.ProjectsPage" Title="Projects">
 
     <!--left , top , right , bottom-->
 
     <StackLayout x:Name="ProjectContainerStackLayout">
-        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
+        <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200"  Margin="0, 0, 0, 0" />
+        <Label x:Name="MyProjectLabel" Margin="20, 0, 20, 20" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="My Projects" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
+        
+        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+            <telerikGrid:RadDataGrid x:Name="projectUserListDataGrid" SelectedItem="{Binding SelectedProjectUser, Mode=TwoWay}" ItemsSource="{Binding ProjectUserList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
 
-        <Label x:Name="MyProjectLabel" Margin="40,0,200,0"  
-           HorizontalOptions="Start" Text="My Projects" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+                <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                    <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                    </telerikGrid:DataGridBorderStyle>
+                </telerikGrid:RadDataGrid.RowBackgroundStyle>
 
-        <telerikGrid:RadDataGrid x:Name="projectUserListDataGrid" SelectedItem="{Binding SelectedProjectUser, Mode=TwoWay}" ItemsSource="{Binding ProjectUserList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
-            <telerikGrid:RadDataGrid.Columns>
-                <telerikGrid:DataGridTextColumn PropertyName="ProjectCode" HeaderText="Project Code" SizeMode="Stretch" />
-                <telerikGrid:DataGridTextColumn PropertyName="ProjectTitleShortPhoneDisplay" HeaderText="Project Title Short" SizeMode="Stretch" />
-            </telerikGrid:RadDataGrid.Columns>
-        </telerikGrid:RadDataGrid>
+                <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                    <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
+                    </telerikGrid:DataGridGroupHeaderStyle>
+                </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
+                <telerikGrid:RadDataGrid.Columns>
+                    <telerikGrid:DataGridTextColumn PropertyName="ProjectCode" HeaderText="Project Code" SizeMode="Stretch" />
+                    <telerikGrid:DataGridTextColumn PropertyName="ProjectTitleShortPhoneDisplay" HeaderText="Project Title Short" SizeMode="Stretch" />
+                </telerikGrid:RadDataGrid.Columns>
+            </telerikGrid:RadDataGrid>
+        </telerikPrimitives:RadBorder>
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" 
                 CommandParameter="{Binding SelectedProjectUser, Mode=TwoWay}" Command="{Binding NavigateToProjectDetailCommand, Mode=TwoWay}"
-                Margin="10,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"  />
+                Margin="20,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"  />
       
     </StackLayout>
 </ContentPage>
