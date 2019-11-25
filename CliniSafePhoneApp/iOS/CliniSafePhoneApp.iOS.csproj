@@ -119,26 +119,7 @@
     <BundleResource Include="Packages\Telerik.XamarinForms.Primitives.deps.json" />
     <None Include="Packages\Telerik.XamarinForms.Primitives.dll.config" />
     <BundleResource Include="Packages\Telerik.XamarinForms.SkiaSharp.deps.json" />
-    <!--
     
-    <BundleResource Include="Packages\Telerik.XamarinForms.Barcode.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.Chart.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.Common.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.ConversationalUI.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.DataControls.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.DataGrid.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.DataVisualization.deps.json" />
-    <None Include="Packages\Telerik.XamarinForms.DataVisualization.dll.config" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.ImageEditor.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.Input.deps.json" />
-    <None Include="Packages\Telerik.XamarinForms.Input.dll.config" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.Map.deps.json" />
-    <None Include="Packages\Telerik.XamarinForms.Map.dll.config" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.PdfViewer.deps.json" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.Primitives.deps.json" />
-    <None Include="Packages\Telerik.XamarinForms.Primitives.dll.config" />
-    <BundleResource Include="Packages\Telerik.XamarinForms.SkiaSharp.deps.json" />
-    -->
     <None Include="Web References\DevTestPhoneAppService\GetTrialDetailsOutput.datasource" />
     <None Include="Web References\DevTestPhoneAppService\phoneapp.wsdl" />
     <None Include="Web References\DevTestPhoneAppService\Reference.map" />
@@ -287,6 +268,7 @@
     <BundleResource Include="Assets\AppIcon.appiconset\Icon76.png" />
     <BundleResource Include="Assets\AppIcon.appiconset\Icon80.png" />
     <BundleResource Include="Assets\AppIcon.appiconset\Icon87.png" />
+    
     <Content Include="Packages\Telerik.Documents.Core.dll" />
     <Content Include="Packages\Telerik.Documents.Fixed.dll" />
     <Content Include="Packages\Telerik.Documents.SpreadsheetStreaming.dll" />
@@ -318,79 +300,8 @@
     <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.dll" />
     <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.XML" />
     <Content Include="Packages\Telerik.Zip.dll" />
-    <!--
-    <Content Include="Packages\Telerik.Documents.Core.dll" />
-    <Content Include="Packages\Telerik.Documents.Fixed.dll" />
-    <Content Include="Packages\Telerik.Documents.SpreadsheetStreaming.dll" />
-    <Content Include="Packages\Telerik.Xamarin.iOS.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Barcode.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Barcode.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Chart.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Chart.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Common.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Common.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.ConversationalUI.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataControls.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataControls.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataGrid.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataGrid.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.DataVisualization.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.DataVisualization.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.ImageEditor.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Input.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Input.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Map.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Map.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.PdfViewer.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.PdfViewer.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.Primitives.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.Primitives.XML" />
-    <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.dll" />
-    <Content Include="Packages\Telerik.XamarinForms.SkiaSharp.XML" />
-    <Content Include="Packages\Telerik.Zip.dll" />    
-    -->
+
     <Content Include="Web References\DevTestPhoneAppService\phoneapp.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
-<!--<Reference Include="Telerik.Xamarin.iOS">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.Xamarin.iOS.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.Chart">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.Chart.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.Common">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.Common.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.DataControls">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.DataControls.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.DataGrid">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.DataGrid.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.DataVisualization">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.DataVisualization.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.ImageEditor">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.ImageEditor.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.Input">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.Input.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.Map">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.Map.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.PdfViewer">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.PdfViewer.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.Primitives">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.Primitives.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.SkiaSharp">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
-</Reference>
-<Reference Include="Telerik.XamarinForms.ConversationalUI">
-  <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R2 2019\Binaries\iOS\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
-</Reference>-->
