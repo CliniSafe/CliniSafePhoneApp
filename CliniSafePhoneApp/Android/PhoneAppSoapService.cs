@@ -5,7 +5,6 @@ using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.Views;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -22,11 +21,11 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(CliniSafePhoneApp.Android.PhoneAppSoapService))]
 namespace CliniSafePhoneApp.Android
 {
-    public class PhoneAppSoapService : ISoapService, INotifyPropertyChanged
+    public class PhoneAppSoapService : ISoapService /*, INotifyPropertyChanged*/
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
-        PhoneApp devTestPhoneAppService = new PhoneApp();
+        private readonly PhoneApp devTestPhoneAppService = new PhoneApp();
         TaskCompletionSource<bool> helloWorldRequestComplete = null;
         TaskCompletionSource<bool> handshakeRequestComplete = null;
         TaskCompletionSource<bool> authenticateRequestComplete = null;
@@ -35,7 +34,7 @@ namespace CliniSafePhoneApp.Android
         TaskCompletionSource<bool> projectsForUserComplete = null;
         TaskCompletionSource<bool> countriesForProjectForMonitorUserComplete = null;
         TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserComplete = null;
-
+        TaskCompletionSource<bool> findGenericDrugNameComplete = null;
 
 
         /// <summary>
@@ -52,16 +51,17 @@ namespace CliniSafePhoneApp.Android
             devTestPhoneAppService.GetProjectsForUserCompleted += PhoneApp_ProjectsForUserCompleted;
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
             devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserCompleted += PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted;
-
+            devTestPhoneAppService.FindGenericDrugNameCompleted += PhoneApp_FindGenericDrugNameCompleted;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //public void OnPropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
 
 
         public string helloWorldResult;
@@ -72,13 +72,19 @@ namespace CliniSafePhoneApp.Android
 
         public static string authenticationResult;
 
+        public int Project_ID;
+
+        public int Trial_ID;
+
+        public string GenericDrugNameToFind;
+
         public static string xmlProjectForUserResult;
 
         public static string xmlCountriesForProjectForMonitorUserResult;
 
         public static string xmlResearchSitesForProjectForInvestigatorUserResult;
 
-        public int Project_ID;
+        public static string xmlGenericDrugsFoundResult;
 
         public static List<ProjectUser> ProjectForUserListResult { get; set; }
 
@@ -86,21 +92,7 @@ namespace CliniSafePhoneApp.Android
 
         public static List<ResearchSitesForProjectForInvestigatorUser> ResearchSitesForProjectForInvestigatorUserListResult { get; set; }
 
-
-
-
-        //private List<CountriesForProjectForMonitorUser> countriesForProjectForMonitorUserListResult;
-
-        //public List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult
-        //{
-        //    get { return countriesForProjectForMonitorUserListResult; }
-        //    set
-        //    {
-        //        countriesForProjectForMonitorUserListResult = value;
-        //        OnPropertyChanged("CountriesForProjectForMonitorUserListResult");
-        //    }
-        //}
-
+        public static List<GenericDrugsFound> GenericDrugsFoundListResult { get; set; }
 
         /// <summary>
         /// Declare private member for assigning Soap Header results returned from Web Service.
@@ -112,8 +104,6 @@ namespace CliniSafePhoneApp.Android
         /// Declare private member for assigning Soap Header results returned from Web Service.
         /// </summary>
         private Portable.Models.HandshakeHeader handshakeHeaderResults = new Portable.Models.HandshakeHeader();
-
-
 
         public static Portable.Models.AuthHeader FromPhoneAppServiceAuthenticate(DevTestPhoneAppService.AuthHeader authHeader)
         {
@@ -135,8 +125,6 @@ namespace CliniSafePhoneApp.Android
             };
         }
 
-
-
         public static Portable.Models.HandshakeHeader FromPhoneAppSoapServiceHandshake(DevTestPhoneAppService.HandshakeHeader handshakeHeader)
         {
             return new Portable.Models.HandshakeHeader
@@ -150,11 +138,6 @@ namespace CliniSafePhoneApp.Android
                 MessageCode = handshakeHeader.MessageCode
             };
         }
-
-
-
-
-
 
 
         /// <summary>
@@ -416,6 +399,67 @@ namespace CliniSafePhoneApp.Android
         }
 
 
+
+        public async Task<List<GenericDrugsFound>> FindGenericDrugNameListAsync(int trialID, string genericDrugNameToFind)
+        {
+            findGenericDrugNameComplete = new TaskCompletionSource<bool>();
+
+            if (trialID != 0 && !string.IsNullOrEmpty(genericDrugNameToFind))
+            {
+                Trial_ID = trialID;
+                GenericDrugNameToFind = genericDrugNameToFind;
+            }
+
+            devTestPhoneAppService.FindGenericDrugNameAsync(Trial_ID, GenericDrugNameToFind);
+            await findGenericDrugNameComplete.Task;
+            return GenericDrugsFoundListResult;
+        }
+
+        /// <summary>
+        /// Private Find Generic Drugs Name Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneApp_FindGenericDrugNameCompleted(object sender, FindGenericDrugNameCompletedEventArgs e)
+        {
+            try
+            {
+                findGenericDrugNameComplete = findGenericDrugNameComplete ?? new TaskCompletionSource<bool>();
+
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        findGenericDrugNameComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        findGenericDrugNameComplete?.TrySetException(e.Error);
+                    else
+                        findGenericDrugNameComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.FindGenericDrugName(Trial_ID, GenericDrugNameToFind);
+                xmlGenericDrugsFoundResult = e.Result;
+
+                // Decode xml(xmlGenericDrugsFoundResult) into a list and assign to GenericDrugsFound model
+                StringReader stringReader = new StringReader(xmlGenericDrugsFoundResult);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<GenericDrugsFound>), new XmlRootAttribute("NewDataSet"));
+
+                GenericDrugsFoundListResult = (List<GenericDrugsFound>)serializer.Deserialize(stringReader);
+
+                findGenericDrugNameComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+        }
 
         /// <summary>
         /// Returns Hello.
@@ -749,7 +793,6 @@ namespace CliniSafePhoneApp.Android
             // Navigate to the error page
             await RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, strDisplayMessage);
         }
-
 
         /// <summary>
         /// Create a string with of the XML section of the SOAP Exception.

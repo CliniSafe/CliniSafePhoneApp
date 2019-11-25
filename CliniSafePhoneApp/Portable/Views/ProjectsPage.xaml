@@ -17,6 +17,7 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
         <Label x:Name="MyProjectLabel" Margin="20, 0, 20, 20" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="My Projects" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
         
         <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+                                    
             <telerikGrid:RadDataGrid x:Name="projectUserListDataGrid" SelectedItem="{Binding SelectedProjectUser, Mode=TwoWay}" ItemsSource="{Binding ProjectUserList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
 
                 <telerikGrid:RadDataGrid.RowBackgroundStyle>

@@ -280,7 +280,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 // Navigate to the project page
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
             }
-            else if(Authenticate == "Not Authenticated")
+            else if (Authenticate == "Not Authenticated")
             {
 
                 // Navigate to the Login page

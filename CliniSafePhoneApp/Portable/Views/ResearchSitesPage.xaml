@@ -6,7 +6,7 @@
              xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CliniSafePhoneApp.Portable.Views.ResearchSitesPage">
-<!--Margin="20,0,200,0"-->
+
     <StackLayout x:Name="ResearchSitesContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0, 0, 0, 0"/>
         <Label x:Name="ResearchSitesProjectLabel" Margin="20, 0, 20, 0"  HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
@@ -28,28 +28,15 @@
                     </telerikGrid:DataGridGroupHeaderStyle>
                 </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
-
                 <telerikGrid:RadDataGrid.Columns>
-                    <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch">
-                        <telerikGrid:DataGridTextColumn.HeaderStyle>
-                            <telerikGrid:DataGridColumnHeaderStyle
-                                           TextColor="Black" TextFontAttributes="Bold" 
-                                           BorderThickness="1"/>
-                        </telerikGrid:DataGridTextColumn.HeaderStyle>
+                    <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch">                        
                     </telerikGrid:DataGridTextColumn>
                     <telerikGrid:DataGridTextColumn PropertyName="SiteTitle" HeaderText="Site Name" SizeMode="Stretch">
-                        <telerikGrid:DataGridTextColumn.HeaderStyle>
-                            <telerikGrid:DataGridColumnHeaderStyle HorizontalTextAlignment="Start"
-                                           TextColor="Black" TextFontAttributes="Bold"
-                                             BorderThickness="1"/>
-                        </telerikGrid:DataGridTextColumn.HeaderStyle>
                     </telerikGrid:DataGridTextColumn>
                 </telerikGrid:RadDataGrid.Columns>
             </telerikGrid:RadDataGrid>              
         </telerikPrimitives:RadBorder>
     
-<!--Clicked="NextNavigationButton_Clicked"-->
-
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  CommandParameter="{Binding SelectedResearchSite, Mode=TwoWay}" Command="{Binding NavigateToFindDrugsCommand, Mode=TwoWay}"
                 Margin="20,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 

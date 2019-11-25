@@ -193,11 +193,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public void NavigateToFindDrugs(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
         {
             // Remove Page Enum from the MenuPages List 
-            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugs))
-                RootPage.MenuPages.Remove((int)MenuItemType.FindDrugs);
+            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugsForResearchSite))
+                RootPage.MenuPages.Remove((int)MenuItemType.FindDrugsForResearchSite);
 
             // Navigate to the Find Drugs page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, researchSitesForProjectForInvestigatorUser);
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForResearchSite, null, null, researchSitesForProjectForInvestigatorUser);
         }
 
         /// <summary>

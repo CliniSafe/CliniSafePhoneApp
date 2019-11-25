@@ -55,7 +55,7 @@ namespace CliniSafePhoneApp.Portable.Views
                 switch (id)
                 {
                     case (int)MenuItemType.LogIn:
-                        MenuPages.Add(id, new NavigationPage(new LoginPage() { Title = MenuItemType.LogIn.ToString() }));
+                        MenuPages.Add(id, new NavigationPage(new LoginPage() { Title = "" /*MenuItemType.LogIn.ToString()*/ }));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage() { Title = MenuItemType.About.ToString() }));
@@ -90,8 +90,11 @@ namespace CliniSafePhoneApp.Portable.Views
                     case (int)MenuItemType.ResearchSites:
                         MenuPages.Add(id, new NavigationPage(new ResearchSitesPage((ProjectUser)objectParameter) { Title = "Research Sites" }));
                         break;
-                    case (int)MenuItemType.FindDrugs:
-                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage() { Title = "Find Drugs" }));
+                    case (int)MenuItemType.FindDrugsForCountry:
+                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage((CountriesForProjectForMonitorUser)objectParameter) { Title = "Find Drugs" }));
+                        break;
+                    case (int)MenuItemType.FindDrugsForResearchSite:
+                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage((ResearchSitesForProjectForInvestigatorUser)objectParameter) { Title = "Find Drugs" }));
                         break;
                     case (int)MenuItemType.SelectedDrugs:
                         MenuPages.Add(id, new NavigationPage(new SelectedDrugsPage() { Title = "Selected Drugs" }));

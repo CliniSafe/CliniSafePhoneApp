@@ -37,10 +37,14 @@ namespace CliniSafePhoneApp.Portable.Data
             return soapService.GetCountriesForProjectForMonitorUserListAsync(projectUser);
         }
 
+        public Task<List<ResearchSitesForProjectForInvestigatorUser>> FindGenericDrugNameAsync(ProjectUser projectUser)
+        {
+            return soapService.GetResearchSitesForProjectForInvestigtorUserListAsync(projectUser);
+        }
 
-        //public Task<string> GetCountriesForProjectForMonitorUserStringAsync(int project_ID)
-        //{
-        //    return soapService.GetCountriesForProjectForMonitorUserStringAsync(project_ID);
-        //}
+        public Task<List<GenericDrugsFound>> FindGenericDrugNameListAsync(int trialID, string genericDrugNameToFind)
+        {
+            return soapService.FindGenericDrugNameListAsync(trialID, genericDrugNameToFind);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
 xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
@@ -21,19 +22,32 @@ xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;
     <StackLayout x:Name="CountriesContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
-        <Label x:Name="CountriesProjectLabel" Margin="40,10" HorizontalOptions="Start" Text="{Binding ProjectUser.ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="CountriesProjectLabel" Margin="20, 0, 20, 0"  HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ProjectUser.ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
 
-        <Label x:Name="CountriesHelpTextLabel" Margin="40,0,40,5" HorizontalOptions="Start" Text="Please select the Country you want to Monitor" FontSize="Default" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="CountriesHelpTextLabel" Margin="20, 5, 40,5" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Please select the Country you want to Monitor" FontSize="Default" VerticalOptions="Start" />
 
-        <Label x:Name="CountriesLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="Countries" FontSize="Title" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="CountriesLabel" Margin="20,0,200,0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Countries" FontSize="Title" VerticalOptions="Start" />
 
-        <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}"  ItemsSource="{Binding CountryList, Mode=TwoWay}" Margin="20,20" GridLinesVisibility="Both" AutoGenerateColumns="False" >
-            <telerikGrid:RadDataGrid.Columns>
-                <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
-                <telerikGrid:DataGridTextColumn PropertyName="EnglishCountryName" HeaderText="Country" SizeMode="Stretch" />
-            </telerikGrid:RadDataGrid.Columns>
-        </telerikGrid:RadDataGrid>
+        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+            <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}"  ItemsSource="{Binding CountryList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
+                <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                    <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                    </telerikGrid:DataGridBorderStyle>
+                </telerikGrid:RadDataGrid.RowBackgroundStyle>
+
+                <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                    <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
+                    </telerikGrid:DataGridGroupHeaderStyle>
+                </telerikGrid:RadDataGrid.GroupHeaderStyle>
+
+                <telerikGrid:RadDataGrid.Columns>
+                    <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
+                    <telerikGrid:DataGridTextColumn PropertyName="EnglishCountryName" HeaderText="Country" SizeMode="Stretch" />
+                </telerikGrid:RadDataGrid.Columns>
+            </telerikGrid:RadDataGrid>
+            
+        </telerikPrimitives:RadBorder>
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedCountry}"                              
                                 

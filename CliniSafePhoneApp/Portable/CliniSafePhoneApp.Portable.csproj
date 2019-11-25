@@ -10,8 +10,7 @@
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Models\CountriesForProjectForMonitorUser - Copy.cs" />
-    <Compile Remove="Models\CountriesForProjectForMonitorUser1.cs" />
+    <!--<Compile Remove="Models\CountriesForProjectForMonitorUser1.cs" />-->
     <Compile Remove="Models\ProjectUsers.cs" />
     <Compile Remove="Service\MyLogo.cs" />
     <Compile Remove="ViewModels\CountriesViewModel.cs" />

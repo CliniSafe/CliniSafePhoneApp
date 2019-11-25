@@ -1,5 +1,4 @@
-﻿using CliniSafePhoneApp.Portable.Views;
-using System.Linq;
+﻿using System.Linq;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.Service
@@ -23,8 +22,8 @@ namespace CliniSafePhoneApp.Portable.Service
         private Page GetCurrentPage()
         {
             var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-            if (currentPage == null)
-                currentPage = Application.Current.MainPage = new MainPage();
+            //if (currentPage == null)
+            //    currentPage = Application.Current.MainPage = new MainPage();
             return currentPage;
         }
     }

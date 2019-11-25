@@ -1,6 +1,7 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -11,8 +12,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
+        /// <summary>
+        /// Declare a private member for NavigateForwardCommand.
+        /// </summary>
+        public PopUpCommand PopUpCommand { get; set; }
+        public GenericDrugNameToFindCommand GenericDrugNameToFindCommand { get; set; }
 
         private AuthHeader authHeader;
+
         public AuthHeader AuthHeader
         {
             get { return authHeader; }
@@ -23,112 +30,132 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             }
         }
 
-
-        private ProjectUser _projectUser;
-
-        public ProjectUser ProjectUser
+        /// <summary>
+        /// Display the Address Deatils of the Selected Site.
+        /// </summary>
+        public async void PopUpSiteDetails()
         {
-            get { return _projectUser; }
+            await App.Current.MainPage.DisplayAlert(_researchSitesForProjectForInvestigatorUser != null ? "Site Details" : "Trial Short Description", _researchSitesForProjectForInvestigatorUser != null ? _researchSitesForProjectForInvestigatorUser.Address1 : _countriesForProjectForMonitorUser.TrialTitleShort, "OK");
+        }
+
+        private CountriesForProjectForMonitorUser _countriesForProjectForMonitorUser;
+
+        public CountriesForProjectForMonitorUser CountriesForProjectForMonitorUser
+        {
+            get { return _countriesForProjectForMonitorUser; }
             set
             {
-                _projectUser = value;
-                OnPropertyChanged("ProjectUser");
+                _countriesForProjectForMonitorUser = value;
+                OnPropertyChanged("CountriesForProjectForMonitorUser");
             }
         }
 
 
-        private int id;
+        private ResearchSitesForProjectForInvestigatorUser _researchSitesForProjectForInvestigatorUser;
 
-        public int Id
+        public ResearchSitesForProjectForInvestigatorUser ResearchSitesForProjectForInvestigatorUser
         {
-            get { return id; }
+            get { return _researchSitesForProjectForInvestigatorUser; }
             set
             {
-                id = value;
+                _researchSitesForProjectForInvestigatorUser = value;
+                OnPropertyChanged("ResearchSitesForProjectForInvestigatorUser");
+            }
+        }
+
+
+        private int trialId;
+
+        public int TrialId
+        {
+            get { return trialId; }
+            set
+            {
+                trialId = value;
                 OnPropertyChanged("Id");
             }
         }
+        private string projectCodeORSiteTitle;
 
-        private string projectCode;
-
-        public string ProjectCode
+        public string ProjectCodeORSiteTitle
         {
-            get { return projectCode; }
+            get { return projectCodeORSiteTitle; }
             set
             {
-                projectCode = value;
-                OnPropertyChanged("ProjectCode");
+                projectCodeORSiteTitle = value;
+                OnPropertyChanged("ProjectCodeORSiteTitle");
             }
         }
 
-        private string sponsor;
+        private string genericDrugNameToFind;
 
-        public string Sponsor
+        public string GenericDrugNameToFind
         {
-            get { return sponsor; }
+            get { return genericDrugNameToFind; }
             set
             {
-                sponsor = value;
-                OnPropertyChanged("Sponsor");
-            }
-        }
-
-        private string contractResearchOrganisation;
-
-        public string ContractResearchOrganisation
-        {
-            get { return contractResearchOrganisation; }
-            set
-            {
-                contractResearchOrganisation = value;
-                OnPropertyChanged("ContractResearchOrganisation");
-            }
-        }
-
-        private string dropDownDesc;
-
-        public string DropDownDesc
-        {
-            get { return dropDownDesc; }
-            set
-            {
-                dropDownDesc = value;
-                OnPropertyChanged("DropDownDesc");
+                genericDrugNameToFind = value;
+                OnPropertyChanged("GenericDrugNameToFind");
             }
         }
 
 
+        private List<GenericDrugsFound> genericDrugsFoundList;
 
-
-        private List<ResearchSitesForProjectForInvestigatorUser> researchSiteList;
-
-        public List<ResearchSitesForProjectForInvestigatorUser> ResearchSiteList
-
+        public List<GenericDrugsFound> GenericDrugsFoundList
         {
-            get { return researchSiteList; }
+            get { return genericDrugsFoundList; }
             set
             {
-                researchSiteList = value;
-                OnPropertyChanged("ResearchSiteList");
+                genericDrugsFoundList = value;
+                OnPropertyChanged("GenericDrugsFound");
             }
         }
 
 
-        private ResearchSitesForProjectForInvestigatorUser selectedResearchSite;
+        private GenericDrugsFound selectedGenericDrugsFound;
 
-        public ResearchSitesForProjectForInvestigatorUser SelectedResearchSite
+        public GenericDrugsFound SelectedGenericDrugsFound
         {
-            get { return selectedResearchSite; }
+            get { return selectedGenericDrugsFound; }
             set
             {
-                selectedResearchSite = value;
-                new ResearchSitesForProjectForInvestigatorUser()
-                {
-                    CombineDisplayTrialCodeSiteTitle = ProjectUser.ProjectCode + " " + SelectedResearchSite.SiteTitle
-                };
-                OnPropertyChanged("SelectedResearchSite");
+                selectedGenericDrugsFound = value;
+                OnPropertyChanged("SelectedGenericDrugsFound");
             }
         }
+
+
+
+        //private List<ResearchSitesForProjectForInvestigatorUser> researchSiteList;
+
+        //public List<ResearchSitesForProjectForInvestigatorUser> ResearchSiteList
+
+        //{
+        //    get { return researchSiteList; }
+        //    set
+        //    {
+        //        researchSiteList = value;
+        //        OnPropertyChanged("ResearchSiteList");
+        //    }
+        //}
+
+
+        //private ResearchSitesForProjectForInvestigatorUser selectedResearchSite;
+
+        //public ResearchSitesForProjectForInvestigatorUser SelectedResearchSite
+        //{
+        //    get { return selectedResearchSite; }
+        //    set
+        //    {
+        //        selectedResearchSite = value;
+        //        new ResearchSitesForProjectForInvestigatorUser()
+        //        {
+        //            CombineDisplayTrialCodeSiteTitle = ProjectUser.ProjectCode + " " + SelectedResearchSite.SiteTitle
+        //        };
+        //        OnPropertyChanged("SelectedResearchSite");
+        //    }
+        //}
 
 
 
@@ -143,34 +170,43 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public FindDrugsViewModel(ProjectUser projectUser)
+        public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser)
         {
-            _projectUser = projectUser;
+            PopUpCommand = new PopUpCommand(this);
 
-            if (_projectUser != null)
-                GetProjectDetails(projectUser);
+            GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
 
+            _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
-            GetResearchSitesForProjectForInvestigatorUser(_projectUser);
-        }
+            if (_countriesForProjectForMonitorUser != null)
+            {
+                this.TrialId = countriesForProjectForMonitorUser.ID;
+                this.projectCodeORSiteTitle = countriesForProjectForMonitorUser.TrialCode;
+            }
 
-        private void GetProjectDetails(ProjectUser projectUser)
-        {
-            this.Id = projectUser.ID;
-            this.ProjectCode = projectUser.ProjectCode;
-            this.Sponsor = projectUser.Sponsor;
-            this.ContractResearchOrganisation = projectUser.ContractResearchOrganisation;
-            this.DropDownDesc = projectUser.DropDownDesc;
+            GetDrugDetails(/*countriesForProjectForMonitorUser.ID, genericDrugNameToFind*/);
         }
 
 
+        public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
+        {
+            PopUpCommand = new PopUpCommand(this);
 
-        //ResearchSitesForProjectForInvestigatorUser
-        /// <summary>
-        /// Returns Research Site(s) or that the selected Project belongs to.
-        /// </summary>
-        /// <param name="projectUser"></param>
-        public async void GetResearchSitesForProjectForInvestigatorUser(ProjectUser projectUser)
+            GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
+
+            _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
+
+            if (_researchSitesForProjectForInvestigatorUser != null)
+            {
+                this.TrialId = researchSitesForProjectForInvestigatorUser.Trial_ID;
+                this.ProjectCodeORSiteTitle = researchSitesForProjectForInvestigatorUser.SiteTitle;
+            }
+
+            GetDrugDetails(/*researchSitesForProjectForInvestigatorUser.Trial_ID, genericDrugNameToFind*/);
+        }
+               
+
+        public async void GetDrugDetails(/*int trail_ID, string drugNameToFind*/)
         {
             authHeader = AuthHeader.GetAuthHeader();
 
@@ -182,24 +218,32 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                     if (authHeader.CPANeedsUpdating)
                         await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
             }
-            else
-            {
-                ResearchSiteList = await ResearchSitesForProjectForInvestigatorUser.GetResearchSitesForProjectForInvestigtorUserListAsync(projectUser);
-            }
         }
 
-        public void NavigateToFindDrugs(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
-        {
-            // Remove Page Enum from the MenuPages List 
-            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugs))
-                RootPage.MenuPages.Remove((int)MenuItemType.FindDrugs);
 
-            // Navigate to the Find Drugs page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, researchSitesForProjectForInvestigatorUser);
+
+        public async void GetGenericDrugDetails(/*int trail_ID,*/ string drugNameToFind)
+        {
+
+            GenericDrugsFoundList = await GenericDrugsFound.FindGenericDrugNameListAsync(TrialId, drugNameToFind);
+        }
+
+
+
+        public void NavigateToSelectedDrugs(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
+        {
+
+            throw new NotImplementedException();
+            //// Remove Page Enum from the MenuPages List 
+            //if (RootPage.MenuPages.ContainsKey((int)MenuItemType.SelectedDrugs))
+            //    RootPage.MenuPages.Remove((int)MenuItemType.SelectedDrugs);
+
+            //// Navigate to the Find Drugs page
+            //_ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, researchSitesForProjectForInvestigatorUser);
         }
 
         /// <summary>
-        /// Returns the user to the Previous Page.
+        /// Returns the user to the Project Page.
         /// </summary>
         public void NavigateBackToPreviousPage()
         {
@@ -208,25 +252,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             // Navigate to the Project page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, "", "", null);
-
-            //TODO
-            //if (ProjectUser.InvestigatorDashboard == "Auth" && ProjectUser.WizardDashboard == "Auth")//Auth 
-            //{
-            //    //(Monitor AND Investigator) Navigate To ChoicePage (Project_ID)
-            //    // Remove Page Enum from the MenuPages List
-            //    if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Choice))
-            //        RootPage.MenuPages.Remove((int)MenuItemType.Choice);
-
-            //    _ = RootPage.NavigateFromMenu((int)MenuItemType.Choice, null, null, _projectUser);
-            //}
-            //else
-            //{
-            //    // Remove Page Enum from the MenuPages List
-            //    if (RootPage.MenuPages.ContainsKey((int)MenuItemType.ProjectDetails))
-            //        RootPage.MenuPages.Remove((int)MenuItemType.ProjectDetails);
-
-            //    _ = RootPage.NavigateFromMenu((int)MenuItemType.ProjectDetails, null, null, _projectUser);
-            //}
         }
 
     }

@@ -160,7 +160,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.Error, null, null, "The User is an authorised Drug Rule Builder.");
             }
-            else if (projectUser.WizardDashboard == "Auth") //Auth
+            else if (projectUser.WizardDashboard == "Auth") //View
             {
                 // Remove Page Enum from the MenuPages List
                 if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Countries))
@@ -179,7 +179,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 //Investigator Navigate To ResearchSitesPage (Project_ID) GetResearchSitesForProjectForInvestigtorUser
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.ResearchSites, null, null, projectUser);
             }
-            else if (projectUser.InvestigatorDashboard == "Auth" && projectUser.WizardDashboard == "Auth")//Auth 
+            else if (projectUser.InvestigatorDashboard == "View" && projectUser.WizardDashboard == "View")//Auth 
             {
                 // Remove Page Enum from the MenuPages List
                 if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Choice))

@@ -6,6 +6,7 @@ namespace CliniSafePhoneApp.Portable.Models
 {
     public class ProjectUser : INotifyPropertyChanged, IProjectUser
     {
+        #region Class Properties of Project User 
 
         private string projectCode;
 
@@ -58,7 +59,6 @@ namespace CliniSafePhoneApp.Portable.Models
             }
         }
 
-
         private string projectTitleShortPhoneDisplay;
         public string ProjectTitleShortPhoneDisplay
         {
@@ -91,7 +91,6 @@ namespace CliniSafePhoneApp.Portable.Models
                 OnPropertyChanged("ContractResearchOrganisation");
             }
         }
-
 
         private string dropDownDesc;
         public string DropDownDesc
@@ -137,7 +136,6 @@ namespace CliniSafePhoneApp.Portable.Models
             }
         }
 
-
         private string exploreDrugsDashboard;
         public string ExploreDrugsDashboard
         {
@@ -148,7 +146,6 @@ namespace CliniSafePhoneApp.Portable.Models
                 OnPropertyChanged("ExploreDrugsDashboard");
             }
         }
-
 
         private string teamDashboard;
         public string TeamDashboard
@@ -172,7 +169,6 @@ namespace CliniSafePhoneApp.Portable.Models
             }
         }
 
-
         private string reportsDashboard;
         public string ReportsDashboard
         {
@@ -195,7 +191,6 @@ namespace CliniSafePhoneApp.Portable.Models
             }
         }
 
-
         private string wizardDashboard;
         public string WizardDashboard
         {
@@ -207,7 +202,6 @@ namespace CliniSafePhoneApp.Portable.Models
             }
         }
 
-
         private string investigatorDashboard;
         public string InvestigatorDashboard
         {
@@ -218,6 +212,10 @@ namespace CliniSafePhoneApp.Portable.Models
                 OnPropertyChanged("InvestigatorDashboard");
             }
         }
+
+
+        #endregion
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -235,7 +233,6 @@ namespace CliniSafePhoneApp.Portable.Models
         public static async Task<List<ProjectUser>> GetProjectsForUserListAysnc(AuthHeader authHeader)
         {
             List<ProjectUser> result = await App.PhoneAppSoapService.GetProjectsForUserListAysnc(authHeader);
-            
             return result;
         }
 

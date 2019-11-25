@@ -32,14 +32,5 @@ namespace CliniSafePhoneApp.Portable.Views
             // Set the Page Binding Context to the ResearchSitesViewModel(AboutVM)
             BindingContext = ResearchSitesVM;
         }
-
-        //private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        //{
-        //    // Navigate to the Review page
-        //    //_ = RootPage.NavigateFromMenu((int)MenuItemType.Review);
-
-        //    // Navigate to the FindDrugs page
-        //    _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs);
-        //}
     }
 }

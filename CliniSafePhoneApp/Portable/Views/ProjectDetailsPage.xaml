@@ -12,25 +12,25 @@
     <StackLayout x:Name="ProjectDetailsContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0" />
 
-        <Label x:Name="ProjectTitleLabel" Margin="40,10,200,0" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="ProjectTitleLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
 
-        <Label x:Name="ProjectDetailsLabel" Margin="40,0,40,0" HorizontalOptions="Start" Text="Project Details" FontSize="Title"  VerticalOptions="CenterAndExpand" />
+        <Label x:Name="ProjectDetailsLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Project Details" FontSize="Title"  VerticalOptions="CenterAndExpand" />
 
-        <Label x:Name="FullDescriptionLabel" Margin="40,0" HorizontalOptions="Start" Text="Full Description" FontSize="Title" VerticalOptions="CenterAndExpand" />
+        <Label x:Name="FullDescriptionLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Full Description" FontSize="Title" VerticalOptions="CenterAndExpand" />
 
-        <Editor x:Name="FullDescriptionEditor" Text="{Binding ProjectTitleFull, Mode=TwoWay}" FontSize="Small" Margin="40,0,40,0" />
-                
-        <Label x:Name="ProjectSponsorLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="Sponsor" VerticalOptions="CenterAndExpand" />
+        <Editor x:Name="FullDescriptionEditor" Margin="20, 0, 20, 0" Text="{Binding ProjectTitleFull, Mode=TwoWay}" FontSize="Small" />
 
-        <Entry x:Name="projectSponsorEntry" Text="{Binding Sponsor, Mode=TwoWay}" VerticalOptions="CenterAndExpand" Margin="40,0,200,0"></Entry>
+        <Label x:Name="ProjectSponsorLabel"  Margin="20, 0, 20, 0" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Sponsor" VerticalOptions="CenterAndExpand" />
 
-        <Label x:Name="ProjectCROLabel" Margin="40,0,200,0" HorizontalOptions="Start" Text="CRO" VerticalOptions="CenterAndExpand" />
+        <Entry x:Name="projectSponsorEntry"  Margin="20, 0, 20, 0" Text="{Binding Sponsor, Mode=TwoWay}" VerticalOptions="CenterAndExpand"></Entry>
 
-        <Entry x:Name="projectCROEntry" Text="{Binding ContractResearchOrganisation, Mode=TwoWay}" VerticalOptions="CenterAndExpand" Margin="40,0,200,10"></Entry>
+        <Label x:Name="ProjectCROLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="CRO" VerticalOptions="CenterAndExpand" />
+
+        <Entry x:Name="projectCROEntry" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" Text="{Binding ContractResearchOrganisation, Mode=TwoWay}" VerticalOptions="CenterAndExpand"></Entry>
 
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToChoiceCommand}" CommandParameter="{Binding ProjectUser}"
-                 Margin="40,10,200,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+                 Margin="20,10,200,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
 
         <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 

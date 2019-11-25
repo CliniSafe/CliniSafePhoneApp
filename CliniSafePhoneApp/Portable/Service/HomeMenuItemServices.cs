@@ -32,7 +32,7 @@ namespace CliniSafePhoneApp.Portable.Service
                     new HomeMenuItem { Id = MenuItemType.Privacy, Title = "Privacy" },
                     new HomeMenuItem { Id = MenuItemType.Terms, Title = "Terms" },
                     new HomeMenuItem { Id = MenuItemType.TempTest, Title = "Temporary Test Page" },
-                    (bool)authenticated == true ? new HomeMenuItem { Id = MenuItemType.LogOut, Title = "LogOut" } : new HomeMenuItem { Id = MenuItemType.LogIn, Title = "Login" }
+                    (bool)authenticated == true ? new HomeMenuItem { Id = MenuItemType.LogOut, Title = "LogOut" } : new HomeMenuItem { Id = MenuItemType.LogIn, Title = "Login1" }
             };
         }
     }

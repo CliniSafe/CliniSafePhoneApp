@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
-             x:Class="CliniSafePhoneApp.Portable.Views.LogOutPage">
+             x:Class="CliniSafePhoneApp.Portable.Views.LogOutPage" Title="LogOut">
 
     <StackLayout x:Name="LogOutContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
