@@ -48,6 +48,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             }
         }
 
+        /// <summary>
+        /// Navigate User to the LogOut Page.
+        /// </summary>
+        public void NavigateToLogOut()
+        {
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.LogOut, null, null, null);
+        }
 
         private string password;
 
@@ -187,7 +194,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public NavigateToProjectDetailCommand NavigateToProjectDetailCommand { get; set; }
 
-
+        public NavigateToLogOutCommand NavigateToLogOutCommand { get; set; }
 
         /// <summary>
         /// Initialise properties in constructor.
@@ -209,6 +216,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
             NavigateToProjectDetailCommand = new NavigateToProjectDetailCommand(this);
+            NavigateToLogOutCommand = new NavigateToLogOutCommand(this);
+
             _navigationService = new NavigationService();
 
             GetProjectForUserListAsync();
@@ -274,7 +283,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             else
             {
                 LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-                leftMenuViewModel.UpdateHomeMenuItems(authHeader.Authenticated);
+                leftMenuViewModel.Authenticated = authHeader.Authenticated;
+                leftMenuViewModel.UpdateHomeMenuItems();
+
+
+
+
+
+
 
                 //HomeItemMenuServices homeItemMenuServices = new HomeItemMenuServices();
                 //homeItemMenuServices.GetHomeMenuItems(authHeader.Authenticated);

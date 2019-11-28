@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
 using Xamarin.Forms;
 
 
@@ -9,7 +10,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define LogOutViewModel.
         /// </summary>
-        //LogOutViewModel LogOutVM;
+        private readonly LogOutViewModel LogOutVM;
 
         public LogOutPage()
         {
@@ -18,11 +19,11 @@ namespace CliniSafePhoneApp.Portable.Views
             //Set the Image Source
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
-            ////Initialise LogOutViewModel.
-            //LogOutViewModel = new LogOutViewModel();
+            //Initialise LogOutViewModel.
+            LogOutVM = new LogOutViewModel();
 
             //// Set the Page Binding Context to the LogOutViewModel(LogOutVM)
-            //BindingContext = LogOutVM;
+            BindingContext = LogOutVM;
         }
     }
 }

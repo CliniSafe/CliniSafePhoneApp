@@ -10,7 +10,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define TermsViewModel.
         /// </summary>
-        TermsViewModel TermsVM;
+        public TermsViewModel TermsVM;
 
         public TermsPage()
         {

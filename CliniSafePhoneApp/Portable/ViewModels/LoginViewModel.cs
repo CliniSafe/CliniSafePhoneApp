@@ -240,7 +240,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        public LeftMenuViewModel LeftMenuViewModel { get; set; }
+        //public LeftMenuViewModel LeftMenuViewModel { get; set; }
 
 
 
@@ -258,7 +258,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             NavigateForwardCommand = new NavigateForwardCommand(this);
             _navigationService = new NavigationService();
 
-            LeftMenuViewModel = new LeftMenuViewModel();
+            //LeftMenuViewModel = new LeftMenuViewModel();
         }
 
 
@@ -274,11 +274,36 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <returns></returns>
         public async void AuthenticateAsync()
         {
+            Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
 
             if (/*!string.IsNullOrEmpty(Authenticate) && */Authenticate == "Authenticated")
             {
                 // Navigate to the project page
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+                //_ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+
+
+                
+
+
+                authHeader = AuthHeader.GetAuthHeader();
+
+                if (authHeader.HasIssues)
+                {
+                    if (authHeader.MaintenanceMode)
+                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    else if (authHeader.CPAVersionExact)
+                        if (authHeader.CPANeedsUpdating)
+                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                }
+                else
+                {
+                    if (Authenticate == "Authenticated")
+                    {
+                        // Navigate to the project page
+                        _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+                    }
+                }
+
             }
             else if (Authenticate == "Not Authenticated")
             {
@@ -288,7 +313,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 Username = "";
                 Password = "";
                 Authenticate = null;
-                AuthHeader = null;
+
+                return;
+                //AuthHeader = null;
 
             }
             else

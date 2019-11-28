@@ -12,12 +12,17 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
 
     <!--left , top , right , bottom-->
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="NavigateToProjects" Text="Back" Priority="0" Order="Primary" Command="{Binding NavigateToProjectsCommand}" ></ToolbarItem>
+        <ToolbarItem Text="Logout" Priority="3" Order="Primary"  Command="{Binding NavigateToLogOutCommand}" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout x:Name="ProjectContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200"  Margin="0, 0, 0, 0" />
         <Label x:Name="MyProjectLabel" Margin="20, 0, 20, 20" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="My Projects" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
-        
-        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
-                                    
+
+        <ScrollView>        
+        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">                                    
             <telerikGrid:RadDataGrid x:Name="projectUserListDataGrid" SelectedItem="{Binding SelectedProjectUser, Mode=TwoWay}" ItemsSource="{Binding ProjectUserList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False"  >
 
                 <telerikGrid:RadDataGrid.RowBackgroundStyle>
@@ -36,6 +41,7 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
                 </telerikGrid:RadDataGrid.Columns>
             </telerikGrid:RadDataGrid>
         </telerikPrimitives:RadBorder>
+        </ScrollView>
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" 
                 CommandParameter="{Binding SelectedProjectUser, Mode=TwoWay}" Command="{Binding NavigateToProjectDetailCommand, Mode=TwoWay}"

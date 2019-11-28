@@ -1,4 +1,5 @@
-﻿using CliniSafePhoneApp.Portable.ViewModels.Commands;
+﻿using CliniSafePhoneApp.Portable.Models;
+using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
 using System.Linq;
 using Xamarin.Forms;
@@ -14,10 +15,19 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public NavigateToPreviousPageCommand NavigateToPreviousPageCommand { get; set; }
 
+        /// <summary>
+        /// Declare a private member for NavigateToLoginCommand.
+        /// </summary>
+        public NavigateToLogOutCommand NavigateToLogOutCommand { get; set; }
+
+
         public TermsViewModel()
         {
             NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
+            NavigateToLogOutCommand = new NavigateToLogOutCommand(this);
         }
+
+
 
         public void NavigateBackToPreviousPage()
         {
@@ -36,6 +46,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
             //_ = RootPage.Detail.Navigation.PushAsync(RootPage.MenuPages);// .NavigateFromMenu((int)MenuItemType.LogIn, null, null, null);
+        }
+
+
+        /// <summary>
+        /// Navigate User to the LogOut Page.
+        /// </summary>
+        public void NavigateToLogOut()
+        {
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.LogOut, null, null, null);
         }
     }
 }

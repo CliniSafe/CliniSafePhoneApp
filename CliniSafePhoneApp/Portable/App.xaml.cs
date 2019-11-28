@@ -1,9 +1,11 @@
 using CliniSafePhoneApp.Portable.Data;
 using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.Views;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace CliniSafePhoneApp.Portable
@@ -37,6 +39,10 @@ namespace CliniSafePhoneApp.Portable
         protected override void OnStart()
         {
             // Handle when your app starts
+            AppCenter.Start("android=86a0a5c5-9f08-4228-b9dc-09768b8ba115;" +
+                  "uwp={Your UWP App secret here};" +
+                  "ios=0a256258-4e32-4540-af33-c8c1fa6b99f2;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

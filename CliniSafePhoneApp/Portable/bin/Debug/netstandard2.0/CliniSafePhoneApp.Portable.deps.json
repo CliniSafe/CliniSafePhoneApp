@@ -9,6 +9,8 @@
     ".NETStandard,Version=v2.0/": {
       "CliniSafePhoneApp.Portable/1.0.0": {
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": "2.6.2",
+          "Microsoft.AppCenter.Crashes": "2.6.2",
           "NETStandard.Library": "2.0.3",
           "System.ServiceModel.Duplex": "4.7.0-preview1.final",
           "System.ServiceModel.Http": "4.7.0-preview1.final",
@@ -38,6 +40,36 @@
         },
         "runtime": {
           "CliniSafePhoneApp.Portable.dll": {}
+        }
+      },
+      "Microsoft.AppCenter/2.6.2": {
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.AppCenter.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "2.6.2.0"
+          }
+        }
+      },
+      "Microsoft.AppCenter.Analytics/2.6.2": {
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "2.6.2.0"
+          }
+        }
+      },
+      "Microsoft.AppCenter.Crashes/2.6.2": {
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.AppCenter.Crashes.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "2.6.2.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -429,6 +461,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.AppCenter/2.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nO0KKpBY7Laj8RTMMkp2z2X7qzYkolSAvUoQDEPQcYkj3mubKge7dmKC/XApch+yDRxnSM21t4ckptGmZ8qTkg==",
+      "path": "microsoft.appcenter/2.6.2",
+      "hashPath": "microsoft.appcenter.2.6.2.nupkg.sha512"
+    },
+    "Microsoft.AppCenter.Analytics/2.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+Nolt+MzzSfIYH/M/5vRMmhgxYQG9nv+T8ub0nc/k7PAZkLyXua70Im/x7QhkB6uP7sAjQC5YvvyvFQbOgGwvg==",
+      "path": "microsoft.appcenter.analytics/2.6.2",
+      "hashPath": "microsoft.appcenter.analytics.2.6.2.nupkg.sha512"
+    },
+    "Microsoft.AppCenter.Crashes/2.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FSGKd+1mBUedfTZ4MpHZkfonNgSI6cIXIUPtbYE3cTOB19gNNBj9i6X+0yIYzuLAve8GbWCpqZ/JgT5k6EPfqQ==",
+      "path": "microsoft.appcenter.crashes/2.6.2",
+      "hashPath": "microsoft.appcenter.crashes.2.6.2.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",

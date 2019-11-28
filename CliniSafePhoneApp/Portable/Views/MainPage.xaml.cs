@@ -35,7 +35,6 @@ namespace CliniSafePhoneApp.Portable.Views
             MainVM = new MainViewModel(this);
             LoginVM = new LoginViewModel();
 
-
             MasterBehavior = MasterBehavior.Popover;
             MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
         }
@@ -55,7 +54,7 @@ namespace CliniSafePhoneApp.Portable.Views
                 switch (id)
                 {
                     case (int)MenuItemType.LogIn:
-                        MenuPages.Add(id, new NavigationPage(new LoginPage() { Title = "" /*MenuItemType.LogIn.ToString()*/ }));
+                        MenuPages.Add(id, new NavigationPage(new LoginPage() { Title = MenuItemType.LogIn.ToString() }));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage() { Title = MenuItemType.About.ToString() }));

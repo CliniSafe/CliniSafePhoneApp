@@ -3,15 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
-             x:Class="CliniSafePhoneApp.Portable.Views.HelpPage">
-    
+             x:Class="CliniSafePhoneApp.Portable.Views.HelpPage">    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
-    </ContentPage.ToolbarItems>
-    
+    </ContentPage.ToolbarItems>    
     <StackLayout x:Name="HelpContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
-
         <Label x:Name="HelpLabel1" Margin="40,10" HorizontalOptions="Start" Text="Drug checking technology for global clinical trials." VerticalOptions="CenterAndExpand" />
         <Label x:Name="HelpLabel2" Margin="40,10" HorizontalOptions="Start" Text="CliniSafe takes the written drug rules from your protocol and converts them into electronic drug rules. These are then used to check subjects' drugs and gives real time feedback, leading to improved patient health, data quality and reduced costs." VerticalOptions="CenterAndExpand" />
         <Label x:Name="HelpLabel3" Margin="40,10" HorizontalOptions="Start" Text="The CliniSafe website is used to define the clinical trial, the drug rules, the users and the eLearning." VerticalOptions="CenterAndExpand" />

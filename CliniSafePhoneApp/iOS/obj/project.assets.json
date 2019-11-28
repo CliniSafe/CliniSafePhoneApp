@@ -2,6 +2,45 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Microsoft.AppCenter/2.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Analytics/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Crashes/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        }
+      },
       "SkiaSharp/1.68.1-rc.147": {
         "type": "package",
         "compile": {
@@ -363,6 +402,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": "2.6.2",
+          "Microsoft.AppCenter.Crashes": "2.6.2",
           "System.ServiceModel.Duplex": "4.7.0-preview1.final",
           "System.ServiceModel.Http": "4.7.0-preview1.final",
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
@@ -381,6 +422,45 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Microsoft.AppCenter/2.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Analytics/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Crashes/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        }
+      },
       "SkiaSharp/1.68.1-rc.147": {
         "type": "package",
         "compile": {
@@ -720,6 +800,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": "2.6.2",
+          "Microsoft.AppCenter.Crashes": "2.6.2",
           "System.ServiceModel.Duplex": "4.7.0-preview1.final",
           "System.ServiceModel.Http": "4.7.0-preview1.final",
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
@@ -738,6 +820,45 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Microsoft.AppCenter/2.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Analytics/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Crashes/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        }
+      },
       "SkiaSharp/1.68.1-rc.147": {
         "type": "package",
         "compile": {
@@ -1080,6 +1201,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": "2.6.2",
+          "Microsoft.AppCenter.Crashes": "2.6.2",
           "System.ServiceModel.Duplex": "4.7.0-preview1.final",
           "System.ServiceModel.Http": "4.7.0-preview1.final",
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
@@ -1098,6 +1221,45 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Microsoft.AppCenter/2.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Analytics/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll": {}
+        }
+      },
+      "Microsoft.AppCenter.Crashes/2.6.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AppCenter": "2.6.2"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll": {},
+          "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
+        }
+      },
       "SkiaSharp/1.68.1-rc.147": {
         "type": "package",
         "compile": {
@@ -1440,6 +1602,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": "2.6.2",
+          "Microsoft.AppCenter.Crashes": "2.6.2",
           "System.ServiceModel.Duplex": "4.7.0-preview1.final",
           "System.ServiceModel.Http": "4.7.0-preview1.final",
           "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
@@ -1459,6 +1623,81 @@
     }
   },
   "libraries": {
+    "Microsoft.AppCenter/2.6.2": {
+      "sha512": "nO0KKpBY7Laj8RTMMkp2z2X7qzYkolSAvUoQDEPQcYkj3mubKge7dmKC/XApch+yDRxnSM21t4ckptGmZ8qTkg==",
+      "type": "package",
+      "path": "microsoft.appcenter/2.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.xml",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.iOS.Bindings.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.xml",
+        "lib/net45/Microsoft.AppCenter.dll",
+        "lib/net45/Microsoft.AppCenter.xml",
+        "lib/netcoreapp3.0/Microsoft.AppCenter.dll",
+        "lib/netcoreapp3.0/Microsoft.AppCenter.xml",
+        "lib/netstandard1.0/Microsoft.AppCenter.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.xml",
+        "lib/uap10.0/Microsoft.AppCenter.dll",
+        "lib/uap10.0/Microsoft.AppCenter.xml",
+        "microsoft.appcenter.2.6.2.nupkg.sha512",
+        "microsoft.appcenter.nuspec"
+      ]
+    },
+    "Microsoft.AppCenter.Analytics/2.6.2": {
+      "sha512": "+Nolt+MzzSfIYH/M/5vRMmhgxYQG9nv+T8ub0nc/k7PAZkLyXua70Im/x7QhkB6uP7sAjQC5YvvyvFQbOgGwvg==",
+      "type": "package",
+      "path": "microsoft.appcenter.analytics/2.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Analytics.xml",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.iOS.Bindings.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Analytics.xml",
+        "lib/net45/Microsoft.AppCenter.Analytics.dll",
+        "lib/net45/Microsoft.AppCenter.Analytics.xml",
+        "lib/netcoreapp3.0/Microsoft.AppCenter.Analytics.dll",
+        "lib/netcoreapp3.0/Microsoft.AppCenter.Analytics.xml",
+        "lib/netstandard1.0/Microsoft.AppCenter.Analytics.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.Analytics.xml",
+        "lib/uap10.0/Microsoft.AppCenter.Analytics.dll",
+        "lib/uap10.0/Microsoft.AppCenter.Analytics.xml",
+        "microsoft.appcenter.analytics.2.6.2.nupkg.sha512",
+        "microsoft.appcenter.analytics.nuspec"
+      ]
+    },
+    "Microsoft.AppCenter.Crashes/2.6.2": {
+      "sha512": "FSGKd+1mBUedfTZ4MpHZkfonNgSI6cIXIUPtbYE3cTOB19gNNBj9i6X+0yIYzuLAve8GbWCpqZ/JgT5k6EPfqQ==",
+      "type": "package",
+      "path": "microsoft.appcenter.crashes/2.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.Android.Bindings.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.dll",
+        "lib/MonoAndroid403/Microsoft.AppCenter.Crashes.xml",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll",
+        "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.xml",
+        "lib/net45/Microsoft.AppCenter.Crashes.dll",
+        "lib/net45/Microsoft.AppCenter.Crashes.xml",
+        "lib/netcoreapp3.0/Microsoft.AppCenter.Crashes.dll",
+        "lib/netcoreapp3.0/Microsoft.AppCenter.Crashes.xml",
+        "lib/netstandard1.0/Microsoft.AppCenter.Crashes.dll",
+        "lib/netstandard1.0/Microsoft.AppCenter.Crashes.xml",
+        "lib/uap10.0/Microsoft.AppCenter.Crashes.dll",
+        "lib/uap10.0/Microsoft.AppCenter.Crashes.xml",
+        "microsoft.appcenter.crashes.2.6.2.nupkg.sha512",
+        "microsoft.appcenter.crashes.nuspec"
+      ]
+    },
     "SkiaSharp/1.68.1-rc.147": {
       "sha512": "DOZYUK6X/Igf84M8u1v05pbxYE/21/O/UaeumI/ntjBa9aXW6uZMGt2XwpAVqzc3d7m/8zNL0YWNggHZP1RPpw==",
       "type": "package",
@@ -2476,6 +2715,8 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "CliniSafePhoneApp.Portable >= 1.0.0",
+      "Microsoft.AppCenter.Analytics >= 2.6.2",
+      "Microsoft.AppCenter.Crashes >= 2.6.2",
       "SkiaSharp >= 1.68.1-rc.147",
       "SkiaSharp.Views >= 1.68.1-rc.147",
       "SkiaSharp.Views.Forms >= 1.68.1-rc.147",
@@ -2531,6 +2772,14 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "Microsoft.AppCenter.Analytics": {
+            "target": "Package",
+            "version": "[2.6.2, )"
+          },
+          "Microsoft.AppCenter.Crashes": {
+            "target": "Package",
+            "version": "[2.6.2, )"
+          },
           "SkiaSharp": {
             "target": "Package",
             "version": "[1.68.1-rc.147, )"

@@ -3,16 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CliniSafePhoneApp.Portable.Views.NoConnectionPage" Title="No Connection">
 
     <StackLayout x:Name="NoConnectionContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
-
-        <Label x:Name="NoConnectionLabel"  
-           HorizontalOptions="CenterAndExpand" Text="You are not connected. :("
-           VerticalOptions="CenterAndExpand" />
-
-        <telerikInput:RadButton x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 80, 20, 20" Padding="0, 0">
+            <Label x:Name="NoConnectionLabel" HorizontalOptions="CenterAndExpand" Text="{Binding NoConnectionErrorMessage, Mode=TwoWay}" Margin="20,20, 40,20" VerticalOptions="CenterAndExpand" />
+        </telerikPrimitives:RadBorder>
+        <telerikInput:RadButton x:Name="HomeNavigationButton" Text="Re Try" VerticalOptions="Start" Command="{Binding NavigateForwardCommand}" 
+                Margin="20, 100, 20, 0" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>
 </ContentPage>

@@ -10,8 +10,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define NoConnectionViewModel.
         /// </summary>
-        NoConnectionViewModel NoConnectionVM;
-
+        private readonly NoConnectionViewModel NoConnectionVM;
 
         /// <summary>
         /// Initialise properties in constructor.

@@ -45,13 +45,27 @@ namespace CliniSafePhoneApp.Portable.Service
 
 
         /// <summary>
+        /// Returns GAMPTest CliniSafe Phone App Web Service Url.
+        /// </summary>
+        public static string GAMPTestUrl
+        {
+            get
+            {
+                string phoneUrl = "https://gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
+                return phoneUrl;
+            }
+        }
+
+
+
+        /// <summary>
         /// Returns an Invalid for CliniSafe Phone App Web Service Url.
         /// </summary>
         public static string WrongTestUrl
         {
             get
             {
-                string phoneUrl = "https://gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
+                string phoneUrl = "https://01gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
                 return phoneUrl;
             }
         }

@@ -21,6 +21,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         }
 
 
+        public LogOutViewModel LogOutViewModel { get; set; }
+
+        public NavigateToLoginCommand(LogOutViewModel logOutViewModel)
+        {
+            LogOutViewModel = logOutViewModel;
+        }
+
 
         public event EventHandler CanExecuteChanged;
 
@@ -37,6 +44,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
             if (_errorViewModel != null)
                 _errorViewModel.NavigateForwardToLogin();
+
+            if (LogOutViewModel != null)
+                LogOutViewModel.NavigateForwardToLogin();
         }
     }
 }

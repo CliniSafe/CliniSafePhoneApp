@@ -26,11 +26,9 @@
 
         <Image x:Name="cliniSafeImage" AutomationId="CliniSafeImageLoginAutomationId" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" Margin="0,0,0,0"/>
 
-        <Label x:Name="authenticationLabel" AutomationId="authenticationLabelAutomationId"  Text="{Binding Authenticate, Mode=OneWay}" HorizontalOptions="CenterAndExpand"
-               VerticalOptions="CenterAndExpand" Margin="20,40,20,40" />
+        <Label x:Name="authenticationLabel" AutomationId="authenticationLabelAutomationId"  Text="{Binding Authenticate, Mode=OneWay}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20,40,20,40" />
 
-        <telerikInput:RadEntry x:Name="usernameEntry" AutomationId="usernameEntryAutomationId" WatermarkText="Username" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
-                   Text="{Binding Username, Mode=TwoWay}"/>
+        <telerikInput:RadEntry x:Name="usernameEntry" AutomationId="usernameEntryAutomationId" WatermarkText="Username" VerticalOptions="CenterAndExpand" Margin="40,2,40,2" Text="{Binding Username, Mode=TwoWay}"/>
 
         <telerikInput:RadEntry x:Name="passwordEntry" AutomationId="passwordEntryAutomationId" WatermarkText="Password" IsPassword="True" VerticalOptions="CenterAndExpand" Margin="40,2,40,2"
                    Text="{Binding Password, Mode=TwoWay}"/>

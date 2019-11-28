@@ -46,14 +46,26 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
+        //public bool Authenticated { get; set; }
+
+
+
+
 
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public LeftMenuViewModel()
+        public LeftMenuViewModel(/*bool? authed*/)
         {
 
             HomeMenuItems = new ObservableCollection<HomeMenuItem>();
+
+
+            UpdateHomeMenuItems(/*Authenticated*/);
+
+
+
+
 
             //AddMenuItems(null);
 
@@ -70,15 +82,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             //MenuNavigation();
         }
 
-        public void UpdateHomeMenuItems(bool? authenticated)
+        public void UpdateHomeMenuItems(/*bool? authenticated*/)
         {
-            authenticated = authenticated == null ? false : authenticated;
+            //authenticated = authenticated == null ? false : authenticated;
             HomeMenuItems.Clear();
             HomeItemMenuServices homeItemMenuServices = new HomeItemMenuServices();
 
             //var newHomeMenuItems = authenticated == true ? homeItemMenuServices.GetAuthenticatedHomeMenuItems() : homeItemMenuServices.GetNotAuthentictedHomeMenuItems();
 
-            var newHomeMenuItems = homeItemMenuServices.GetHomeMenuItems(authenticated);
+            var newHomeMenuItems = homeItemMenuServices.GetHomeMenuItems(/*authenticated*/);
             foreach (var newMenuItem in newHomeMenuItems)
             {
                 HomeMenuItems.Add(newMenuItem);
@@ -130,6 +142,29 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             }
         }
 
+        private bool authenticated;
+        public bool Authenticated
+        {
+            get { return authenticated; }
+            set
+            {
+                authenticated = value;                
+                OnPropertyChanged("Authenticated");
+            }
+        }
+
+
+        private string testUserName;
+
+        public string TestUserName
+        {
+            get { return testUserName; }
+            set { testUserName = value;
+                if (testUserName == null)
+                    testUserName = RootPage.Username;
+                OnPropertyChanged("TestUserName"); }
+        }
+
 
         public async void MenuNavigation()
         {
@@ -137,7 +172,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 return;
 
             var id = (int)(SelectedHomeMenuItem).Id;
-            await RootPage.NavigateFromMenu(id);
+            await RootPage.NavigateFromMenu(id, null, null, null);
         }
 
     }

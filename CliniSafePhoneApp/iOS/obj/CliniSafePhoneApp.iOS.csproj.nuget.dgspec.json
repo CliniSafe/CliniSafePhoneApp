@@ -43,6 +43,14 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
             "SkiaSharp": {
               "target": "Package",
               "version": "[1.68.1-rc.147, )"
@@ -138,6 +146,14 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AppCenter.Analytics": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
+            "Microsoft.AppCenter.Crashes": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
