@@ -13,8 +13,7 @@ xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.
     <!--left , top , right , bottom-->
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="NavigateToProjects" Text="Back" Priority="0" Order="Primary" Command="{Binding NavigateToProjectsCommand}" ></ToolbarItem>
-        <ToolbarItem Text="Logout" Priority="3" Order="Primary"  Command="{Binding NavigateToLogOutCommand}" ></ToolbarItem>
+        <ToolbarItem Text="Logout" Priority="0" Order="Primary"  Command="{Binding NavigateToLogOutCommand}" ></ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <StackLayout x:Name="ProjectContainerStackLayout">

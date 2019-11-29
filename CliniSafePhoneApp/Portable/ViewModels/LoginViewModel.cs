@@ -282,7 +282,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 //_ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
 
 
-                
+
 
 
                 authHeader = AuthHeader.GetAuthHeader();
