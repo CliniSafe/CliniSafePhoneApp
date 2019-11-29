@@ -599,44 +599,44 @@ namespace CliniSafePhoneApp.Android
         /// <param name="e"></param>
         private void PhoneApp_AuthenticateCompleted(object sender, AuthenticateCompletedEventArgs e)
         {
-            if (string.IsNullOrEmpty(authenticationResult))
+            //if (string.IsNullOrEmpty(authenticationResult))
+            //{}
+            try
             {
-                try
-                {
-                    // Check and Set Specified Exceptions
-                    if (e.Error != null)
-                        if (e.Error is WebException)
-                            authenticateRequestComplete?.TrySetException(e.Error);
-                        else if (e.Error is SoapException)
-                            authenticateRequestComplete?.TrySetException(e.Error);
-                        else
-                            authenticateRequestComplete?.TrySetException(e.Error);
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        authenticateRequestComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        authenticateRequestComplete?.TrySetException(e.Error);
+                    else
+                        authenticateRequestComplete?.TrySetException(e.Error);
 
 
-                    devTestPhoneAppService.AuthenticateAsync();
-                    authenticationResult = e.Result;
-                    authenticateRequestComplete = authenticateRequestComplete ?? new TaskCompletionSource<bool>();
+                devTestPhoneAppService.AuthenticateAsync();
+                authenticationResult = e.Result;
+                authenticateRequestComplete = authenticateRequestComplete ?? new TaskCompletionSource<bool>();
 
-                    // Check if user is Authenticated then Get the Header Values
-                    if (authenticationResult == "Authenticated")
-                        GetAuthHeader();
+                // Check if user is Authenticated then Get the Header Values
+                if (authenticationResult == "Authenticated")
+                    GetAuthHeader();
 
 
-                    authenticateRequestComplete?.TrySetResult(true);
-                }
-                catch (SoapException se)
-                {
-                    DisplaySoapException(se);
-                }
-                catch (WebException we)
-                {
-                    DisplayWebException(we);
-                }
-                catch (Exception ex)
-                {
-                    DisplayException(ex);
-                }
+                authenticateRequestComplete?.TrySetResult(true);
             }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+
         }
 
         /// <summary>

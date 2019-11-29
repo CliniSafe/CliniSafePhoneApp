@@ -101,6 +101,16 @@ namespace CliniSafePhoneApp.Portable.Service
             }
         }
 
+        /// <summary>
+        /// Displays PopUp Message.
+        /// </summary>
+        /// <param name="popUpTitle"></param>
+        /// <param name="popUpMessage"></param>
+        /// <returns></returns>
+        public static async Task DisplayPopUp(string popUpTitle, string popUpMessage)
+        {
+            await App.Current.MainPage.DisplayAlert(popUpTitle, popUpMessage, "OK");
+        }
 
         public static Task<List<Object>> DeserializeXMLToList(string rawXml)
         {

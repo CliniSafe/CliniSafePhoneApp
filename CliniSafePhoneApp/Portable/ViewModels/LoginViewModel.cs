@@ -238,9 +238,29 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
+        private string popUpTitle;
 
+        public string PopUpTitle
+        {
+            get { return popUpTitle; }
+            set
+            {
+                popUpTitle = value;
+                OnPropertyChanged("PopUpTitle");
+            }
+        }
 
-        //public LeftMenuViewModel LeftMenuViewModel { get; set; }
+        private string loginErrorMessage;
+
+        public string LoginErrorMessage
+        {
+            get { return loginErrorMessage; }
+            set
+            {
+                loginErrorMessage = value;
+                OnPropertyChanged("LoginErrorMessage");
+            }
+        }
 
 
 
@@ -258,6 +278,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             NavigateForwardCommand = new NavigateForwardCommand(this);
             _navigationService = new NavigationService();
 
+            popUpTitle = "Login Error";
+            LoginErrorMessage = "Please check your Username and / or password. Retry after.";
+
             //LeftMenuViewModel = new LeftMenuViewModel();
         }
 
@@ -274,86 +297,131 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <returns></returns>
         public async void AuthenticateAsync()
         {
-            Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
+            if (Authenticate == "Authenticated") //Navigate to the project page
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
 
-            if (/*!string.IsNullOrEmpty(Authenticate) && */Authenticate == "Authenticated")
+
+            if (AuthHeader.Username != Password || AuthHeader.Password != Username)
             {
-                // Navigate to the project page
-                //_ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+                AuthHeader.Username = Username;
+                AuthHeader.Password = Password;
+                AuthHeader.CPAVersion = Constants.CPAVersion;
+                Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
+            }
 
-
-
-
-
+            if (Authenticate != null)
+            {
                 authHeader = AuthHeader.GetAuthHeader();
 
-                if (authHeader.HasIssues)
+                if (authHeader.Authenticated)
                 {
-                    if (authHeader.MaintenanceMode)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
-                    else if (authHeader.CPAVersionExact)
-                        if (authHeader.CPANeedsUpdating)
-                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
-                }
-                else
-                {
-                    if (Authenticate == "Authenticated")
+                    if (authHeader.HasIssues)
                     {
+                        if (authHeader.UserMobileTrained)
+                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        else if (authHeader.MaintenanceMode)
+                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        else if (authHeader.CPAVersionExact)
+                            if (authHeader.CPANeedsUpdating)
+                                await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    }
+                    else
                         // Navigate to the project page
                         _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
-                    }
                 }
-
+                else  // return to login page(Popup notification to check username and password.)
+                {
+                    await Constants.DisplayPopUp(PopUpTitle, LoginErrorMessage);
+                    authHeader = new AuthHeader();
+                    Authenticate = null;
+                    return;
+                }
             }
-            else if (Authenticate == "Not Authenticated")
+            else if (Authenticate == "Not Authenticated") // return to login page(Popup notification to check username and password.)
             {
-
-                // Navigate to the Login page
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.LogIn, null, null, null);
-                Username = "";
-                Password = "";
+                await Constants.DisplayPopUp(PopUpTitle, LoginErrorMessage);
+                authHeader = new AuthHeader();
                 Authenticate = null;
-
                 return;
-                //AuthHeader = null;
-
             }
             else
             {
-                Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
-
-
-                authHeader = AuthHeader.GetAuthHeader();
-
-                if (authHeader.HasIssues)
-                {
-                    if (authHeader.MaintenanceMode)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
-                    else if (authHeader.CPAVersionExact)
-                        if (authHeader.CPANeedsUpdating)
-                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
-                }
-                else
-                {
-                    if (Authenticate == "Authenticated")
-                    {
-                        // Navigate to the project page
-                        _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
-                    }
-                }
-
+                return; // return to login page
             }
-
-
-
-
-            // Good 
-            //_ = new ProjectsPage(Username, Password);
-            //_ = RootPage.NavigateFromMenu((int)MenuItemType.Project);
-
-            // _ = new ProjectsPage(Username, Password);
-            // _= new NavigationPage(new ProjectsPage(Username, Password) { Title = "Projects" });
-            //_navigationService.NavigateToSecondPage(new ProjectsPage(Username, Password));
         }
     }
 }
+
+
+//------------------------------------------------------------------------------------------------------------------------
+/*Original*/
+//            if (/*!string.IsNullOrEmpty(Authenticate) && */Authenticate == "Authenticated")
+//            {
+//                // Navigate to the project page
+//                //_ = RootPage.NavigateFromMenu((int)MenuItemType.Project, Username, Password, null);
+
+
+
+
+
+//                authHeader = AuthHeader.GetAuthHeader();
+
+//                if (authHeader.HasIssues)
+//                {
+//                    if (authHeader.MaintenanceMode)
+//                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+//                    else if (authHeader.CPAVersionExact)
+//                        if (authHeader.CPANeedsUpdating)
+//                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+//                }
+//                else
+//                {
+//                    if (Authenticate == "Authenticated")
+//                    {
+//                        // Navigate to the project page
+//                        _ = RootPage.NavigateFromMenu((int) MenuItemType.Project, Username, Password, null);
+//                    }
+//                }
+
+//            }
+//            else if (Authenticate == "Not Authenticated")
+//            {
+
+//                // Navigate to the Login page
+//                _ = RootPage.NavigateFromMenu((int) MenuItemType.LogIn, null, null, null);
+//                Username = "";
+//                Password = "";
+//                Authenticate = null;
+
+//                return;
+//                //AuthHeader = null;
+
+//            }
+//            else
+//            {
+//                Authenticate = await AuthHeader.AuthenticateAsync(AuthHeader);
+
+
+//authHeader = AuthHeader.GetAuthHeader();
+
+//                if (authHeader.HasIssues)
+//                {
+//                    if (authHeader.MaintenanceMode)
+//                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+//                    else if (authHeader.CPAVersionExact)
+//                        if (authHeader.CPANeedsUpdating)
+//                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+//                }
+//                else
+//                {
+//                    if (Authenticate == "Authenticated")
+//                    {
+//                        // Navigate to the project page
+//                        _ = RootPage.NavigateFromMenu((int) MenuItemType.Project, Username, Password, null);
+//                    }
+//                }
+
+//            }
+
+
+//------------------------------------------------------------------------------------------------------------------------

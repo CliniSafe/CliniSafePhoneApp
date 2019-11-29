@@ -17,7 +17,9 @@
 
         <SearchBar x:Name="findDrugsSearchBar" Placeholder="Find Drugs" Text="{Binding GenericDrugNameToFind, Mode=TwoWay}" SearchCommand="{Binding GenericDrugNameToFindCommand}" SearchCommandParameter="{Binding GenericDrugNameToFind}" Margin="20,0, 20, 0" Keyboard="Text" telerikInput:KeyboardHelper.IsTranslationTarget="True"  />
 
-        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+
+        <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
+            <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
             <telerikGrid:RadDataGrid x:Name="genericDrugsFoundListDataGrid" SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}"  ItemsSource="{Binding GenericDrugsFoundList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
@@ -39,9 +41,33 @@
             </telerikGrid:RadDataGrid>
 
         </telerikPrimitives:RadBorder>
+        </ScrollView>
 
 
+        <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
+            <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
+                <telerikGrid:RadDataGrid x:Name="SelectedDrugsListDataGrid" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}"  ItemsSource="{Binding SelectedDrugsList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+
+                    <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                        <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                        </telerikGrid:DataGridBorderStyle>
+                    </telerikGrid:RadDataGrid.RowBackgroundStyle>
+
+                    <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                        <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
+                        </telerikGrid:DataGridGroupHeaderStyle>
+                    </telerikGrid:RadDataGrid.GroupHeaderStyle>
+
+                    <telerikGrid:RadDataGrid.Columns>
+                        <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
+                        <telerikGrid:DataGridTextColumn PropertyName="Drug_Name" HeaderText="Drug Name" SizeMode="Stretch" />
+
+                    </telerikGrid:RadDataGrid.Columns>
+                </telerikGrid:RadDataGrid>
+
+            </telerikPrimitives:RadBorder>
+        </ScrollView>
 
         <!--<telerikInput:RadButton x:Name="NavigateToSelectedDrugsGridButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedGenericDrugsFound}"
                  Margin="110,10,110,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>-->
