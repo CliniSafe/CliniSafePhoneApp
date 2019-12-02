@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
+using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
 using System.Collections.Generic;
@@ -209,10 +210,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (authHeader.HasIssues)
             {
                 if (authHeader.MaintenanceMode)
-                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    await Constants.DisplayPopUp("Error", authHeader.Message);
                 else if (authHeader.CPAVersionExact)
                     if (authHeader.CPANeedsUpdating)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        await Constants.DisplayPopUp("Error", authHeader.Message);
             }
             else
             {

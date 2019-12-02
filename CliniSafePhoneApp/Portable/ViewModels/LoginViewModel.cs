@@ -278,7 +278,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             NavigateForwardCommand = new NavigateForwardCommand(this);
             _navigationService = new NavigationService();
 
-            popUpTitle = "Login Error";
+            PopUpTitle = "Login Error";
+
             LoginErrorMessage = "Please check your Username and / or password. Retry after.";
 
             //LeftMenuViewModel = new LeftMenuViewModel();
@@ -317,13 +318,17 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 {
                     if (authHeader.HasIssues)
                     {
-                        if (authHeader.UserMobileTrained)
-                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        PopUpTitle = "Login Issue";
+
+                        if (!authHeader.UserMobileTrained)
+                            await Constants.DisplayPopUp(PopUpTitle, authHeader.Message);
+
                         else if (authHeader.MaintenanceMode)
-                            await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                            await Constants.DisplayPopUp(PopUpTitle, authHeader.Message);
+
                         else if (authHeader.CPAVersionExact)
                             if (authHeader.CPANeedsUpdating)
-                                await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                                await Constants.DisplayPopUp(PopUpTitle, authHeader.Message);
                     }
                     else
                         // Navigate to the project page

@@ -275,10 +275,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (authHeader.HasIssues)
             {
                 if (authHeader.MaintenanceMode)
-                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    await Constants.DisplayPopUp("Error", authHeader.Message);
                 else if (authHeader.CPAVersionExact)
                     if (authHeader.CPANeedsUpdating)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        await Constants.DisplayPopUp("Error", authHeader.Message);
             }
             else
             {

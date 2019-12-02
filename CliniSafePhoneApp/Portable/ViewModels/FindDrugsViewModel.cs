@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
+using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
 using System;
@@ -35,7 +36,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public async void PopUpSiteDetails()
         {
-            await App.Current.MainPage.DisplayAlert(_researchSitesForProjectForInvestigatorUser != null ? "Site Details" : "Trial Short Description", _researchSitesForProjectForInvestigatorUser != null ? _researchSitesForProjectForInvestigatorUser.Address1 : _countriesForProjectForMonitorUser.TrialTitleShort, "OK");
+            await Constants.DisplayPopUp(_researchSitesForProjectForInvestigatorUser != null ? "Site Details" : "Trial Short Description", _researchSitesForProjectForInvestigatorUser != null ? _researchSitesForProjectForInvestigatorUser.Address1 : _countriesForProjectForMonitorUser.TrialTitleShort);
         }
 
         private CountriesForProjectForMonitorUser _countriesForProjectForMonitorUser;
@@ -204,7 +205,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             GetDrugDetails(/*researchSitesForProjectForInvestigatorUser.Trial_ID, genericDrugNameToFind*/);
         }
-               
+
 
         public async void GetDrugDetails(/*int trail_ID, string drugNameToFind*/)
         {
@@ -213,10 +214,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (authHeader.HasIssues)
             {
                 if (authHeader.MaintenanceMode)
-                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    await Constants.DisplayPopUp("Error", authHeader.Message);
                 else if (authHeader.CPAVersionExact)
                     if (authHeader.CPANeedsUpdating)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        await Constants.DisplayPopUp("Error", authHeader.Message);
             }
         }
 
@@ -224,7 +225,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public async void GetGenericDrugDetails(/*int trail_ID,*/ string drugNameToFind)
         {
-
             GenericDrugsFoundList = await GenericDrugsFound.FindGenericDrugNameListAsync(TrialId, drugNameToFind);
         }
 

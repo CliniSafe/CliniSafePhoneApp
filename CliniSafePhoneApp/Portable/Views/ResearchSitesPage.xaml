@@ -17,7 +17,7 @@
   
         <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
    
-            <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid"  SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}"  GridLinesVisibility="Both" AutoGenerateColumns="False"  >
+            <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid" SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}"  GridLinesVisibility="Both" AutoGenerateColumns="False"  >
                 <telerikGrid:RadDataGrid.RowBackgroundStyle>
                     <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
                     </telerikGrid:DataGridBorderStyle>

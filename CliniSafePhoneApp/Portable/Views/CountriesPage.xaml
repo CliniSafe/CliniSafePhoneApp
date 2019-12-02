@@ -28,27 +28,28 @@ xmlns:telerikListView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;
 
         <Label x:Name="CountriesLabel" Margin="20,0,200,0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Countries" FontSize="Title" VerticalOptions="Start" />
 
-        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
-            <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}"  ItemsSource="{Binding CountryList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+        <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
+            <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+                <telerikGrid:RadDataGrid x:Name="countriesListDataGrid" SelectedItem="{Binding SelectedCountry, Mode=TwoWay}"  ItemsSource="{Binding CountryList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
-                <telerikGrid:RadDataGrid.RowBackgroundStyle>
-                    <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
-                    </telerikGrid:DataGridBorderStyle>
-                </telerikGrid:RadDataGrid.RowBackgroundStyle>
+                    <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                        <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                        </telerikGrid:DataGridBorderStyle>
+                    </telerikGrid:RadDataGrid.RowBackgroundStyle>
 
-                <telerikGrid:RadDataGrid.GroupHeaderStyle>
-                    <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
-                    </telerikGrid:DataGridGroupHeaderStyle>
-                </telerikGrid:RadDataGrid.GroupHeaderStyle>
+                    <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                        <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
+                        </telerikGrid:DataGridGroupHeaderStyle>
+                    </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
-                <telerikGrid:RadDataGrid.Columns>
-                    <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
-                    <telerikGrid:DataGridTextColumn PropertyName="EnglishCountryName" HeaderText="Country" SizeMode="Stretch" />
-                </telerikGrid:RadDataGrid.Columns>
-            </telerikGrid:RadDataGrid>
-            
-        </telerikPrimitives:RadBorder>
+                    <telerikGrid:RadDataGrid.Columns>
+                        <telerikGrid:DataGridTextColumn PropertyName="TrialCode" HeaderText="Trial Code" SizeMode="Stretch" />
+                        <telerikGrid:DataGridTextColumn PropertyName="EnglishCountryName" HeaderText="Country" SizeMode="Stretch" />
+                    </telerikGrid:RadDataGrid.Columns>
+                </telerikGrid:RadDataGrid>
 
+            </telerikPrimitives:RadBorder>
+        </ScrollView>
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedCountry}"                              
                                 
                  Margin="110,10,110,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>

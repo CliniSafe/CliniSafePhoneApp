@@ -1,4 +1,5 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
+using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
 using System.Collections.Generic;
@@ -123,10 +124,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 selectedResearchSite = value;
-                new ResearchSitesForProjectForInvestigatorUser()
-                {
-                    CombineDisplayTrialCodeSiteTitle = ProjectUser.ProjectCode + " " + SelectedResearchSite.SiteTitle
-                };
+                //new ResearchSitesForProjectForInvestigatorUser()
+                //{
+                //    CombineDisplayTrialCodeSiteTitle = ProjectUser.ProjectCode + " " + SelectedResearchSite.SiteTitle
+                //};
                 OnPropertyChanged("SelectedResearchSite");
             }
         }
@@ -153,7 +154,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             NavigateToFindDrugsCommand = new NavigateToFindDrugsCommand(this);
 
-            GetResearchSitesForProjectForInvestigatorUser(_projectUser);
+            GetResearchSitesForProjectForInvestigatorUser(projectUser);
         }
 
         private void GetProjectDetails(ProjectUser projectUser)
@@ -179,10 +180,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (authHeader.HasIssues)
             {
                 if (authHeader.MaintenanceMode)
-                    await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                    await Constants.DisplayPopUp("Error", authHeader.Message);
                 else if (authHeader.CPAVersionExact)
                     if (authHeader.CPANeedsUpdating)
-                        await App.Current.MainPage.DisplayAlert("Error", authHeader.Message, "OK");
+                        await Constants.DisplayPopUp("Error", authHeader.Message);
             }
             else
             {
