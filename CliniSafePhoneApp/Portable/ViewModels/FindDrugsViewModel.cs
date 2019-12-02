@@ -2,8 +2,8 @@
 using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
-using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -18,6 +18,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public PopUpCommand PopUpCommand { get; set; }
         public GenericDrugNameToFindCommand GenericDrugNameToFindCommand { get; set; }
+
+        public NavigateToQuestionsCommand NavigateToQuestionsCommand { get; set; }
 
         private AuthHeader authHeader;
 
@@ -50,7 +52,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("CountriesForProjectForMonitorUser");
             }
         }
-
 
         private ResearchSitesForProjectForInvestigatorUser _researchSitesForProjectForInvestigatorUser;
 
@@ -109,7 +110,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 genericDrugsFoundList = value;
-                OnPropertyChanged("GenericDrugsFound");
+                OnPropertyChanged("GenericDrugsFoundList");
             }
         }
 
@@ -122,9 +123,32 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 selectedGenericDrugsFound = value;
+                if (selectedGenericDrugsFound != null)
+                {
+                    SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
+                    {
+                        selectedGenericDrugsFound
+                    };
+                }
+
                 OnPropertyChanged("SelectedGenericDrugsFound");
             }
         }
+
+        private ObservableCollection<GenericDrugsFound> selectedDrugsList;
+
+        public ObservableCollection<GenericDrugsFound> SelectedDrugsList
+        {
+            get { return selectedDrugsList; }
+            set
+            {
+                selectedDrugsList = value;
+                OnPropertyChanged("SelectedDrugsList");
+            }
+        }
+
+
+
 
 
 
@@ -174,15 +198,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser)
         {
             PopUpCommand = new PopUpCommand(this);
-
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
+            NavigateToQuestionsCommand = new NavigateToQuestionsCommand(this);
 
             _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
             if (_countriesForProjectForMonitorUser != null)
             {
                 this.TrialId = countriesForProjectForMonitorUser.ID;
-                this.projectCodeORSiteTitle = countriesForProjectForMonitorUser.TrialCode;
+                this.ProjectCodeORSiteTitle = countriesForProjectForMonitorUser.TrialCode;
             }
 
             GetDrugDetails(/*countriesForProjectForMonitorUser.ID, genericDrugNameToFind*/);
@@ -192,8 +216,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
         {
             PopUpCommand = new PopUpCommand(this);
-
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
+            NavigateToQuestionsCommand = new NavigateToQuestionsCommand(this);
 
             _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
 
@@ -229,18 +253,30 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-        public void NavigateToSelectedDrugs(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
+        /// <summary>
+        /// Navigate to the Questions page
+        /// </summary>
+        /// <param name="projectUser"></param>
+        public void NavigateToQuestions(GenericDrugsFound genericDrugsFound)
         {
-
-            throw new NotImplementedException();
-            //// Remove Page Enum from the MenuPages List 
-            //if (RootPage.MenuPages.ContainsKey((int)MenuItemType.SelectedDrugs))
-            //    RootPage.MenuPages.Remove((int)MenuItemType.SelectedDrugs);
-
-            //// Navigate to the Find Drugs page
-            //_ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, researchSitesForProjectForInvestigatorUser);
+            //ProjectCodeORSiteTitle pass to Question Page
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.Questions, null, null, null);
         }
+
+
+
+
+        //public void NavigateToSelectedDrugs(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
+        //{
+
+        //    throw new NotImplementedException();
+        //    //// Remove Page Enum from the MenuPages List 
+        //    //if (RootPage.MenuPages.ContainsKey((int)MenuItemType.SelectedDrugs))
+        //    //    RootPage.MenuPages.Remove((int)MenuItemType.SelectedDrugs);
+
+        //    //// Navigate to the Find Drugs page
+        //    //_ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, researchSitesForProjectForInvestigatorUser);
+        //}
 
         /// <summary>
         /// Returns the user to the Project Page.

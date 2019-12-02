@@ -54,10 +54,10 @@ namespace CliniSafePhoneApp.Portable.Views
 
 
 
-        private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        {
-            // Navigate to the Selected Drugs page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.SelectedDrugs);
-        }
+        //private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
+        //{
+        //    // Navigate to the Selected Drugs page
+        //    _ = RootPage.NavigateFromMenu((int)MenuItemType.SelectedDrugs);
+        //}
     }
 }

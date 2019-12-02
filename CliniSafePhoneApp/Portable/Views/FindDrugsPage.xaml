@@ -7,6 +7,8 @@
              xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              x:Class="CliniSafePhoneApp.Portable.Views.FindDrugsPage">
 
+    <!--left , top , right , bottom-->
+
     <StackLayout x:Name="FindDrugsContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
@@ -35,7 +37,7 @@
 
                 <telerikGrid:RadDataGrid.Columns>
                     <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
-                    <telerikGrid:DataGridTextColumn PropertyName="Drug_Name" HeaderText="Drug Name" SizeMode="Stretch" />
+                    <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
 
                 </telerikGrid:RadDataGrid.Columns>
             </telerikGrid:RadDataGrid>
@@ -61,7 +63,7 @@
 
                     <telerikGrid:RadDataGrid.Columns>
                         <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
-                        <telerikGrid:DataGridTextColumn PropertyName="Drug_Name" HeaderText="Drug Name" SizeMode="Stretch" />
+                        <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
 
                     </telerikGrid:RadDataGrid.Columns>
                 </telerikGrid:RadDataGrid>
@@ -74,8 +76,8 @@
 
 
 
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Clicked="NextNavigationButton_Clicked"
-                 Margin="20,10,200,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug, Mode=TwoWay}"
+                 Margin="20,10,200,0" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
 
         <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
