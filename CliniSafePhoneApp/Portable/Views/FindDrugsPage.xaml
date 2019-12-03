@@ -23,7 +23,8 @@
         <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
-            <telerikGrid:RadDataGrid x:Name="genericDrugsFoundListDataGrid" SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}"  ItemsSource="{Binding GenericDrugsFoundList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+                <!--SelectedGenericDrugsFound   SelectedGenericDrugsFoundList-->
+                <telerikGrid:RadDataGrid x:Name="genericDrugsFoundListDataGrid" SelectionMode="Single" SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}" ItemsSource="{Binding GenericDrugsFoundList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
                 <telerikGrid:RadDataGrid.RowBackgroundStyle>
                     <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
@@ -64,6 +65,7 @@
                     <telerikGrid:RadDataGrid.Columns>
                         <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
                         <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
+                        <!--<telerikGrid:DataGridBooleanColumn  HeaderText="Select" SizeMode="Stretch" />-->
 
                     </telerikGrid:RadDataGrid.Columns>
                 </telerikGrid:RadDataGrid>
@@ -76,7 +78,7 @@
 
 
 
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug, Mode=TwoWay}"
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}"
                  Margin="20,10,200,0" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
 

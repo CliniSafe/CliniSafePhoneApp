@@ -5,14 +5,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
     public class NavigateToTermsCommand : ICommand
     {
-        public ErrorViewModel _errorViewModel { get; set; }
+        public ErrorViewModel ErrorViewModel { get; set; }
 
         public NavigateToTermsCommand(ErrorViewModel ErrorViewModel)
         {
-            _errorViewModel = ErrorViewModel;
+            this.ErrorViewModel = ErrorViewModel;
         }
 
-    public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -21,8 +21,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            if (_errorViewModel != null)
-                _errorViewModel.NavigateForwardToTerms();
+            if (ErrorViewModel != null)
+                ErrorViewModel.NavigateForwardToTerms();
         }
     }
 }

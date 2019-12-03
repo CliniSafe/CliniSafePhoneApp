@@ -1,51 +1,34 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
-using CliniSafePhoneApp.Portable.Views;
 using System;
-using System.ComponentModel;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
-    public class NavigateToQuestionsCommand : ICommand, INotifyPropertyChanged
+    public class NavigateToQuestionsCommand : ICommand
     {
-        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-
-
+        /// <summary>
+        /// Declare a public property for FindDrugsViewModel
+        /// </summary>
         public FindDrugsViewModel FindDrugsViewModel { get; set; }
 
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="findDrugsViewModel"></param>
         public NavigateToQuestionsCommand(FindDrugsViewModel findDrugsViewModel)
         {
             FindDrugsViewModel = findDrugsViewModel;
         }
 
-
-        private GenericDrugsFound selectedDrug;
-
-        public GenericDrugsFound SelectedDrug
-        {
-            get { return selectedDrug; }
-            set
-            {
-                selectedDrug = value;
-                OnPropertyChanged("SelectedDrug");
-            }
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
-
         public event EventHandler CanExecuteChanged;
 
 
+        /// <summary>
+        /// Enable Navigate To Question Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             var selectedDrug = (GenericDrugsFound)parameter;
@@ -53,12 +36,16 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             if (selectedDrug == null)
                 return false;
 
-            if (string.IsNullOrEmpty(selectedDrug.DrugName) || selectedDrug.Drug_ID != 0)
+            if (string.IsNullOrEmpty(selectedDrug.DrugName) || selectedDrug.Drug_ID == 0)
                 return false;
 
             return true;
         }
 
+        /// <summary>
+        /// Execute Navigate To Question Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             var selectedDrug = (GenericDrugsFound)parameter;

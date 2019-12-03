@@ -125,15 +125,49 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 selectedGenericDrugsFound = value;
                 if (selectedGenericDrugsFound != null)
                 {
-                    SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
-                    {
-                        selectedGenericDrugsFound
-                    };
+                    if (!SelectedDrugsList.Contains(selectedGenericDrugsFound))
+                        SelectedDrugsList.Add(SelectedGenericDrugsFound);
+
+                    //SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
+                    //{
+                    //    selectedGenericDrugsFound
+                    //};
                 }
 
                 OnPropertyChanged("SelectedGenericDrugsFound");
             }
         }
+
+
+        //private ObservableCollection<GenericDrugsFound> selectedGenericDrugsFoundList;
+
+        //public ObservableCollection<GenericDrugsFound> SelectedGenericDrugsFoundList
+        //{
+        //    get { return selectedGenericDrugsFoundList; }
+        //    set
+        //    {
+        //        selectedGenericDrugsFoundList = value;
+
+        //        if (selectedGenericDrugsFoundList != null)
+        //        {
+        //            //SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
+        //            //{
+        //            //    selectedGenericDrugsFound
+        //            //};
+
+        //            foreach (var selectedGenericDrugsFound in selectedGenericDrugsFoundList)
+        //            {
+        //                SelectedDrugsList.Add(selectedGenericDrugsFound);
+        //            }
+
+        //        }
+
+        //        OnPropertyChanged("SelectedGenericDrugsFoundList");
+        //    }
+        //}
+
+
+
 
         private ObservableCollection<GenericDrugsFound> selectedDrugsList;
 
@@ -148,6 +182,17 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
+        private GenericDrugsFound selectedDrug;
+
+        public GenericDrugsFound SelectedDrug
+        {
+            get { return selectedDrug; }
+            set
+            {
+                selectedDrug = value;
+                OnPropertyChanged("SelectedDrug");
+            }
+        }
 
 
 
@@ -201,6 +246,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
             NavigateToQuestionsCommand = new NavigateToQuestionsCommand(this);
 
+            SelectedDrugsList = new ObservableCollection<GenericDrugsFound>();
+
+
             _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
             if (_countriesForProjectForMonitorUser != null)
@@ -218,6 +266,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             PopUpCommand = new PopUpCommand(this);
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
             NavigateToQuestionsCommand = new NavigateToQuestionsCommand(this);
+
+            SelectedDrugsList = new ObservableCollection<GenericDrugsFound>();
 
             _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
 

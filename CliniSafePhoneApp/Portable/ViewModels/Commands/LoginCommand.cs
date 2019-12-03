@@ -6,16 +6,28 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
     public class LoginCommand : ICommand
     {
-        public LoginViewModel _loginViewModels { get; set; }
+        /// <summary>
+        /// Declare a public property for LoginViewModels
+        /// </summary>
+        public LoginViewModel LoginViewModel { get; set; }
 
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="loginViewModels"></param>
         public LoginCommand(LoginViewModel loginViewModels)
         {
-            _loginViewModels = loginViewModels;
+            LoginViewModel = loginViewModels;
         }
 
         public event EventHandler CanExecuteChanged;
 
-
+        /// <summary>
+        /// Enable Login Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             var authHeader = (AuthHeader)parameter;
@@ -29,9 +41,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             return true;
         }
 
+        /// <summary>
+        /// Execute Login Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            _loginViewModels.AuthenticateAsync();
+            LoginViewModel.AuthenticateAsync();
 
         }
     }
