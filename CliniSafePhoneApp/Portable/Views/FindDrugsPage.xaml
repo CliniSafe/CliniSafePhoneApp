@@ -25,12 +25,12 @@
 
                 <telerikGrid:RadDataGrid x:Name="genericDrugsFoundListDataGrid" SelectionMode="Single" SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}" ItemsSource="{Binding GenericDrugsFoundList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
-                <telerikGrid:RadDataGrid.RowBackgroundStyle>
-                    <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
-                    </telerikGrid:DataGridBorderStyle>
-                </telerikGrid:RadDataGrid.RowBackgroundStyle>5
+                    <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                        <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                        </telerikGrid:DataGridBorderStyle>
+                    </telerikGrid:RadDataGrid.RowBackgroundStyle>
 
-                <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                    <telerikGrid:RadDataGrid.GroupHeaderStyle>
                     <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
                     </telerikGrid:DataGridGroupHeaderStyle>
                 </telerikGrid:RadDataGrid.GroupHeaderStyle>
