@@ -15,9 +15,9 @@
         <telerikInput:RadButton x:Name="ProjectTitlePopUpButton" VerticalOptions="Start" Text="{Binding ProjectCodeORSiteTitle, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" HorizontalContentAlignment="Start"  
                  Margin="20,0,160,0" TextColor="Gray" BackgroundColor="WhiteSmoke" Command="{Binding PopUpCommand}" ></telerikInput:RadButton>
 
-        <Label x:Name="FinDrugsLabel" Margin="20,0, 200, 0" HorizontalOptions="Start" Text="Find Drugs" FontSize="Title" VerticalOptions="Start" />
+        <Label x:Name="FindDrugsLabel" Margin="40,0, 200, 0" HorizontalOptions="Start" Text="Find Drugs" FontAttributes="Bold" FontSize="Small" VerticalOptions="Start" />
 
-        <SearchBar x:Name="findDrugsSearchBar" Placeholder="Find Drugs" Text="{Binding GenericDrugNameToFind, Mode=TwoWay}" SearchCommand="{Binding GenericDrugNameToFindCommand}" SearchCommandParameter="{Binding GenericDrugNameToFind}" Margin="20,0, 20, 0" Keyboard="Text" telerikInput:KeyboardHelper.IsTranslationTarget="True"  />
+        <SearchBar x:Name="findDrugsSearchBar" Placeholder="Search" Text="{Binding GenericDrugNameToFind, Mode=TwoWay}" SearchCommand="{Binding GenericDrugNameToFindCommand}" SearchCommandParameter="{Binding GenericDrugNameToFind}" Margin="20,0, 20, 0" Keyboard="Text" telerikInput:KeyboardHelper.IsTranslationTarget="True"  />
 
 
         <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
@@ -46,7 +46,7 @@
         </telerikPrimitives:RadBorder>
         </ScrollView>
 
-        
+        <Label x:Name="SelectedDrugsLabel" Margin="40,0, 200, 0" HorizontalOptions="Start" Text="Selected Drugs" IsVisible="{Binding ShowSeletedDrugTitle, Mode=TwoWay}" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start" />
 
         <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
@@ -80,7 +80,7 @@
 
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}"
-                 Margin="20,10,200,0" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+                 Margin="20,10,200,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
 
         <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 

@@ -126,8 +126,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 if (selectedGenericDrugsFound != null)
                 {
                     if (!SelectedDrugsList.Contains(selectedGenericDrugsFound))
+                    {
                         SelectedDrugsList.Add(SelectedGenericDrugsFound);
-
+                        ShowSeletedDrugTitle = true;
+                    }
                     //SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
                     //{
                     //    selectedGenericDrugsFound
@@ -137,6 +139,21 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("SelectedGenericDrugsFound");
             }
         }
+
+
+
+        private bool showSeletedDrugTitle;
+
+        public bool ShowSeletedDrugTitle
+        {
+            get { return showSeletedDrugTitle; }
+            set
+            {
+                showSeletedDrugTitle = value;
+                OnPropertyChanged("ShowSeletedDrugTitle");
+            }
+        }
+
 
 
         //private ObservableCollection<GenericDrugsFound> selectedGenericDrugsFoundList;
