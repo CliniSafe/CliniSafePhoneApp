@@ -130,10 +130,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                         SelectedDrugsList.Add(SelectedGenericDrugsFound);
                         ShowSeletedDrugTitle = true;
                     }
-                    //SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
-                    //{
-                    //    selectedGenericDrugsFound
-                    //};
                 }
 
                 OnPropertyChanged("SelectedGenericDrugsFound");

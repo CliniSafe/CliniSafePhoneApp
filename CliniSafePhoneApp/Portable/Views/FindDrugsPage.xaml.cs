@@ -8,7 +8,7 @@ namespace CliniSafePhoneApp.Portable.Views
 {
     public partial class FindDrugsPage : ContentPage
     {
-        //public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
 
         /// <summary>

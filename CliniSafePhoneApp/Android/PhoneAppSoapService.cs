@@ -599,8 +599,6 @@ namespace CliniSafePhoneApp.Android
         /// <param name="e"></param>
         private void PhoneApp_AuthenticateCompleted(object sender, AuthenticateCompletedEventArgs e)
         {
-            //if (string.IsNullOrEmpty(authenticationResult))
-            //{}
             try
             {
                 // Check and Set Specified Exceptions
