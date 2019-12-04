@@ -23,13 +23,12 @@
         <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
-                <!--SelectedGenericDrugsFound   SelectedGenericDrugsFoundList-->
                 <telerikGrid:RadDataGrid x:Name="genericDrugsFoundListDataGrid" SelectionMode="Single" SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}" ItemsSource="{Binding GenericDrugsFoundList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
                 <telerikGrid:RadDataGrid.RowBackgroundStyle>
                     <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
                     </telerikGrid:DataGridBorderStyle>
-                </telerikGrid:RadDataGrid.RowBackgroundStyle>
+                </telerikGrid:RadDataGrid.RowBackgroundStyle>5
 
                 <telerikGrid:RadDataGrid.GroupHeaderStyle>
                     <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
@@ -66,7 +65,7 @@
                     <telerikGrid:RadDataGrid.Columns>
                         <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
                         <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
-                        <!--<telerikGrid:DataGridBooleanColumn  HeaderText="Select" SizeMode="Stretch" />-->
+                        <telerikGrid:DataGridBooleanColumn  HeaderText="Select" SizeMode="Stretch" />
 
                     </telerikGrid:RadDataGrid.Columns>
                 </telerikGrid:RadDataGrid>
@@ -74,16 +73,7 @@
             </telerikPrimitives:RadBorder>
         </ScrollView>
 
-        <!--<telerikInput:RadButton x:Name="NavigateToSelectedDrugsGridButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToFindDrugsCommand}" CommandParameter="{Binding SelectedGenericDrugsFound}"
-                 Margin="110,10,110,100" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>-->
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}" Margin="20,10,200,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
-
-
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}"
-                 Margin="20,10,200,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
-
-
-        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
     </StackLayout>
 </ContentPage>
