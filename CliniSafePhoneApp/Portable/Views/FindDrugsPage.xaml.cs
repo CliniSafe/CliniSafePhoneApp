@@ -51,13 +51,5 @@ namespace CliniSafePhoneApp.Portable.Views
             // Set the Page Binding Context to the FindDrugsViewModel(FindDrugsVM)
             BindingContext = FindDrugsVM;
         }
-
-
-
-        //private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        //{
-        //    // Navigate to the Selected Drugs page
-        //    _ = RootPage.NavigateFromMenu((int)MenuItemType.SelectedDrugs);
-        //}
     }
 }
