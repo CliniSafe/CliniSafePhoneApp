@@ -14,8 +14,7 @@ namespace CliniSafePhoneApp.Portable.Service
         /// <returns></returns>
         public static bool CheckConnectivity()
         {
-            bool isConnected = CrossConnectivity.Current.IsConnected;
-            return isConnected;
+            return CrossConnectivity.Current.IsConnected;
         }
 
         /// <summary>
@@ -25,11 +24,9 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                string cPAVersion = "1.0";
-                return cPAVersion;
+                return "1.0";
             }
         }
-
 
         /// <summary>
         /// Returns DevTest CliniSafe Phone App Web Service Url.
@@ -38,8 +35,7 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                string phoneUrl = "https://developmenttesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
-                return phoneUrl;
+                return "https://developmenttesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
             }
         }
 
@@ -51,8 +47,7 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                string phoneUrl = "https://gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
-                return phoneUrl;
+                return "https://gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
             }
         }
 
@@ -65,8 +60,7 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                string phoneUrl = "https://01gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
-                return phoneUrl;
+                return "https://01gamptesting.clinisafesandbox.com/webservices/PhoneApp.asmx";
             }
         }
 
@@ -78,12 +72,7 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                string phoneUrl = "http://localhost:54850/webservices/PhoneApp.asmx";
-
-                if (Device.RuntimePlatform == Device.Android)
-                    phoneUrl = "http://10.0.2.2:54850/webservices/PhoneApp.asmx";
-
-                return phoneUrl;
+                return (Device.RuntimePlatform == Device.Android) ? "http://10.0.2.2:54850/webservices/PhoneApp.asmx" : "http://localhost:54850/webservices/PhoneApp.asmx";
             }
         }
 
@@ -95,9 +84,7 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                string cliniSafeImage = "logo.png";
-
-                return cliniSafeImage;
+                return "logo.png";
             }
         }
 

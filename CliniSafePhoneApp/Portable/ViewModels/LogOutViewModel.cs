@@ -20,12 +20,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public string LogOutMessage
         {
             get { return logOutMessage; }
-            set { logOutMessage = value;
+            set
+            {
+                logOutMessage = value;
                 OnPropertyChanged("LogOutMessage");
             }
         }
-
-
 
         /// <summary>
         /// Initialise properties in constructor.

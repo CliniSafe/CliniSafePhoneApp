@@ -135,18 +135,6 @@ namespace CliniSafePhoneApp.Portable.Models
         }
 
 
-        private string combineDisplayTrialCodeSiteTitle;
-
-        public string CombineDisplayTrialCodeSiteTitle
-        {
-            get { return combineDisplayTrialCodeSiteTitle; }
-            set { combineDisplayTrialCodeSiteTitle = value;
-                OnPropertyChanged("CombineDisplayTrialCodeSiteTitle");
-            }
-        }
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)

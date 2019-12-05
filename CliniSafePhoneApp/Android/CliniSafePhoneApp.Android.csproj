@@ -37,7 +37,8 @@
     <AndroidTlsProvider>btls</AndroidTlsProvider>
     <AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
-    <DocumentationFile>bin\Debug\CliniSafePhoneApp.Android.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -91,7 +92,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Telerik.Xamarin.Android.Primitives">
-      <HintPath>Packages\Telerik.Xamarin.Android.Primitives.dll</HintPath>
+      <HintPath>bin\Debug\Telerik.Xamarin.Android.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
       <HintPath>Packages\Telerik.XamarinForms.Barcode.dll</HintPath>
@@ -126,10 +127,10 @@
       <HintPath>Packages\Telerik.XamarinForms.PdfViewer.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>Packages\Telerik.XamarinForms.Primitives.dll</HintPath>
+      <HintPath>bin\Debug\Telerik.XamarinForms.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>Packages\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
+      <HintPath>bin\Debug\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
       <HintPath>Packages\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
