@@ -11,12 +11,19 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
+        /// <summary>
+        /// Declare a public property for ProjectsViewModel
+        /// </summary>
+        public ProjectsViewModel ProjectsViewModel { get; set; }
 
-        public ProjectsViewModel _projectsViewModel { get; set; }
 
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="projectsViewModel"></param>
         public NavigateToProjectDetailCommand(ProjectsViewModel projectsViewModel)
         {
-            _projectsViewModel = projectsViewModel;
+            ProjectsViewModel = projectsViewModel;
         }
 
 
@@ -45,7 +52,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
         public event EventHandler CanExecuteChanged;
 
-
+        /// <summary>
+        /// Enable Navigate To Project Detail Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             var projectUser = (ProjectUser)parameter;
@@ -59,10 +70,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             return true;
         }
 
+        /// <summary>
+        /// Execute Navigate To Project Detail Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             var projectUser = (ProjectUser)parameter;
-            _projectsViewModel.NavigateToProjectDetails(projectUser);
+            ProjectsViewModel.NavigateToProjectDetails(projectUser);
         }
     }
 }

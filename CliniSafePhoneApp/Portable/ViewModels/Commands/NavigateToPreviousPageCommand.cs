@@ -5,82 +5,148 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
     public class NavigateToPreviousPageCommand : ICommand
     {
+        /// <summary>
+        /// Declare a public property for AboutViewModel
+        /// </summary>
         public AboutViewModel AboutViewModel { get; set; }
 
+        /// <summary>
+        /// Declare a public property for ErrorViewModel
+        /// </summary>
+        public ErrorViewModel ErrorViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for HelpViewModel
+        /// </summary>
+        public HelpViewModel HelpViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for PrivacyViewModel
+        /// </summary>
+        public PrivacyViewModel PrivacyViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for TempTestViewModel
+        /// </summary>
+        public TempTestViewModel TempTestViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for TermsViewModel
+        /// </summary>
+        public TermsViewModel TermsViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for CountryViewModel
+        /// </summary>
+        public CountryViewModel CountryViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for ChoiceViewModel
+        /// </summary>
+        public ChoiceViewModel ChoiceViewModel { get; set; }
+
+        /// <summary>
+        /// Declare a public property for ChoiceViewModel
+        /// </summary>
+        public ProjectDetailsViewModel ProjectDetailsViewModel { get; set; }
+
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="aboutViewModel"></param>
         public NavigateToPreviousPageCommand(AboutViewModel aboutViewModel)
         {
             AboutViewModel = aboutViewModel;
         }
 
-
-        public ErrorViewModel ErrorViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="errorViewModel"></param>
         public NavigateToPreviousPageCommand(ErrorViewModel errorViewModel)
         {
             ErrorViewModel = errorViewModel;
         }
 
-        public HelpViewModel HelpViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="helpViewModel"></param>
         public NavigateToPreviousPageCommand(HelpViewModel helpViewModel)
         {
             HelpViewModel = helpViewModel;
         }
 
-
-        public PrivacyViewModel PrivacyViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise PrivacyViewModel properties in constructor.
+        /// </summary>
+        /// <param name="privacyViewModel"></param>
         public NavigateToPreviousPageCommand(PrivacyViewModel privacyViewModel)
         {
             PrivacyViewModel = privacyViewModel;
         }
 
-        public TempTestViewModel TempTestViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise TempTestViewModel properties in constructor.
+        /// </summary>
+        /// <param name="tempTestViewModel"></param>
         public NavigateToPreviousPageCommand(TempTestViewModel tempTestViewModel)
         {
             TempTestViewModel = tempTestViewModel;
         }
 
-        public TermsViewModel TermsViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise TermsViewModel properties in constructor.
+        /// </summary>
+        /// <param name="termsViewModel"></param>
         public NavigateToPreviousPageCommand(TermsViewModel termsViewModel)
         {
             TermsViewModel = termsViewModel;
         }
 
-        public CountryViewModel CountryViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise CountryViewModel properties in constructor.
+        /// </summary>
+        /// <param name="countryViewModel"></param>
         public NavigateToPreviousPageCommand(CountryViewModel countryViewModel)
         {
             CountryViewModel = countryViewModel;
         }
 
-
-        public ChoiceViewModel ChoiceViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise ChoiceViewModel properties in constructor.
+        /// </summary>
         public NavigateToPreviousPageCommand(ChoiceViewModel choiceViewModel)
         {
             ChoiceViewModel = choiceViewModel;
         }
 
-
-        public ProjectDetailsViewModel ProjectDetailsViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise ProjectDetailsViewModel properties in constructor.
+        /// </summary>
+        /// <param name="projectDetailsViewModel"></param>
         public NavigateToPreviousPageCommand(ProjectDetailsViewModel projectDetailsViewModel)
         {
             ProjectDetailsViewModel = projectDetailsViewModel;
         }
 
-
         public event EventHandler CanExecuteChanged;
 
-
+        /// <summary>
+        /// Enable Navigate To Previous Page Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             return true;
         }
 
+        /// <summary>
+        /// Execute Navigate To Previous Page Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             if (AboutViewModel != null)

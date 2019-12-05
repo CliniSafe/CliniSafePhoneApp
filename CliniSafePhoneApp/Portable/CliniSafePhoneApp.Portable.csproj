@@ -22,13 +22,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.2" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.2" />
-    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0-preview1.final" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0-preview1.final" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0-preview1.final" />
-    <PackageReference Include="System.ServiceModel.Security" Version="4.7.0-preview1.final" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.7.0" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.190-beta" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991220-pre3" />
     <PackageReference Include="Xamarin.Forms.DataGrid" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>

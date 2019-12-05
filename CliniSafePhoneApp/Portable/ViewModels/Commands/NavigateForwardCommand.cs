@@ -1,52 +1,84 @@
-﻿using CliniSafePhoneApp.Portable.Views;
-using System;
+﻿using System;
 using System.Windows.Input;
 
 namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
     public class NavigateForwardCommand : ICommand
     {
-        public LoginViewModel _loginViewModel { get; set; }
+        /// <summary>
+        /// Declare a public property for LoginViewModel
+        /// </summary>
+        public LoginViewModel LoginViewModel { get; set; }
 
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="loginViewModel"></param>
         public NavigateForwardCommand(LoginViewModel loginViewModel)
         {
-            _loginViewModel = loginViewModel;
+            LoginViewModel = loginViewModel;
         }
 
 
-        public HandshakeViewModel _handshakeViewModel { get; set; }
+        /// <summary>
+        /// Declare a public property for HandshakeViewModel
+        /// </summary>
+        public HandshakeViewModel HandshakeViewModel { get; set; }
 
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="handshakeViewModel"></param>
         public NavigateForwardCommand(HandshakeViewModel handshakeViewModel)
         {
-            _handshakeViewModel = handshakeViewModel;
+            HandshakeViewModel = handshakeViewModel;
         }
 
-        public NoConnectionViewModel _noConnectionViewModel { get; set; }
 
+        /// <summary>
+        /// Declare a public property for NoConnectionViewModel
+        /// </summary>
+        public NoConnectionViewModel NoConnectionViewModel { get; set; }
+
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="noConnectionViewModel"></param>
         public NavigateForwardCommand(NoConnectionViewModel noConnectionViewModel)
         {
-            _noConnectionViewModel = noConnectionViewModel;
+            NoConnectionViewModel = noConnectionViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
 
 
+        /// <summary>
+        /// Enable Navigate Forward Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
             return true;
         }
 
+        /// <summary>
+        /// Execute Navigate Forward Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            if (_loginViewModel != null)
-                _loginViewModel.NavigateForward();
+            if (LoginViewModel != null)
+                LoginViewModel.NavigateForward();
 
-            if (_handshakeViewModel != null)
-                _handshakeViewModel.NavigateForward();
-            // await _noConnectionViewModel.NavigateToHomePage();
+            if (HandshakeViewModel != null)
+                HandshakeViewModel.NavigateForward();
 
-            if (_noConnectionViewModel != null)
-                _noConnectionViewModel.NavigateToHomePage();
+            if (NoConnectionViewModel != null)
+                NoConnectionViewModel.NavigateToHomePage();
         }
     }
 }

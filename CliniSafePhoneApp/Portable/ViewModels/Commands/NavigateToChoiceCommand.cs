@@ -6,35 +6,41 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
     public class NavigateToChoiceCommand : ICommand
     {
+        /// <summary>
+        /// Declare a public property for ProjectDetailsViewModel
+        /// </summary>
+        public ProjectDetailsViewModel ProjectDetailsViewModel { get; set; }
 
 
-        public ProjectDetailsViewModel _projectDetailsViewModel { get; set; }
-
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="projectDetailsViewModel"></param>
         public NavigateToChoiceCommand(ProjectDetailsViewModel projectDetailsViewModel)
         {
-            _projectDetailsViewModel = projectDetailsViewModel;
+            ProjectDetailsViewModel = projectDetailsViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
 
-
+        /// <summary>
+        /// Enable Navigate To Choice Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
-            //var projectUser = (ProjectUser)parameter;
-
-            //if (projectUser == null)
-            //    return false;
-
-            //if (string.IsNullOrEmpty(projectUser.ProjectCode) || string.IsNullOrEmpty(projectUser.ProjectTitleShortPhoneDisplay))
-            //    return false;
-
             return true;
         }
 
+        /// <summary>
+        /// Execute Navigate To Choice Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
             var projectUser = (ProjectUser)parameter;
-            _projectDetailsViewModel.NavigateToMonitorORResearchSiteORChoice(projectUser);
+            ProjectDetailsViewModel.NavigateToMonitorORResearchSiteORChoice(projectUser);
         }
     }
 }

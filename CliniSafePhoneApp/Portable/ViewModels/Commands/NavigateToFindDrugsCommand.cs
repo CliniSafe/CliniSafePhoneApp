@@ -6,28 +6,45 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 {
     public class NavigateToFindDrugsCommand : ICommand
     {
-        public CountryViewModel _countryViewModel { get; set; }
+        /// <summary>
+        /// Declare a public property for CountryViewModel
+        /// </summary>
+        public CountryViewModel CountryViewModel { get; set; }
 
-        public ResearchSitesViewModel _researchSitesViewModel { get; set; }
+        /// <summary>
+        /// Declare a public property for ResearchSitesViewModel
+        /// </summary>
+        public ResearchSitesViewModel ResearchSitesViewModel { get; set; }
 
+        /// <summary>
+        /// Initialise CountryViewModel properties in constructor.
+        /// </summary>
+        /// <param name="countryViewModel"></param>
         public NavigateToFindDrugsCommand(CountryViewModel countryViewModel)
         {
-            _countryViewModel = countryViewModel;
+            CountryViewModel = countryViewModel;
         }
 
-
+        /// <summary>
+        /// Initialise ResearchSitesViewModel properties in constructor.
+        /// </summary>
+        /// <param name="researchSitesViewModel"></param>
         public NavigateToFindDrugsCommand(ResearchSitesViewModel researchSitesViewModel)
         {
-            _researchSitesViewModel = researchSitesViewModel;
+            ResearchSitesViewModel = researchSitesViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
 
-
+        /// <summary>
+        /// Enable Navigate To Find Drugs Command Button
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
         public bool CanExecute(object parameter)
         {
 
-            if (_countryViewModel != null)
+            if (CountryViewModel != null)
             {
                 var country = (CountriesForProjectForMonitorUser)parameter;
 
@@ -54,17 +71,21 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
         }
 
+        /// <summary>
+        /// Execute Navigate To Find Drugs Command
+        /// </summary>
+        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            if (_countryViewModel != null)
+            if (CountryViewModel != null)
             {
                 var counrty = (CountriesForProjectForMonitorUser)parameter;
-                _countryViewModel.NavigateToFindDrugs(counrty);
+                CountryViewModel.NavigateToFindDrugs(counrty);
             }
             else //(_researchSitesViewModel != null)
             {
                 var researchSite = (ResearchSitesForProjectForInvestigatorUser)parameter;
-                _researchSitesViewModel.NavigateToFindDrugs(researchSite);
+                ResearchSitesViewModel.NavigateToFindDrugs(researchSite);
             }
         }
     }

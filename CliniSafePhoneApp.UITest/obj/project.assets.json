@@ -158,10 +158,10 @@
           "lib/net45/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -174,10 +174,10 @@
           "lib/net461/System.ServiceModel.Duplex.dll": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -190,10 +190,10 @@
           "lib/net461/System.ServiceModel.Http.dll": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -206,7 +206,7 @@
           "lib/net461/System.ServiceModel.NetTcp.dll": {}
         }
       },
-      "System.ServiceModel.Primitives/4.7.0-preview1.final": {
+      "System.ServiceModel.Primitives/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -219,10 +219,10 @@
           "lib/net461/System.ServiceModel.Primitives.dll": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -258,7 +258,7 @@
           "lib/net45/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
@@ -286,7 +286,7 @@
           "lib/netstandard2.0/Xamarin.Forms.DataGrid.dll": {}
         }
       },
-      "Xamarin.UITest/3.0.4-dev3": {
+      "Xamarin.UITest/3.0.5-dev1": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -301,13 +301,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -453,10 +453,10 @@
           "lib/net45/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -469,10 +469,10 @@
           "lib/net461/System.ServiceModel.Duplex.dll": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -485,10 +485,10 @@
           "lib/net461/System.ServiceModel.Http.dll": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -501,7 +501,7 @@
           "lib/net461/System.ServiceModel.NetTcp.dll": {}
         }
       },
-      "System.ServiceModel.Primitives/4.7.0-preview1.final": {
+      "System.ServiceModel.Primitives/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -514,10 +514,10 @@
           "lib/net461/System.ServiceModel.Primitives.dll": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -553,7 +553,7 @@
           "lib/net45/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
@@ -581,7 +581,7 @@
           "lib/netstandard2.0/Xamarin.Forms.DataGrid.dll": {}
         }
       },
-      "Xamarin.UITest/3.0.4-dev3": {
+      "Xamarin.UITest/3.0.5-dev1": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -596,13 +596,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -748,10 +748,10 @@
           "lib/net45/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -764,10 +764,10 @@
           "lib/net461/System.ServiceModel.Duplex.dll": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -780,10 +780,10 @@
           "lib/net461/System.ServiceModel.Http.dll": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -796,7 +796,7 @@
           "lib/net461/System.ServiceModel.NetTcp.dll": {}
         }
       },
-      "System.ServiceModel.Primitives/4.7.0-preview1.final": {
+      "System.ServiceModel.Primitives/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -809,10 +809,10 @@
           "lib/net461/System.ServiceModel.Primitives.dll": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -848,7 +848,7 @@
           "lib/net45/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
@@ -876,7 +876,7 @@
           "lib/netstandard2.0/Xamarin.Forms.DataGrid.dll": {}
         }
       },
-      "Xamarin.UITest/3.0.4-dev3": {
+      "Xamarin.UITest/3.0.5-dev1": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -891,13 +891,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -1043,10 +1043,10 @@
           "lib/net45/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -1059,10 +1059,10 @@
           "lib/net461/System.ServiceModel.Duplex.dll": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -1075,10 +1075,10 @@
           "lib/net461/System.ServiceModel.Http.dll": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -1091,7 +1091,7 @@
           "lib/net461/System.ServiceModel.NetTcp.dll": {}
         }
       },
-      "System.ServiceModel.Primitives/4.7.0-preview1.final": {
+      "System.ServiceModel.Primitives/4.7.0": {
         "type": "package",
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -1104,10 +1104,10 @@
           "lib/net461/System.ServiceModel.Primitives.dll": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "dependencies": {
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "frameworkAssemblies": [
           "System.IdentityModel",
@@ -1143,7 +1143,7 @@
           "lib/net45/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
@@ -1171,7 +1171,7 @@
           "lib/netstandard2.0/Xamarin.Forms.DataGrid.dll": {}
         }
       },
-      "Xamarin.UITest/3.0.4-dev3": {
+      "Xamarin.UITest/3.0.5-dev1": {
         "type": "package",
         "compile": {
           "lib/net45/Xamarin.UITest.dll": {}
@@ -1186,13 +1186,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -1509,10 +1509,10 @@
         "sqlitepclraw.provider.e_sqlite3.net45.nuspec"
       ]
     },
-    "System.ServiceModel.Duplex/4.7.0-preview1.final": {
-      "sha512": "uC3e2ocNySAenTp1I+ZGVfMTaUeLFtet9R4oJN7wpnwrdoLaZSctoQkl0kedsVTY2HlCo1Up2XTdt/wf5AW9dw==",
+    "System.ServiceModel.Duplex/4.7.0": {
+      "sha512": "7GBKQc2QWRxnEVQ49zMKq3z3RFKaHhhWjfMWhp+DP+dgfp0X4Szln/eL+UQumOKvv+sTU5bhOXjnJg5045liCA==",
       "type": "package",
-      "path": "system.servicemodel.duplex/4.7.0-preview1.final",
+      "path": "system.servicemodel.duplex/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1546,14 +1546,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.duplex.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.duplex.4.7.0.nupkg.sha512",
         "system.servicemodel.duplex.nuspec"
       ]
     },
-    "System.ServiceModel.Http/4.7.0-preview1.final": {
-      "sha512": "+JkX2uX0kmifepdthuXHZA5tE3QulOP41mcBhvbnEfUC2ELhNQHL+7NPQXxVCoRypdceMv5QBHP8oOTV/lTrcg==",
+    "System.ServiceModel.Http/4.7.0": {
+      "sha512": "+BB61ycl1cSlRbJDpABoqMa7bRE4boJfK1CfWfbNzTGeADFVmDkhylpfmC1bKloxtf95p2owj8/n7kilgRBAow==",
       "type": "package",
-      "path": "system.servicemodel.http/4.7.0-preview1.final",
+      "path": "system.servicemodel.http/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1593,14 +1593,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.http.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.http.4.7.0.nupkg.sha512",
         "system.servicemodel.http.nuspec"
       ]
     },
-    "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
-      "sha512": "I+f8qFH6xwSpeSqcL+9qsXI3sqTRb2qkEIwvofbKkRaaxIFQuZCAOhKaqSIoeszhiLGRQyDiOQp78Cnx9/rZMA==",
+    "System.ServiceModel.NetTcp/4.7.0": {
+      "sha512": "snQgAc7kn4721eaus8nZ52eRu1QrdEnWGbru6I263hPWcISStntwHwSrT57Iwp1Z58b3Lz0J/hbjJhGP0yExOA==",
       "type": "package",
-      "path": "system.servicemodel.nettcp/4.7.0-preview1.final",
+      "path": "system.servicemodel.nettcp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1637,14 +1637,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.nettcp.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.nettcp.4.7.0.nupkg.sha512",
         "system.servicemodel.nettcp.nuspec"
       ]
     },
-    "System.ServiceModel.Primitives/4.7.0-preview1.final": {
-      "sha512": "qEtad4TkKsfdFOW7Lx5mErghpLTplenm/MxsQXqkzPHQcvKkX5oLlx7B3N7S0xk56ecAA8wlGBPiQjKXh+87LA==",
+    "System.ServiceModel.Primitives/4.7.0": {
+      "sha512": "YUXIMO4kL1v6dUVptJGixAx/8Ai5trQzVn3gbk0mpwxh77kGAs+MyBRoHN/5ZoxtwNn4E1dq3N4rJCAgAUaiJA==",
       "type": "package",
-      "path": "system.servicemodel.primitives/4.7.0-preview1.final",
+      "path": "system.servicemodel.primitives/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1691,14 +1691,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.primitives.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.primitives.4.7.0.nupkg.sha512",
         "system.servicemodel.primitives.nuspec"
       ]
     },
-    "System.ServiceModel.Security/4.7.0-preview1.final": {
-      "sha512": "KDnhOpJsdaIU3DS3vIcBxQhO67vSlEr1bkuIn9v0SwasjiAXwPPciiaiinHqgCup7XvR2IeQMm9Sw9O5yijsOw==",
+    "System.ServiceModel.Security/4.7.0": {
+      "sha512": "LjYrQRrP1rw+s/wieB+QIv3p6/oG2ucTfVpg5iWmX8/7+nfUxcqmy9l8rsbtYE8X8BEQnSq42OhWap/Dlhlh9Q==",
       "type": "package",
-      "path": "system.servicemodel.security/4.7.0-preview1.final",
+      "path": "system.servicemodel.security/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1735,7 +1735,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.security.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.security.4.7.0.nupkg.sha512",
         "system.servicemodel.security.nuspec"
       ]
     },
@@ -1876,10 +1876,10 @@
         "xam.plugin.connectivity.nuspec"
       ]
     },
-    "Xamarin.Forms/4.3.0.851321-pre3": {
-      "sha512": "I9fjA2H9ziRpxLqVmJS7BEmjV1xrkAQmy5uQoXdjQkktXCM5V6vVdg6Or0mgEgZrBj/MYSXQw4wEtc75z3XouA==",
+    "Xamarin.Forms/4.4.0.991220-pre3": {
+      "sha512": "lpLNkAhnoKk0cjvGxqzXNdUPPOeByG9xSIYn1Wp+8mzFxGRbZxLeDuOIgNAwymX17sX8pYIQ967XWOi+Lzp9rA==",
       "type": "package",
-      "path": "xamarin.forms/4.3.0.851321-pre3",
+      "path": "xamarin.forms/4.4.0.991220-pre3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2108,7 +2108,9 @@
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsTextBoxStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/MasterDetailControlStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Microsoft.UI.Xaml/DensityStyles/Compact.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/Microsoft.UI.Xaml/Themes/generic.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/PageControlStyle.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/PickerStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Properties/Xamarin.Forms.Platform.UAP.rd.xml",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Resources.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Shell/ShellStyles.xbf",
@@ -2120,7 +2122,7 @@
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.4.3.0.851321-pre3.nupkg.sha512",
+        "xamarin.forms.4.4.0.991220-pre3.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2136,10 +2138,10 @@
         "xamarin.forms.datagrid.nuspec"
       ]
     },
-    "Xamarin.UITest/3.0.4-dev3": {
-      "sha512": "9ZFZv99MidByBBUWjucCZY1kQbvfMaFMBSmlXgbW8ShSlQyk4iwUksE96uYIKsxQWfpyzUjn256Qpgbl4q7FhQ==",
+    "Xamarin.UITest/3.0.5-dev1": {
+      "sha512": "qhMwdUORAnom9WhW2Tkof5nRB3syFSbx8elPB5R/YEb83+ZDL94DzoF18kE/xwSo9gYSe6ny63e3bHsfQ5BN0g==",
       "type": "package",
-      "path": "xamarin.uitest/3.0.4-dev3",
+      "path": "xamarin.uitest/3.0.5-dev1",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -2151,7 +2153,7 @@
         "lib/portable-net45+win8+wp8/Xamarin.UITest.dll",
         "lib/portable-net45+win8+wp8/Xamarin.UITest.xml",
         "tools/test-cloud.exe",
-        "xamarin.uitest.3.0.4-dev3.nupkg.sha512",
+        "xamarin.uitest.3.0.5-dev1.nupkg.sha512",
         "xamarin.uitest.nuspec"
       ]
     },
@@ -2166,7 +2168,7 @@
       "CliniSafePhoneApp.Portable >= 1.0.0",
       "NUnit >= 3.12.0",
       "NUnit3TestAdapter >= 3.15.1",
-      "Xamarin.UITest >= 3.0.4-dev3"
+      "Xamarin.UITest >= 3.0.5-dev1"
     ]
   },
   "packageFolders": {
@@ -2222,7 +2224,7 @@
           },
           "Xamarin.UITest": {
             "target": "Package",
-            "version": "[3.0.4-dev3, )"
+            "version": "[3.0.5-dev1, )"
           }
         }
       }

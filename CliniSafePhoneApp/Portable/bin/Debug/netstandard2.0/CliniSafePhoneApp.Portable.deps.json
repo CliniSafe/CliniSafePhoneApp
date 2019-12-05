@@ -12,13 +12,13 @@
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
           "NETStandard.Library": "2.0.3",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0",
           "Telerik.Documents.Core": "2019.2.612.20",
           "Telerik.Documents.Fixed": "2019.2.612.20",
@@ -108,7 +108,7 @@
           }
         }
       },
-      "System.Private.ServiceModel/4.7.0-preview1.final": {
+      "System.Private.ServiceModel/4.7.0": {
         "dependencies": {
           "System.Reflection.DispatchProxy": "4.5.0",
           "System.Security.Cryptography.Xml": "4.5.0",
@@ -117,7 +117,7 @@
         "runtime": {
           "lib/netstandard2.0/System.Private.ServiceModel.dll": {
             "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           }
         }
       },
@@ -206,66 +206,66 @@
           }
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "dependencies": {
-          "System.Private.ServiceModel": "4.7.0-preview1.final",
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.Private.ServiceModel": "4.7.0",
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.Duplex.dll": {
             "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           }
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "dependencies": {
-          "System.Private.ServiceModel": "4.7.0-preview1.final",
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.Private.ServiceModel": "4.7.0",
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.Http.dll": {
             "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           }
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "dependencies": {
-          "System.Private.ServiceModel": "4.7.0-preview1.final",
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.Private.ServiceModel": "4.7.0",
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.NetTcp.dll": {
             "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           }
         }
       },
-      "System.ServiceModel.Primitives/4.7.0-preview1.final": {
+      "System.ServiceModel.Primitives/4.7.0": {
         "dependencies": {
-          "System.Private.ServiceModel": "4.7.0-preview1.final"
+          "System.Private.ServiceModel": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.Primitives.dll": {
             "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           },
           "lib/netstandard2.0/System.ServiceModel.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           }
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "dependencies": {
-          "System.Private.ServiceModel": "4.7.0-preview1.final",
-          "System.ServiceModel.Primitives": "4.7.0-preview1.final"
+          "System.Private.ServiceModel": "4.7.0",
+          "System.ServiceModel.Primitives": "4.7.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.Security.dll": {
             "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.19.50401"
+            "fileVersion": "4.700.19.56502"
           }
         }
       },
@@ -291,25 +291,25 @@
           }
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.3.0.266"
+            "fileVersion": "4.4.0.375"
           },
           "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.3.0.266"
+            "fileVersion": "4.4.0.375"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.3.0.266"
+            "fileVersion": "4.4.0.375"
           }
         }
       },
       "Xamarin.Forms.DataGrid/3.1.0": {
         "dependencies": {
-          "Xamarin.Forms": "4.3.0.851321-pre3"
+          "Xamarin.Forms": "4.4.0.991220-pre3"
         },
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.DataGrid.dll": {
@@ -525,12 +525,12 @@
       "path": "system.numerics.vectors/4.4.0",
       "hashPath": "system.numerics.vectors.4.4.0.nupkg.sha512"
     },
-    "System.Private.ServiceModel/4.7.0-preview1.final": {
+    "System.Private.ServiceModel/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-3EkP29vHad5Hh/jWZ4bTqvmcEBjej0L+eGYV1kL9tRJy8sS44pj9J7S5vWoMyydPnj5GxvFzsv07IZ2AimLZVg==",
-      "path": "system.private.servicemodel/4.7.0-preview1.final",
-      "hashPath": "system.private.servicemodel.4.7.0-preview1.final.nupkg.sha512"
+      "sha512": "sha512-BItrYCkoTV3VzVPsrew+uc34fmLb+3ncgspa7vbO3vkfY9JQCea4u34pHE+Bcv1Iy16MgRs3n2jKVRCDg0rPfg==",
+      "path": "system.private.servicemodel/4.7.0",
+      "hashPath": "system.private.servicemodel.4.7.0.nupkg.sha512"
     },
     "System.Reflection.DispatchProxy/4.5.0": {
       "type": "package",
@@ -595,40 +595,40 @@
       "path": "system.security.principal.windows/4.5.0",
       "hashPath": "system.security.principal.windows.4.5.0.nupkg.sha512"
     },
-    "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+    "System.ServiceModel.Duplex/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uC3e2ocNySAenTp1I+ZGVfMTaUeLFtet9R4oJN7wpnwrdoLaZSctoQkl0kedsVTY2HlCo1Up2XTdt/wf5AW9dw==",
-      "path": "system.servicemodel.duplex/4.7.0-preview1.final",
-      "hashPath": "system.servicemodel.duplex.4.7.0-preview1.final.nupkg.sha512"
+      "sha512": "sha512-7GBKQc2QWRxnEVQ49zMKq3z3RFKaHhhWjfMWhp+DP+dgfp0X4Szln/eL+UQumOKvv+sTU5bhOXjnJg5045liCA==",
+      "path": "system.servicemodel.duplex/4.7.0",
+      "hashPath": "system.servicemodel.duplex.4.7.0.nupkg.sha512"
     },
-    "System.ServiceModel.Http/4.7.0-preview1.final": {
+    "System.ServiceModel.Http/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+JkX2uX0kmifepdthuXHZA5tE3QulOP41mcBhvbnEfUC2ELhNQHL+7NPQXxVCoRypdceMv5QBHP8oOTV/lTrcg==",
-      "path": "system.servicemodel.http/4.7.0-preview1.final",
-      "hashPath": "system.servicemodel.http.4.7.0-preview1.final.nupkg.sha512"
+      "sha512": "sha512-+BB61ycl1cSlRbJDpABoqMa7bRE4boJfK1CfWfbNzTGeADFVmDkhylpfmC1bKloxtf95p2owj8/n7kilgRBAow==",
+      "path": "system.servicemodel.http/4.7.0",
+      "hashPath": "system.servicemodel.http.4.7.0.nupkg.sha512"
     },
-    "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+    "System.ServiceModel.NetTcp/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I+f8qFH6xwSpeSqcL+9qsXI3sqTRb2qkEIwvofbKkRaaxIFQuZCAOhKaqSIoeszhiLGRQyDiOQp78Cnx9/rZMA==",
-      "path": "system.servicemodel.nettcp/4.7.0-preview1.final",
-      "hashPath": "system.servicemodel.nettcp.4.7.0-preview1.final.nupkg.sha512"
+      "sha512": "sha512-snQgAc7kn4721eaus8nZ52eRu1QrdEnWGbru6I263hPWcISStntwHwSrT57Iwp1Z58b3Lz0J/hbjJhGP0yExOA==",
+      "path": "system.servicemodel.nettcp/4.7.0",
+      "hashPath": "system.servicemodel.nettcp.4.7.0.nupkg.sha512"
     },
-    "System.ServiceModel.Primitives/4.7.0-preview1.final": {
+    "System.ServiceModel.Primitives/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qEtad4TkKsfdFOW7Lx5mErghpLTplenm/MxsQXqkzPHQcvKkX5oLlx7B3N7S0xk56ecAA8wlGBPiQjKXh+87LA==",
-      "path": "system.servicemodel.primitives/4.7.0-preview1.final",
-      "hashPath": "system.servicemodel.primitives.4.7.0-preview1.final.nupkg.sha512"
+      "sha512": "sha512-YUXIMO4kL1v6dUVptJGixAx/8Ai5trQzVn3gbk0mpwxh77kGAs+MyBRoHN/5ZoxtwNn4E1dq3N4rJCAgAUaiJA==",
+      "path": "system.servicemodel.primitives/4.7.0",
+      "hashPath": "system.servicemodel.primitives.4.7.0.nupkg.sha512"
     },
-    "System.ServiceModel.Security/4.7.0-preview1.final": {
+    "System.ServiceModel.Security/4.7.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KDnhOpJsdaIU3DS3vIcBxQhO67vSlEr1bkuIn9v0SwasjiAXwPPciiaiinHqgCup7XvR2IeQMm9Sw9O5yijsOw==",
-      "path": "system.servicemodel.security/4.7.0-preview1.final",
-      "hashPath": "system.servicemodel.security.4.7.0-preview1.final.nupkg.sha512"
+      "sha512": "sha512-LjYrQRrP1rw+s/wieB+QIv3p6/oG2ucTfVpg5iWmX8/7+nfUxcqmy9l8rsbtYE8X8BEQnSq42OhWap/Dlhlh9Q==",
+      "path": "system.servicemodel.security/4.7.0",
+      "hashPath": "system.servicemodel.security.4.7.0.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
@@ -644,12 +644,12 @@
       "path": "xam.plugin.connectivity/4.0.0.190-beta",
       "hashPath": "xam.plugin.connectivity.4.0.0.190-beta.nupkg.sha512"
     },
-    "Xamarin.Forms/4.3.0.851321-pre3": {
+    "Xamarin.Forms/4.4.0.991220-pre3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I9fjA2H9ziRpxLqVmJS7BEmjV1xrkAQmy5uQoXdjQkktXCM5V6vVdg6Or0mgEgZrBj/MYSXQw4wEtc75z3XouA==",
-      "path": "xamarin.forms/4.3.0.851321-pre3",
-      "hashPath": "xamarin.forms.4.3.0.851321-pre3.nupkg.sha512"
+      "sha512": "sha512-lpLNkAhnoKk0cjvGxqzXNdUPPOeByG9xSIYn1Wp+8mzFxGRbZxLeDuOIgNAwymX17sX8pYIQ967XWOi+Lzp9rA==",
+      "path": "xamarin.forms/4.4.0.991220-pre3",
+      "hashPath": "xamarin.forms.4.4.0.991220-pre3.nupkg.sha512"
     },
     "Xamarin.Forms.DataGrid/3.1.0": {
       "type": "package",

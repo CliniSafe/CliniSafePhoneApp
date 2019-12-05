@@ -25,7 +25,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         public event EventHandler CanExecuteChanged;
 
         /// <summary>
-        /// Enable NavigateToProject Command Button
+        /// Enable Navigate To Project Command Button
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
@@ -35,7 +35,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         }
 
         /// <summary>
-        /// Execute NavigateToProject Command
+        /// Execute Navigate To Project Command
         /// </summary>
         /// <param name="parameter"></param>
         public void Execute(object parameter)

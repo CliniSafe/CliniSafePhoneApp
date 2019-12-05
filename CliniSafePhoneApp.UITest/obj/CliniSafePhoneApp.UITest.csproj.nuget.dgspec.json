@@ -53,7 +53,7 @@
             },
             "Xamarin.UITest": {
               "target": "Package",
-              "version": "[3.0.4-dev3, )"
+              "version": "[3.0.5-dev1, )"
             }
           }
         }
@@ -126,19 +126,19 @@
             },
             "System.ServiceModel.Duplex": {
               "target": "Package",
-              "version": "[4.7.0-preview1.final, )"
+              "version": "[4.7.0, )"
             },
             "System.ServiceModel.Http": {
               "target": "Package",
-              "version": "[4.7.0-preview1.final, )"
+              "version": "[4.7.0, )"
             },
             "System.ServiceModel.NetTcp": {
               "target": "Package",
-              "version": "[4.7.0-preview1.final, )"
+              "version": "[4.7.0, )"
             },
             "System.ServiceModel.Security": {
               "target": "Package",
-              "version": "[4.7.0-preview1.final, )"
+              "version": "[4.7.0, )"
             },
             "System.Threading.Tasks": {
               "target": "Package",
@@ -150,7 +150,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.3.0.851321-pre3, )"
+              "version": "[4.4.0.991220-pre3, )"
             },
             "Xamarin.Forms.DataGrid": {
               "target": "Package",

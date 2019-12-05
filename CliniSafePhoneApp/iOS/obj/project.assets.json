@@ -41,7 +41,7 @@
           "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
         }
       },
-      "SkiaSharp/1.68.1-rc.147": {
+      "SkiaSharp/1.68.1": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.dll": {}
@@ -72,10 +72,10 @@
           }
         }
       },
-      "SkiaSharp.Views/1.68.1-rc.147": {
+      "SkiaSharp.Views/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147"
+          "SkiaSharp": "1.68.1"
         },
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
@@ -84,15 +84,15 @@
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
         }
       },
-      "SkiaSharp.Views.Forms/1.68.1-rc.147": {
+      "SkiaSharp.Views.Forms/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147",
-          "SkiaSharp.Views": "1.68.1-rc.147",
+          "SkiaSharp": "1.68.1",
+          "SkiaSharp.Views": "1.68.1",
           "Xamarin.Forms": "4.0.0.540366"
         },
         "compile": {
-          "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
+          "ref/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
         },
         "runtime": {
           "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
@@ -107,7 +107,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -116,7 +116,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -125,7 +125,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -134,7 +134,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -152,7 +152,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Common/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "Xamarin.Forms": "4.1.0.581479"
@@ -166,11 +166,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Common.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataControls/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -180,14 +180,14 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataControls.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Input": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -197,12 +197,12 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataGrid.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Input/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -212,11 +212,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Input.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Primitives/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -226,11 +226,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Primitives.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -254,7 +254,7 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -404,13 +404,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -461,7 +461,7 @@
           "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
         }
       },
-      "SkiaSharp/1.68.1-rc.147": {
+      "SkiaSharp/1.68.1": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.dll": {}
@@ -470,10 +470,10 @@
           "lib/Xamarin.iOS/SkiaSharp.dll": {}
         }
       },
-      "SkiaSharp.Views/1.68.1-rc.147": {
+      "SkiaSharp.Views/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147"
+          "SkiaSharp": "1.68.1"
         },
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
@@ -482,15 +482,15 @@
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
         }
       },
-      "SkiaSharp.Views.Forms/1.68.1-rc.147": {
+      "SkiaSharp.Views.Forms/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147",
-          "SkiaSharp.Views": "1.68.1-rc.147",
+          "SkiaSharp": "1.68.1",
+          "SkiaSharp.Views": "1.68.1",
           "Xamarin.Forms": "4.0.0.540366"
         },
         "compile": {
-          "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
+          "ref/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
         },
         "runtime": {
           "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
@@ -505,7 +505,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -514,7 +514,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -523,7 +523,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -532,7 +532,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -550,7 +550,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Common/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "Xamarin.Forms": "4.1.0.581479"
@@ -564,11 +564,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Common.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataControls/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -578,14 +578,14 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataControls.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Input": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -595,12 +595,12 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataGrid.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Input/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -610,11 +610,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Input.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Primitives/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -624,11 +624,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Primitives.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -652,7 +652,7 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -802,13 +802,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -859,7 +859,7 @@
           "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
         }
       },
-      "SkiaSharp/1.68.1-rc.147": {
+      "SkiaSharp/1.68.1": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.dll": {}
@@ -871,10 +871,10 @@
           "runtimes/win-x64/native/libSkiaSharp.dll": {}
         }
       },
-      "SkiaSharp.Views/1.68.1-rc.147": {
+      "SkiaSharp.Views/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147"
+          "SkiaSharp": "1.68.1"
         },
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
@@ -883,15 +883,15 @@
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
         }
       },
-      "SkiaSharp.Views.Forms/1.68.1-rc.147": {
+      "SkiaSharp.Views.Forms/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147",
-          "SkiaSharp.Views": "1.68.1-rc.147",
+          "SkiaSharp": "1.68.1",
+          "SkiaSharp.Views": "1.68.1",
           "Xamarin.Forms": "4.0.0.540366"
         },
         "compile": {
-          "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
+          "ref/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
         },
         "runtime": {
           "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
@@ -906,7 +906,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -915,7 +915,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -924,7 +924,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -933,7 +933,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -951,7 +951,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Common/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "Xamarin.Forms": "4.1.0.581479"
@@ -965,11 +965,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Common.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataControls/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -979,14 +979,14 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataControls.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Input": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -996,12 +996,12 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataGrid.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Input/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1011,11 +1011,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Input.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Primitives/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1025,11 +1025,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Primitives.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1053,7 +1053,7 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -1203,13 +1203,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -1260,7 +1260,7 @@
           "lib/Xamarin.iOS10/Microsoft.AppCenter.Crashes.iOS.Bindings.dll": {}
         }
       },
-      "SkiaSharp/1.68.1-rc.147": {
+      "SkiaSharp/1.68.1": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.dll": {}
@@ -1272,10 +1272,10 @@
           "runtimes/win-x86/native/libSkiaSharp.dll": {}
         }
       },
-      "SkiaSharp.Views/1.68.1-rc.147": {
+      "SkiaSharp.Views/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147"
+          "SkiaSharp": "1.68.1"
         },
         "compile": {
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
@@ -1284,15 +1284,15 @@
           "lib/Xamarin.iOS/SkiaSharp.Views.iOS.dll": {}
         }
       },
-      "SkiaSharp.Views.Forms/1.68.1-rc.147": {
+      "SkiaSharp.Views.Forms/1.68.1": {
         "type": "package",
         "dependencies": {
-          "SkiaSharp": "1.68.1-rc.147",
-          "SkiaSharp.Views": "1.68.1-rc.147",
+          "SkiaSharp": "1.68.1",
+          "SkiaSharp.Views": "1.68.1",
           "Xamarin.Forms": "4.0.0.540366"
         },
         "compile": {
-          "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
+          "ref/netstandard1.3/SkiaSharp.Views.Forms.dll": {}
         },
         "runtime": {
           "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll": {}
@@ -1307,7 +1307,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Duplex/4.7.0-preview1.final": {
+      "System.ServiceModel.Duplex/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1316,7 +1316,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Http/4.7.0-preview1.final": {
+      "System.ServiceModel.Http/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1325,7 +1325,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
+      "System.ServiceModel.NetTcp/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1334,7 +1334,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "System.ServiceModel.Security/4.7.0-preview1.final": {
+      "System.ServiceModel.Security/4.7.0": {
         "type": "package",
         "compile": {
           "ref/xamarinios10/_._": {}
@@ -1352,7 +1352,7 @@
           "lib/xamarinios10/_._": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Common/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "Xamarin.Forms": "4.1.0.581479"
@@ -1366,11 +1366,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Common.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataControls/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1380,14 +1380,14 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataControls.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.DataGrid/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Input": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Input": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1397,12 +1397,12 @@
           "lib/xamarinios10/Telerik.XamarinForms.DataGrid.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Input/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.DataControls": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.Primitives": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1412,11 +1412,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Input.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.Primitives/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
-          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
+          "Telerik.UI.for.Xamarin.SkiaSharp": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1426,11 +1426,11 @@
           "lib/xamarinios10/Telerik.XamarinForms.Primitives.dll": {}
         }
       },
-      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
+      "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1119.1": {
         "type": "package",
         "dependencies": {
           "SkiaSharp.Views.Forms": "1.68.0",
-          "Telerik.UI.for.Xamarin.Common": "[2019.3.1004.1]",
+          "Telerik.UI.for.Xamarin.Common": "[2019.3.1119.1]",
           "Xamarin.Forms": "4.1.0.581479"
         },
         "compile": {
@@ -1454,7 +1454,7 @@
           "lib/Xamarin.iOS10/Plugin.Connectivity.dll": {}
         }
       },
-      "Xamarin.Forms/4.3.0.851321-pre3": {
+      "Xamarin.Forms/4.4.0.991220-pre3": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Xamarin.Forms.Core.dll": {},
@@ -1604,13 +1604,13 @@
         "dependencies": {
           "Microsoft.AppCenter.Analytics": "2.6.2",
           "Microsoft.AppCenter.Crashes": "2.6.2",
-          "System.ServiceModel.Duplex": "4.7.0-preview1.final",
-          "System.ServiceModel.Http": "4.7.0-preview1.final",
-          "System.ServiceModel.NetTcp": "4.7.0-preview1.final",
-          "System.ServiceModel.Security": "4.7.0-preview1.final",
+          "System.ServiceModel.Duplex": "4.7.0",
+          "System.ServiceModel.Http": "4.7.0",
+          "System.ServiceModel.NetTcp": "4.7.0",
+          "System.ServiceModel.Security": "4.7.0",
           "System.Threading.Tasks": "4.3.0",
           "Xam.Plugin.Connectivity": "4.0.0.190-beta",
-          "Xamarin.Forms": "4.3.0.851321-pre3",
+          "Xamarin.Forms": "4.4.0.991220-pre3",
           "Xamarin.Forms.DataGrid": "3.1.0"
         },
         "compile": {
@@ -1698,10 +1698,10 @@
         "microsoft.appcenter.crashes.nuspec"
       ]
     },
-    "SkiaSharp/1.68.1-rc.147": {
-      "sha512": "DOZYUK6X/Igf84M8u1v05pbxYE/21/O/UaeumI/ntjBa9aXW6uZMGt2XwpAVqzc3d7m/8zNL0YWNggHZP1RPpw==",
+    "SkiaSharp/1.68.1": {
+      "sha512": "HT+Ks5hC71IkOKlmWYPeb9SkHqdOV5FVYuQxXgkQF06qmbhDD7cIvB0p+TcnxtKgO5U7bb9wK6BkOQ9Ni7PubQ==",
       "type": "package",
-      "path": "skiasharp/1.68.1-rc.147",
+      "path": "skiasharp/1.68.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1741,15 +1741,15 @@
         "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
-        "skiasharp.1.68.1-rc.147.nupkg.sha512",
+        "skiasharp.1.68.1.nupkg.sha512",
         "skiasharp.nuspec",
         "xamarin.interactive/SkiaSharp.Workbooks.dll"
       ]
     },
-    "SkiaSharp.Views/1.68.1-rc.147": {
-      "sha512": "3Rw8sZf7bmjF72vRp7NqZNPpFcWgFBVynSFcE2tIo8xPNiF19Rmulsv0fuizx17EZALeWn175t5FmzOKo5Neaw==",
+    "SkiaSharp.Views/1.68.1": {
+      "sha512": "V6pv3Wci11drQJIB8L/1kGLQjwhWMtomvknJzffhumOiUmSpbqvoA4W7Iwh1+k8zWi3JRj7b7v9O4Hhn0Palig==",
       "type": "package",
-      "path": "skiasharp.views/1.68.1-rc.147",
+      "path": "skiasharp.views/1.68.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1773,14 +1773,14 @@
         "runtimes/win10-arm/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/SkiaSharp.Views.Interop.UWP.dll",
-        "skiasharp.views.1.68.1-rc.147.nupkg.sha512",
+        "skiasharp.views.1.68.1.nupkg.sha512",
         "skiasharp.views.nuspec"
       ]
     },
-    "SkiaSharp.Views.Forms/1.68.1-rc.147": {
-      "sha512": "PPeS1UMLLVrpgTGy60XTjDUxT1vIua6kvJOHlTe6PoSGLr1jakPrbufM0jq36PyRptiMpOoHTF2OkADE97/s/A==",
+    "SkiaSharp.Views.Forms/1.68.1": {
+      "sha512": "++YNirnPMogVK0pDiTZG+LIRRB81fPHSSm36ZN/rcbRA1yz4LiqctWXCAKhejB15UoB8L+Z26j0Mn24R99Exvw==",
       "type": "package",
-      "path": "skiasharp.views.forms/1.68.1-rc.147",
+      "path": "skiasharp.views.forms/1.68.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1792,13 +1792,14 @@
         "lib/Xamarin.Mac20/SkiaSharp.Views.Forms.xml",
         "lib/Xamarin.iOS/SkiaSharp.Views.Forms.dll",
         "lib/Xamarin.iOS/SkiaSharp.Views.Forms.xml",
-        "lib/netstandard1.3/SkiaSharp.Views.Forms.dll",
-        "lib/netstandard1.3/SkiaSharp.Views.Forms.xml",
         "lib/tizen40/SkiaSharp.Views.Forms.dll",
         "lib/tizen40/SkiaSharp.Views.Forms.xml",
         "lib/uap10.0/SkiaSharp.Views.Forms.dll",
         "lib/uap10.0/SkiaSharp.Views.Forms.xml",
-        "skiasharp.views.forms.1.68.1-rc.147.nupkg.sha512",
+        "ref/MonoAndroid/SkiaSharp.Views.Forms.dll",
+        "ref/netstandard1.3/SkiaSharp.Views.Forms.dll",
+        "ref/netstandard1.3/SkiaSharp.Views.Forms.xml",
+        "skiasharp.views.forms.1.68.1.nupkg.sha512",
         "skiasharp.views.forms.nuspec"
       ]
     },
@@ -1870,10 +1871,10 @@
         "system.diagnostics.debug.nuspec"
       ]
     },
-    "System.ServiceModel.Duplex/4.7.0-preview1.final": {
-      "sha512": "uC3e2ocNySAenTp1I+ZGVfMTaUeLFtet9R4oJN7wpnwrdoLaZSctoQkl0kedsVTY2HlCo1Up2XTdt/wf5AW9dw==",
+    "System.ServiceModel.Duplex/4.7.0": {
+      "sha512": "7GBKQc2QWRxnEVQ49zMKq3z3RFKaHhhWjfMWhp+DP+dgfp0X4Szln/eL+UQumOKvv+sTU5bhOXjnJg5045liCA==",
       "type": "package",
-      "path": "system.servicemodel.duplex/4.7.0-preview1.final",
+      "path": "system.servicemodel.duplex/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1907,14 +1908,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.duplex.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.duplex.4.7.0.nupkg.sha512",
         "system.servicemodel.duplex.nuspec"
       ]
     },
-    "System.ServiceModel.Http/4.7.0-preview1.final": {
-      "sha512": "+JkX2uX0kmifepdthuXHZA5tE3QulOP41mcBhvbnEfUC2ELhNQHL+7NPQXxVCoRypdceMv5QBHP8oOTV/lTrcg==",
+    "System.ServiceModel.Http/4.7.0": {
+      "sha512": "+BB61ycl1cSlRbJDpABoqMa7bRE4boJfK1CfWfbNzTGeADFVmDkhylpfmC1bKloxtf95p2owj8/n7kilgRBAow==",
       "type": "package",
-      "path": "system.servicemodel.http/4.7.0-preview1.final",
+      "path": "system.servicemodel.http/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1954,14 +1955,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.http.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.http.4.7.0.nupkg.sha512",
         "system.servicemodel.http.nuspec"
       ]
     },
-    "System.ServiceModel.NetTcp/4.7.0-preview1.final": {
-      "sha512": "I+f8qFH6xwSpeSqcL+9qsXI3sqTRb2qkEIwvofbKkRaaxIFQuZCAOhKaqSIoeszhiLGRQyDiOQp78Cnx9/rZMA==",
+    "System.ServiceModel.NetTcp/4.7.0": {
+      "sha512": "snQgAc7kn4721eaus8nZ52eRu1QrdEnWGbru6I263hPWcISStntwHwSrT57Iwp1Z58b3Lz0J/hbjJhGP0yExOA==",
       "type": "package",
-      "path": "system.servicemodel.nettcp/4.7.0-preview1.final",
+      "path": "system.servicemodel.nettcp/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1998,14 +1999,14 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.nettcp.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.nettcp.4.7.0.nupkg.sha512",
         "system.servicemodel.nettcp.nuspec"
       ]
     },
-    "System.ServiceModel.Security/4.7.0-preview1.final": {
-      "sha512": "KDnhOpJsdaIU3DS3vIcBxQhO67vSlEr1bkuIn9v0SwasjiAXwPPciiaiinHqgCup7XvR2IeQMm9Sw9O5yijsOw==",
+    "System.ServiceModel.Security/4.7.0": {
+      "sha512": "LjYrQRrP1rw+s/wieB+QIv3p6/oG2ucTfVpg5iWmX8/7+nfUxcqmy9l8rsbtYE8X8BEQnSq42OhWap/Dlhlh9Q==",
       "type": "package",
-      "path": "system.servicemodel.security/4.7.0-preview1.final",
+      "path": "system.servicemodel.security/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2042,7 +2043,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.servicemodel.security.4.7.0-preview1.final.nupkg.sha512",
+        "system.servicemodel.security.4.7.0.nupkg.sha512",
         "system.servicemodel.security.nuspec"
       ]
     },
@@ -2114,10 +2115,10 @@
         "system.threading.tasks.nuspec"
       ]
     },
-    "Telerik.UI.for.Xamarin.Common/2019.3.1004.1": {
-      "sha512": "inaWXnj2d7tTeKtH6tv9q/jPGS/0bFrcKTjRrODcKNTBTPeWgQPwmkmMlu/2jn/9zLWQcHBptLSQKKBcSzzwyw==",
+    "Telerik.UI.for.Xamarin.Common/2019.3.1119.1": {
+      "sha512": "VuK2cQV2T9rS6DsY/hHOpfNDLFRQTio7lC2JYWJiSmx4Gn9+c1vCEbMV3Tu0z9s5wf5MiYQPJNDuD20o2Kbm0w==",
       "type": "package",
-      "path": "telerik.ui.for.xamarin.common/2019.3.1004.1",
+      "path": "telerik.ui.for.xamarin.common/2019.3.1119.1",
       "files": [
         ".nupkg.metadata",
         "lib/MonoAndroid10/Telerik.Xamarin.Android.Common.dll",
@@ -2133,14 +2134,14 @@
         "lib/uap10.0/Telerik.XamarinForms.Common/Assets/Fonts/telerikfont.ttf",
         "lib/xamarinios10/Telerik.Xamarin.iOS.dll",
         "lib/xamarinios10/Telerik.XamarinForms.Common.dll",
-        "telerik.ui.for.xamarin.common.2019.3.1004.1.nupkg.sha512",
+        "telerik.ui.for.xamarin.common.2019.3.1119.1.nupkg.sha512",
         "telerik.ui.for.xamarin.common.nuspec"
       ]
     },
-    "Telerik.UI.for.Xamarin.DataControls/2019.3.1004.1": {
-      "sha512": "CnI6T/bJuBEfcVPajTtmNp0ze4PohhbWqh0nb2oneQ+k7bwm0Lg83TQDyfVV0o+xrW/5HUla7oiKwd5paIJWAg==",
+    "Telerik.UI.for.Xamarin.DataControls/2019.3.1119.1": {
+      "sha512": "W5dA2CphKufnNaqI1ker5HLlOM4gtisIx6u1aMLpGe8lZTR3K6reawVIShzlx95JYCE6/A33YqL49Bdh6QuIag==",
       "type": "package",
-      "path": "telerik.ui.for.xamarin.datacontrols/2019.3.1004.1",
+      "path": "telerik.ui.for.xamarin.datacontrols/2019.3.1119.1",
       "files": [
         ".nupkg.metadata",
         "lib/MonoAndroid10/Telerik.Xamarin.Android.Data.dll",
@@ -2210,14 +2211,14 @@
         "lib/uap10.0/Telerik.XamarinForms.DataControls/Telerik.XamarinForms.DataControls.xr.xml",
         "lib/uap10.0/Telerik.XamarinForms.DataControls/Themes/Generic.xbf",
         "lib/xamarinios10/Telerik.XamarinForms.DataControls.dll",
-        "telerik.ui.for.xamarin.datacontrols.2019.3.1004.1.nupkg.sha512",
+        "telerik.ui.for.xamarin.datacontrols.2019.3.1119.1.nupkg.sha512",
         "telerik.ui.for.xamarin.datacontrols.nuspec"
       ]
     },
-    "Telerik.UI.for.Xamarin.DataGrid/2019.3.1004.1": {
-      "sha512": "ZwQzs12L9GMK2aorNzx/2/8tQRKtqyHRkOHEbfGFzqBKQ63ndtWIhI/dbxKVqDARroFJv7xtK+JT4dEwOp3d5A==",
+    "Telerik.UI.for.Xamarin.DataGrid/2019.3.1119.1": {
+      "sha512": "f9JzPPxVjkswzhScnd0cIo2qGKoDeu0seZ57HyOTAFOVadnZYkx0yB3WIQqvr9Q1nM4sLC4qeBste9+eAJ5+TA==",
       "type": "package",
-      "path": "telerik.ui.for.xamarin.datagrid/2019.3.1004.1",
+      "path": "telerik.ui.for.xamarin.datagrid/2019.3.1119.1",
       "files": [
         ".nupkg.metadata",
         "lib/MonoAndroid10/Telerik.XamarinForms.DataGrid.dll",
@@ -2225,14 +2226,14 @@
         "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.DataGrid.dll",
         "lib/uap10.0/Telerik.XamarinForms.DataGrid.dll",
         "lib/xamarinios10/Telerik.XamarinForms.DataGrid.dll",
-        "telerik.ui.for.xamarin.datagrid.2019.3.1004.1.nupkg.sha512",
+        "telerik.ui.for.xamarin.datagrid.2019.3.1119.1.nupkg.sha512",
         "telerik.ui.for.xamarin.datagrid.nuspec"
       ]
     },
-    "Telerik.UI.for.Xamarin.Input/2019.3.1004.1": {
-      "sha512": "hG8W8oaSSZOh5XphIvlZRicm45FXtLZ/AbjGDKZ5PgrhI6gAtvvtNfbFlal12VVIn9mLtFsXnrPVgcJnjerOEA==",
+    "Telerik.UI.for.Xamarin.Input/2019.3.1119.1": {
+      "sha512": "Cs5eVzvod1gIi/ayzhYZmb7lThPF5rW3fOZHW8RB/y6JIBM50LzRMSelAy9nOGckMKj4oYG1I6e2I1Qyt0h5zw==",
       "type": "package",
-      "path": "telerik.ui.for.xamarin.input/2019.3.1004.1",
+      "path": "telerik.ui.for.xamarin.input/2019.3.1119.1",
       "files": [
         ".nupkg.metadata",
         "lib/MonoAndroid10/Telerik.Xamarin.Android.Data.dll",
@@ -2304,14 +2305,14 @@
         "lib/uap10.0/Telerik.XamarinForms.Input/Telerik.XamarinForms.Input.xr.xml",
         "lib/uap10.0/Themes/Generic.xbf",
         "lib/xamarinios10/Telerik.XamarinForms.Input.dll",
-        "telerik.ui.for.xamarin.input.2019.3.1004.1.nupkg.sha512",
+        "telerik.ui.for.xamarin.input.2019.3.1119.1.nupkg.sha512",
         "telerik.ui.for.xamarin.input.nuspec"
       ]
     },
-    "Telerik.UI.for.Xamarin.Primitives/2019.3.1004.1": {
-      "sha512": "d9XrqITBE0XLhHDmDZ2sYKVi3fyUpHsml3bmfVUJgD029VcmIVkXYrjO9uyqV09SilBKQCbIouGhd/l4EdkhqA==",
+    "Telerik.UI.for.Xamarin.Primitives/2019.3.1119.1": {
+      "sha512": "rr3GGG0JrF4tK07dCUlUEwxkHrZZYhOJPUIKHDrbYP/VOqT91bq5CTCff5ZG7l7UK4SJiCbCJhrxD/rLf4b0CQ==",
       "type": "package",
-      "path": "telerik.ui.for.xamarin.primitives/2019.3.1004.1",
+      "path": "telerik.ui.for.xamarin.primitives/2019.3.1119.1",
       "files": [
         ".nupkg.metadata",
         "lib/MonoAndroid10/Telerik.Xamarin.Android.Primitives.dll",
@@ -2346,14 +2347,14 @@
         "lib/uap10.0/Telerik.XamarinForms.Primitives.pri",
         "lib/uap10.0/Telerik.XamarinForms.Primitives/Telerik.XamarinForms.Primitives.xr.xml",
         "lib/xamarinios10/Telerik.XamarinForms.Primitives.dll",
-        "telerik.ui.for.xamarin.primitives.2019.3.1004.1.nupkg.sha512",
+        "telerik.ui.for.xamarin.primitives.2019.3.1119.1.nupkg.sha512",
         "telerik.ui.for.xamarin.primitives.nuspec"
       ]
     },
-    "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1004.1": {
-      "sha512": "EyDHFr+oBNP/QIE+Eq8pi+34XiNNzGPzkHZ9CUKm1QhqOUHfAJAVTHS6bKr7+jxN5UKrtYCcqDLu9YKRbP3cvg==",
+    "Telerik.UI.for.Xamarin.SkiaSharp/2019.3.1119.1": {
+      "sha512": "0l55mYye2KF+qZRTB+lWxHAYu6SyShRs0WoSPAoD2S/XaIYXZbhrpQkAyZvm3qaBHxR1lodqstYs0N/+33YPrQ==",
       "type": "package",
-      "path": "telerik.ui.for.xamarin.skiasharp/2019.3.1004.1",
+      "path": "telerik.ui.for.xamarin.skiasharp/2019.3.1119.1",
       "files": [
         ".nupkg.metadata",
         "lib/MonoAndroid10/Telerik.XamarinForms.SkiaSharp.dll",
@@ -2361,7 +2362,7 @@
         "lib/portable-net45+win8+wpa81+wp8/Telerik.XamarinForms.SkiaSharp.dll",
         "lib/uap10.0/Telerik.XamarinForms.SkiaSharp.dll",
         "lib/xamarinios10/Telerik.XamarinForms.SkiaSharp.dll",
-        "telerik.ui.for.xamarin.skiasharp.2019.3.1004.1.nupkg.sha512",
+        "telerik.ui.for.xamarin.skiasharp.2019.3.1119.1.nupkg.sha512",
         "telerik.ui.for.xamarin.skiasharp.nuspec"
       ]
     },
@@ -2432,10 +2433,10 @@
         "xam.plugin.connectivity.nuspec"
       ]
     },
-    "Xamarin.Forms/4.3.0.851321-pre3": {
-      "sha512": "I9fjA2H9ziRpxLqVmJS7BEmjV1xrkAQmy5uQoXdjQkktXCM5V6vVdg6Or0mgEgZrBj/MYSXQw4wEtc75z3XouA==",
+    "Xamarin.Forms/4.4.0.991220-pre3": {
+      "sha512": "lpLNkAhnoKk0cjvGxqzXNdUPPOeByG9xSIYn1Wp+8mzFxGRbZxLeDuOIgNAwymX17sX8pYIQ967XWOi+Lzp9rA==",
       "type": "package",
-      "path": "xamarin.forms/4.3.0.851321-pre3",
+      "path": "xamarin.forms/4.4.0.991220-pre3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2664,7 +2665,9 @@
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/FormsTextBoxStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/MasterDetailControlStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Microsoft.UI.Xaml/DensityStyles/Compact.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/Microsoft.UI.Xaml/Themes/generic.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/PageControlStyle.xbf",
+        "lib/uap10.0/Xamarin.Forms.Platform.UAP/PickerStyle.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Properties/Xamarin.Forms.Platform.UAP.rd.xml",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Resources.xbf",
         "lib/uap10.0/Xamarin.Forms.Platform.UAP/Shell/ShellStyles.xbf",
@@ -2676,7 +2679,7 @@
         "lib/uap10.0/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.4.3.0.851321-pre3.nupkg.sha512",
+        "xamarin.forms.4.4.0.991220-pre3.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -2717,15 +2720,15 @@
       "CliniSafePhoneApp.Portable >= 1.0.0",
       "Microsoft.AppCenter.Analytics >= 2.6.2",
       "Microsoft.AppCenter.Crashes >= 2.6.2",
-      "SkiaSharp >= 1.68.1-rc.147",
-      "SkiaSharp.Views >= 1.68.1-rc.147",
-      "SkiaSharp.Views.Forms >= 1.68.1-rc.147",
+      "SkiaSharp >= 1.68.1",
+      "SkiaSharp.Views >= 1.68.1",
+      "SkiaSharp.Views.Forms >= 1.68.1",
       "System.Diagnostics.Debug >= 4.3.0",
       "System.Threading.Tasks >= 4.3.0",
-      "Telerik.UI.for.Xamarin.DataControls >= 2019.3.1004.1",
-      "Telerik.UI.for.Xamarin.DataGrid >= 2019.3.1004.1",
+      "Telerik.UI.for.Xamarin.DataControls >= 2019.3.1119.1",
+      "Telerik.UI.for.Xamarin.DataGrid >= 2019.3.1119.1",
       "Xam.Plugin.Connectivity >= 4.0.0.190-beta",
-      "Xamarin.Forms >= 4.3.0.851321-pre3",
+      "Xamarin.Forms >= 4.4.0.991220-pre3",
       "Xamarin.Forms.DataGrid >= 3.1.0"
     ]
   },
@@ -2782,15 +2785,15 @@
           },
           "SkiaSharp": {
             "target": "Package",
-            "version": "[1.68.1-rc.147, )"
+            "version": "[1.68.1, )"
           },
           "SkiaSharp.Views": {
             "target": "Package",
-            "version": "[1.68.1-rc.147, )"
+            "version": "[1.68.1, )"
           },
           "SkiaSharp.Views.Forms": {
             "target": "Package",
-            "version": "[1.68.1-rc.147, )"
+            "version": "[1.68.1, )"
           },
           "System.Diagnostics.Debug": {
             "target": "Package",
@@ -2802,11 +2805,11 @@
           },
           "Telerik.UI.for.Xamarin.DataControls": {
             "target": "Package",
-            "version": "[2019.3.1004.1, )"
+            "version": "[2019.3.1119.1, )"
           },
           "Telerik.UI.for.Xamarin.DataGrid": {
             "target": "Package",
-            "version": "[2019.3.1004.1, )"
+            "version": "[2019.3.1119.1, )"
           },
           "Xam.Plugin.Connectivity": {
             "target": "Package",
@@ -2814,7 +2817,7 @@
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[4.3.0.851321-pre3, )"
+            "version": "[4.4.0.991220-pre3, )"
           },
           "Xamarin.Forms.DataGrid": {
             "target": "Package",
