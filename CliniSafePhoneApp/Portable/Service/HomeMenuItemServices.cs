@@ -21,9 +21,8 @@ namespace CliniSafePhoneApp.Portable.Service
         /// <summary>
         /// Returns Home Menu Items.
         /// </summary>
-        /// <param name="authenticated"></param>
         /// <returns></returns>
-        public ObservableCollection<HomeMenuItem> GetHomeMenuItems(/*bool? authenticated*/)
+        public ObservableCollection<HomeMenuItem> GetHomeMenuItems()
         {
             return HomeMenuItems = new ObservableCollection<HomeMenuItem> {
 
@@ -32,10 +31,6 @@ namespace CliniSafePhoneApp.Portable.Service
                     new HomeMenuItem { Id = MenuItemType.Privacy, Title = "Privacy" },
                     new HomeMenuItem { Id = MenuItemType.Terms, Title = "Terms" },
                     new HomeMenuItem { Id = MenuItemType.TempTest, Title = "Temporary Test Page" }
-                    //,
-                    //new HomeMenuItem { Id = MenuItemType.LogOut, Title = "LogOut" }
-
-                    //(bool)authenticated == true ? new HomeMenuItem { Id = MenuItemType.LogOut, Title = "LogOut" } : new HomeMenuItem { Id = MenuItemType.LogIn, Title = "Login" }
             };
         }
     }

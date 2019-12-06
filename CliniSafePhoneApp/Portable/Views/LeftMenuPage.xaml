@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"             
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
              x:Class="CliniSafePhoneApp.Portable.Views.LeftMenuPage" Title="Menu">
 
     <!--ItemsSource="{Binding HomeMenuItems, Mode=TwoWay }"-->
@@ -13,8 +13,8 @@
     <StackLayout VerticalOptions="FillAndExpand">
         <ListView x:Name="ListViewMenu" SelectedItem="{Binding SelectedHomeMenuItem}" ItemsSource="{Binding HomeMenuItems}" HasUnevenRows="True" >
 
-            <!--<d:ListView.ItemsSource >
-                <x:Array Type="{x:Type x:String}" >
+            <d:ListView.ItemsSource >
+                <x:Array Type="{Binding HomeMenuItems, Mode=TwoWay}" >
                     <x:String>Item 1</x:String >
                     <x:String>Item 2</x:String>
                     <x:String>Item 3</x:String>
@@ -23,7 +23,7 @@
                     <x:String>Item 6</x:String>
                  
                 </x:Array>
-            </d:ListView.ItemsSource>-->
+            </d:ListView.ItemsSource>
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -31,23 +31,17 @@
                         <Grid Padding="10">
 
                             <!--d:Text="{Binding .}"     Text="{Binding Title, Mode=TwoWay}"-->
-                            <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
+                            <Label Text="{Binding Title, Mode=TwoWay}" d:Text="{Binding .}" FontSize="20"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-<!--{Binding Authenticated, Mode=TwoWay}-->
 
-
-        <StackLayout x:Name="LogOutStackLayout" Orientation="Horizontal" IsVisible="True" >
-            <Label x:Name="Testlabel" Text="{Binding TestUserName, Mode=TwoWay}" TextColor="Black" IsVisible="True"></Label>
-            <Button x:Name="TestButton" Text="{Binding TestUserName, Mode=TwoWay}" TextColor="Black" IsVisible="True"></Button>
+        <StackLayout x:Name="LogOutStackLayout" Orientation="Horizontal" IsVisible="True">
             <telerikInput:RadButton x:Name="LogOutNavigationButton" IsVisible="{Binding Authenticated, Mode=TwoWay}" Text="Log Out" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
                 Margin="40, 150,10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+        </StackLayout>
+        
     </StackLayout>
-    
-    
-    </StackLayout>
-
 </ContentPage>

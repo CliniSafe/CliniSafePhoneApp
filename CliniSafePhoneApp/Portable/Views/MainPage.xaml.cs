@@ -1,5 +1,4 @@
 using CliniSafePhoneApp.Portable.Models;
-using CliniSafePhoneApp.Portable.ViewModels;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -13,14 +12,6 @@ namespace CliniSafePhoneApp.Portable.Views
     {
         public Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
-
-        /// <summary>
-        /// Define MainViewModel.
-        /// </summary>
-        public MainViewModel MainVM;
-
-        public LoginViewModel LoginVM;
-
         public string Username { get; set; }
         public string Password { get; set; }
 
@@ -30,11 +21,6 @@ namespace CliniSafePhoneApp.Portable.Views
         public MainPage()
         {
             InitializeComponent();
-
-            // Initialise MainViewModel.
-            MainVM = new MainViewModel(this);
-            LoginVM = new LoginViewModel();
-
             MasterBehavior = MasterBehavior.Popover;
             MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)Detail);
         }
@@ -42,7 +28,6 @@ namespace CliniSafePhoneApp.Portable.Views
 
         public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null)
         {
-
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
                 Username = username;

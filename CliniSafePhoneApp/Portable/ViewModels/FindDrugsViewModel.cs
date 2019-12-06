@@ -261,7 +261,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             SelectedDrugsList = new ObservableCollection<GenericDrugsFound>();
 
-
             _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
             if (_countriesForProjectForMonitorUser != null)
@@ -270,7 +269,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 this.ProjectCodeORSiteTitle = countriesForProjectForMonitorUser.TrialCode;
             }
 
-            GetDrugDetails(/*countriesForProjectForMonitorUser.ID, genericDrugNameToFind*/);
+            GetDrugDetails();
         }
 
 
@@ -290,7 +289,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 this.ProjectCodeORSiteTitle = researchSitesForProjectForInvestigatorUser.SiteTitle;
             }
 
-            GetDrugDetails(/*researchSitesForProjectForInvestigatorUser.Trial_ID, genericDrugNameToFind*/);
+            GetDrugDetails();
         }
 
 
@@ -310,7 +309,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        public async void GetGenericDrugDetails(/*int trail_ID,*/ string drugNameToFind)
+        public async void GetGenericDrugDetails(string drugNameToFind)
         {
             GenericDrugsFoundList = await GenericDrugsFound.FindGenericDrugNameListAsync(TrialId, drugNameToFind);
         }

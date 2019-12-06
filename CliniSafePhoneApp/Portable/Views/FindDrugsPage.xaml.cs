@@ -8,8 +8,6 @@ namespace CliniSafePhoneApp.Portable.Views
 {
     public partial class FindDrugsPage : ContentPage
     {
-        public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-
         /// <summary>
         /// Define FindDrugsViewModel.
         /// </summary>
@@ -33,7 +31,7 @@ namespace CliniSafePhoneApp.Portable.Views
         }
 
         /// <summary>
-        /// Initialise properties in constructor for Countries for Project User as an Investigator.
+        /// Initialise properties in constructor for ResearchSites for Project User as an Investigator.
         /// </summary>
         /// <param name="researchSitesForProjectForInvestigatorUser"></param>
         public FindDrugsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)

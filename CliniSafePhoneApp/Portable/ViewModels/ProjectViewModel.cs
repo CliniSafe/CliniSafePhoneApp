@@ -98,79 +98,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-        //private bool hasIssues;
-
-        //public bool HasIssues
-        //{
-        //    get { return hasIssues; }
-        //    set
-        //    {
-        //        hasIssues = value;
-        //        OnPropertyChanged("HasIssues");
-        //    }
-        //}
-
-        //private bool maintenanceMode;
-
-        //public bool MaintenanceMode
-        //{
-        //    get { return maintenanceMode; }
-        //    set
-        //    {
-        //        maintenanceMode = value;
-        //        OnPropertyChanged("MaintenanceMode");
-        //    }
-        //}
-
-        //private bool cPAVersionExact;
-
-        //public bool CPAVersionExact
-        //{
-        //    get { return cPAVersionExact; }
-        //    set
-        //    {
-        //        cPAVersionExact = value;
-        //        OnPropertyChanged("CPAVersionExact");
-        //    }
-        //}
-
-        //private bool cPANeedsUpdating;
-
-        //public bool CPANeedsUpdating
-        //{
-        //    get { return cPANeedsUpdating; }
-        //    set
-        //    {
-        //        cPANeedsUpdating = value;
-        //        OnPropertyChanged("CPANeedsUpdating");
-        //    }
-        //}
-
-        //private int messageCode;
-
-        //public int MessageCode
-        //{
-        //    get { return messageCode; }
-        //    set
-        //    {
-        //        messageCode = value;
-        //        OnPropertyChanged("MessageCode");
-        //    }
-        //}
-
-        //private string message;
-
-        //public string Message
-        //{
-        //    get { return message; }
-        //    set
-        //    {
-        //        message = value;
-        //        OnPropertyChanged("Message");
-        //    }
-        //}
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)
@@ -207,9 +134,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 Password = password,
                 CPAVersion = Constants.CPAVersion
             };
-
-            //NavigateForwardCommand = new NavigateForwardCommand(this);
-            //NavigateToLoginCommand = new NavigateToLoginCommand(this);
 
 
             ProjectUserList = new List<ProjectUser>();
@@ -282,78 +206,18 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             }
             else
             {
-                LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-                leftMenuViewModel.Authenticated = authHeader.Authenticated;
+                LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel
+                {
+                    Authenticated = authHeader.Authenticated
+                };
                 leftMenuViewModel.UpdateHomeMenuItems();
 
 
-
-
-
-
-
-                //HomeItemMenuServices homeItemMenuServices = new HomeItemMenuServices();
-                //homeItemMenuServices.GetHomeMenuItems(authHeader.Authenticated);
-
-                //selectedProjectUser = null;
-
-
-
-
-                ////LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-                ////leftMenuViewModel.AddMenuItems(authHeader.Authenticated);
-
-                ////return ProjectUserList;
-                //if (ProjectUserList != null)
-                //{
-                //    if (authHeader != null)
-                //    {
-                //        LeftMenuViewModel leftMenuViewModel = new LeftMenuViewModel();
-                //        leftMenuViewModel.UpdateHomeMenuItems(authHeader.Authenticated);
-                //    }
-
-                //    //selectedProjectUser = null;
-
-                //    //new one
-                //    // _ = RootPage.NavigateFromMenu((int)MenuItemType.Project);
-
-
-                //    //MenuPages.Add(id, new NavigationPage(new ProjectsPage(username, password) { Title = MenuItemType.Project.ToString() }));
-
+                _ = new MainViewModel
+                {
+                    Authenticated = authHeader.Authenticated
+                };
             }
-
-
-
-            //leftMenuViewModel.HomeMenuItems.Add(_ = new HomeMenuItem(){ Id = MenuItemType.LogOut, Title = MenuItemType.LogOut.ToString() });
-
         }
-
-
-        /// <summary>
-        /// Navigates back to the HandShake Page(HandShakePage).
-        /// </summary>
-        /// <returns></returns>
-        //public void NavigateForward()
-        //{
-        //    if (ProjectForUserResult != null)
-        //        if (ProjectForUserResult == "An unknown Error occurred during GetProjectsForUser. Please Contact CliniSafe For further details.")
-        //            //return;  //Stay at the HandShakePage
-        //            _navigationService.NavigateToSecondPage(new ProjectPage());
-        //        else
-        //            _navigationService.NavigateToSecondPage(new NavigationPage(new ErrorPage() { Title = "Error" }));
-        //    else
-        //        _navigationService.NavigateToSecondPage(new NavigationPage(new ErrorPage() { Title = "Error" }));
-        //}
-
-        /// <summary>
-        /// Navigates back to the Login Page(LoginPage).
-        /// </summary>
-        /// <returns></returns>
-        //public void NavigateForwardToLogin()
-        //{
-        //    //_navigationService.NavigateToSecondPage(new NavigationPage(new LoginPage()));
-
-        //    _navigationService.NavigateToSecondPage(new MainPage());
-        //}
     }
 }

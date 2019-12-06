@@ -1,4 +1,6 @@
-﻿namespace CliniSafePhoneApp.Portable.Models
+﻿using System.ComponentModel;
+
+namespace CliniSafePhoneApp.Portable.Models
 {
     public enum MenuItemType
     {
@@ -22,10 +24,39 @@
         Review,
         SelectedDrugs
     }
-    public class HomeMenuItem
-    {
-        public MenuItemType Id { get; set; }
 
-        public string Title { get; set; }
+
+    public class HomeMenuItem : INotifyPropertyChanged
+    {
+        private MenuItemType id;
+
+        public MenuItemType Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        private string title;
+
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                title = value;
+                OnPropertyChanged("Title");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

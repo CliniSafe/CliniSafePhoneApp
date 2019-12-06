@@ -22,7 +22,7 @@ namespace CliniSafePhoneApp.Portable.Views
             //Initialise LogOutViewModel.
             LogOutVM = new LogOutViewModel();
 
-            //// Set the Page Binding Context to the LogOutViewModel(LogOutVM)
+            // Set the Page Binding Context to the LogOutViewModel(LogOutVM)
             BindingContext = LogOutVM;
         }
     }

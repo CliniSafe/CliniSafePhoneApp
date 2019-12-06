@@ -124,10 +124,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 selectedResearchSite = value;
-                //new ResearchSitesForProjectForInvestigatorUser()
-                //{
-                //    CombineDisplayTrialCodeSiteTitle = ProjectUser.ProjectCode + " " + SelectedResearchSite.SiteTitle
-                //};
                 OnPropertyChanged("SelectedResearchSite");
             }
         }
@@ -211,6 +207,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             // Navigate to the Project page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, "", "", null);
+
 
             //TODO
             //if (ProjectUser.InvestigatorDashboard == "Auth" && ProjectUser.WizardDashboard == "Auth")//Auth 

@@ -39,8 +39,5 @@
     
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  CommandParameter="{Binding SelectedResearchSite, Mode=TwoWay}" Command="{Binding NavigateToFindDrugsCommand, Mode=TwoWay}"
                 Margin="20,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
-
-        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
     </StackLayout>
 </ContentPage>

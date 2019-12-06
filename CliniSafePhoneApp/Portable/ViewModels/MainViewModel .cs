@@ -1,26 +1,36 @@
-﻿using CliniSafePhoneApp.Portable.Models;
-using CliniSafePhoneApp.Portable.Views;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         public Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        private bool authenticated;
 
-        public MainPage MainPage { get; set; }
-
-        public MainViewModel(MainPage mainPage)
+        public bool Authenticated
         {
-            //MainPage mainPage = new MainPage();
+            get { return authenticated; }
+            set
+            {
+                authenticated = value;
+                OnPropertyChanged("Authenticated");
+            }
+        }
 
 
-            MainPage = mainPage;
+        public event PropertyChangedEventHandler PropertyChanged;
 
-            MainPage.MasterBehavior = MasterBehavior.Popover;
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-            MenuPages.Add((int)MenuItemType.LogIn, (NavigationPage)MainPage.Detail);
+        public MainViewModel()
+        {
+
         }
     }
 }

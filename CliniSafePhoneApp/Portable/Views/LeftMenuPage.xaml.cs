@@ -9,12 +9,7 @@ namespace CliniSafePhoneApp.Portable.Views
     [DesignTimeVisible(false)]
     public partial class LeftMenuPage : ContentPage
     {
-        LeftMenuViewModel LeftMenuVM;
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-        //ObservableCollection<HomeMenuItem> menuItems;
-
-
-
+        private readonly LeftMenuViewModel LeftMenuVM;
 
         /// <summary>
         /// Initialise properties in constructor.
@@ -23,53 +18,17 @@ namespace CliniSafePhoneApp.Portable.Views
         {
             InitializeComponent();
 
+            LeftMenuVM = new LeftMenuViewModel();
 
-            //bool? authed = RootPage == null ? false : RootPage.LoginVM.AuthHeader.Authenticated;
-            LeftMenuVM = new LeftMenuViewModel(/*authed*/);
-
-
-            //HomeItemMenuServices homeItemMenuServices = new HomeItemMenuServices();
-
-            //menuItems = homeItemMenuServices.GetHomeMenuItems(Constants.CheckConnectivity());
-
-            //menuItems = LeftMenuVM.HomeMenuItems;
-
-
-            ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems; //  menuItems;
-
-
-
-
-
-
-            //ListViewMenu.SelectedItem = LeftMenuVM.HomeMenuItems[0]; //menuItems[0];
-            //ListViewMenu.ItemSelected += async (sender, e) =>
-            //{
-            //    if (e.SelectedItem == null)
-            //        return;
-
-            //    var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-            //    await RootPage.NavigateFromMenu(id);
-            //};
-
-
-
-
-
-
-            //LogOutStackLayout.IsVisible = LeftMenuVM.Authenticated;
-            //LogOutNavigationButton.IsVisible = LeftMenuVM.Authenticated;
-
+            ListViewMenu.ItemsSource = LeftMenuVM.HomeMenuItems;
             BindingContext = LeftMenuVM;
-
         }
 
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            Testlabel.Text = LeftMenuVM.TestUserName;
+            LogOutNavigationButton.IsVisible = LeftMenuVM.Authenticated;
         }
     }
 }
@@ -169,10 +128,3 @@ namespace CliniSafePhoneApp.Portable.Views
 //        }
 //    }
 //}
-
-
-
-
-
-
-

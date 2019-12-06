@@ -32,10 +32,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)
@@ -46,86 +42,26 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        //public bool Authenticated { get; set; }
-
-
-
-
-
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public LeftMenuViewModel(/*bool? authed*/)
+        public LeftMenuViewModel()
         {
-
             HomeMenuItems = new ObservableCollection<HomeMenuItem>();
 
-
-            UpdateHomeMenuItems(/*Authenticated*/);
-
-
-
-
-
-            //AddMenuItems(null);
-
-            //HomeMenuItems = new ObservableCollection<HomeMenuItem> {
-
-            //        new HomeMenuItem { Id = MenuItemType.About, Title = "About" },
-            //        new HomeMenuItem { Id = MenuItemType.Help, Title = "Help" },
-            //        new HomeMenuItem { Id = MenuItemType.Privacy, Title = "Privacy" },
-            //        new HomeMenuItem { Id = MenuItemType.Terms, Title = "Terms" },
-            //        new HomeMenuItem { Id = MenuItemType.TempTest, Title = "Temporary Test Page" }
-            //    };
-
-
-            //MenuNavigation();
+            UpdateHomeMenuItems();
         }
 
-        public void UpdateHomeMenuItems(/*bool? authenticated*/)
+        public void UpdateHomeMenuItems()
         {
-            //authenticated = authenticated == null ? false : authenticated;
             HomeMenuItems.Clear();
             HomeItemMenuServices homeItemMenuServices = new HomeItemMenuServices();
-
-            //var newHomeMenuItems = authenticated == true ? homeItemMenuServices.GetAuthenticatedHomeMenuItems() : homeItemMenuServices.GetNotAuthentictedHomeMenuItems();
-
-            var newHomeMenuItems = homeItemMenuServices.GetHomeMenuItems(/*authenticated*/);
+            var newHomeMenuItems = homeItemMenuServices.GetHomeMenuItems();
             foreach (var newMenuItem in newHomeMenuItems)
             {
                 HomeMenuItems.Add(newMenuItem);
             }
         }
-
-
-
-
-        /// <summary>
-        /// Sets the HomeMenuItem values for ListView.
-        /// </summary>
-        /// <returns></returns>
-        //public ObservableCollection<HomeMenuItem> AddMenuItems(bool? authenticated)
-        //{
-
-        //    authenticated = (authenticated == null) ? false : (bool)authenticated;
-        //    //HomeMenuItems.Clear();
-        //    HomeMenuItems = new ObservableCollection<HomeMenuItem> {
-
-        //            new HomeMenuItem { Id = MenuItemType.About, Title = "About" },
-        //            new HomeMenuItem { Id = MenuItemType.Help, Title = "Help" },
-        //            new HomeMenuItem { Id = MenuItemType.Privacy, Title = "Privacy" },
-        //            new HomeMenuItem { Id = MenuItemType.Terms, Title = "Terms" },
-        //            new HomeMenuItem { Id = MenuItemType.TempTest, Title = "Temporary Test Page" },
-        //           // new HomeMenuItem { Id = MenuItemType.LogIn, Title = "Login" }
-
-        //    (bool)authenticated == true ? new HomeMenuItem { Id = MenuItemType.LogOut, Title = "LogOut" } : new HomeMenuItem { Id = MenuItemType.LogIn, Title = "Login" }
-        //        };
-
-        //    return HomeMenuItems;
-        //}
-
-
-
 
 
         private HomeMenuItem selectedHomeMenuItem;
@@ -148,21 +84,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             get { return authenticated; }
             set
             {
-                authenticated = value;                
+                authenticated = value;
                 OnPropertyChanged("Authenticated");
             }
-        }
-
-
-        private string testUserName;
-
-        public string TestUserName
-        {
-            get { return testUserName; }
-            set { testUserName = value;
-                if (testUserName == null)
-                    testUserName = RootPage.Username;
-                OnPropertyChanged("TestUserName"); }
         }
 
 
