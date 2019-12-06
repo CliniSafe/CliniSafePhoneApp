@@ -38,13 +38,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
         /// <summary>
-        /// Navigates back to the Login Page(LoginPage).
+        /// Navigates back to the Login Page.
         /// </summary>
         /// <returns></returns>
         public void NavigateForwardToLogin()
         {
-            //_navigationService.NavigateToSecondPage(new NavigationPage(new LoginPage()));
-
             _ = RootPage.NavigateFromMenu((int)MenuItemType.LogIn, null, null, null);
         }
 
