@@ -7,9 +7,9 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class HandShakePage : ContentPage
     {
         /// <summary>
-        /// Define HandshakeViewModel.
+        /// Define private Member HandshakeViewModel.
         /// </summary>
-        HandshakeViewModel HandshakeVM;
+        private readonly HandshakeViewModel HandshakeVM;
 
 
         public HandShakePage()

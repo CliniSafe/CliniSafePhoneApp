@@ -8,9 +8,9 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class HelpPage : ContentPage
     {
         /// <summary>
-        /// Define HelpViewModel.
+        /// Define Private Member HelpViewModel.
         /// </summary>
-        public HelpViewModel HelpVM;
+        private readonly HelpViewModel HelpVM;
 
         public HelpPage()
         {

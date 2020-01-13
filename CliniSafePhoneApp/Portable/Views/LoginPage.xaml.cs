@@ -12,9 +12,9 @@ namespace CliniSafePhoneApp.Portable.Views
         //Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
 
         /// <summary>
-        /// Define private members (LoginViemModel)
+        /// Define Private Members (LoginViemModel)
         /// </summary>
-        private LoginViewModel LoginVM;
+        private readonly LoginViewModel LoginVM;
 
 
 
@@ -24,7 +24,7 @@ namespace CliniSafePhoneApp.Portable.Views
         public LoginPage()
         {
             InitializeComponent();
-                                 
+
             //Initialise LoginViemModel.
             LoginVM = new LoginViewModel();
 

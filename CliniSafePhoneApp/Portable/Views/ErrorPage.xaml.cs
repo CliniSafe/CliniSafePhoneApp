@@ -9,7 +9,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define private Member (ErrorViewModel).
         /// </summary>
-        private ErrorViewModel ErrorVM;
+        private readonly ErrorViewModel ErrorVM;
 
 
         /// <summary>

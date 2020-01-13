@@ -9,7 +9,7 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class FindDrugsPage : ContentPage
     {
         /// <summary>
-        /// Define FindDrugsViewModel.
+        /// Define private Member FindDrugsViewModel.
         /// </summary>
         private readonly FindDrugsViewModel FindDrugsVM;
 

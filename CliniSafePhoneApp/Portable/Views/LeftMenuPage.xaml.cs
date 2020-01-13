@@ -9,6 +9,10 @@ namespace CliniSafePhoneApp.Portable.Views
     [DesignTimeVisible(false)]
     public partial class LeftMenuPage : ContentPage
     {
+
+        /// <summary>
+        /// Define Private Member LeftMenuViewModel.
+        /// </summary>
         private readonly LeftMenuViewModel LeftMenuVM;
 
         /// <summary>

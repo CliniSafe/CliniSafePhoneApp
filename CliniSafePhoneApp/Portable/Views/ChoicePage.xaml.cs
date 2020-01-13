@@ -11,7 +11,7 @@ namespace CliniSafePhoneApp.Portable.Views
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
         /// <summary>
-        /// Define ChoiceViewModel.
+        /// Define private Member ChoiceViewModel.
         /// </summary>
         private readonly ChoiceViewModel ChoiceVM;
 
