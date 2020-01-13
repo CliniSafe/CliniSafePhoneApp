@@ -10,7 +10,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define AboutViewModel.
         /// </summary>
-        AboutViewModel AboutVM;
+        private readonly AboutViewModel AboutVM;
 
 
         /// <summary>
@@ -21,7 +21,6 @@ namespace CliniSafePhoneApp.Portable.Views
             InitializeComponent();
 
             //Set the Image Source
-            //cliniSafeImage.Source = "logo.png";
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise AboutViewModel.
