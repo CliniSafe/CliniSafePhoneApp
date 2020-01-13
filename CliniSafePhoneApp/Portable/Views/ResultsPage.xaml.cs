@@ -10,9 +10,9 @@ namespace CliniSafePhoneApp.Portable.Views
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
         /// <summary>
-        /// Define ResultsViewModel.
+        /// Define Private Member ResultsViewModel.
         /// </summary>
-        public ResultsViewModel ResultsVM;
+        private readonly ResultsViewModel ResultsVM;
 
 
         /// <summary>

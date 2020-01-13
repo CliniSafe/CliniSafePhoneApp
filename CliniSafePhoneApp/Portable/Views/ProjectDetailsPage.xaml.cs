@@ -11,9 +11,9 @@ namespace CliniSafePhoneApp.Portable.Views
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
         /// <summary>
-        /// Define ProjectDetailsViewModel.
+        /// Define Private Member ProjectDetailsViewModel.
         /// </summary>
-        public ProjectDetailsViewModel ProjectDetailsVM;
+        private readonly ProjectDetailsViewModel ProjectDetailsVM;
 
 
         /// <summary>

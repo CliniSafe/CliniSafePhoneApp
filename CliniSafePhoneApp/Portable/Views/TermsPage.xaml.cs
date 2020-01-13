@@ -8,9 +8,9 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class TermsPage : ContentPage
     {
         /// <summary>
-        /// Define TermsViewModel.
+        /// Define Private Member TermsViewModel.
         /// </summary>
-        public TermsViewModel TermsVM;
+        private readonly TermsViewModel TermsVM;
 
         public TermsPage()
         {

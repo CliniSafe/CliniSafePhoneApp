@@ -7,9 +7,9 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class TempTestPage : ContentPage
     {
         /// <summary>
-        /// Define TempTestViewModel.
+        /// Define Private Member TempTestViewModel.
         /// </summary>
-        private TempTestViewModel TempTestVM;
+        private readonly TempTestViewModel TempTestVM;
 
 
         /// <summary>

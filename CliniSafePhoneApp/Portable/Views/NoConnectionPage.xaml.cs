@@ -8,7 +8,7 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class NoConnectionPage : ContentPage
     {
         /// <summary>
-        /// Define NoConnectionViewModel.
+        /// Define Private Member NoConnectionViewModel.
         /// </summary>
         private readonly NoConnectionViewModel NoConnectionVM;
 

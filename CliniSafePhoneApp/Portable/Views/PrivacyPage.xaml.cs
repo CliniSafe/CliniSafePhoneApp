@@ -11,9 +11,9 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class PrivacyPage : ContentPage
     {
         /// <summary>
-        /// Define PrivacyViewModel.
+        /// Define Private Member PrivacyViewModel.
         /// </summary>
-        PrivacyViewModel PrivacyVM;
+        private readonly PrivacyViewModel PrivacyVM;
 
         public ICommand TapCommand => new Command<string>(OpenBrowser);
 
