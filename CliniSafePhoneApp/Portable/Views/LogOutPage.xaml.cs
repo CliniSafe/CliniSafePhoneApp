@@ -8,7 +8,7 @@ namespace CliniSafePhoneApp.Portable.Views
     public partial class LogOutPage : ContentPage
     {
         /// <summary>
-        /// Define LogOutViewModel.
+        /// Define Private Member LogOutViewModel.
         /// </summary>
         private readonly LogOutViewModel LogOutVM;
 
