@@ -21,7 +21,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         }
 
         public event EventHandler CanExecuteChanged;
-        
+
         /// <summary>
         /// Enable Navigate Backward Command Button
         /// </summary>
@@ -38,8 +38,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            // _noConnectionViewModel.NavigateToHomePage();
-
             NoConnectionViewModel.NavigateBack();
         }
     }

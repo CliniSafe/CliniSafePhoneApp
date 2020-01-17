@@ -46,7 +46,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         public ChoiceViewModel ChoiceViewModel { get; set; }
 
         /// <summary>
-        /// Declare a public property for ChoiceViewModel
+        /// Declare a public property for ProjectDetailsViewModel
         /// </summary>
         public ProjectDetailsViewModel ProjectDetailsViewModel { get; set; }
 

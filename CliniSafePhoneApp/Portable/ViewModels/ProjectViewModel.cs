@@ -4,6 +4,7 @@ using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
@@ -51,9 +52,16 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <summary>
         /// Navigate User to the LogOut Page.
         /// </summary>
-        public void NavigateToLogOut()
-        {
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.LogOut, null, null, null);
+        //public void NavigateToLogOut()
+
+        public async Task NavigateToLogOut()
+        {   
+           var confirmLogOut = await App.Current.MainPage.DisplayAlert("Log Out", "Are you sure you want to log out?", "Log out", "Cancel");
+
+            if(confirmLogOut)
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.LogOut, null, null, null);
+
+            return;
         }
 
         private string password;

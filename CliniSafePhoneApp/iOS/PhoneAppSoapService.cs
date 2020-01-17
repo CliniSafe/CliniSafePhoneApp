@@ -21,7 +21,7 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(CliniSafePhoneApp.iOS.PhoneAppSoapService))]
 namespace CliniSafePhoneApp.iOS
 {
-    public class PhoneAppSoapService : ISoapService, INotifyPropertyChanged
+    public class PhoneAppSoapService : ISoapService   /*, INotifyPropertyChanged*/
     {
         public MainPage RootPage { get => App.Current.MainPage as MainPage; }
 
@@ -99,13 +99,13 @@ namespace CliniSafePhoneApp.iOS
 
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //public void OnPropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
 
 
 
@@ -452,6 +452,30 @@ namespace CliniSafePhoneApp.iOS
                         InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
 
                     }).ToList();
+
+
+                    //ProjectForUserListResult = (from d in xDocumentProjectForUser.Root.Elements("ProjectsForUser")
+                    //                            select new ProjectUser
+                    //                            {
+                    //                                ID = d.Element("ID").Value != null ? Convert.ToInt32(d.Element("ID").Value) : 0,
+                    //                                Sponsor = d.Element("Sponsor").Value,
+                    //                                ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
+                    //                                ProjectCode = d.Element("ProjectCode").Value,
+                    //                                ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
+                    //                                ProjectTitleShort = d.Element("ProjectTitleShort").Value,
+                    //                                ProjectTitleFull = d.Element("ProjectTitleFull").Value,
+                    //                                DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
+                    //                                IRPUserDashboard = d.Element("IRPUserDashboard").Value,
+                    //                                StudyDashboard = d.Element("StudyDashboard").Value,
+                    //                                DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
+                    //                                ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
+                    //                                TeamDashboard = d.Element("TeamDashboard").Value,
+                    //                                TranslationDashboard = d.Element("TranslationDashboard").Value,
+                    //                                ReportsDashboard = d.Element("ReportsDashboard").Value,
+                    //                                EndUserDashboard = d.Element("EndUserDashboard").Value,
+                    //                                WizardDashboard = d.Element("WizardDashboard").Value,
+                    //                                InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
+                    //                            }).ToList();
                 }
 
                 projectsForUserComplete?.TrySetResult(true);

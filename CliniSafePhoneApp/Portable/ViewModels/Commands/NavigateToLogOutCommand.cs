@@ -55,7 +55,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
             if (ProjectsViewModel != null)
                 ProjectsViewModel.NavigateToLogOut();
-
         }
     }
 }

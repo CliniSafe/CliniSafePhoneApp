@@ -7,7 +7,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
     public class LoginCommand : ICommand
     {
         /// <summary>
-        /// Declare a public property for LoginViewModels
+        /// Declare a public property for LoginViewModel
         /// </summary>
         public LoginViewModel LoginViewModel { get; set; }
 
@@ -48,7 +48,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         public void Execute(object parameter)
         {
             LoginViewModel.AuthenticateAsync();
-
         }
     }
 }
