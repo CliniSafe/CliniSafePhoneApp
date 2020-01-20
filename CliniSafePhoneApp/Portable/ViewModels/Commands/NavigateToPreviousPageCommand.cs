@@ -52,6 +52,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
 
         /// <summary>
+        /// Declare a public property for QuestionViewModel
+        /// </summary>
+        public QuestionViewModel QuestionViewModel { get; set; }
+
+
+        /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
         /// <param name="aboutViewModel"></param>
@@ -131,6 +137,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             ProjectDetailsViewModel = projectDetailsViewModel;
         }
 
+        /// <summary>
+        /// Initialise QuestionViewModel properties in constructor.
+        /// </summary>
+        /// <param name="questionViewModel"></param>
+        public NavigateToPreviousPageCommand(QuestionViewModel questionViewModel)
+        {
+            QuestionViewModel = questionViewModel;
+        }
+
         public event EventHandler CanExecuteChanged;
 
         /// <summary>
@@ -175,6 +190,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
 
             if (ProjectDetailsViewModel != null)
                 ProjectDetailsViewModel.NavigateBackToPreviousPage();
+
+            if (QuestionViewModel != null)
+                QuestionViewModel.NavigateBackToPreviousPage();
         }
     }
 }

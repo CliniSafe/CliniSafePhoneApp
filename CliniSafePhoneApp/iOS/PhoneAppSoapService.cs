@@ -429,53 +429,53 @@ namespace CliniSafePhoneApp.iOS
 
                 if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentProjectForUser.Root.Elements().Any())
                 {
-                    ProjectForUserListResult = xDocumentProjectForUser.Descendants("ProjectsForUser").Select(d =>
-                    new ProjectUser
-                    {
-                        ID = Convert.ToInt32(d.Element("ID").Value),
-                        Sponsor = d.Element("Sponsor").Value,
-                        ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
-                        ProjectCode = d.Element("ProjectCode").Value,
-                        ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
-                        ProjectTitleShort = d.Element("ProjectTitleShort").Value,
-                        ProjectTitleFull = d.Element("ProjectTitleFull").Value,
-                        DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
-                        IRPUserDashboard = d.Element("IRPUserDashboard").Value,
-                        StudyDashboard = d.Element("StudyDashboard").Value,
-                        DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
-                        ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
-                        TeamDashboard = d.Element("TeamDashboard").Value,
-                        TranslationDashboard = d.Element("TranslationDashboard").Value,
-                        ReportsDashboard = d.Element("ReportsDashboard").Value,
-                        EndUserDashboard = d.Element("EndUserDashboard").Value,
-                        WizardDashboard = d.Element("WizardDashboard").Value,
-                        InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
+                    //ProjectForUserListResult = xDocumentProjectForUser.Descendants("ProjectsForUser").Select(d =>
+                    //new ProjectUser
+                    //{
+                    //    ID = Convert.ToInt32(d.Element("ID").Value),
+                    //    Sponsor = d.Element("Sponsor").Value,
+                    //    ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
+                    //    ProjectCode = d.Element("ProjectCode").Value,
+                    //    ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
+                    //    ProjectTitleShort = d.Element("ProjectTitleShort").Value,
+                    //    ProjectTitleFull = d.Element("ProjectTitleFull").Value,
+                    //    DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
+                    //    IRPUserDashboard = d.Element("IRPUserDashboard").Value,
+                    //    StudyDashboard = d.Element("StudyDashboard").Value,
+                    //    DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
+                    //    ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
+                    //    TeamDashboard = d.Element("TeamDashboard").Value,
+                    //    TranslationDashboard = d.Element("TranslationDashboard").Value,
+                    //    ReportsDashboard = d.Element("ReportsDashboard").Value,
+                    //    EndUserDashboard = d.Element("EndUserDashboard").Value,
+                    //    WizardDashboard = d.Element("WizardDashboard").Value,
+                    //    InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
 
-                    }).ToList();
+                    //}).ToList();
 
 
-                    //ProjectForUserListResult = (from d in xDocumentProjectForUser.Root.Elements("ProjectsForUser")
-                    //                            select new ProjectUser
-                    //                            {
-                    //                                ID = d.Element("ID").Value != null ? Convert.ToInt32(d.Element("ID").Value) : 0,
-                    //                                Sponsor = d.Element("Sponsor").Value,
-                    //                                ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
-                    //                                ProjectCode = d.Element("ProjectCode").Value,
-                    //                                ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
-                    //                                ProjectTitleShort = d.Element("ProjectTitleShort").Value,
-                    //                                ProjectTitleFull = d.Element("ProjectTitleFull").Value,
-                    //                                DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
-                    //                                IRPUserDashboard = d.Element("IRPUserDashboard").Value,
-                    //                                StudyDashboard = d.Element("StudyDashboard").Value,
-                    //                                DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
-                    //                                ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
-                    //                                TeamDashboard = d.Element("TeamDashboard").Value,
-                    //                                TranslationDashboard = d.Element("TranslationDashboard").Value,
-                    //                                ReportsDashboard = d.Element("ReportsDashboard").Value,
-                    //                                EndUserDashboard = d.Element("EndUserDashboard").Value,
-                    //                                WizardDashboard = d.Element("WizardDashboard").Value,
-                    //                                InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
-                    //                            }).ToList();
+                    ProjectForUserListResult = (from d in xDocumentProjectForUser.Root.Elements("ProjectsForUser")
+                                                select new ProjectUser
+                                                {
+                                                    ID = d.Element("ID").Value != null ? Convert.ToInt32(d.Element("ID").Value) : 0,
+                                                    Sponsor = d.Element("Sponsor").Value,
+                                                    ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
+                                                    ProjectCode = d.Element("ProjectCode").Value,
+                                                    ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
+                                                    ProjectTitleShort = d.Element("ProjectTitleShort").Value,
+                                                    ProjectTitleFull = d.Element("ProjectTitleFull").Value,
+                                                    DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
+                                                    IRPUserDashboard = d.Element("IRPUserDashboard").Value,
+                                                    StudyDashboard = d.Element("StudyDashboard").Value,
+                                                    DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
+                                                    ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
+                                                    TeamDashboard = d.Element("TeamDashboard").Value,
+                                                    TranslationDashboard = d.Element("TranslationDashboard").Value,
+                                                    ReportsDashboard = d.Element("ReportsDashboard").Value,
+                                                    EndUserDashboard = d.Element("EndUserDashboard").Value,
+                                                    WizardDashboard = d.Element("WizardDashboard").Value,
+                                                    InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
+                                                }).ToList();
                 }
 
                 projectsForUserComplete?.TrySetResult(true);

@@ -5,6 +5,11 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              x:Class="CliniSafePhoneApp.Portable.Views.QuestionsPage">
 
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout x:Name="QuestionsContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
@@ -12,6 +17,10 @@
 
         <Label x:Name="QuestionsLabel" Margin="40,0, 100, 200" HorizontalOptions="Start" Text="Questions" FontSize="Title" VerticalOptions="CenterAndExpand" />
 
+        
+        
+        
+        
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  Clicked="NextNavigationButton_Clicked"
                  Margin="40,10,200,100"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
