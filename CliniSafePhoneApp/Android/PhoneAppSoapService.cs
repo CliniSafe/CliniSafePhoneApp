@@ -465,20 +465,6 @@ namespace CliniSafePhoneApp.Android
                 devTestPhoneAppService.GetQuestions(Trial_ID);
                 xmlQuestionSelectedDrugsResult = e.Result;
 
-
-
-                //--------------------------------------------------------------------------------------------------------
-                // Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
-                //StringReader stringReader = new StringReader(xmlQuestionSelectedDrugsResult);
-
-                //XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionSelectedDrug>), new XmlRootAttribute("NewDataSet"));
-
-                //QuestionSelectedDrugListResult = (List<QuestionSelectedDrug>)serializer.Deserialize(stringReader);
-                //--------------------------------------------------------------------------------------------------------
-
-
-
-
                 XDocument xDocumentQuestionSelectedDrug = new XDocument();
 
                 //Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
@@ -495,13 +481,10 @@ namespace CliniSafePhoneApp.Android
                                                       {
                                                           Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
                                                           Question = d.Element("Question").Value,
-                                                          Yes = Convert.ToBoolean(d.Element("Answer").Value) == true ? true :  Convert.ToBoolean(d.Element("Answer").Value),
+                                                          Yes = Convert.ToBoolean(d.Element("Answer").Value) == true ? true : Convert.ToBoolean(d.Element("Answer").Value),
                                                           No = Convert.ToBoolean(d.Element("Answer").Value) == false ? false : Convert.ToBoolean(d.Element("Answer").Value)
                                                       }).ToList();
                 }
-
-
-
 
                 questionsComplete?.TrySetResult(true);
             }
