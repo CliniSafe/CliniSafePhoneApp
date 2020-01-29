@@ -6,7 +6,6 @@ using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.Views;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -21,7 +20,7 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(CliniSafePhoneApp.iOS.PhoneAppSoapService))]
 namespace CliniSafePhoneApp.iOS
 {
-    public class PhoneAppSoapService : ISoapService   /*, INotifyPropertyChanged*/
+    public class PhoneAppSoapService : ISoapService
     {
         public MainPage RootPage { get => App.Current.MainPage as MainPage; }
 
@@ -35,6 +34,7 @@ namespace CliniSafePhoneApp.iOS
         TaskCompletionSource<bool> countriesForProjectForMonitorUserComplete = null;
         TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserComplete = null;
         TaskCompletionSource<bool> findGenericDrugNameComplete = null;
+        TaskCompletionSource<bool> questionsComplete = null;
 
         /// <summary>
         /// Initialise properties in constructor.
@@ -51,6 +51,7 @@ namespace CliniSafePhoneApp.iOS
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
             devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserCompleted += PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted;
             devTestPhoneAppService.FindGenericDrugNameCompleted += PhoneApp_FindGenericDrugNameCompleted;
+            devTestPhoneAppService.GetQuestionsCompleted += PhoneApp_QuestionsCompleted;
         }
 
         public string helloWorldResult;
@@ -77,6 +78,8 @@ namespace CliniSafePhoneApp.iOS
 
         public static string xmlGenericDrugsFoundResult;
 
+        public static string xmlQuestionSelectedDrugsResult;
+
         public static List<ProjectUser> ProjectForUserListResult { get; set; }
 
         public static List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
@@ -85,238 +88,17 @@ namespace CliniSafePhoneApp.iOS
 
         public static List<GenericDrugsFound> GenericDrugsFoundListResult { get; set; }
 
+        public static List<QuestionSelectedDrug> QuestionSelectedDrugListResult { get; set; }
 
         /// <summary>
         /// Declare private member for assigning Soap Header results returned from Web Service.
         /// </summary>
         private Portable.Models.AuthHeader authHeaderResults = new Portable.Models.AuthHeader();
 
-
         /// <summary>
         /// Declare private member for assigning Soap Header results returned from Web Service.
         /// </summary>
         private Portable.Models.HandshakeHeader handshakeHeaderResults = new Portable.Models.HandshakeHeader();
-
-
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //public void OnPropertyChanged(string propertyName)
-        //{
-        //    if (PropertyChanged != null)
-        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-
-
-
-
-
-
-
-        #region Update Soap Header Values Returned from Web Service
-
-
-        //private string username;
-
-        //public string Username
-        //{
-        //    get { return username; }
-        //    set
-        //    {
-        //        username = value;
-        //        OnPropertyChanged("Username");
-        //    }
-        //}
-
-
-        //private string password;
-
-        //public string Password
-        //{
-        //    get { return password; }
-        //    set
-        //    {
-        //        password = value;
-        //        OnPropertyChanged("Password");
-        //    }
-        //}
-
-        //private string cPAVersion;
-
-
-        //public string CPAVersion
-        //{
-        //    get { return cPAVersion; }
-        //    set
-        //    {
-        //        cPAVersion = value;
-        //        OnPropertyChanged("CPAVersion");
-        //    }
-        //}
-
-
-
-
-        //New Property Authenticate(Check if user is Authenticated return value from the Web Service)
-        #region AuthHeader Values Returned
-
-        //private string authenticate;
-
-        //public string Authenticate
-        //{
-        //    get { return authenticate; }
-        //    set
-        //    {
-        //        authenticate = value;
-        //        OnPropertyChanged("Authenticate");
-        //    }
-        //}
-
-
-
-        //private bool hasIssues;
-
-        //public bool HasIssues
-        //{
-        //    get { return hasIssues; }
-        //    set
-        //    {
-        //        hasIssues = value;
-        //        OnPropertyChanged("HasIssues");
-        //    }
-        //}
-
-        //private bool maintenanceMode;
-
-        //public bool MaintenanceMode
-        //{
-        //    get { return maintenanceMode; }
-        //    set
-        //    {
-        //        maintenanceMode = value;
-        //        OnPropertyChanged("MaintenanceMode");
-        //    }
-        //}
-
-
-        //private bool cPAVersionExact;
-
-        //public bool CPAVersionExact
-        //{
-        //    get { return cPAVersionExact; }
-        //    set
-        //    {
-        //        cPAVersionExact = value;
-        //        OnPropertyChanged("CPAVersionExact");
-        //    }
-        //}
-
-        //private bool cPANeedsUpdating;
-
-        //public bool CPANeedsUpdating
-        //{
-        //    get { return cPANeedsUpdating; }
-        //    set
-        //    {
-        //        cPANeedsUpdating = value;
-        //        OnPropertyChanged("CPANeedsUpdating");
-        //    }
-        //}
-
-        //private bool usernamePasswordValid;
-
-        //public bool UsernamePasswordValid
-        //{
-        //    get { return usernamePasswordValid; }
-        //    set
-        //    {
-        //        usernamePasswordValid = value;
-        //        OnPropertyChanged("UsernamePasswordValid");
-        //    }
-        //}
-
-        //private bool userTypeValid;
-
-        //public bool UserTypeValid
-        //{
-        //    get { return userTypeValid; }
-        //    set
-        //    {
-        //        userTypeValid = value;
-        //        OnPropertyChanged("UserTypeValid");
-        //    }
-        //}
-
-        //private bool userMobileTrained;
-
-        //public bool UserMobileTrained
-        //{
-        //    get { return userMobileTrained; }
-        //    set
-        //    {
-        //        userMobileTrained = value;
-        //        OnPropertyChanged("UserMobileTrained");
-        //    }
-        //}
-
-        //private bool trialActive;
-
-        //public bool TrialActive
-        //{
-        //    get { return trialActive; }
-        //    set
-        //    {
-        //        trialActive = value;
-        //        OnPropertyChanged("TrialActive");
-        //    }
-        //}
-
-        //private int messageCode;
-
-        //public int MessageCode
-        //{
-        //    get { return messageCode; }
-        //    set
-        //    {
-        //        messageCode = value;
-        //        OnPropertyChanged("MessageCode");
-        //    }
-        //}
-
-        //private string message;
-
-        //public string Message
-        //{
-        //    get { return message; }
-        //    set
-        //    {
-        //        message = value;
-        //        OnPropertyChanged("Message");
-        //    }
-        //}
-
-
-        //private bool authenticated;
-
-        //public bool Authenticated
-        //{
-        //    get { return authenticated; }
-        //    set
-        //    {
-        //        authenticated = value;
-        //        OnPropertyChanged("Authenticated");
-        //    }
-        //}
-
-
-        #endregion
-
-
-
-        #endregion
-
-
-
 
 
         public static Portable.Models.AuthHeader FromPhoneAppServiceAuthenticate(DevTestPhoneAppService.AuthHeader authHeader)
@@ -372,9 +154,6 @@ namespace CliniSafePhoneApp.iOS
             handshakeHeaderResults = FromPhoneAppSoapServiceHandshake(devTestPhoneAppService.HandshakeHeaderValue);
             return handshakeHeaderResults;
         }
-
-
-
 
         /// <summary>
         /// Returns Projects List.
@@ -687,6 +466,69 @@ namespace CliniSafePhoneApp.iOS
                 DisplayException(ex);
             }
         }
+
+
+        public async Task<List<QuestionSelectedDrug>> GetQuestionSelectedDrugsListAsync(int trialID)
+        {
+            questionsComplete = new TaskCompletionSource<bool>();
+
+            if (trialID != 0)
+            {
+                Trial_ID = trialID;
+            }
+
+            devTestPhoneAppService.GetQuestionsAsync(Trial_ID);
+            await questionsComplete.Task;
+            return QuestionSelectedDrugListResult;
+        }
+
+        /// <summary>
+        /// Private Questions Name Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneApp_QuestionsCompleted(object sender, GetQuestionsCompletedEventArgs e)
+        {
+            try
+            {
+                questionsComplete = questionsComplete ?? new TaskCompletionSource<bool>();
+
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        questionsComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        questionsComplete?.TrySetException(e.Error);
+                    else
+                        questionsComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.GetQuestions(Trial_ID);
+                xmlQuestionSelectedDrugsResult = e.Result;
+
+                // Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
+                StringReader stringReader = new StringReader(xmlQuestionSelectedDrugsResult);
+
+                XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionSelectedDrug>), new XmlRootAttribute("NewDataSet"));
+
+                QuestionSelectedDrugListResult = (List<QuestionSelectedDrug>)serializer.Deserialize(stringReader);
+
+                questionsComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+        }
+
+
 
         /// <summary>
         /// Returns Hello.

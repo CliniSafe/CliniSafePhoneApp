@@ -35,7 +35,7 @@ namespace CliniSafePhoneApp.Android
         TaskCompletionSource<bool> countriesForProjectForMonitorUserComplete = null;
         TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserComplete = null;
         TaskCompletionSource<bool> findGenericDrugNameComplete = null;
-
+        TaskCompletionSource<bool> questionsComplete = null;
 
         /// <summary>
         /// Initialize Web Service Url property and Event Handlers in constructor.
@@ -52,6 +52,7 @@ namespace CliniSafePhoneApp.Android
             devTestPhoneAppService.GetCountriesForProjectForMonitorUserCompleted += PhoneApp_CountriesForProjectForMonitorUserCompleted;
             devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserCompleted += PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted;
             devTestPhoneAppService.FindGenericDrugNameCompleted += PhoneApp_FindGenericDrugNameCompleted;
+            devTestPhoneAppService.GetQuestionsCompleted += PhoneApp_QuestionsCompleted;
         }
 
         public string helloWorldResult;
@@ -76,6 +77,8 @@ namespace CliniSafePhoneApp.Android
 
         public static string xmlGenericDrugsFoundResult;
 
+        public static string xmlQuestionSelectedDrugsResult;
+
         public static List<ProjectUser> ProjectForUserListResult { get; set; }
 
         public static List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
@@ -83,6 +86,8 @@ namespace CliniSafePhoneApp.Android
         public static List<ResearchSitesForProjectForInvestigatorUser> ResearchSitesForProjectForInvestigatorUserListResult { get; set; }
 
         public static List<GenericDrugsFound> GenericDrugsFoundListResult { get; set; }
+
+        public static List<QuestionSelectedDrug> QuestionSelectedDrugListResult { get; set; }
 
         /// <summary>
         /// Declare private member for assigning Soap Header results returned from Web Service.
@@ -150,7 +155,6 @@ namespace CliniSafePhoneApp.Android
             handshakeHeaderResults = FromPhoneAppSoapServiceHandshake(devTestPhoneAppService.HandshakeHeaderValue);
             return handshakeHeaderResults;
         }
-
 
         public async Task<List<ProjectUser>> GetProjectsForUserListAysnc(Portable.Models.AuthHeader authHeader)
         {
@@ -361,8 +365,6 @@ namespace CliniSafePhoneApp.Android
             }
         }
 
-
-
         public async Task<List<GenericDrugsFound>> FindGenericDrugNameListAsync(int trialID, string genericDrugNameToFind)
         {
             findGenericDrugNameComplete = new TaskCompletionSource<bool>();
@@ -423,6 +425,102 @@ namespace CliniSafePhoneApp.Android
                 DisplayException(ex);
             }
         }
+
+
+
+        public async Task<List<QuestionSelectedDrug>> GetQuestionSelectedDrugsListAsync(int trialID)
+        {
+            questionsComplete = new TaskCompletionSource<bool>();
+
+            if (trialID != 0)
+            {
+                Trial_ID = trialID;
+            }
+
+            devTestPhoneAppService.GetQuestionsAsync(Trial_ID);
+            await questionsComplete.Task;
+            return QuestionSelectedDrugListResult;
+        }
+
+        /// <summary>
+        /// Private Questions Name Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneApp_QuestionsCompleted(object sender, GetQuestionsCompletedEventArgs e)
+        {
+            try
+            {
+                questionsComplete ??= new TaskCompletionSource<bool>();
+
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        questionsComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        questionsComplete?.TrySetException(e.Error);
+                    else
+                        questionsComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.GetQuestions(Trial_ID);
+                xmlQuestionSelectedDrugsResult = e.Result;
+
+
+
+                //--------------------------------------------------------------------------------------------------------
+                // Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
+                //StringReader stringReader = new StringReader(xmlQuestionSelectedDrugsResult);
+
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionSelectedDrug>), new XmlRootAttribute("NewDataSet"));
+
+                //QuestionSelectedDrugListResult = (List<QuestionSelectedDrug>)serializer.Deserialize(stringReader);
+                //--------------------------------------------------------------------------------------------------------
+
+
+
+
+                XDocument xDocumentQuestionSelectedDrug = new XDocument();
+
+                //Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
+                if (!string.IsNullOrEmpty(xmlQuestionSelectedDrugsResult))
+                {
+                    xDocumentQuestionSelectedDrug = XDocument.Parse(xmlQuestionSelectedDrugsResult);
+                }
+
+                if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentQuestionSelectedDrug.Root.Elements().Any())
+                {
+
+                    QuestionSelectedDrugListResult = (from d in xDocumentQuestionSelectedDrug.Root.Elements("Questions")
+                                                      select new QuestionSelectedDrug
+                                                      {
+                                                          Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
+                                                          Question = d.Element("Question").Value,
+                                                          Yes = Convert.ToBoolean(d.Element("Answer").Value) == true ? true :  Convert.ToBoolean(d.Element("Answer").Value),
+                                                          No = Convert.ToBoolean(d.Element("Answer").Value) == false ? false : Convert.ToBoolean(d.Element("Answer").Value)
+                                                      }).ToList();
+                }
+
+
+
+
+                questionsComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+        }
+
+
+
 
         /// <summary>
         /// Returns Hello.
@@ -773,5 +871,6 @@ namespace CliniSafePhoneApp.Android
             }
             return stringBuilder.ToString();
         }
+
     }
 }

@@ -17,6 +17,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// Declare a private member for NavigateForwardCommand.
         /// </summary>
         public PopUpCommand PopUpCommand { get; set; }
+
+
+        /// <summary>
+        /// Declare a private member for GenericDrugNameToFindCommand.
+        /// </summary>
         public GenericDrugNameToFindCommand GenericDrugNameToFindCommand { get; set; }
 
         public NavigateToQuestionsCommand NavigateToQuestionsCommand { get; set; }
@@ -30,6 +35,19 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             {
                 authHeader = value;
                 OnPropertyChanged("AuthHeader");
+            }
+        }
+
+
+        private string projectCode;
+
+        public string ProjectCode
+        {
+            get { return projectCode; }
+            set
+            {
+                projectCode = value;
+                OnPropertyChanged("ProjectCode");
             }
         }
 
@@ -253,7 +271,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser)
+        public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
         {
             PopUpCommand = new PopUpCommand(this);
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
@@ -267,13 +285,14 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             {
                 this.TrialId = countriesForProjectForMonitorUser.ID;
                 this.ProjectCodeORSiteTitle = countriesForProjectForMonitorUser.TrialCode;
+                this.ProjectCode = projectCode;
             }
 
             GetDrugDetails();
         }
 
 
-        public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
+        public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
         {
             PopUpCommand = new PopUpCommand(this);
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
@@ -287,6 +306,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             {
                 this.TrialId = researchSitesForProjectForInvestigatorUser.Trial_ID;
                 this.ProjectCodeORSiteTitle = researchSitesForProjectForInvestigatorUser.SiteTitle;
+                this.ProjectCode = projectCode;
             }
 
             GetDrugDetails();
@@ -321,8 +341,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <param name="projectUser"></param>
         public void NavigateToQuestions(GenericDrugsFound genericDrugsFound)
         {
-            //ProjectCodeORSiteTitle pass to Question Page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Questions, null, null, null);
+            if (_researchSitesForProjectForInvestigatorUser != null)
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode);
+            else if (_countriesForProjectForMonitorUser != null)
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode);
+            else
+                return;
         }
 
 

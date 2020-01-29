@@ -46,5 +46,10 @@ namespace CliniSafePhoneApp.Portable.Data
         {
             return soapService.FindGenericDrugNameListAsync(trialID, genericDrugNameToFind);
         }
+
+        public Task<List<QuestionSelectedDrug>> GetQuestionSelectedDrugsListAsync(int trialID)
+        {
+            return soapService.GetQuestionSelectedDrugsListAsync(trialID);
+        }
     }
 }

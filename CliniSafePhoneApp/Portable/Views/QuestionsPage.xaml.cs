@@ -19,7 +19,28 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public QuestionsPage()
+        //public QuestionsPage()
+        //{
+        //    InitializeComponent();
+
+        //    //Set the Image Source
+        //    cliniSafeImage.Source = Constants.CliniSafeImage;
+
+        //    // Initialise QuestionViewModel.
+        //    QuestionVM = new QuestionViewModel();
+
+        //    // Set the Page Binding Context to the QuestionViewModel(QuestionVM)
+        //    BindingContext = QuestionVM;
+        //}
+
+
+
+
+
+        /// <summary>
+        /// Initialise properties in constructor for Countries for Project User as a Monitor.
+        /// </summary>
+        public QuestionsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
         {
             InitializeComponent();
 
@@ -27,11 +48,32 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise QuestionViewModel.
-            QuestionVM = new QuestionViewModel();
+            QuestionVM = new QuestionViewModel(countriesForProjectForMonitorUser, projectCode);
 
             // Set the Page Binding Context to the QuestionViewModel(QuestionVM)
             BindingContext = QuestionVM;
         }
+
+        /// <summary>
+        /// Initialise properties in constructor for ResearchSites for Project User as an Investigator.
+        /// </summary>
+        /// <param name="researchSitesForProjectForInvestigatorUser"></param>
+        public QuestionsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
+        {
+            InitializeComponent();
+
+            //Set the Image Source
+            cliniSafeImage.Source = Constants.CliniSafeImage;
+
+            // Initialise QuestionViewModel.
+            QuestionVM = new QuestionViewModel(researchSitesForProjectForInvestigatorUser, projectCode);
+
+            // Set the Page Binding Context to the QuestionViewModel(QuestionVM)
+            BindingContext = QuestionVM;
+        }
+
+
+
 
         private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
         {

@@ -3,9 +3,10 @@
     public interface IAuthHeader
     {
         string Username { get; set; }
-        string Password { get; set; }
-        string CPAVersion { get; set; }
 
+        string Password { get; set; }
+
+        string CPAVersion { get; set; }
 
         bool HasIssues { get; set; }
 

@@ -16,7 +16,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor for Countries for Project User as a Monitor.
         /// </summary>
-        public FindDrugsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser)
+        public FindDrugsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise FindDrugsViewModel.
-            FindDrugsVM = new FindDrugsViewModel(countriesForProjectForMonitorUser);
+            FindDrugsVM = new FindDrugsViewModel(countriesForProjectForMonitorUser, projectCode);
 
             // Set the Page Binding Context to the FindDrugsViewModel(FindDrugsVM)
             BindingContext = FindDrugsVM;
@@ -34,7 +34,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// Initialise properties in constructor for ResearchSites for Project User as an Investigator.
         /// </summary>
         /// <param name="researchSitesForProjectForInvestigatorUser"></param>
-        public FindDrugsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
+        public FindDrugsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise FindDrugsViewModel.
-            FindDrugsVM = new FindDrugsViewModel(researchSitesForProjectForInvestigatorUser);
+            FindDrugsVM = new FindDrugsViewModel(researchSitesForProjectForInvestigatorUser, projectCode);
 
             // Set the Page Binding Context to the FindDrugsViewModel(FindDrugsVM)
             BindingContext = FindDrugsVM;

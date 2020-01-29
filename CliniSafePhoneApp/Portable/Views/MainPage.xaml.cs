@@ -26,7 +26,7 @@ namespace CliniSafePhoneApp.Portable.Views
         }
 
 
-        public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null)
+        public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null, string projectCode = null)
         {
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
@@ -75,16 +75,19 @@ namespace CliniSafePhoneApp.Portable.Views
                         MenuPages.Add(id, new NavigationPage(new ResearchSitesPage((ProjectUser)objectParameter) { Title = "Research Sites" }));
                         break;
                     case (int)MenuItemType.FindDrugsForCountry:
-                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage((CountriesForProjectForMonitorUser)objectParameter) { Title = "Find Drugs" }));
+                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage((CountriesForProjectForMonitorUser)objectParameter, projectCode) { Title = "Find Drugs" }));
                         break;
                     case (int)MenuItemType.FindDrugsForResearchSite:
-                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage((ResearchSitesForProjectForInvestigatorUser)objectParameter) { Title = "Find Drugs" }));
+                        MenuPages.Add(id, new NavigationPage(new FindDrugsPage((ResearchSitesForProjectForInvestigatorUser)objectParameter, projectCode) { Title = "Find Drugs" }));
                         break;
                     case (int)MenuItemType.SelectedDrugs:
                         MenuPages.Add(id, new NavigationPage(new SelectedDrugsPage() { Title = "Selected Drugs" }));
                         break;
-                    case (int)MenuItemType.Questions:
-                        MenuPages.Add(id, new NavigationPage(new QuestionsPage() { Title = MenuItemType.Questions.ToString() }));
+                    case (int)MenuItemType.QuestionsForCountry:
+                        MenuPages.Add(id, new NavigationPage(new QuestionsPage((CountriesForProjectForMonitorUser)objectParameter, projectCode) { Title = "Questions" }));
+                        break;
+                    case (int)MenuItemType.QuestionsForResearchSite:
+                        MenuPages.Add(id, new NavigationPage(new QuestionsPage((ResearchSitesForProjectForInvestigatorUser)objectParameter, projectCode) { Title = "Questions" }));
                         break;
                     case (int)MenuItemType.Review:
                         MenuPages.Add(id, new NavigationPage(new ReviewPage() { Title = MenuItemType.Review.ToString() }));

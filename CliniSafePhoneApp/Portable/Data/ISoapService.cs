@@ -29,5 +29,8 @@ namespace CliniSafePhoneApp.Portable.Data
         Task<List<ResearchSitesForProjectForInvestigatorUser>> GetResearchSitesForProjectForInvestigtorUserListAsync(ProjectUser projectUser);
 
         Task<List<GenericDrugsFound>> FindGenericDrugNameListAsync(int trialID, string genericDrugNameToFind);
+
+        Task<List<QuestionSelectedDrug>> GetQuestionSelectedDrugsListAsync(int trialID);
+
     }
 }

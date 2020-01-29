@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
-    public class ResultsViewModel
+    public class SelectedDrugsViewModel
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
@@ -17,7 +17,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public ResultsViewModel()
+        public SelectedDrugsViewModel()
         {
             NavigateToProjectCommand = new NavigateToProjectCommand(this);
             NavigateToMainCommand = new NavigateToMainCommand(this);

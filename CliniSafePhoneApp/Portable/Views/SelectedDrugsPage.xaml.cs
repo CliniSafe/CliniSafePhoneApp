@@ -11,9 +11,9 @@ namespace CliniSafePhoneApp.Portable.Views
 
 
         /// <summary>
-        /// Define AboutViewModel.
+        /// Define SelectedDrugsViewModel.
         /// </summary>
-        //AboutViewModel AboutVM;
+        //SelectedDrugsViewModel SelectedDrugsVM;
 
 
         /// <summary>
@@ -26,17 +26,17 @@ namespace CliniSafePhoneApp.Portable.Views
             //Set the Image Source
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
-            // Initialise AboutViewModel.NextNavigationButton_Clicked
-            //AboutVM = new AboutViewModel();
+            // Initialise SelectedDrugsViewModel.NextNavigationButton_Clicked
+            //SelectedDrugsVM = new SelectedDrugsViewModel();
 
-            // Set the Page Binding Context to the AboutViewModel(AboutVM)
-            //BindingContext = AboutVM;
+            // Set the Page Binding Context to the SelectedDrugsViewModel(SelectedDrugsVM)
+            //BindingContext = SelectedDrugsVM;
         }
 
         private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
         {
             // Navigate to the Questions page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Questions);
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite);
         }
     }
 }

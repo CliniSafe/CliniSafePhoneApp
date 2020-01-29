@@ -12,13 +12,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         /// <summary>
         /// Declare a public property for ResultsViewModel
         /// </summary>
-        public ResultsViewModel ResultsViewModel { get; set; }
+        public SelectedDrugsViewModel ResultsViewModel { get; set; }
 
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
         /// <param name="resultsViewModel"></param>
-        public NavigateToMainCommand(ResultsViewModel resultsViewModel)
+        public NavigateToMainCommand(SelectedDrugsViewModel resultsViewModel)
         {
             ResultsViewModel = resultsViewModel;
         }
