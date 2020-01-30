@@ -38,13 +38,8 @@
 
                     <telerikGrid:RadDataGrid.Columns>
                         <telerikGrid:DataGridTextColumn PropertyName="Question" HeaderText="Question" SizeMode="Stretch" />
-
                         <telerikGrid:DataGridBooleanColumn PropertyName="Yes" HeaderText="Yes" SizeMode="Stretch"></telerikGrid:DataGridBooleanColumn>
                         <telerikGrid:DataGridBooleanColumn PropertyName="No" HeaderText="No" SizeMode="Stretch"></telerikGrid:DataGridBooleanColumn>
-
-
-                        <!--<telerikGrid:DataGridTextColumn PropertyName="Yes" HeaderText="Yes" SizeMode="Stretch" />
-                        <telerikGrid:DataGridTextColumn PropertyName="No" HeaderText="No" SizeMode="Stretch" />-->
                     </telerikGrid:RadDataGrid.Columns>
                 </telerikGrid:RadDataGrid>
 
