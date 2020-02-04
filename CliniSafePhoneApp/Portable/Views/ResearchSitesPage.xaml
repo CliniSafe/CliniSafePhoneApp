@@ -14,29 +14,32 @@
         <Label x:Name="ResearchSitesLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Research Sites" FontSize="Title" VerticalOptions="Start" />
         
         <!--left , top , right , bottom    Margin="40,10"-->
-  
-        <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
-   
-            <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid" SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}"  GridLinesVisibility="Both" AutoGenerateColumns="False"  >
-                <telerikGrid:RadDataGrid.RowBackgroundStyle>
-                    <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
-                    </telerikGrid:DataGridBorderStyle>
-                </telerikGrid:RadDataGrid.RowBackgroundStyle>
 
-                <telerikGrid:RadDataGrid.GroupHeaderStyle>
-                    <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
-                    </telerikGrid:DataGridGroupHeaderStyle>
-                </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
-                <telerikGrid:RadDataGrid.Columns>
-                    <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch">                        
-                    </telerikGrid:DataGridTextColumn>
-                    <telerikGrid:DataGridTextColumn PropertyName="SiteTitle" HeaderText="Site Name" SizeMode="Stretch">
-                    </telerikGrid:DataGridTextColumn>
-                </telerikGrid:RadDataGrid.Columns>
-            </telerikGrid:RadDataGrid>              
-        </telerikPrimitives:RadBorder>
-    
+        <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
+            <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
+
+                <telerikGrid:RadDataGrid x:Name="researchSitesListDataGrid" SelectedItem="{Binding SelectedResearchSite, Mode=TwoWay}" ItemsSource="{Binding ResearchSiteList, Mode=TwoWay}"  GridLinesVisibility="Both" AutoGenerateColumns="False"  >
+                    <telerikGrid:RadDataGrid.RowBackgroundStyle>
+                        <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
+                        </telerikGrid:DataGridBorderStyle>
+                    </telerikGrid:RadDataGrid.RowBackgroundStyle>
+
+                    <telerikGrid:RadDataGrid.GroupHeaderStyle>
+                        <telerikGrid:DataGridGroupHeaderStyle BorderThickness="1" BorderColor="LightGray" TextColor="Black" TextFontSize="1" TextFontAttributes="Bold" >
+                        </telerikGrid:DataGridGroupHeaderStyle>
+                    </telerikGrid:RadDataGrid.GroupHeaderStyle>
+
+                    <telerikGrid:RadDataGrid.Columns>
+                        <telerikGrid:DataGridTextColumn PropertyName="SiteCode" HeaderText="Site Code" SizeMode="Stretch">
+                        </telerikGrid:DataGridTextColumn>
+                        <telerikGrid:DataGridTextColumn PropertyName="SiteTitle" HeaderText="Site Name" SizeMode="Stretch">
+                        </telerikGrid:DataGridTextColumn>
+                    </telerikGrid:RadDataGrid.Columns>
+                </telerikGrid:RadDataGrid>
+            </telerikPrimitives:RadBorder>
+        </ScrollView>
+        
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  CommandParameter="{Binding SelectedResearchSite, Mode=TwoWay}" Command="{Binding NavigateToFindDrugsCommand, Mode=TwoWay}"
                 Margin="20,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
     </StackLayout>

@@ -481,9 +481,9 @@ namespace CliniSafePhoneApp.Android
                                                       {
                                                           Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
                                                           Question = d.Element("Question").Value,
-                                                          Yes = Convert.ToBoolean(d.Element("Answer").Value) == true ? true : Convert.ToBoolean(d.Element("Answer").Value),
-                                                          No = Convert.ToBoolean(d.Element("Answer").Value) == false ? false : Convert.ToBoolean(d.Element("Answer").Value)
+                                                          Answer = Convert.ToBoolean(d.Element("Answer").Value)
                                                       }).ToList();
+
                 }
 
                 questionsComplete?.TrySetResult(true);

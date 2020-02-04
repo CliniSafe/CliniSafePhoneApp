@@ -102,7 +102,7 @@ namespace CliniSafePhoneApp.Portable.Views
             }
 
 
-            AddPages(id);
+           await AddPages(id);
 
             //var newPage = MenuPages[id];
 
@@ -117,7 +117,7 @@ namespace CliniSafePhoneApp.Portable.Views
             //}
         }
 
-        public async void AddPages(int id)
+        public async Task AddPages(int id)
         {
             var newPage = MenuPages[id];
 

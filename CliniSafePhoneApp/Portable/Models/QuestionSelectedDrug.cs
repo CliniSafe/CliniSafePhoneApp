@@ -32,28 +32,15 @@ namespace CliniSafePhoneApp.Portable.Models
         }
 
 
-        private bool yes;
+        private bool answer;
 
-        public bool Yes
+        public bool Answer
         {
-            get { return yes; }
+            get { return answer; }
             set
             {
-                yes = value;
-                OnPropertyChanged("Yes");
-            }
-        }
-
-
-        private bool no;
-
-        public bool No
-        {
-            get { return no; }
-            set
-            {
-                no = value;
-                OnPropertyChanged("No");
+                answer = value;
+                OnPropertyChanged("Answer");
             }
         }
 

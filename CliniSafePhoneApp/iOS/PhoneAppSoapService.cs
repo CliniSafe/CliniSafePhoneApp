@@ -208,31 +208,6 @@ namespace CliniSafePhoneApp.iOS
 
                 if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentProjectForUser.Root.Elements().Any())
                 {
-                    //ProjectForUserListResult = xDocumentProjectForUser.Descendants("ProjectsForUser").Select(d =>
-                    //new ProjectUser
-                    //{
-                    //    ID = Convert.ToInt32(d.Element("ID").Value),
-                    //    Sponsor = d.Element("Sponsor").Value,
-                    //    ContractResearchOrganisation = d.Element("ContractResearchOrganisation").Value,
-                    //    ProjectCode = d.Element("ProjectCode").Value,
-                    //    ProjectTitleShortPhoneDisplay = (d.Element("ProjectTitleShort").Value.Length <= 28) ? d.Element("ProjectTitleShort").Value : d.Element("ProjectTitleShort").Value.Substring(0, 25) + "...",
-                    //    ProjectTitleShort = d.Element("ProjectTitleShort").Value,
-                    //    ProjectTitleFull = d.Element("ProjectTitleFull").Value,
-                    //    DropDownDesc = d.Element("ProjectCode").Value + " - " + d.Element("ProjectTitleShort").Value,
-                    //    IRPUserDashboard = d.Element("IRPUserDashboard").Value,
-                    //    StudyDashboard = d.Element("StudyDashboard").Value,
-                    //    DrugRuleBuilderDashboard = d.Element("DrugRuleBuilderDashboard").Value,
-                    //    ExploreDrugsDashboard = d.Element("ExploreDrugsDashboard").Value,
-                    //    TeamDashboard = d.Element("TeamDashboard").Value,
-                    //    TranslationDashboard = d.Element("TranslationDashboard").Value,
-                    //    ReportsDashboard = d.Element("ReportsDashboard").Value,
-                    //    EndUserDashboard = d.Element("EndUserDashboard").Value,
-                    //    WizardDashboard = d.Element("WizardDashboard").Value,
-                    //    InvestigatorDashboard = d.Element("InvestigatorDashboard").Value
-
-                    //}).ToList();
-
-
                     ProjectForUserListResult = (from d in xDocumentProjectForUser.Root.Elements("ProjectsForUser")
                                                 select new ProjectUser
                                                 {
@@ -505,12 +480,58 @@ namespace CliniSafePhoneApp.iOS
                 devTestPhoneAppService.GetQuestions(Trial_ID);
                 xmlQuestionSelectedDrugsResult = e.Result;
 
-                // Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
-                StringReader stringReader = new StringReader(xmlQuestionSelectedDrugsResult);
+                //XDocument xDocumentQuestionSelectedDrug = new XDocument();
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionSelectedDrug>), new XmlRootAttribute("NewDataSet"));
+                ////Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
+                //if (!string.IsNullOrEmpty(xmlQuestionSelectedDrugsResult))
+                //{
+                //    xDocumentQuestionSelectedDrug = XDocument.Parse(xmlQuestionSelectedDrugsResult);
+                //}
 
-                QuestionSelectedDrugListResult = (List<QuestionSelectedDrug>)serializer.Deserialize(stringReader);
+                //if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentQuestionSelectedDrug.Root.Elements().Any())
+                //{
+
+                //    QuestionSelectedDrugListResult = (from d in xDocumentQuestionSelectedDrug.Root.Elements("Questions")
+                //                                      select new QuestionSelectedDrug
+                //                                      {
+                //                                          Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
+                //                                          Question = d.Element("Question").Value,
+                //                                          Answer = Convert.ToBoolean(d.Element("Answer").Value)
+                //                                      }).ToList();
+                //}
+
+
+
+
+
+                XDocument xDocumentQuestionSelectedDrug = new XDocument();
+
+                //Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
+                if (!string.IsNullOrEmpty(xmlQuestionSelectedDrugsResult))
+                {
+                    xDocumentQuestionSelectedDrug = XDocument.Parse(xmlQuestionSelectedDrugsResult);
+                }
+
+                if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentQuestionSelectedDrug.Root.Elements().Any())
+                {
+
+                    QuestionSelectedDrugListResult = (from d in xDocumentQuestionSelectedDrug.Root.Elements("Questions")
+                                                      select new QuestionSelectedDrug
+                                                      {
+                                                          Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
+                                                          Question = d.Element("Question").Value,
+                                                          Answer = Convert.ToBoolean(d.Element("Answer").Value)
+                                                      }).ToList();
+
+                }
+
+
+                //// Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
+                //StringReader stringReader = new StringReader(xmlQuestionSelectedDrugsResult);
+
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionSelectedDrug>), new XmlRootAttribute("NewDataSet"));
+
+                //QuestionSelectedDrugListResult = (List<QuestionSelectedDrug>)serializer.Deserialize(stringReader);
 
                 questionsComplete?.TrySetResult(true);
             }

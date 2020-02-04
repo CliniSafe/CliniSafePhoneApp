@@ -17,27 +17,6 @@ namespace CliniSafePhoneApp.Portable.Views
 
 
         /// <summary>
-        /// Initialise properties in constructor.
-        /// </summary>
-        //public QuestionsPage()
-        //{
-        //    InitializeComponent();
-
-        //    //Set the Image Source
-        //    cliniSafeImage.Source = Constants.CliniSafeImage;
-
-        //    // Initialise QuestionViewModel.
-        //    QuestionVM = new QuestionViewModel();
-
-        //    // Set the Page Binding Context to the QuestionViewModel(QuestionVM)
-        //    BindingContext = QuestionVM;
-        //}
-
-
-
-
-
-        /// <summary>
         /// Initialise properties in constructor for Countries for Project User as a Monitor.
         /// </summary>
         public QuestionsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
