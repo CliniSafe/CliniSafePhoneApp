@@ -451,10 +451,7 @@ namespace CliniSafePhoneApp.Android
         {
             try
             {
-                //questionsComplete ??= new TaskCompletionSource<bool>();
-
                 questionsComplete = questionsComplete ?? new TaskCompletionSource<bool>();
-
 
                 // Check and Set Specified Exceptions
                 if (e.Error != null)
