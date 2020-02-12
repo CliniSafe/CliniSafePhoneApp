@@ -5,14 +5,15 @@
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              xmlns:telerikGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:checkBoxComamnds="clr-namespace:Telerik.XamarinForms.Primitives.CheckBox.Commands;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CliniSafePhoneApp.Portable.Views.QuestionsPage">
 
     <!--left , top , right , bottom-->
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Back" Order="Primary" Command="{Binding NavigateToPreviousPageCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    
+
     <StackLayout x:Name="QuestionsContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
 
@@ -24,7 +25,7 @@
 
         <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
-                <telerikGrid:RadDataGrid x:Name="questionsListDataGrid" SelectedItem="{Binding QuestionSelectedDrug, Mode=TwoWay}"  ItemsSource="{Binding QuestionSelectedDrugList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+                <telerikGrid:RadDataGrid x:Name="questionsListDataGrid" SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"  ItemsSource="{Binding QuestionSelectedDrugList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" SelectionMode="Multiple" >
 
                     <telerikGrid:RadDataGrid.RowBackgroundStyle>
                         <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
@@ -36,20 +37,29 @@
                         </telerikGrid:DataGridGroupHeaderStyle>
                     </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
-
-
-                    
                     <telerikGrid:RadDataGrid.Columns>
                         <telerikGrid:DataGridTextColumn PropertyName="Question" HeaderText="Question" SizeMode="Stretch" />
-                        <!--<telerikGrid:DataGridBooleanColumn PropertyName="Answer" HeaderText="Answer" SizeMode="Stretch" CanUserEdit="True" ></telerikGrid:DataGridBooleanColumn>-->
-                        <telerikGrid:DataGridTemplateColumn HeaderText="Answer">
-                            <telerikGrid:DataGridTemplateColumn.CellContentTemplate>
+
+                        <telerikGrid:DataGridTemplateColumn HeaderText="Yes" SizeMode="Stretch" Name="Yes" >
+                            <telerikGrid:DataGridTemplateColumn.CellContentTemplate >
                                 <DataTemplate>
-                                    <telerikPrimitives:RadCheckBox x:Name="answerCheckbox" HorizontalOptions="Center"  VerticalOptions="Center" IsChecked="{Binding Answer, Mode=TwoWay}" IndeterminateColor="Brown"  IndeterminateSymbolColor="Coral"></telerikPrimitives:RadCheckBox>
+
+
+                                    <telerikPrimitives:RadCheckBox x:Name="answerYesCheckbox" HorizontalOptions="Center" IsThreeState="True"  UncheckedColor="{StaticResource blueColor}" CheckedColor="{StaticResource blueColor}" VerticalOptions="Center" IsChecked="{Binding Yes, Mode=TwoWay, FallbackValue=null}">
+                                    </telerikPrimitives:RadCheckBox>
                                 </DataTemplate>
                             </telerikGrid:DataGridTemplateColumn.CellContentTemplate>
-                        </telerikGrid:DataGridTemplateColumn>                        
-                        
+                        </telerikGrid:DataGridTemplateColumn>
+
+                        <telerikGrid:DataGridTemplateColumn HeaderText="No" SizeMode="Stretch" Name="No">
+                            <telerikGrid:DataGridTemplateColumn.CellContentTemplate>
+                                <DataTemplate>
+                                    <telerikPrimitives:RadCheckBox x:Name="answerNoCheckbox" HorizontalOptions="Center" IsThreeState="True" UncheckedColor="{StaticResource blueColor}" CheckedColor="{StaticResource blueColor}" VerticalOptions="Center" IsChecked="{Binding No, Mode=TwoWay, FallbackValue=null }" >
+                                    </telerikPrimitives:RadCheckBox>
+                                </DataTemplate>
+                            </telerikGrid:DataGridTemplateColumn.CellContentTemplate>
+                        </telerikGrid:DataGridTemplateColumn>
+
                     </telerikGrid:RadDataGrid.Columns>
 
                 </telerikGrid:RadDataGrid>
@@ -57,15 +67,11 @@
             </telerikPrimitives:RadBorder>
         </ScrollView>
 
-        
+        <!-- Command="{Binding NavigateToReviewCommand}" CommandParameter="{Binding AnsweredQuestionList, Mode=TwoWay}" Clicked="NextNavigationButton_Clicked"  -->
 
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand"  Clicked="NextNavigationButton_Clicked"
+
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToReviewCommand}"   CommandParameter="{Binding SelectedQuestion}" 
                  Margin="40,10,200,100"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
-
-
-
-        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
     </StackLayout>
 </ContentPage>

@@ -519,8 +519,7 @@ namespace CliniSafePhoneApp.iOS
                                                       select new QuestionSelectedDrug
                                                       {
                                                           Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
-                                                          Question = d.Element("Question").Value,
-                                                          Answer = Convert.ToBoolean(d.Element("Answer").Value)
+                                                          Question = d.Element("Question").Value
                                                       }).ToList();
 
                 }

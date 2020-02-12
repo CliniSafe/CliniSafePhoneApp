@@ -5,6 +5,7 @@ using CliniSafePhoneApp.Portable.Views;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
@@ -329,7 +330,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        public async void GetGenericDrugDetails(string drugNameToFind)
+        public async Task GetGenericDrugDetails(string drugNameToFind)
         {
             GenericDrugsFoundList = await GenericDrugsFound.FindGenericDrugNameListAsync(TrialId, drugNameToFind);
         }
@@ -339,12 +340,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// Navigate to the Questions page
         /// </summary>
         /// <param name="projectUser"></param>
-        public void NavigateToQuestions(GenericDrugsFound genericDrugsFound)
+        public async Task NavigateToQuestions(GenericDrugsFound genericDrugsFound)
         {
             if (_researchSitesForProjectForInvestigatorUser != null)
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode);
+                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode);
             else if (_countriesForProjectForMonitorUser != null)
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode);
+                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode);
             else
                 return;
         }

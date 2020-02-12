@@ -71,7 +71,7 @@
             </telerikPrimitives:RadBorder>
         </ScrollView>
 
-        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}"
+        <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}" 
                  Margin="20,10,200,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
     </StackLayout>
