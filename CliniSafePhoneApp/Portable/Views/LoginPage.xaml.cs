@@ -35,6 +35,18 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (LoginVM.AuthHeader != null)
+            {
+                LoginVM.AuthHeader = null;
+                usernameEntry.Text = null;
+                passwordEntry.Text = null;
+                authenticationLabel.Text = null;
+            }
+        }
 
 
         //public async Task NavigateFromMenu(int id)

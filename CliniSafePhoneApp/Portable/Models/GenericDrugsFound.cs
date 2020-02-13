@@ -34,6 +34,19 @@ namespace CliniSafePhoneApp.Portable.Models
         }
 
 
+        private bool select;
+
+        public bool Select
+        {
+            get { return select; }
+            set
+            {
+                select = value;
+                OnPropertyChanged("Select");
+            }
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)

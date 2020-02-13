@@ -36,9 +36,19 @@
                 </telerikGrid:RadDataGrid.GroupHeaderStyle>
 
                 <telerikGrid:RadDataGrid.Columns>
-                    <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
+                    <!--<telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />-->
                     <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
 
+                    <telerikGrid:DataGridTemplateColumn HeaderText="Select" SizeMode="Stretch" Name="Select" >
+                        <telerikGrid:DataGridTemplateColumn.CellContentTemplate >
+                            <DataTemplate>
+                                <telerikPrimitives:RadCheckBox x:Name="selectCheckbox" HorizontalOptions="Center" UncheckedColor="{StaticResource blueColor}" CheckedColor="{StaticResource blueColor}" VerticalOptions="Center" IsChecked="{Binding Select, Mode=TwoWay, FallbackValue=null}">
+                                    
+                                </telerikPrimitives:RadCheckBox>
+                            </DataTemplate>
+                        </telerikGrid:DataGridTemplateColumn.CellContentTemplate>
+                    </telerikGrid:DataGridTemplateColumn>
+                    
                 </telerikGrid:RadDataGrid.Columns>
             </telerikGrid:RadDataGrid>
 

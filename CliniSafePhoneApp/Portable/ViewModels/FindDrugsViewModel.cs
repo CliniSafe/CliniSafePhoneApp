@@ -146,6 +146,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 {
                     if (!SelectedDrugsList.Contains(selectedGenericDrugsFound))
                     {
+                        if (!SelectedGenericDrugsFound.Select)
+                            SelectedGenericDrugsFound.Select = true;
+
                         SelectedDrugsList.Add(SelectedGenericDrugsFound);
                         ShowSeletedDrugTitle = true;
                     }

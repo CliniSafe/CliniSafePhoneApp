@@ -25,7 +25,7 @@
 
         <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
-                <telerikGrid:RadDataGrid x:Name="questionsListDataGrid" SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"  ItemsSource="{Binding QuestionSelectedDrugList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" SelectionMode="Multiple" >
+                <telerikGrid:RadDataGrid x:Name="questionsListDataGrid" SelectedItem="{Binding SelectedQuestion, Mode=TwoWay, FallbackValue=null}" ItemsSource="{Binding QuestionSelectedDrugList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" SelectionMode="Multiple" >
 
                     <telerikGrid:RadDataGrid.RowBackgroundStyle>
                         <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
@@ -65,6 +65,13 @@
                 </telerikGrid:RadDataGrid>
 
             </telerikPrimitives:RadBorder>
+
+
+
+            <!--<telerikPrimitives:RadPopup.Popup>
+                <telerikPrimitives:RadPopup Content="{Binding ttt, Mode=TwoWay } " x:Name="sdsd">
+                    <ContentView ></ContentView></telerikPrimitives:RadPopup>
+            </telerikPrimitives:RadPopup.Popup>-->
         </ScrollView>
 
         <!-- Command="{Binding NavigateToReviewCommand}" CommandParameter="{Binding AnsweredQuestionList, Mode=TwoWay}" Clicked="NextNavigationButton_Clicked"  -->

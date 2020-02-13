@@ -47,6 +47,8 @@ namespace CliniSafePhoneApp.Portable.Views
             // Initialise QuestionViewModel.
             QuestionVM = new QuestionViewModel(researchSitesForProjectForInvestigatorUser, projectCode);
 
+            //OnAppearing();
+
             // Set the Page Binding Context to the QuestionViewModel(QuestionVM)
             BindingContext = QuestionVM;
         }
@@ -58,6 +60,18 @@ namespace CliniSafePhoneApp.Portable.Views
         {
             // Navigate to the Review page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.Review);
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (QuestionVM.SelectedQuestion != null)
+            {
+                QuestionVM.SelectedQuestion.Yes = null;
+                QuestionVM.SelectedQuestion.No = null;
+            }
+            questionsListDataGrid.SelectedItems.Clear();
         }
     }
 }

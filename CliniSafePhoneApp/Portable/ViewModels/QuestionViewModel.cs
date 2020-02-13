@@ -219,6 +219,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             //PopUpCommand = new PopUpCommand(this);
             //GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
+
+
             NavigateToReviewCommand = new NavigateToReviewCommand(this);
 
             AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
@@ -242,6 +244,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             //PopUpCommand = new PopUpCommand(this);
             //GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
+
+
             NavigateToReviewCommand = new NavigateToReviewCommand(this);
 
             AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
@@ -274,6 +278,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             else
             {
                 QuestionSelectedDrugList = await QuestionSelectedDrug.GetQuestionSelectedDrugsListAysnc(trialID);
+                
+                SelectedQuestion = null;
             }
         }
 
