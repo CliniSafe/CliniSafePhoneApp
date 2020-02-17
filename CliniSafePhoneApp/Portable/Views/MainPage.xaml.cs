@@ -26,7 +26,7 @@ namespace CliniSafePhoneApp.Portable.Views
         }
 
 
-        public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null, string projectCode = null)
+        public async Task NavigateFromMenu(int id, string username = null, string password = null, object objectParameter = null, string projectCode = null, List<QuestionSelectedDrug> questionSelectedDrugsList = null, List<GenericDrugsFound> reviewSelectedDrugsList = null)
         {
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
@@ -84,16 +84,16 @@ namespace CliniSafePhoneApp.Portable.Views
                         MenuPages.Add(id, new NavigationPage(new SelectedDrugsPage() { Title = "Selected Drugs" }));
                         break;
                     case (int)MenuItemType.QuestionsForCountry:
-                        MenuPages.Add(id, new NavigationPage(new QuestionsPage((CountriesForProjectForMonitorUser)objectParameter, projectCode) { Title = "Questions" }));
+                        MenuPages.Add(id, new NavigationPage(new QuestionsPage((CountriesForProjectForMonitorUser)objectParameter, projectCode, reviewSelectedDrugsList) { Title = "Questions" }));
                         break;
                     case (int)MenuItemType.QuestionsForResearchSite:
-                        MenuPages.Add(id, new NavigationPage(new QuestionsPage((ResearchSitesForProjectForInvestigatorUser)objectParameter, projectCode) { Title = "Questions" }));
+                        MenuPages.Add(id, new NavigationPage(new QuestionsPage((ResearchSitesForProjectForInvestigatorUser)objectParameter, projectCode, reviewSelectedDrugsList) { Title = "Questions" }));
                         break;
                     case (int)MenuItemType.Review:
-                        MenuPages.Add(id, new NavigationPage(new ReviewPage() { Title = MenuItemType.Review.ToString() }));
+                        MenuPages.Add(id, new NavigationPage(new ReviewPage(questionSelectedDrugsList, projectCode, reviewSelectedDrugsList) { Title = MenuItemType.Review.ToString() }));
                         break;
                     case (int)MenuItemType.Results:
-                        MenuPages.Add(id, new NavigationPage(new ResultsPage() { Title = MenuItemType.Results.ToString() }));
+                        MenuPages.Add(id, new NavigationPage(new ResultsPage(projectCode) { Title = MenuItemType.Results.ToString() }));
                         break;
                     case (int)MenuItemType.Error:
                         MenuPages.Add(id, new NavigationPage(new ErrorPage((string)objectParameter) { Title = MenuItemType.Error.ToString() }));
@@ -102,7 +102,7 @@ namespace CliniSafePhoneApp.Portable.Views
             }
 
 
-           await AddPages(id);
+            await AddPages(id);
 
             //var newPage = MenuPages[id];
 

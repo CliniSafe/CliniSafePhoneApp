@@ -12,13 +12,13 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define Private Member ResultsViewModel.
         /// </summary>
-        private readonly SelectedDrugsViewModel ResultsVM;
+        private readonly ResultsViewModel ResultsVM;
 
 
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public ResultsPage()
+        public ResultsPage(string projectCode)
         {
             InitializeComponent();
 
@@ -26,11 +26,15 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise ResultsViewModel.
-            ResultsVM = new SelectedDrugsViewModel();
+            ResultsVM = new ResultsViewModel(projectCode);
 
             // Set the Page Binding Context to the ResultsViewModel(ResultsVM)
             BindingContext = ResultsVM;
         }
+
+
+
+
 
         //private void AnotherNavigationButton_Clicked(object sender, System.EventArgs e)
         //{

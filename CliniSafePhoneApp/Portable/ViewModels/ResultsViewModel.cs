@@ -1,11 +1,12 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
 {
-    public class SelectedDrugsViewModel
+    public class ResultsViewModel : INotifyPropertyChanged
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
@@ -14,13 +15,35 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
         public NavigateToMainCommand NavigateToMainCommand { get; set; }
 
+
+        private string projectCode;
+
+        public string ProjectCode
+        {
+            get { return projectCode; }
+            set
+            {
+                projectCode = value;
+                OnPropertyChanged("ProjectCode");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public SelectedDrugsViewModel()
+        public ResultsViewModel(string projectCode)
         {
             NavigateToProjectCommand = new NavigateToProjectCommand(this);
             NavigateToMainCommand = new NavigateToMainCommand(this);
+            this.ProjectCode = projectCode;
         }
 
         /// <summary>

@@ -21,8 +21,6 @@
 
         <Label x:Name="QuestionsLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start"  HorizontalOptions="Start" Text="Questions" FontSize="Title" VerticalOptions="Start" />
 
-
-
         <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
                 <telerikGrid:RadDataGrid x:Name="questionsListDataGrid" SelectedItem="{Binding SelectedQuestion, Mode=TwoWay, FallbackValue=null}" ItemsSource="{Binding QuestionSelectedDrugList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" SelectionMode="Multiple" >
@@ -73,8 +71,6 @@
                     <ContentView ></ContentView></telerikPrimitives:RadPopup>
             </telerikPrimitives:RadPopup.Popup>-->
         </ScrollView>
-
-        <!-- Command="{Binding NavigateToReviewCommand}" CommandParameter="{Binding AnsweredQuestionList, Mode=TwoWay}" Clicked="NextNavigationButton_Clicked"  -->
 
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToReviewCommand}"   CommandParameter="{Binding SelectedQuestion}" 

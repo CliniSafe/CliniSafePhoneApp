@@ -50,6 +50,7 @@
                     </telerikGrid:DataGridTemplateColumn>
                     
                 </telerikGrid:RadDataGrid.Columns>
+                    
             </telerikGrid:RadDataGrid>
 
         </telerikPrimitives:RadBorder>
@@ -60,7 +61,7 @@
         <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
-                <telerikGrid:RadDataGrid x:Name="SelectedDrugsListDataGrid" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}"  ItemsSource="{Binding SelectedDrugsList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
+                <telerikGrid:RadDataGrid x:Name="SelectedDrugsListDataGrid" SelectionMode="Multiple" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}"  ItemsSource="{Binding SelectedDrugsList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
 
                     <telerikGrid:RadDataGrid.RowBackgroundStyle>
                         <telerikGrid:DataGridBorderStyle BorderThickness="1" BorderColor="LightGray" >
@@ -76,6 +77,8 @@
                         <telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />
                         <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
                     </telerikGrid:RadDataGrid.Columns>
+
+                    
                 </telerikGrid:RadDataGrid>
 
             </telerikPrimitives:RadBorder>

@@ -31,13 +31,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         /// <returns></returns>
         public bool CanExecute(object parameter)
         {
-            var selectedDrug = (GenericDrugsFound)parameter;
+            //var selectedDrug = (GenericDrugsFound)parameter;
 
-            if (selectedDrug == null)
-                return false;
+            //if (selectedDrug == null)
+            //    return false;
 
-            if (string.IsNullOrEmpty(selectedDrug.DrugName) || selectedDrug.Drug_ID == 0)
-                return false;
+            //if (string.IsNullOrEmpty(selectedDrug.DrugName) || selectedDrug.Drug_ID == 0)
+            //    return false;
 
             return true;
         }
@@ -49,7 +49,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         public void Execute(object parameter)
         {
             var selectedDrug = (GenericDrugsFound)parameter;
-            FindDrugsViewModel.NavigateToQuestions(selectedDrug);
+            _ = FindDrugsViewModel.NavigateToQuestions(selectedDrug);
         }
     }
 }

@@ -480,9 +480,10 @@ namespace CliniSafePhoneApp.Android
                                                       select new QuestionSelectedDrug
                                                       {
                                                           Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
-                                                          Question = d.Element("Question").Value,
-                                                          Yes = null,
-                                                          No = null
+                                                          Question = d.Element("Question").Value
+                                                          //,
+                                                          //Yes = null,
+                                                          //No = null
                                                       }).ToList();
 
                 }

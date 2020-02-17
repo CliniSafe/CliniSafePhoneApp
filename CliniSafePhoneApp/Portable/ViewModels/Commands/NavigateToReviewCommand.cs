@@ -54,12 +54,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
         public void Execute(object parameter)
         {
             var questionSelectedDrug = (QuestionSelectedDrug)parameter;
-
-
-            //var answeredQuestionList = ((IEnumerable)parameter).Cast<QuestionSelectedDrug>().ToList();
-
-
-
             _ = QuestionViewModel.NavigateToReview(questionSelectedDrug);
         }
     }

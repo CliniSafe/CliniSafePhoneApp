@@ -150,6 +150,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                             SelectedGenericDrugsFound.Select = true;
 
                         SelectedDrugsList.Add(SelectedGenericDrugsFound);
+
+                        if (!ReviewSelectedDrugsList.Contains(selectedGenericDrugsFound))
+                            ReviewSelectedDrugsList.Add(SelectedGenericDrugsFound);
+
+
                         ShowSeletedDrugTitle = true;
                     }
                 }
@@ -157,6 +162,21 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("SelectedGenericDrugsFound");
             }
         }
+
+
+        private List<GenericDrugsFound> reviewSelectedDrugsList;
+
+        public List<GenericDrugsFound> ReviewSelectedDrugsList
+        {
+            get { return reviewSelectedDrugsList; }
+            set
+            {
+                reviewSelectedDrugsList = value;
+                OnPropertyChanged("ReviewSelectedDrugsList");
+            }
+        }
+
+
 
 
 
@@ -173,37 +193,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-        //private ObservableCollection<GenericDrugsFound> selectedGenericDrugsFoundList;
-
-        //public ObservableCollection<GenericDrugsFound> SelectedGenericDrugsFoundList
-        //{
-        //    get { return selectedGenericDrugsFoundList; }
-        //    set
-        //    {
-        //        selectedGenericDrugsFoundList = value;
-
-        //        if (selectedGenericDrugsFoundList != null)
-        //        {
-        //            //SelectedDrugsList = new ObservableCollection<GenericDrugsFound>()
-        //            //{
-        //            //    selectedGenericDrugsFound
-        //            //};
-
-        //            foreach (var selectedGenericDrugsFound in selectedGenericDrugsFoundList)
-        //            {
-        //                SelectedDrugsList.Add(selectedGenericDrugsFound);
-        //            }
-
-        //        }
-
-        //        OnPropertyChanged("SelectedGenericDrugsFoundList");
-        //    }
-        //}
-
-
-
-
         private ObservableCollection<GenericDrugsFound> selectedDrugsList;
 
         public ObservableCollection<GenericDrugsFound> SelectedDrugsList
@@ -215,6 +204,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("SelectedDrugsList");
             }
         }
+
 
 
         private GenericDrugsFound selectedDrug;
@@ -304,6 +294,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             SelectedDrugsList = new ObservableCollection<GenericDrugsFound>();
 
+            ReviewSelectedDrugsList = new List<GenericDrugsFound>();
+
             _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
 
             if (_researchSitesForProjectForInvestigatorUser != null)
@@ -317,7 +309,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-        public async void GetDrugDetails(/*int trail_ID, string drugNameToFind*/)
+        public async void GetDrugDetails()
         {
             authHeader = AuthHeader.GetAuthHeader();
 
@@ -346,9 +338,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public async Task NavigateToQuestions(GenericDrugsFound genericDrugsFound)
         {
             if (_researchSitesForProjectForInvestigatorUser != null)
-                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode);
+                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode, null, reviewSelectedDrugsList);
             else if (_countriesForProjectForMonitorUser != null)
-                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode);
+                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode, null, reviewSelectedDrugsList);
             else
                 return;
         }

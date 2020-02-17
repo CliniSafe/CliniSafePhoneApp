@@ -1,6 +1,7 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
 using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 
@@ -19,7 +20,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor for Countries for Project User as a Monitor.
         /// </summary>
-        public QuestionsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
+        public QuestionsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             InitializeComponent();
 
@@ -27,7 +28,7 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise QuestionViewModel.
-            QuestionVM = new QuestionViewModel(countriesForProjectForMonitorUser, projectCode);
+            QuestionVM = new QuestionViewModel(countriesForProjectForMonitorUser, projectCode, reviewSelectedDrugsList);
 
             // Set the Page Binding Context to the QuestionViewModel(QuestionVM)
             BindingContext = QuestionVM;
@@ -37,7 +38,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// Initialise properties in constructor for ResearchSites for Project User as an Investigator.
         /// </summary>
         /// <param name="researchSitesForProjectForInvestigatorUser"></param>
-        public QuestionsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
+        public QuestionsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             InitializeComponent();
 
@@ -45,7 +46,7 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise QuestionViewModel.
-            QuestionVM = new QuestionViewModel(researchSitesForProjectForInvestigatorUser, projectCode);
+            QuestionVM = new QuestionViewModel(researchSitesForProjectForInvestigatorUser, projectCode, reviewSelectedDrugsList);
 
             //OnAppearing();
 
@@ -54,15 +55,9 @@ namespace CliniSafePhoneApp.Portable.Views
         }
 
 
-
-
-        private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        {
-            // Navigate to the Review page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Review);
-        }
-
-
+        /// <summary>
+        /// Prepare the Question Grid for Fresh Selection.
+        /// </summary>
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -72,6 +67,11 @@ namespace CliniSafePhoneApp.Portable.Views
                 QuestionVM.SelectedQuestion.No = null;
             }
             questionsListDataGrid.SelectedItems.Clear();
+        }
+
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
         }
     }
 }

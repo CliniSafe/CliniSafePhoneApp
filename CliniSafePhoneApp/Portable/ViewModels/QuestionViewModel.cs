@@ -2,9 +2,7 @@
 using CliniSafePhoneApp.Portable.Service;
 using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -20,6 +18,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public NavigateToReviewCommand NavigateToReviewCommand { get; set; }
 
+
+
+
         private AuthHeader authHeader;
 
         public AuthHeader AuthHeader
@@ -31,6 +32,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("AuthHeader");
             }
         }
+
+
+
 
         private string projectCode;
 
@@ -44,6 +48,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("ProjectCode");
             }
         }
+
+
 
         private int trialId;
 
@@ -161,9 +167,23 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        private ObservableCollection<QuestionSelectedDrug> answeredQuestionList;
+        private List<GenericDrugsFound> reviewSelectedDrugsList;
 
-        public ObservableCollection<QuestionSelectedDrug> AnsweredQuestionList
+        public List<GenericDrugsFound> ReviewSelectedDrugsList
+        {
+            get { return reviewSelectedDrugsList; }
+            set
+            {
+                reviewSelectedDrugsList = value;
+                OnPropertyChanged("ReviewSelectedDrugsList");
+            }
+        }
+
+
+
+        private List<QuestionSelectedDrug> answeredQuestionList;
+
+        public List<QuestionSelectedDrug> AnsweredQuestionList
         {
             get { return answeredQuestionList; }
             set
@@ -172,6 +192,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("AnsweredQuestionList");
             }
         }
+
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -215,7 +237,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public QuestionViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
+        public QuestionViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             //PopUpCommand = new PopUpCommand(this);
             //GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
@@ -223,7 +245,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             NavigateToReviewCommand = new NavigateToReviewCommand(this);
 
-            AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
+            //AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
+
+            AnsweredQuestionList = new List<QuestionSelectedDrug>();
+
 
             _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
@@ -231,6 +256,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             {
                 this.TrialId = countriesForProjectForMonitorUser.ID;
                 this.ProjectCode = projectCode;
+                this.ReviewSelectedDrugsList = reviewSelectedDrugsList;
             }
 
             _ = GetQuestions(TrialId);
@@ -240,7 +266,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public QuestionViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
+        public QuestionViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             //PopUpCommand = new PopUpCommand(this);
             //GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
@@ -248,7 +274,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             NavigateToReviewCommand = new NavigateToReviewCommand(this);
 
-            AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
+            //AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
+
+            AnsweredQuestionList = new List<QuestionSelectedDrug>();
+
 
             _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
 
@@ -256,6 +285,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             {
                 this.TrialId = researchSitesForProjectForInvestigatorUser.Trial_ID;
                 this.ProjectCode = projectCode;
+                this.ReviewSelectedDrugsList = reviewSelectedDrugsList;
             }
 
             _ = GetQuestions(TrialId);
@@ -278,7 +308,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             else
             {
                 QuestionSelectedDrugList = await QuestionSelectedDrug.GetQuestionSelectedDrugsListAysnc(trialID);
-                
+
                 SelectedQuestion = null;
             }
         }
@@ -305,7 +335,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public async Task NavigateToReview(QuestionSelectedDrug questionSelectedDrug)
         {
             // Navigate to the Review page
-            await RootPage.NavigateFromMenu((int)MenuItemType.Review);
+            await RootPage.NavigateFromMenu((int)MenuItemType.Review, null, null, null, ProjectCode, AnsweredQuestionList, ReviewSelectedDrugsList);  // AnsweredQuestionList, 
 
 
             //TODO:AOA -  To Be Deleted

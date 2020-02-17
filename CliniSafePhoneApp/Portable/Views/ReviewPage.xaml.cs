@@ -1,5 +1,7 @@
 ﻿using CliniSafePhoneApp.Portable.Models;
 using CliniSafePhoneApp.Portable.Service;
+using CliniSafePhoneApp.Portable.ViewModels;
+using System.Collections.Generic;
 using Xamarin.Forms;
 
 
@@ -12,13 +14,15 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Define ReviewViewModel.
         /// </summary>
-        //ReviewViewModel ReviewVM;
+        private readonly ReviewViewModel ReviewVM;
 
 
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public ReviewPage()
+        //public ReviewPage(List<QuestionSelectedDrug> answeredQuestionList, List<GenericDrugsFound> selectedDrugsList, string projectCode)
+
+        public ReviewPage(List<QuestionSelectedDrug> reviewAnsweredQuestionList, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             InitializeComponent();
 
@@ -26,11 +30,21 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise ReviewViewModel.
-            //ReviewVM = new ReviewViewModel();
+            ReviewVM = new ReviewViewModel(reviewAnsweredQuestionList, projectCode, reviewSelectedDrugsList);
 
             // Set the Page Binding Context to the ReviewViewModel(ReviewVM)
-            //BindingContext = ReviewVM;
+            BindingContext = ReviewVM;
         }
+
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            if (ReviewVM.ReviewSelectedDrugsList != null)
+                ReviewVM.ReviewSelectedDrugsList = null;
+        }
+
 
         private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
         {
