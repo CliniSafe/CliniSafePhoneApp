@@ -67,9 +67,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public void NavigateToHomePage()
         {
             _navigationService.NavigateToSecondPage(new MainPage());
-
-            //Working Okay
-            //await App.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

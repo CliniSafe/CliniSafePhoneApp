@@ -20,8 +20,6 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        //public ReviewPage(List<QuestionSelectedDrug> answeredQuestionList, List<GenericDrugsFound> selectedDrugsList, string projectCode)
-
         public ReviewPage(List<QuestionSelectedDrug> reviewAnsweredQuestionList, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             InitializeComponent();
@@ -43,13 +41,6 @@ namespace CliniSafePhoneApp.Portable.Views
 
             if (ReviewVM.ReviewSelectedDrugsList != null)
                 ReviewVM.ReviewSelectedDrugsList = null;
-        }
-
-
-        private void NextNavigationButton_Clicked(object sender, System.EventArgs e)
-        {
-            // Navigate to the Results page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Results);
         }
     }
 }

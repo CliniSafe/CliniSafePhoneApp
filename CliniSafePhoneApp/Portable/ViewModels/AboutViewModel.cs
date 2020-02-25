@@ -28,25 +28,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-
         public void NavigateBackToPreviousPage()
         {
-
-            //_navigationService.NavigateBack();
-
-            //var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
-
-            //NavigationPage navigationPage = new NavigationPage(currentPage);
-            //navigationPage.PopAsync();
-
-            //if (RootPage.MenuPages.Remove((RootPage.MenuPages.Keys.LastOrDefault() - 1)))
             _ = RootPage.NavigateFromMenu((RootPage.MenuPages.Keys.LastOrDefault() - 1), null, null, null);
-
-            // _ = RootPage.NavigateFromMenu(RootPage.MenuPages.Count(), null, null, null);
-
-
-            //_ = RootPage.Detail.Navigation.PushAsync(RootPage.MenuPages);// .NavigateFromMenu((int)MenuItemType.LogIn, null, null, null);
         }
     }
 }

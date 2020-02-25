@@ -9,15 +9,11 @@
 
     <StackLayout x:Name="ReviewContainerStackLayout">
         <Image x:Name="cliniSafeImage" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" HeightRequest="80" WidthRequest="200" />
-
         <Label x:Name="ReviewPageLabel" Margin="20,0,100,0" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
-
         <Label x:Name="SummaryLabel" Margin="40,0, 100, 0" HorizontalOptions="Start" Text="Summary" FontSize="Title" VerticalOptions="Start" />
 
-
         <!--SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}"-->
-        
-        
+                
         <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
@@ -53,9 +49,7 @@
             </telerikPrimitives:RadBorder>
         </ScrollView>
 
-
         <!--left , top , right , bottom-->
-
 
         <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
@@ -102,8 +96,6 @@
 
             </telerikPrimitives:RadBorder>
         </ScrollView>
-
-        <!--Clicked="NextNavigationButton_Clicked"-->
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToResultsCommand}"
                  Margin="40,10,200,100"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>

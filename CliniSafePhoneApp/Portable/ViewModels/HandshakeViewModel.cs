@@ -176,8 +176,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             if (HandshakeResult != null)
                 if (HandshakeResult == "Hello")
-                    return;  //Stay at the HandShakePage
-                             // _navigationService.NavigateToSecondPage(new MainPage());
+                    return;
                 else
                     _navigationService.NavigateToSecondPage(new NavigationPage(new ErrorPage() { Title = "Error" }));
             else
@@ -190,8 +189,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <returns></returns>
         public void NavigateForwardToLogin()
         {
-            //_navigationService.NavigateToSecondPage(new NavigationPage(new LoginPage()));
-
             _navigationService.NavigateToSecondPage(new MainPage());
         }
     }

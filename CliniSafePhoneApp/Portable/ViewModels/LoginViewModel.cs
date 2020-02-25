@@ -29,6 +29,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             set
             {
                 username = value;
+
                 //Sets the AuthHeader values anytime the textbox values are updated.
                 AuthHeader = new AuthHeader()
                 {
@@ -281,8 +282,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             PopUpTitle = "Login Error";
 
             LoginErrorMessage = "Please check your Username and / or password. Retry after.";
-
-            //LeftMenuViewModel = new LeftMenuViewModel();
         }
 
 

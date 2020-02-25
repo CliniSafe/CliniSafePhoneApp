@@ -31,9 +31,5 @@
 
             <telerikInput:RadButton x:Name="CloseNavigationButton" Text="Close" HorizontalOptions="FillAndExpand"  Margin="25,10,40,100" Grid.Column="2" Command="{Binding NavigateToMainCommand}" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
         </Grid>
-
-
-        <!--<Button x:Name="HomeNavigationButton" Text="Home" VerticalOptions="CenterAndExpand" Command="{Binding NavigateForwardCommand}" 
-                Margin="10,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}"></Button>-->
     </StackLayout>
 </ContentPage>

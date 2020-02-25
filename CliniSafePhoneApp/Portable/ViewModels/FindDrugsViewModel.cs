@@ -177,9 +177,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-
-
         private bool showSeletedDrugTitle;
 
         public bool ShowSeletedDrugTitle
@@ -265,6 +262,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="countriesForProjectForMonitorUser"></param>
+        /// <param name="projectCode"></param>
         public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
         {
             PopUpCommand = new PopUpCommand(this);
@@ -286,6 +289,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="researchSitesForProjectForInvestigatorUser"></param>
+        /// <param name="projectCode"></param>
         public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
         {
             PopUpCommand = new PopUpCommand(this);
@@ -309,6 +317,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
+
+
+
+
+
+
         public async void GetDrugDetails()
         {
             authHeader = AuthHeader.GetAuthHeader();
@@ -322,6 +336,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                         await Constants.DisplayPopUp("Error", authHeader.Message);
             }
         }
+
+
+
+
 
 
 
@@ -344,21 +362,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             else
                 return;
         }
-
-
-
-
-        //public void NavigateToSelectedDrugs(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser)
-        //{
-
-        //    throw new NotImplementedException();
-        //    //// Remove Page Enum from the MenuPages List 
-        //    //if (RootPage.MenuPages.ContainsKey((int)MenuItemType.SelectedDrugs))
-        //    //    RootPage.MenuPages.Remove((int)MenuItemType.SelectedDrugs);
-
-        //    //// Navigate to the Find Drugs page
-        //    //_ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugs, null, null, researchSitesForProjectForInvestigatorUser);
-        //}
 
         /// <summary>
         /// Returns the user to the Project Page.

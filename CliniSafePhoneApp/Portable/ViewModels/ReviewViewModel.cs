@@ -12,6 +12,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
+
         /// <summary>
         /// Declare a private member for NavigateToResultsCommand.
         /// </summary>
@@ -87,7 +88,12 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="reviewAnsweredQuestionList"></param>
+        /// <param name="projectCode"></param>
+        /// <param name="reviewSelectedDrugsList"></param>
         public ReviewViewModel(List<QuestionSelectedDrug> reviewAnsweredQuestionList, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             NavigateToResultsCommand = new NavigateToResultsCommand(this);
