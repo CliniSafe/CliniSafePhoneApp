@@ -137,6 +137,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels.Commands
             ProjectDetailsViewModel = projectDetailsViewModel;
         }
 
+
         /// <summary>
         /// Initialise QuestionViewModel properties in constructor.
         /// </summary>

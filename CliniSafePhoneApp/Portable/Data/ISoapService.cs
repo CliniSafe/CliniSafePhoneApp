@@ -32,5 +32,7 @@ namespace CliniSafePhoneApp.Portable.Data
 
         Task<List<QuestionSelectedDrug>> GetQuestionSelectedDrugsListAsync(int trialID);
 
+        Task<ValidateDrugsOutput> ValidateDrugsListAsync(ValidateDrugsInput validateDrugsInput);
+
     }
 }

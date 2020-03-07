@@ -218,6 +218,17 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
+        private ProjectUser _projectUser;
+
+        public ProjectUser ProjectUser
+        {
+            get { return _projectUser; }
+            set
+            {
+                _projectUser = value;
+                OnPropertyChanged("ProjectUser");
+            }
+        }
 
         //private List<ResearchSitesForProjectForInvestigatorUser> researchSiteList;
 
@@ -263,12 +274,15 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
+
+
+
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
         /// <param name="countriesForProjectForMonitorUser"></param>
         /// <param name="projectCode"></param>
-        public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
+        public FindDrugsViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, ProjectUser projectUser)
         {
             PopUpCommand = new PopUpCommand(this);
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
@@ -276,16 +290,17 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             SelectedDrugsList = new ObservableCollection<GenericDrugsFound>();
 
+            _projectUser = projectUser;
             _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
             if (_countriesForProjectForMonitorUser != null)
             {
                 this.TrialId = countriesForProjectForMonitorUser.ID;
                 this.ProjectCodeORSiteTitle = countriesForProjectForMonitorUser.TrialCode;
-                this.ProjectCode = projectCode;
+                this.ProjectCode = projectUser.ProjectCode;
             }
 
-            GetDrugDetails();
+            GetDrugDetailsAsync();
         }
 
 
@@ -294,7 +309,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         /// <param name="researchSitesForProjectForInvestigatorUser"></param>
         /// <param name="projectCode"></param>
-        public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
+        public FindDrugsViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, ProjectUser projectUser)
         {
             PopUpCommand = new PopUpCommand(this);
             GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
@@ -304,16 +319,17 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             ReviewSelectedDrugsList = new List<GenericDrugsFound>();
 
+            _projectUser = projectUser;
             _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
 
             if (_researchSitesForProjectForInvestigatorUser != null)
             {
                 this.TrialId = researchSitesForProjectForInvestigatorUser.Trial_ID;
                 this.ProjectCodeORSiteTitle = researchSitesForProjectForInvestigatorUser.SiteTitle;
-                this.ProjectCode = projectCode;
+                this.ProjectCode = projectUser.ProjectCode;
             }
 
-            GetDrugDetails();
+            GetDrugDetailsAsync();
         }
 
 
@@ -323,7 +339,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-        public async void GetDrugDetails()
+        public async void GetDrugDetailsAsync()
         {
             authHeader = AuthHeader.GetAuthHeader();
 
@@ -356,9 +372,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public async Task NavigateToQuestions(GenericDrugsFound genericDrugsFound)
         {
             if (_researchSitesForProjectForInvestigatorUser != null)
-                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode, null, reviewSelectedDrugsList);
+                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, ProjectUser, null, reviewSelectedDrugsList);
             else if (_countriesForProjectForMonitorUser != null)
-                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode, null, reviewSelectedDrugsList);
+                await RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, ProjectUser, null, reviewSelectedDrugsList);
             else
                 return;
         }

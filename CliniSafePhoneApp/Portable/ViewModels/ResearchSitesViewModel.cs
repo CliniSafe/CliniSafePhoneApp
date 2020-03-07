@@ -4,8 +4,6 @@ using CliniSafePhoneApp.Portable.ViewModels.Commands;
 using CliniSafePhoneApp.Portable.Views;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Dynamic;
-using System.Linq;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.ViewModels
@@ -198,7 +196,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugsForResearchSite))
                 RootPage.MenuPages.Remove((int)MenuItemType.FindDrugsForResearchSite);
 
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForResearchSite, null, null, researchSitesForProjectForInvestigatorUser, ProjectCode);
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForResearchSite, null, null, researchSitesForProjectForInvestigatorUser, ProjectUser);
         }
 
         /// <summary>
@@ -211,6 +209,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             // Navigate to the Project page
             _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, "", "", null);
+
+
+
+
 
 
             //TODO

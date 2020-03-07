@@ -52,13 +52,11 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <summary>
         /// Navigate User to the LogOut Page.
         /// </summary>
-        //public void NavigateToLogOut()
-
         public async Task NavigateToLogOut()
-        {   
-           var confirmLogOut = await App.Current.MainPage.DisplayAlert("Log Out", "Are you sure you want to log out?", "Log out", "Cancel");
+        {
+            var confirmLogOut = await App.Current.MainPage.DisplayAlert("Log Out", "Are you sure you want to log out?", "Log out", "Cancel");
 
-            if(confirmLogOut)
+            if (confirmLogOut)
                 _ = RootPage.NavigateFromMenu((int)MenuItemType.LogOut, null, null, null);
 
             return;
@@ -218,6 +216,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 {
                     Authenticated = authHeader.Authenticated
                 };
+
                 leftMenuViewModel.UpdateHomeMenuItems();
 
 

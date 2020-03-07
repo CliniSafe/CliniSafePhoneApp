@@ -231,7 +231,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 RootPage.MenuPages.Remove((int)MenuItemType.FindDrugsForCountry);
 
             // Navigate to the Find Drugs page
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForCountry, null, null, countriesForProjectForMonitorUser, ProjectCode);
+            _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForCountry, null, null, countriesForProjectForMonitorUser, ProjectUser);
         }
 
         /// <summary>

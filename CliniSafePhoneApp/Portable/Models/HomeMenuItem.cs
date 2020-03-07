@@ -21,8 +21,10 @@ namespace CliniSafePhoneApp.Portable.Models
         QuestionsForCountry,
         QuestionsForResearchSite,
         ResearchSites,
-        Results,
-        Review,
+        ResultsResearchSite,
+        ResultsCountry,
+        ReviewResearchSite,
+        ReviewCountry,
         SelectedDrugs
     }
 

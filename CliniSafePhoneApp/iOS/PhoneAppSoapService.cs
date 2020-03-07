@@ -35,6 +35,8 @@ namespace CliniSafePhoneApp.iOS
         TaskCompletionSource<bool> researchSitesForProjectForInvestigtorUserComplete = null;
         TaskCompletionSource<bool> findGenericDrugNameComplete = null;
         TaskCompletionSource<bool> questionsComplete = null;
+        TaskCompletionSource<bool> validateDrugsComplete = null;
+
 
         /// <summary>
         /// Initialise properties in constructor.
@@ -52,6 +54,7 @@ namespace CliniSafePhoneApp.iOS
             devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserCompleted += PhoneApp_ResearchSitesForProjectForInvestigtorUserCompleted;
             devTestPhoneAppService.FindGenericDrugNameCompleted += PhoneApp_FindGenericDrugNameCompleted;
             devTestPhoneAppService.GetQuestionsCompleted += PhoneApp_QuestionsCompleted;
+            devTestPhoneAppService.ValidateDrugsCompleted += PhoneApp_ValidateDrugsCompleted;
         }
 
         public string helloWorldResult;
@@ -68,6 +71,8 @@ namespace CliniSafePhoneApp.iOS
 
         public int Trial_ID;
 
+        public DevTestPhoneAppService.ValidateDrugsInputs ValidateDrugsInputValue;
+
         public string GenericDrugNameToFind;
 
         public static string xmlProjectForUserResult;
@@ -80,6 +85,8 @@ namespace CliniSafePhoneApp.iOS
 
         public static string xmlQuestionSelectedDrugsResult;
 
+        public static ValidateDrugsOutputs xmlValidateDrugsOutputsResult;
+
         public static List<ProjectUser> ProjectForUserListResult { get; set; }
 
         public static List<CountriesForProjectForMonitorUser> CountriesForProjectForMonitorUserListResult { get; set; }
@@ -89,6 +96,10 @@ namespace CliniSafePhoneApp.iOS
         public static List<GenericDrugsFound> GenericDrugsFoundListResult { get; set; }
 
         public static List<QuestionSelectedDrug> QuestionSelectedDrugListResult { get; set; }
+
+
+
+        public static ValidateDrugsOutput ValidateDrugsOutputResult { get; set; }
 
         /// <summary>
         /// Declare private member for assigning Soap Header results returned from Web Service.
@@ -480,30 +491,6 @@ namespace CliniSafePhoneApp.iOS
                 devTestPhoneAppService.GetQuestions(Trial_ID);
                 xmlQuestionSelectedDrugsResult = e.Result;
 
-                //XDocument xDocumentQuestionSelectedDrug = new XDocument();
-
-                ////Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
-                //if (!string.IsNullOrEmpty(xmlQuestionSelectedDrugsResult))
-                //{
-                //    xDocumentQuestionSelectedDrug = XDocument.Parse(xmlQuestionSelectedDrugsResult);
-                //}
-
-                //if (!string.IsNullOrEmpty(xmlProjectForUserResult) && xDocumentQuestionSelectedDrug.Root.Elements().Any())
-                //{
-
-                //    QuestionSelectedDrugListResult = (from d in xDocumentQuestionSelectedDrug.Root.Elements("Questions")
-                //                                      select new QuestionSelectedDrug
-                //                                      {
-                //                                          Question_ID = d.Element("Question_ID").Value != null ? Convert.ToInt32(d.Element("Question_ID").Value) : 0,
-                //                                          Question = d.Element("Question").Value,
-                //                                          Answer = Convert.ToBoolean(d.Element("Answer").Value)
-                //                                      }).ToList();
-                //}
-
-
-
-
-
                 XDocument xDocumentQuestionSelectedDrug = new XDocument();
 
                 //Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
@@ -524,14 +511,6 @@ namespace CliniSafePhoneApp.iOS
 
                 }
 
-
-                //// Decode xml(xmlQuestionSelectedDrugsResult) into a list and assign to QuestionSelectedDrug model
-                //StringReader stringReader = new StringReader(xmlQuestionSelectedDrugsResult);
-
-                //XmlSerializer serializer = new XmlSerializer(typeof(List<QuestionSelectedDrug>), new XmlRootAttribute("NewDataSet"));
-
-                //QuestionSelectedDrugListResult = (List<QuestionSelectedDrug>)serializer.Deserialize(stringReader);
-
                 questionsComplete?.TrySetResult(true);
             }
             catch (SoapException se)
@@ -549,6 +528,69 @@ namespace CliniSafePhoneApp.iOS
         }
 
 
+
+        public async Task<ValidateDrugsOutput> ValidateDrugsListAsync(Portable.Models.ValidateDrugsInput validateDrugsInput)
+        {
+            validateDrugsComplete = new TaskCompletionSource<bool>();
+
+            if (validateDrugsInput != null)
+            {
+                ValidateDrugsInputValue = new DevTestPhoneAppService.ValidateDrugsInputs()
+                {
+                    Project_ID = validateDrugsInput.Project_ID,
+                    PatientID = validateDrugsInput.Patient_ID,
+                    ResearchSiteID = validateDrugsInput.ResearchSite_ID,
+                    theTrialID = validateDrugsInput.Trial_ID,
+                    DrugNames = validateDrugsInput.DrugName,
+                    QuestionsAndAnswers = validateDrugsInput.QuestionsAndAnswers
+                };
+            }
+
+            devTestPhoneAppService.ValidateDrugsAsync(ValidateDrugsInputValue);
+            await validateDrugsComplete.Task;
+            return ValidateDrugsOutputResult;
+        }
+
+        private void PhoneApp_ValidateDrugsCompleted(object sender, ValidateDrugsCompletedEventArgs e)
+        {
+            try
+            {
+                validateDrugsComplete = validateDrugsComplete ?? new TaskCompletionSource<bool>();
+
+                // Check and Set Specified Exceptions
+                if (e.Error != null)
+                    if (e.Error is WebException)
+                        validateDrugsComplete?.TrySetException(e.Error);
+                    else if (e.Error is SoapException)
+                        validateDrugsComplete?.TrySetException(e.Error);
+                    else
+                        validateDrugsComplete?.TrySetException(e.Error);
+
+                devTestPhoneAppService.ValidateDrugsAsync(ValidateDrugsInputValue);
+                xmlValidateDrugsOutputsResult = e.Result;
+
+                ValidateDrugsOutputResult = new ValidateDrugsOutput()
+                {
+                    HTMLResult = xmlValidateDrugsOutputsResult.HTMLResult,
+                    XMLResult = xmlValidateDrugsOutputsResult.XMLResult,
+                    XMLDrugRuleMessage = xmlValidateDrugsOutputsResult.XMLDrugRuleMessages
+                };
+
+                validateDrugsComplete?.TrySetResult(true);
+            }
+            catch (SoapException se)
+            {
+                DisplaySoapException(se);
+            }
+            catch (WebException we)
+            {
+                DisplayWebException(we);
+            }
+            catch (Exception ex)
+            {
+                DisplayException(ex);
+            }
+        }
 
         /// <summary>
         /// Returns Hello.

@@ -36,10 +36,9 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
             //var currentPage = Application.Current.MainPage.Navigation.NavigationStack.LastOrDefault();
 
-            //NavigationPage navigationPage = new NavigationPage(currentPage);
-            //navigationPage.PopAsync();
-
             //if (RootPage.MenuPages.Remove((RootPage.MenuPages.Keys.LastOrDefault() - 1)))
+
+
             _ = RootPage.NavigateFromMenu((RootPage.MenuPages.Keys.LastOrDefault() - 1), null, null, null);
 
             // _ = RootPage.NavigateFromMenu(RootPage.MenuPages.Count(), null, null, null);

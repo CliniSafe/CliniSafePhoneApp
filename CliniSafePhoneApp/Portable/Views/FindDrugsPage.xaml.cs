@@ -16,7 +16,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor for Countries for Project User as a Monitor.
         /// </summary>
-        public FindDrugsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode)
+        public FindDrugsPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, ProjectUser projectUser)
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise FindDrugsViewModel.
-            FindDrugsVM = new FindDrugsViewModel(countriesForProjectForMonitorUser, projectCode);
+            FindDrugsVM = new FindDrugsViewModel(countriesForProjectForMonitorUser, projectUser);
 
             // Set the Page Binding Context to the FindDrugsViewModel(FindDrugsVM)
             BindingContext = FindDrugsVM;
@@ -34,7 +34,7 @@ namespace CliniSafePhoneApp.Portable.Views
         /// Initialise properties in constructor for ResearchSites for Project User as an Investigator.
         /// </summary>
         /// <param name="researchSitesForProjectForInvestigatorUser"></param>
-        public FindDrugsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode)
+        public FindDrugsPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, ProjectUser projectUser)
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise FindDrugsViewModel.
-            FindDrugsVM = new FindDrugsViewModel(researchSitesForProjectForInvestigatorUser, projectCode);
+            FindDrugsVM = new FindDrugsViewModel(researchSitesForProjectForInvestigatorUser, projectUser);
 
             // Set the Page Binding Context to the FindDrugsViewModel(FindDrugsVM)
             BindingContext = FindDrugsVM;

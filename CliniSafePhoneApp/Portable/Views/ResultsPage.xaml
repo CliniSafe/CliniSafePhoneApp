@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CliniSafePhoneApp.Portable"
              xmlns:telerikInput="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CliniSafePhoneApp.Portable.Views.ResultsPage"
              NavigationPage.HasNavigationBar="True"
              NavigationPage.HasBackButton="True"
@@ -15,21 +16,30 @@
 
         <Label x:Name="ResultsPageTitleLabel" Margin="20, 0, 20, 0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ProjectCode, Mode=TwoWay}" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
 
-        <Label x:Name="ResultLabel" Margin="20,0,20,100" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Results" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
+        <Label x:Name="ResultLabel" Margin="20,0,20,0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="Results" FontSize="Title" FontAttributes="Bold" VerticalOptions="Start" />
 
-        <Editor x:Name="ResultEditor" Text="Either the HTML OR The XML cleverly formatted.." Margin="40,0,40,0"
-                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+        <ScrollView VerticalScrollBarVisibility="Default" Margin="5,0,5,0">
+            <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="5, 0, 5, 0" Padding="0, 0">
+                <!--<Editor x:Name="ResultEditor" Text="{Binding ValidateDrugsOutput.XMLResult, Mode=TwoWay}" Margin="5,0,5,0" HeightRequest="100" FontSize="Small" FontAttributes="None" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>-->
 
-        <Grid ColumnSpacing="8" HorizontalOptions="FillAndExpand">
+
+                <!--<Label x:Name="XMLResultLabel" Margin="5,0,5,0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ValidateDrugsOutput.XMLResult, Mode=TwoWay}" TextType="Text"  FontSize="Small" FontAttributes="None" FormattedText="" VerticalOptions="Start" />-->
+
+                <Label x:Name="XMLResultLabel" Margin="5,0,5,0" HorizontalTextAlignment="Start" HorizontalOptions="Start" Text="{Binding ValidateDrugsOutput.HTMLResult, Mode=TwoWay}" TextType="Html" FontSize="Small" FontAttributes="None" FormattedText="" VerticalOptions="Start" />
+            </telerikPrimitives:RadBorder>
+        </ScrollView>
+
+        <Grid ColumnSpacing="8" HorizontalOptions="FillAndExpand" Margin="10,5,10,5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="49.33*" />
                 <ColumnDefinition Width="1.33*" />
                 <ColumnDefinition Width="49.33*" />
             </Grid.ColumnDefinitions>
             
-            <telerikInput:RadButton x:Name="AnotherNavigationButton" Text="Another" Margin="40,10,25,100" HorizontalOptions="FillAndExpand" Command="{Binding NavigateToProjectCommand}" Grid.Column="0"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+            <telerikInput:RadButton x:Name="AnotherNavigationButton" Text="Another" Margin="40,0,25,20" HorizontalOptions="FillAndExpand" Command="{Binding NavigateToProjectCommand}" Grid.Column="0"  TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
-            <telerikInput:RadButton x:Name="CloseNavigationButton" Text="Close" HorizontalOptions="FillAndExpand"  Margin="25,10,40,100" Grid.Column="2" Command="{Binding NavigateToMainCommand}" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+            <telerikInput:RadButton x:Name="CloseNavigationButton" Text="Close" HorizontalOptions="FillAndExpand"  Margin="25,0,40,20" Grid.Column="2" Command="{Binding NavigateToMainCommand}" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
         </Grid>
     </StackLayout>
 </ContentPage>

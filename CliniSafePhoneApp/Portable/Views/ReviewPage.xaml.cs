@@ -20,7 +20,8 @@ namespace CliniSafePhoneApp.Portable.Views
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public ReviewPage(List<QuestionSelectedDrug> reviewAnsweredQuestionList, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
+        //public ReviewPage(List<QuestionSelectedDrug> reviewAnsweredQuestionList, ProjectUser projectUser, List<GenericDrugsFound> reviewSelectedDrugsList)
+        public ReviewPage(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, ProjectUser projectUser, List<QuestionSelectedDrug> reviewAnsweredQuestionList, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             InitializeComponent();
 
@@ -28,11 +29,28 @@ namespace CliniSafePhoneApp.Portable.Views
             cliniSafeImage.Source = Constants.CliniSafeImage;
 
             // Initialise ReviewViewModel.
-            ReviewVM = new ReviewViewModel(reviewAnsweredQuestionList, projectCode, reviewSelectedDrugsList);
+            ReviewVM = new ReviewViewModel(countriesForProjectForMonitorUser, reviewAnsweredQuestionList, projectUser, reviewSelectedDrugsList);
 
             // Set the Page Binding Context to the ReviewViewModel(ReviewVM)
             BindingContext = ReviewVM;
         }
+
+        public ReviewPage(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, ProjectUser projectUser, List<QuestionSelectedDrug> reviewAnsweredQuestionList, List<GenericDrugsFound> reviewSelectedDrugsList)
+        {
+            InitializeComponent();
+
+            //Set the Image Source
+            cliniSafeImage.Source = Constants.CliniSafeImage;
+
+            // Initialise ReviewViewModel.
+            ReviewVM = new ReviewViewModel(researchSitesForProjectForInvestigatorUser, reviewAnsweredQuestionList, projectUser, reviewSelectedDrugsList);
+
+            // Set the Page Binding Context to the ReviewViewModel(ReviewVM)
+            BindingContext = ReviewVM;
+        }
+
+
+
 
 
         protected override void OnDisappearing()

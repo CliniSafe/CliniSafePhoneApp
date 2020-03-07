@@ -88,19 +88,86 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
+        /// <param name="countriesForProjectForMonitorUser"></param>
         /// <param name="reviewAnsweredQuestionList"></param>
-        /// <param name="projectCode"></param>
+        /// <param name="projectUser"></param>
         /// <param name="reviewSelectedDrugsList"></param>
-        public ReviewViewModel(List<QuestionSelectedDrug> reviewAnsweredQuestionList, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
+        public ReviewViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, List<QuestionSelectedDrug> reviewAnsweredQuestionList, ProjectUser projectUser, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
             NavigateToResultsCommand = new NavigateToResultsCommand(this);
+            ProjectUser = projectUser;
+            CountriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
+
             this.ReviewSelectedDrugsList = reviewSelectedDrugsList;
             this.ReviewAnsweredQuestionList = reviewAnsweredQuestionList;
-            this.ProjectCode = projectCode;
+            this.ProjectCode = projectUser.ProjectCode;
         }
+
+
+        /// <summary>
+        /// Initialise properties in constructor.
+        /// </summary>
+        /// <param name="researchSitesForProjectForInvestigatorUser"></param>
+        /// <param name="reviewAnsweredQuestionList"></param>
+        /// <param name="projectUser"></param>
+        /// <param name="reviewSelectedDrugsList"></param>
+        public ReviewViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, List<QuestionSelectedDrug> reviewAnsweredQuestionList, ProjectUser projectUser, List<GenericDrugsFound> reviewSelectedDrugsList)
+        {
+            NavigateToResultsCommand = new NavigateToResultsCommand(this);
+            ProjectUser = projectUser;
+            ResearchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
+
+            this.ReviewSelectedDrugsList = reviewSelectedDrugsList;
+            this.ReviewAnsweredQuestionList = reviewAnsweredQuestionList;
+            this.ProjectCode = projectUser.ProjectCode;
+        }
+
+
+        private CountriesForProjectForMonitorUser _countriesForProjectForMonitorUser;
+
+        public CountriesForProjectForMonitorUser CountriesForProjectForMonitorUser
+        {
+            get { return _countriesForProjectForMonitorUser; }
+            set
+            {
+                _countriesForProjectForMonitorUser = value;
+                OnPropertyChanged("CountriesForProjectForMonitorUser");
+            }
+        }
+
+
+        private ResearchSitesForProjectForInvestigatorUser _researchSitesForProjectForInvestigatorUser;
+
+        public ResearchSitesForProjectForInvestigatorUser ResearchSitesForProjectForInvestigatorUser
+        {
+            get { return _researchSitesForProjectForInvestigatorUser; }
+            set
+            {
+                _researchSitesForProjectForInvestigatorUser = value;
+                OnPropertyChanged("ResearchSitesForProjectForInvestigatorUser");
+            }
+        }
+
+
+
+        private ProjectUser projectUser;
+
+        public ProjectUser ProjectUser
+        {
+            get { return projectUser; }
+            set
+            {
+                projectUser = value;
+                OnPropertyChanged("ProjectUser");
+            }
+        }
+
+
+
 
 
         /// <summary>
@@ -109,7 +176,13 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <param name="projectUser"></param>
         public async Task NavigateToResults()
         {
-            await RootPage.NavigateFromMenu((int)MenuItemType.Results, null, null, null, projectCode);
+            //await RootPage.NavigateFromMenu((int)MenuItemType.Results, null, null, null, ProjectUser);
+
+            // Navigate to the Review page
+            if (_researchSitesForProjectForInvestigatorUser != null) //_researchSitesForProjectForInvestigatorUser
+                await RootPage.NavigateFromMenu((int)MenuItemType.ResultsResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, ProjectUser, ReviewAnsweredQuestionList, ReviewSelectedDrugsList);
+            else // _countriesForProjectForMonitorUser
+                await RootPage.NavigateFromMenu((int)MenuItemType.ResultsCountry, null, null, _countriesForProjectForMonitorUser, ProjectUser, ReviewAnsweredQuestionList, ReviewSelectedDrugsList);
         }
 
         /// <summary>

@@ -51,5 +51,10 @@ namespace CliniSafePhoneApp.Portable.Data
         {
             return soapService.GetQuestionSelectedDrugsListAsync(trialID);
         }
+
+        public Task<ValidateDrugsOutput> ValidateDrugsListAsync(ValidateDrugsInput validateDrugsInput)
+        {
+            return soapService.ValidateDrugsListAsync(validateDrugsInput);
+        }
     }
 }

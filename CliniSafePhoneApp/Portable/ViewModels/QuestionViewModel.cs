@@ -18,8 +18,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public NavigateToReviewCommand NavigateToReviewCommand { get; set; }
 
-
-
+        /// <summary>
+        /// Declare a private member for NavigateToPreviousPageCommand.
+        /// </summary>
+        public NavigateToPreviousPageCommand NavigateToPreviousPageCommand { get; set; }
 
         private AuthHeader authHeader;
 
@@ -32,7 +34,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("AuthHeader");
             }
         }
-
 
 
 
@@ -69,7 +70,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
 
 
 
-
+        //--------------------------------------------------------------------------------------------------------------------------------
         //private bool? no;
 
         //public bool? No
@@ -117,11 +118,22 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         //        //OnPropertyChanged("Yes");
         //    }
         //}
+        //--------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
+        private ProjectUser _projectUser;
 
+        public ProjectUser ProjectUser
+        {
+            get { return _projectUser; }
+            set
+            {
+                _projectUser = value;
+                OnPropertyChanged("ProjectUser");
+            }
+        }
 
 
 
@@ -237,63 +249,49 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public QuestionViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
+        public QuestionViewModel(CountriesForProjectForMonitorUser countriesForProjectForMonitorUser, ProjectUser projectUser, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
-            //PopUpCommand = new PopUpCommand(this);
-            //GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
-
-
             NavigateToReviewCommand = new NavigateToReviewCommand(this);
-
-            //AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
-
+            NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
             AnsweredQuestionList = new List<QuestionSelectedDrug>();
-
-
+            _projectUser = projectUser;
             _countriesForProjectForMonitorUser = countriesForProjectForMonitorUser;
 
             if (_countriesForProjectForMonitorUser != null)
             {
                 this.TrialId = countriesForProjectForMonitorUser.ID;
-                this.ProjectCode = projectCode;
+                this.ProjectCode = projectUser.ProjectCode;
                 this.ReviewSelectedDrugsList = reviewSelectedDrugsList;
             }
 
-            _ = GetQuestions(TrialId);
+            _ = GetQuestionsAsync(TrialId);
         }
 
 
         /// <summary>
         /// Initialise properties in constructor.
         /// </summary>
-        public QuestionViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, string projectCode, List<GenericDrugsFound> reviewSelectedDrugsList)
+        public QuestionViewModel(ResearchSitesForProjectForInvestigatorUser researchSitesForProjectForInvestigatorUser, ProjectUser projectUser, List<GenericDrugsFound> reviewSelectedDrugsList)
         {
-            //PopUpCommand = new PopUpCommand(this);
-            //GenericDrugNameToFindCommand = new GenericDrugNameToFindCommand(this);
-
-
             NavigateToReviewCommand = new NavigateToReviewCommand(this);
-
-            //AnsweredQuestionList = new ObservableCollection<QuestionSelectedDrug>();
-
+            NavigateToPreviousPageCommand = new NavigateToPreviousPageCommand(this);
             AnsweredQuestionList = new List<QuestionSelectedDrug>();
-
-
+            _projectUser = projectUser;
             _researchSitesForProjectForInvestigatorUser = researchSitesForProjectForInvestigatorUser;
 
             if (_researchSitesForProjectForInvestigatorUser != null)
             {
                 this.TrialId = researchSitesForProjectForInvestigatorUser.Trial_ID;
-                this.ProjectCode = projectCode;
+                this.ProjectCode = projectUser.ProjectCode;
                 this.ReviewSelectedDrugsList = reviewSelectedDrugsList;
             }
 
-            _ = GetQuestions(TrialId);
+            _ = GetQuestionsAsync(TrialId);
         }
 
 
 
-        public async Task GetQuestions(int trialID)
+        public async Task GetQuestionsAsync(int trialID)
         {
             authHeader = AuthHeader.GetAuthHeader();
 
@@ -318,11 +316,22 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         /// </summary>
         public void NavigateBackToPreviousPage()
         {
-            // Remove Page Enum from the MenuPages List
-            if (RootPage.MenuPages.ContainsKey((int)MenuItemType.Project))
-                RootPage.MenuPages.Remove((int)MenuItemType.Project);
+            if (_researchSitesForProjectForInvestigatorUser != null)
+            {
+                // Remove Page Enum from the MenuPages List
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugsForResearchSite))
+                    RootPage.MenuPages.Remove((int)MenuItemType.FindDrugsForResearchSite);
 
-            _ = RootPage.NavigateFromMenu((int)MenuItemType.Project, null, null, null);
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForResearchSite,  null, null, _researchSitesForProjectForInvestigatorUser, ProjectUser);
+            }
+            else
+            {
+                // Remove Page Enum from the MenuPages List
+                if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugsForCountry))
+                    RootPage.MenuPages.Remove((int)MenuItemType.FindDrugsForCountry);
+
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForCountry, null, null, _countriesForProjectForMonitorUser, ProjectUser);
+            }
         }
 
 
@@ -335,16 +344,10 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         public async Task NavigateToReview(QuestionSelectedDrug questionSelectedDrug)
         {
             // Navigate to the Review page
-            await RootPage.NavigateFromMenu((int)MenuItemType.Review, null, null, null, ProjectCode, AnsweredQuestionList, ReviewSelectedDrugsList);  // AnsweredQuestionList, 
-
-
-            //TODO:AOA -  To Be Deleted
-            //if (_researchSitesForProjectForInvestigatorUser != null)
-            //    _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, projectCode);
-            //else if (_countriesForProjectForMonitorUser != null)
-            //    _ = RootPage.NavigateFromMenu((int)MenuItemType.QuestionsForCountry, null, null, _countriesForProjectForMonitorUser, projectCode);
-            //else
-            //    return;
+            if (_researchSitesForProjectForInvestigatorUser != null) //_researchSitesForProjectForInvestigatorUser
+                await RootPage.NavigateFromMenu((int)MenuItemType.ReviewResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, ProjectUser, AnsweredQuestionList, ReviewSelectedDrugsList);
+            else // _countriesForProjectForMonitorUser
+                await RootPage.NavigateFromMenu((int)MenuItemType.ReviewCountry, null, null, _countriesForProjectForMonitorUser, ProjectUser, AnsweredQuestionList, ReviewSelectedDrugsList);
         }
     }
 }
