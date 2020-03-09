@@ -65,64 +65,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-
-
-
-
-        //--------------------------------------------------------------------------------------------------------------------------------
-        //private bool? no;
-
-        //public bool? No
-        //{
-        //    get { return no; }
-        //    set
-        //    {
-        //        //no = value;
-
-        //        if (this.no != value)
-        //        {
-        //            no = value;
-
-        //            if (Convert.ToBoolean(no))
-        //                Yes = false;
-
-        //            OnPropertyChanged("No");
-        //        }
-
-        //        //OnPropertyChanged("No");
-        //    }
-        //}
-
-
-        //private bool? yes;
-
-        //public bool? Yes
-        //{
-        //    get { return this.yes; }
-        //    set
-        //    {
-
-
-        //        //yes = value;
-
-        //        if (this.yes != value)
-        //        {
-        //            this.yes = value;
-        //            if (Convert.ToBoolean(yes))
-        //                No = false;
-
-        //            OnPropertyChanged("Yes");
-        //        }
-
-        //        //OnPropertyChanged("Yes");
-        //    }
-        //}
-        //--------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
         private ProjectUser _projectUser;
 
         public ProjectUser ProjectUser
@@ -134,9 +76,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("ProjectUser");
             }
         }
-
-
-
 
 
         private List<QuestionSelectedDrug> questionSelectedDrugList;
@@ -322,7 +261,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 if (RootPage.MenuPages.ContainsKey((int)MenuItemType.FindDrugsForResearchSite))
                     RootPage.MenuPages.Remove((int)MenuItemType.FindDrugsForResearchSite);
 
-                _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForResearchSite,  null, null, _researchSitesForProjectForInvestigatorUser, ProjectUser);
+                _ = RootPage.NavigateFromMenu((int)MenuItemType.FindDrugsForResearchSite, null, null, _researchSitesForProjectForInvestigatorUser, ProjectUser);
             }
             else
             {

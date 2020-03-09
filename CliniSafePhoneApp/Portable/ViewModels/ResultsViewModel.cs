@@ -14,7 +14,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
     {
         public MainPage RootPage { get => Application.Current.MainPage as MainPage; }
 
-
         public NavigateToProjectCommand NavigateToProjectCommand { get; set; }
 
         public NavigateToMainCommand NavigateToMainCommand { get; set; }
@@ -225,7 +224,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         {
             ValidateDrugsOutput = await ValidateDrugsInput.ValidateDrugsListAsync(validateDrugsInput);
         }
-       
+
 
         /// <summary>
         /// Navigate to the Project Page
