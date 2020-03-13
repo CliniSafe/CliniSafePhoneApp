@@ -43,7 +43,10 @@ namespace CliniSafePhoneApp.iOS
         /// </summary>
         public PhoneAppSoapService()
         {
+            //devTestPhoneAppService = new PhoneApp() { Url = Constants.GAMPTestUrl };
+
             devTestPhoneAppService = new PhoneApp() { Url = Constants.GAMPTestUrl };
+
             devTestPhoneAppService.HelloWorldCompleted += PhoneApp_HelloWorldCompleted;
             devTestPhoneAppService.HandshakeCompleted += PhoneApp_HandshakeCompleted;
             devTestPhoneAppService.AuthenticateCompleted += PhoneApp_AuthenticateCompleted;

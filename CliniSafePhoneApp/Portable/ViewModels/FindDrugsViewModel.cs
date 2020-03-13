@@ -146,8 +146,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 {
                     if (!SelectedDrugsList.Contains(selectedGenericDrugsFound))
                     {
-                        if (!SelectedGenericDrugsFound.Select)
-                            SelectedGenericDrugsFound.Select = true;
+                        if (!SelectedGenericDrugsFound.Exists)
+                            SelectedGenericDrugsFound.Exists = true;
 
                         SelectedDrugsList.Add(SelectedGenericDrugsFound);
 

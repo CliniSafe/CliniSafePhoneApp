@@ -36,9 +36,7 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
         private string projectCode;
-
 
         public string ProjectCode
         {
@@ -145,8 +143,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string propertyName)
@@ -154,9 +150,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
             if (PropertyChanged != null)
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
-
 
 
         private CountriesForProjectForMonitorUser _countriesForProjectForMonitorUser;
@@ -170,7 +163,6 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 OnPropertyChanged("CountriesForProjectForMonitorUser");
             }
         }
-
 
 
         private ResearchSitesForProjectForInvestigatorUser _researchSitesForProjectForInvestigatorUser;

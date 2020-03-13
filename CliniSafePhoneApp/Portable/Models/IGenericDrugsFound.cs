@@ -8,5 +8,7 @@ namespace CliniSafePhoneApp.Portable.Models
         int Drug_ID { get; set; }
 
         string DrugName { get; set; }
+
+        bool Exists { get; set; }
     }
 }

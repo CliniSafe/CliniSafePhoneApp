@@ -72,7 +72,7 @@ namespace CliniSafePhoneApp.Portable.Service
         {
             get
             {
-                return (Device.RuntimePlatform == Device.Android) ? "http://10.0.2.2:54850/webservices/PhoneApp.asmx" : "http://localhost:54850/webservices/PhoneApp.asmx";
+                return (Device.RuntimePlatform == Device.Android) ? "http://10.0.2.2:54850/WebServices/PhoneApp.asmx" : "http://localhost:54850/WebServices/PhoneApp.asmx";
             }
         }
 

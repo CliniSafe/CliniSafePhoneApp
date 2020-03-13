@@ -58,8 +58,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 Project_ID = projectUser.ID,
                 Trial_ID = countriesForProjectForMonitorUser.ID,
                 ResearchSite_ID = 0,
-                QuestionsAndAnswers = ConvertQuestionAndAnswerToXML(reviewQuestionSelectedDrugsList),
-                DrugName = ConvertDrugnNameToXML(reviewSelectedDrugsList),
+                QuestionsAndAnswers = ToXMLString(ConvertToQnAWebServiceList(reviewQuestionSelectedDrugsList), "QuestionsAndAnswers"),  //ConvertQuestionAndAnswerToXML(reviewQuestionSelectedDrugsList),
+                DrugName = ToXMLString(reviewSelectedDrugsList, "DrugNames"),                                                           //ConvertDrugnNameToXML(reviewSelectedDrugsList),
                 Patient_ID = 0
             };
 
@@ -86,8 +86,8 @@ namespace CliniSafePhoneApp.Portable.ViewModels
                 Project_ID = projectUser.ID,
                 Trial_ID = researchSitesForProjectForInvestigatorUser.Trial_ID,
                 ResearchSite_ID = researchSitesForProjectForInvestigatorUser.ID,
-                QuestionsAndAnswers = ConvertQuestionAndAnswerToXML(reviewQuestionSelectedDrugsList),
-                DrugName = ConvertDrugnNameToXML(reviewSelectedDrugsList),
+                QuestionsAndAnswers = ToXMLString(ConvertToQnAWebServiceList(reviewQuestionSelectedDrugsList), "QuestionsAndAnswers"),      //ConvertQuestionAndAnswerToXML(reviewQuestionSelectedDrugsList),
+                DrugName = ToXMLString(reviewSelectedDrugsList, "DrugNames"),                                                              //ConvertDrugnNameToXML(reviewSelectedDrugsList),
                 Patient_ID = 0
             };
 
@@ -96,78 +96,81 @@ namespace CliniSafePhoneApp.Portable.ViewModels
         }
 
 
-        /// <summary>
-        /// Converts QuestionAndAnswer to XML String.
-        /// </summary>
-        /// <param name="questionSelectedDrugsList"></param>
-        /// <returns></returns>
-        private string ConvertQuestionAndAnswerToXML(List<QuestionSelectedDrug> questionSelectedDrugsList)
+
+        private List<QnAWebService> ConvertToQnAWebServiceList(List<QuestionSelectedDrug> list)
         {
-            string xmlQuestionSelectedDrug = string.Empty;
-            DataSet questionAndAnswerDataSet = new DataSet();
-            DataTable questionAndAnswerDataTable = new DataTable { TableName = "QuestionsAndAnswers" };
+            List<QnAWebService> qnQWebServiceList = new List<QnAWebService>();
 
-            DataColumn colQuestion_ID = new DataColumn("Question_ID", typeof(Int32)) { Caption = "Name" };
-            questionAndAnswerDataTable.Columns.Add(colQuestion_ID);
-
-            DataColumn colQuestion = new DataColumn("Question", typeof(string)) { Caption = "Name" };
-            questionAndAnswerDataTable.Columns.Add(colQuestion);
-
-            DataColumn colAnswer = new DataColumn("Answer", typeof(bool)) { Caption = "Name" };
-            questionAndAnswerDataTable.Columns.Add(colAnswer);
-
-
-            //go through each property on QuestionSelectedDrug and add each value to the table
-            foreach (QuestionSelectedDrug item in questionSelectedDrugsList)
+            foreach (QuestionSelectedDrug item in list)
             {
-                questionAndAnswerDataTable.Columns["Question_ID"].DefaultValue = item.Question_ID;
-                questionAndAnswerDataTable.Columns["Question"].DefaultValue = item.Question;
-                questionAndAnswerDataTable.Columns["Answer"].DefaultValue = item.Yes != null ? item.Yes : item.No;
+                QnAWebService qnQWebService = new QnAWebService
+                {
+                    Question_ID = item.Question_ID,
+                    Question = item.Question,
+                    Answer = item.Yes != null ? Convert.ToBoolean(item.Yes) : Convert.ToBoolean(item.No)
+                };
+                qnQWebServiceList.Add(qnQWebService);
             }
 
-            questionAndAnswerDataSet.Tables.Add(questionAndAnswerDataTable);
-            System.IO.StringWriter questionAndAnswerWriter = new System.IO.StringWriter();
-            questionAndAnswerDataTable.WriteXml(questionAndAnswerWriter, XmlWriteMode.WriteSchema, false);
-            xmlQuestionSelectedDrug = questionAndAnswerWriter.ToString();
-
-            return xmlQuestionSelectedDrug;
+            return qnQWebServiceList;
         }
 
 
-        /// <summary>
-        /// Converts DrugName to XML String.
-        /// </summary>
-        /// <param name="selectedDrugsFoundList"></param>
-        /// <returns></returns>
-        private string ConvertDrugnNameToXML(List<GenericDrugsFound> selectedDrugsFoundList)
+
+        //private List<X> ConvertToWebService(List<Y> list)
+        //{
+        //    PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(T));
+        //    PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(X));
+
+        //    for (int i = 0; i < props.Count; i++)
+        //    {
+        //        PropertyDescriptor prop = props[i];
+        //        table.Columns.Add(prop.Name, prop.PropertyType);
+        //    }
+        //    object[] values = new object[props.Count];
+        //    foreach (Y item in list)
+        //    {
+        //        for (int i = 0; i < values.Length; i++)
+        //        {
+        //            values[i] = props[i].GetValue(item);
+        //        }
+        //        table.Rows.Add(values);
+        //    }
+        //}
+
+
+
+
+
+        public static string ToXMLString<T>(List<T> genericList, string tableName)
         {
-            string xmlGenericeDrugsFound = string.Empty;
-            DataSet drugNameDataSet = new DataSet();
-            DataTable drugNameDataTable = new DataTable { TableName = "DrugNames" };
+            PropertyDescriptorCollection props = TypeDescriptor.GetProperties(typeof(T));
+            DataTable table = new DataTable { TableName = tableName };
 
-            DataColumn colDrug_ID = new DataColumn("Drug_ID", typeof(Int32)) { Caption = "Name" };
-            drugNameDataTable.Columns.Add(colDrug_ID);
+            string xmlString = string.Empty;
+            DataSet dataSet = new DataSet("CliniSafePhoneApp_WebService");
 
-            DataColumn colDrugName = new DataColumn("DrugName", typeof(string)) { Caption = "Name" };
-            drugNameDataTable.Columns.Add(colDrugName);
 
-            DataColumn colExists = new DataColumn("Exists", typeof(string)) { Caption = "Name" };
-            drugNameDataTable.Columns.Add(colExists);
-
-            //go through each property on GenericDrugsFound and add each value to the table
-            foreach (GenericDrugsFound item in selectedDrugsFoundList)
+            for (int i = 0; i < props.Count; i++)
             {
-                drugNameDataTable.Columns["Drug_ID"].DefaultValue = item.Drug_ID;
-                drugNameDataTable.Columns["DrugName"].DefaultValue = item.DrugName;
-                drugNameDataTable.Columns["Exists"].DefaultValue = item.Select;
+                PropertyDescriptor prop = props[i];
+                table.Columns.Add(prop.Name, prop.PropertyType);
+            }
+            object[] values = new object[props.Count];
+            foreach (T item in genericList)
+            {
+                for (int i = 0; i < values.Length; i++)
+                {
+                    values[i] = props[i].GetValue(item);
+                }
+                table.Rows.Add(values);
             }
 
-            drugNameDataSet.Tables.Add(drugNameDataTable);
-
-            System.IO.StringWriter drugNameWriter = new System.IO.StringWriter();
-            drugNameDataTable.WriteXml(drugNameWriter, XmlWriteMode.WriteSchema, false);
-            xmlGenericeDrugsFound = drugNameWriter.ToString();
-            return xmlGenericeDrugsFound;
+            dataSet.Tables.Add(table);
+            System.IO.StringWriter stringWriter = new System.IO.StringWriter();
+            table.WriteXml(stringWriter, XmlWriteMode.WriteSchema, true);
+            xmlString = stringWriter.ToString();
+            return xmlString;
         }
 
 
