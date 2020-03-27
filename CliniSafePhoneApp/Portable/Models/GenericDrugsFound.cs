@@ -33,20 +33,6 @@ namespace CliniSafePhoneApp.Portable.Models
             }
         }
 
-
-        //private bool select;
-
-        //public bool Select
-        //{
-        //    get { return select; }
-        //    set
-        //    {
-        //        select = value;
-        //        OnPropertyChanged("Select");
-        //    }
-        //}
-
-
         private bool exists;
 
         public bool Exists

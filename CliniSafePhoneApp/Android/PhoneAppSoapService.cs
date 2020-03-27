@@ -919,12 +919,26 @@ namespace CliniSafePhoneApp.Android
             StringBuilder stringBuilder = new StringBuilder();
             using (StringWriter stringWriter = new StringWriter(stringBuilder))
             {
-                using XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
-                xmlTextWriter.Formatting = Formatting.Indented;
-                xmlNode.WriteTo(xmlTextWriter);
+                using (XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter))
+                {
+                    xmlTextWriter.Formatting = Formatting.Indented;
+                    xmlNode.WriteTo(xmlTextWriter);
+                }
             }
             return stringBuilder.ToString();
-        }
+
+
+            //{
+            //    StringBuilder stringBuilder = new StringBuilder();
+            //    using (StringWriter stringWriter = new StringWriter(stringBuilder))
+            //    {
+            //        using XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
+            //        xmlTextWriter.Formatting = Formatting.Indented;
+            //        xmlNode.WriteTo(xmlTextWriter);
+            //    }
+            //    return stringBuilder.ToString();
+
+            }
 
     }
 }
