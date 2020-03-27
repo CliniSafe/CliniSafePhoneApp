@@ -77,24 +77,8 @@
     <Reference Include="Telerik.Xamarin.Android.Chart">
       <HintPath>Packages\Telerik.Xamarin.Android.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Common">
-      <HintPath>Packages\Telerik.Xamarin.Android.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Data">
-      <HintPath>Packages\Telerik.Xamarin.Android.Data.dll</HintPath>
-    </Reference>
     <Reference Include="Telerik.Xamarin.Android.Gauges">
       <HintPath>Packages\Telerik.Xamarin.Android.Gauges.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Input">
-      <HintPath>Packages\Telerik.Xamarin.Android.Input.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Xamarin.Android.List">
-      <HintPath>Packages\Telerik.Xamarin.Android.List.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.Xamarin.Android.Primitives">
-      <HintPath>bin\Debug\Telerik.Xamarin.Android.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.Barcode">
       <HintPath>Packages\Telerik.XamarinForms.Barcode.dll</HintPath>
@@ -102,37 +86,17 @@
     <Reference Include="Telerik.XamarinForms.Chart">
       <HintPath>Packages\Telerik.XamarinForms.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Common">
-      <HintPath>Packages\Telerik.XamarinForms.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.DataControls">
-      <HintPath>Packages\Telerik.XamarinForms.DataControls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.DataGrid">
-      <HintPath>Packages\Telerik.XamarinForms.DataGrid.dll</HintPath>
-    </Reference>
     <Reference Include="Telerik.XamarinForms.DataVisualization">
       <HintPath>Packages\Telerik.XamarinForms.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ImageEditor">
       <HintPath>Packages\Telerik.XamarinForms.ImageEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.XamarinForms.Input">
-      <HintPath>Packages\Telerik.XamarinForms.Input.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Telerik.XamarinForms.Map">
       <HintPath>Packages\Telerik.XamarinForms.Map.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.PdfViewer">
       <HintPath>Packages\Telerik.XamarinForms.PdfViewer.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.Primitives">
-      <HintPath>bin\Debug\Telerik.XamarinForms.Primitives.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.XamarinForms.SkiaSharp">
-      <HintPath>bin\Debug\Telerik.XamarinForms.SkiaSharp.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.XamarinForms.ConversationalUI">
       <HintPath>Packages\Telerik.XamarinForms.ConversationalUI.dll</HintPath>
