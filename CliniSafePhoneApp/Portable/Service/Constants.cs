@@ -1,7 +1,8 @@
 ﻿using Plugin.Connectivity;
-using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Xamarin.Forms;
 
 namespace CliniSafePhoneApp.Portable.Service
@@ -99,34 +100,13 @@ namespace CliniSafePhoneApp.Portable.Service
             await App.Current.MainPage.DisplayAlert(popUpTitle, popUpMessage, "OK");
         }
 
-        public static Task<List<Object>> DeserializeXMLToList(string rawXml)
+        public static List<T> DeserializeXMLToList<T>(string stringXML)
         {
-            //// Decode xml(rawXml) into a list and assign to CountriesForProjectForMonitorUser model
-            //StringReader stringReader = new StringReader(rawXml);
+            StringReader stringReader = new StringReader(stringXML);
 
-            //XmlSerializer serializer = new XmlSerializer(typeof(List<Object>), new XmlRootAttribute("NewDataSet"));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<T>), new XmlRootAttribute("NewDataSet"));
 
-            //List<Object> listResult = (List<Object>)serializer.Deserialize(stringReader);
-
-            //return listResult;
-
-            throw new NotImplementedException();
-
-
-
-            //private List<T> DeserializeParams<T>(XDocument doc)
-            //{
-            //    System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<T>));
-
-            //    System.Xml.XmlReader reader = doc.CreateReader();
-
-            //    List<T> result = (List<T>)serializer.Deserialize(reader);
-            //    reader.Close();
-
-            //    return result;
-            //}
-
-
+            return (List<T>)serializer.Deserialize(stringReader);
         }
     }
 }

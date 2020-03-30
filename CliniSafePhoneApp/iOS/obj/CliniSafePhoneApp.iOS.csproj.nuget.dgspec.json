@@ -85,7 +85,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991220-pre3, )"
+              "version": "[4.6.0.494-pre2, )"
             },
             "Xamarin.Forms.DataGrid": {
               "target": "Package",
@@ -186,7 +186,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.4.0.991220-pre3, )"
+              "version": "[4.6.0.494-pre2, )"
             },
             "Xamarin.Forms.DataGrid": {
               "target": "Package",

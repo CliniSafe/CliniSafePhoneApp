@@ -20,7 +20,7 @@
         <SearchBar x:Name="findDrugsSearchBar" Placeholder="Search" Text="{Binding GenericDrugNameToFind, Mode=TwoWay}" SearchCommand="{Binding GenericDrugNameToFindCommand}" SearchCommandParameter="{Binding GenericDrugNameToFind}" Margin="20,0, 20, 0" Keyboard="Text" telerikInput:KeyboardHelper.IsTranslationTarget="True"  />
 
 
-        <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
+        <ScrollView  VerticalScrollBarVisibility="Default" Margin="20,0,20,0">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
                 
                 <telerikGrid:RadDataGrid x:Name="genericDrugsFoundListDataGrid" SelectionMode="Single" SelectedItem="{Binding SelectedGenericDrugsFound, Mode=TwoWay}" ItemsSource="{Binding GenericDrugsFoundList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
@@ -39,10 +39,10 @@
                     <!--<telerikGrid:DataGridTextColumn PropertyName="Drug_ID" HeaderText="Drug ID" SizeMode="Stretch" />-->
                     <telerikGrid:DataGridTextColumn PropertyName="DrugName" HeaderText="Drug Name" SizeMode="Stretch" />
 
-                    <telerikGrid:DataGridTemplateColumn HeaderText="Select" SizeMode="Stretch" Name="Select" >
+                        <telerikGrid:DataGridTemplateColumn HeaderText="Select" SizeMode="Stretch" Name="Exists" >
                         <telerikGrid:DataGridTemplateColumn.CellContentTemplate >
                             <DataTemplate>
-                                <telerikPrimitives:RadCheckBox x:Name="selectCheckbox" HorizontalOptions="Center" UncheckedColor="{StaticResource blueColor}" CheckedColor="{StaticResource blueColor}" VerticalOptions="Center" IsChecked="{Binding Select, Mode=TwoWay, FallbackValue=null}">
+                                    <telerikPrimitives:RadCheckBox x:Name="selectCheckbox" HorizontalOptions="Center" UncheckedColor="{StaticResource blueColor}" CheckedColor="{StaticResource blueColor}" VerticalOptions="Center" IsChecked="{Binding Exists, Mode=TwoWay, FallbackValue=null}">
                                     
                                 </telerikPrimitives:RadCheckBox>
                             </DataTemplate>
@@ -56,9 +56,9 @@
         </telerikPrimitives:RadBorder>
         </ScrollView>
 
-        <Label x:Name="SelectedDrugsLabel" Margin="40,0, 200, 0" HorizontalOptions="Start" Text="Selected Drugs" IsVisible="{Binding ShowSeletedDrugTitle, Mode=TwoWay}" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start" />
+        <Label x:Name="SelectedDrugsLabel" Margin="40,10, 200, 5" HorizontalOptions="Start" Text="Selected Drugs" IsVisible="{Binding ShowSeletedDrugTitle, Mode=TwoWay}" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start" />
 
-        <ScrollView VerticalScrollBarVisibility="Default" Margin="20,0,20,10">
+        <ScrollView VerticalScrollBarVisibility="Default" Margin="20,5,20,20">
             <telerikPrimitives:RadBorder BorderColor="LightGray" BorderThickness="1, 1, 1, 1" Margin="20, 0, 20, 0" Padding="0, 0">
 
                 <telerikGrid:RadDataGrid x:Name="SelectedDrugsListDataGrid" SelectionMode="Multiple" SelectedItem="{Binding SelectedDrug, Mode=TwoWay}"  ItemsSource="{Binding SelectedDrugsList, Mode=TwoWay}" GridLinesVisibility="Both" AutoGenerateColumns="False" >
@@ -85,7 +85,7 @@
         </ScrollView>
 
         <telerikInput:RadButton x:Name="NextNavigationButton" Text="Next" VerticalOptions="CenterAndExpand" Command="{Binding NavigateToQuestionsCommand}" CommandParameter="{Binding SelectedDrug}" 
-                 Margin="20,10,200,10" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
+                 Margin="20,10,200,20" TextColor="{StaticResource whiteColor}" BackgroundColor="{StaticResource blueColor}" CornerRadius="10"></telerikInput:RadButton>
 
     </StackLayout>
 </ContentPage>

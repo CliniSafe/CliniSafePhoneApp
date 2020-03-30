@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 using System.Web.Services.Protocols;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(CliniSafePhoneApp.iOS.PhoneAppSoapService))]
@@ -302,12 +301,17 @@ namespace CliniSafePhoneApp.iOS
                 devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
                 xmlCountriesForProjectForMonitorUserResult = e.Result;
 
+
+
+
+                //TODO: - To be Deleted
+                //StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
+                //CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
+
+
                 // Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
-                StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
-
-                XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
-
-                CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
+                CountriesForProjectForMonitorUserListResult = Constants.DeserializeXMLToList<CountriesForProjectForMonitorUser>(xmlCountriesForProjectForMonitorUserResult);
 
                 countriesForProjectForMonitorUserComplete?.TrySetResult(true);
             }
@@ -366,12 +370,15 @@ namespace CliniSafePhoneApp.iOS
                 devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserAsync(Project_ID);
                 xmlResearchSitesForProjectForInvestigatorUserResult = e.Result;
 
+                //TODO: - To be Deleted
+                //StringReader stringReader = new StringReader(xmlResearchSitesForProjectForInvestigatorUserResult);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<ResearchSitesForProjectForInvestigatorUser>), new XmlRootAttribute("NewDataSet"));
+                //ResearchSitesForProjectForInvestigatorUserListResult = (List<ResearchSitesForProjectForInvestigatorUser>)serializer.Deserialize(stringReader);
+
+
                 // Decode xml(xmlResearchSitesForProjectForInvestigatorUserResult) into a list and assign to ResearchSitesForProjectForInvestigatorUser model
-                StringReader stringReader = new StringReader(xmlResearchSitesForProjectForInvestigatorUserResult);
+                ResearchSitesForProjectForInvestigatorUserListResult = Constants.DeserializeXMLToList<ResearchSitesForProjectForInvestigatorUser>(xmlResearchSitesForProjectForInvestigatorUserResult);
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<ResearchSitesForProjectForInvestigatorUser>), new XmlRootAttribute("NewDataSet"));
-
-                ResearchSitesForProjectForInvestigatorUserListResult = (List<ResearchSitesForProjectForInvestigatorUser>)serializer.Deserialize(stringReader);
 
                 researchSitesForProjectForInvestigtorUserComplete?.TrySetResult(true);
             }
@@ -433,12 +440,15 @@ namespace CliniSafePhoneApp.iOS
                 devTestPhoneAppService.FindGenericDrugName(Trial_ID, GenericDrugNameToFind);
                 xmlGenericDrugsFoundResult = e.Result;
 
+                //TODO:- To be deleted
+                //StringReader stringReader = new StringReader(xmlGenericDrugsFoundResult);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<GenericDrugsFound>), new XmlRootAttribute("NewDataSet"));
+                //GenericDrugsFoundListResult = (List<GenericDrugsFound>)serializer.Deserialize(stringReader);
+
+
+
                 // Decode xml(xmlGenericDrugsFoundResult) into a list and assign to GenericDrugsFound model
-                StringReader stringReader = new StringReader(xmlGenericDrugsFoundResult);
-
-                XmlSerializer serializer = new XmlSerializer(typeof(List<GenericDrugsFound>), new XmlRootAttribute("NewDataSet"));
-
-                GenericDrugsFoundListResult = (List<GenericDrugsFound>)serializer.Deserialize(stringReader);
+                GenericDrugsFoundListResult = Constants.DeserializeXMLToList<GenericDrugsFound>(xmlGenericDrugsFoundResult);
 
                 findGenericDrugNameComplete?.TrySetResult(true);
             }

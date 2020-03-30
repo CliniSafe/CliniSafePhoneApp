@@ -237,7 +237,7 @@
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>4.0.0.190-beta</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991220-pre3" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.494-pre2" />
     <PackageReference Include="SkiaSharp" Version="1.68.1" />
     <PackageReference Include="SkiaSharp.Views" Version="1.68.1" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1" />

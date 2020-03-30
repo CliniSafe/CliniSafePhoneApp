@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 using System.Web.Services.Protocols;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 using Xamarin.Forms;
 
 
@@ -292,12 +291,19 @@ namespace CliniSafePhoneApp.Android
                 devTestPhoneAppService.GetCountriesForProjectForMonitorUserAsync(Project_ID);
                 xmlCountriesForProjectForMonitorUserResult = e.Result;
 
+
+
+                //TODO: - To be Deleted
+                //StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
+                //CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
+
+
+
                 // Decode xml(xmlCountriesForProjectForMonitorUserResult) into a list and assign to countriesForUserListResult model
-                StringReader stringReader = new StringReader(xmlCountriesForProjectForMonitorUserResult);
+                CountriesForProjectForMonitorUserListResult = Constants.DeserializeXMLToList<CountriesForProjectForMonitorUser>(xmlCountriesForProjectForMonitorUserResult);
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<CountriesForProjectForMonitorUser>), new XmlRootAttribute("NewDataSet"));
 
-                CountriesForProjectForMonitorUserListResult = (List<CountriesForProjectForMonitorUser>)serializer.Deserialize(stringReader);
 
                 countriesForProjectForMonitorUserComplete?.TrySetResult(true);
             }
@@ -352,12 +358,16 @@ namespace CliniSafePhoneApp.Android
                 devTestPhoneAppService.GetResearchSitesForProjectForInvestigtorUserAsync(Project_ID);
                 xmlResearchSitesForProjectForInvestigatorUserResult = e.Result;
 
+
+                //TODO: - To be Deleted
+                //StringReader stringReader = new StringReader(xmlResearchSitesForProjectForInvestigatorUserResult);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<ResearchSitesForProjectForInvestigatorUser>), new XmlRootAttribute("NewDataSet"));
+                //ResearchSitesForProjectForInvestigatorUserListResult = (List<ResearchSitesForProjectForInvestigatorUser>)serializer.Deserialize(stringReader);
+
+
                 // Decode xml(xmlResearchSitesForProjectForInvestigatorUserResult) into a list and assign to ResearchSitesForProjectForInvestigatorUser model
-                StringReader stringReader = new StringReader(xmlResearchSitesForProjectForInvestigatorUserResult);
+                ResearchSitesForProjectForInvestigatorUserListResult = Constants.DeserializeXMLToList<ResearchSitesForProjectForInvestigatorUser>(xmlResearchSitesForProjectForInvestigatorUserResult);
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<ResearchSitesForProjectForInvestigatorUser>), new XmlRootAttribute("NewDataSet"));
-
-                ResearchSitesForProjectForInvestigatorUserListResult = (List<ResearchSitesForProjectForInvestigatorUser>)serializer.Deserialize(stringReader);
 
                 researchSitesForProjectForInvestigtorUserComplete?.TrySetResult(true);
             }
@@ -413,12 +423,17 @@ namespace CliniSafePhoneApp.Android
                 devTestPhoneAppService.FindGenericDrugName(Trial_ID, GenericDrugNameToFind);
                 xmlGenericDrugsFoundResult = e.Result;
 
+
+                //TODO: - To be Deleted
+                //StringReader stringReader = new StringReader(xmlGenericDrugsFoundResult);
+                //XmlSerializer serializer = new XmlSerializer(typeof(List<GenericDrugsFound>), new XmlRootAttribute("NewDataSet"));
+                //GenericDrugsFoundListResult = (List<GenericDrugsFound>)serializer.Deserialize(stringReader);
+
+
+
                 // Decode xml(xmlGenericDrugsFoundResult) into a list and assign to GenericDrugsFound model
-                StringReader stringReader = new StringReader(xmlGenericDrugsFoundResult);
+                GenericDrugsFoundListResult = Constants.DeserializeXMLToList<GenericDrugsFound>(xmlGenericDrugsFoundResult);
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<GenericDrugsFound>), new XmlRootAttribute("NewDataSet"));
-
-                GenericDrugsFoundListResult = (List<GenericDrugsFound>)serializer.Deserialize(stringReader);
 
                 findGenericDrugNameComplete?.TrySetResult(true);
             }
@@ -474,6 +489,9 @@ namespace CliniSafePhoneApp.Android
 
                 devTestPhoneAppService.GetQuestions(Trial_ID);
                 xmlQuestionSelectedDrugsResult = e.Result;
+
+
+
 
                 XDocument xDocumentQuestionSelectedDrug = new XDocument();
 
@@ -926,19 +944,7 @@ namespace CliniSafePhoneApp.Android
                 }
             }
             return stringBuilder.ToString();
-
-
-            //{
-            //    StringBuilder stringBuilder = new StringBuilder();
-            //    using (StringWriter stringWriter = new StringWriter(stringBuilder))
-            //    {
-            //        using XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
-            //        xmlTextWriter.Formatting = Formatting.Indented;
-            //        xmlNode.WriteTo(xmlTextWriter);
-            //    }
-            //    return stringBuilder.ToString();
-
-            }
+        }
 
     }
 }
